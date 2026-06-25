@@ -6,7 +6,12 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "a.espncdn.com",
-        pathname: "/i/headshots/college-football/**",
+        pathname: "/i/headshots/**",
+      },
+      {
+        protocol: "https",
+        hostname: "upload.wikimedia.org",
+        pathname: "/wikipedia/commons/**",
       },
     ],
   },

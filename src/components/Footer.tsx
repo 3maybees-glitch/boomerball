@@ -69,6 +69,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/legend-land" className="text-cream/75 hover:text-cream">
+                  Legend Land
+                </Link>
+              </li>
+              <li>
                 <Link href="/advanced" className="text-cream/75 hover:text-cream">
                   Advanced Stats (Premium)
                 </Link>

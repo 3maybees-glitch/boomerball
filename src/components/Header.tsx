@@ -6,6 +6,7 @@ const navLinks = [
   { href: "/stats", label: "Stats" },
   { href: "/roster", label: "Roster" },
   { href: "/schedule", label: "Schedule" },
+  { href: "/legend-land", label: "Legend Land" },
   { href: "/news", label: "News" },
   { href: "/advanced", label: "Advanced" },
 ];

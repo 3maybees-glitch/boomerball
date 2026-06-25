@@ -38,6 +38,12 @@ const quickLinks = [
     icon: Calendar,
   },
   {
+    href: "/legend-land",
+    label: "Legend Land",
+    desc: "Heisman winners, icons & titles",
+    icon: Trophy,
+  },
+  {
     href: "/news",
     label: "Sooner News",
     desc: "Cited updates from official sources",
