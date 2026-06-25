@@ -1,3 +1,5 @@
+import type { OpponentStrength } from "@/lib/schedule-sos";
+
 export interface ScheduleGame {
   date: string;
   time: string;
@@ -10,6 +12,8 @@ export interface ScheduleGame {
   record?: string;
   attendance?: number;
   conference?: boolean;
+  /** Opponent strength rating for upcoming games (2026 SOS) */
+  opponentStrength?: OpponentStrength;
 }
 
 export interface Player {

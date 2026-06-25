@@ -1,9 +1,10 @@
 import type { ScheduleGame } from "./types";
+import { getOpponentStrength } from "./schedule-sos-2026";
 
 /** 2026 season schedule — Source: soonersports.com */
 export const SEASON_2026 = 2026;
 
-export const schedule2026: ScheduleGame[] = [
+const rawSchedule2026: Omit<ScheduleGame, "opponentStrength">[] = [
   {
     date: "2026-09-05",
     time: "TBD",
@@ -102,6 +103,11 @@ export const schedule2026: ScheduleGame[] = [
     conference: true,
   },
 ];
+
+export const schedule2026: ScheduleGame[] = rawSchedule2026.map((game) => ({
+  ...game,
+  opponentStrength: getOpponentStrength(game.opponent),
+}));
 
 export const DATA_SOURCE_SCHEDULE_2026 =
   "https://soonersports.com/sports/football/schedule/text/2026";

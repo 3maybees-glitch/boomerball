@@ -1,6 +1,7 @@
 import type { ScheduleGame } from "@/data/types";
 import { formatDate } from "@/lib/utils";
-import { MapPin, Home, Plane } from "lucide-react";
+import { MapPin, Home, Plane, Flame } from "lucide-react";
+import { OpponentStrengthBadge } from "@/components/OpponentStrengthBadge";
 
 interface ScheduleCardProps {
   game: ScheduleGame;
@@ -76,7 +77,19 @@ export function ScheduleCard({ game }: ScheduleCardProps) {
             Attendance: {game.attendance.toLocaleString()}
           </span>
         )}
+        {game.opponentStrength && (
+          <span className="inline-flex items-center gap-1 rounded-full bg-crimson/10 px-2 py-0.5 font-medium text-crimson">
+            <Flame className="h-3 w-3" aria-hidden />
+            SOS {game.opponentStrength.score}
+          </span>
+        )}
       </div>
+
+      {game.opponentStrength && (
+        <div className="mt-3">
+          <OpponentStrengthBadge strength={game.opponentStrength} />
+        </div>
+      )}
     </article>
   );
 }

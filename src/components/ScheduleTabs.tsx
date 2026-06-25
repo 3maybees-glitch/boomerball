@@ -14,6 +14,7 @@ import {
   schedule2026,
   DATA_SOURCE_SCHEDULE_2026,
 } from "@/data/schedule-2026";
+import { SCHEDULE_SOS_2026 } from "@/lib/schedule-sos";
 
 export function ScheduleTabs() {
   const [season, setSeason] = useState<"2026" | "2025">("2026");
@@ -61,10 +62,48 @@ export function ScheduleTabs() {
       )}
 
       {is2026 && (
-        <div className="mt-6 rounded-lg border border-blue-300 bg-blue-50 px-4 py-3 text-sm text-blue-900">
-          <strong>2026 Season:</strong> 12 games — 6 home, 5 away, 1 neutral (Texas at
-          Dallas). Times marked TBD will be announced by the SEC network.
-        </div>
+        <>
+          <div className="mt-6 rounded-lg border border-blue-300 bg-blue-50 px-4 py-3 text-sm text-blue-900">
+            <strong>2026 Season:</strong> 12 games — 6 home, 5 away, 1 neutral (Texas at
+            Dallas). Times marked TBD will be announced by the SEC network.
+          </div>
+          <div className="mt-4 grid gap-3 sm:grid-cols-3">
+            <div className="rounded-xl border-2 border-crimson/20 bg-white/95 p-4 text-center backdrop-blur-sm">
+              <p className="text-xs font-semibold uppercase text-ink/55">
+                National SOS Rank
+              </p>
+              <p className="font-display text-3xl font-bold text-crimson">
+                #{SCHEDULE_SOS_2026.nationalRank}
+              </p>
+              <p className="mt-1 text-sm font-medium text-ink/70">
+                {SCHEDULE_SOS_2026.label}
+              </p>
+            </div>
+            <div className="rounded-xl border-2 border-crimson/20 bg-white/95 p-4 text-center backdrop-blur-sm">
+              <p className="text-xs font-semibold uppercase text-ink/55">
+                Avg Opponent Strength
+              </p>
+              <p className="font-display text-3xl font-bold text-crimson">
+                {SCHEDULE_SOS_2026.avgScore}
+                <span className="text-lg font-normal text-ink/50">/100</span>
+              </p>
+              <p className="mt-1 text-xs text-ink/60">Across all 12 games</p>
+            </div>
+            <div className="rounded-xl border-2 border-crimson bg-crimson p-4 text-center text-cream">
+              <p className="text-xs font-semibold uppercase text-cream/80">
+                Ranked-Level Foes
+              </p>
+              <p className="font-display text-3xl font-bold">
+                {SCHEDULE_SOS_2026.rankedOpponents}
+              </p>
+              <p className="mt-1 text-xs text-cream/75">Projected top-25 caliber</p>
+            </div>
+          </div>
+          <p className="mt-3 text-xs text-ink/50">
+            {SCHEDULE_SOS_2026.note} Each game below includes a fun strength label and
+            0–100 opponent difficulty score.
+          </p>
+        </>
       )}
 
       <WesternDivider />
@@ -82,6 +121,14 @@ export function ScheduleTabs() {
             label: "soonersports.com",
             url: is2026 ? DATA_SOURCE_SCHEDULE_2026 : DATA_SOURCE_SCHEDULE,
           },
+          ...(is2026
+            ? [
+                {
+                  label: "Sooners Wire (SOS rank)",
+                  url: "https://soonerswire.usatoday.com/story/sports/college/sooners/football/2026/05/15/oklahoma-football-schedule-rankings-sec-brent-venables/90097221007/",
+                },
+              ]
+            : []),
         ]}
       />
     </div>
