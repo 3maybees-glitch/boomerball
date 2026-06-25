@@ -57,9 +57,6 @@ export const soonersLegends: SoonersLegend[] = [
       { label: "1978 Rush TD", value: "22" },
       { label: "Heisman", value: "1978" },
     ],
-    imageUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/BillySimsWithFan_%28cropped%29.JPG/440px-BillySimsWithFan_%28cropped%29.JPG",
-    imageCredit: "Wikimedia Commons / Legitreport (CC BY-SA 3.0)",
   },
   {
     id: "brian-bosworth",
@@ -81,9 +78,6 @@ export const soonersLegends: SoonersLegend[] = [
       { label: "Butkus Awards", value: "2" },
       { label: "Sacks (est.)", value: "19" },
     ],
-    imageUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Brian_Bosworth.jpg/440px-Brian_Bosworth.jpg",
-    imageCredit: "Wikimedia Commons / jondoeforty1 (CC BY 2.0)",
   },
   {
     id: "jason-white",
@@ -100,8 +94,6 @@ export const soonersLegends: SoonersLegend[] = [
       { label: "2003 Pass TD", value: "40" },
       { label: "Heisman", value: "2003" },
     ],
-    espnNflId: 15864,
-    imageCredit: "ESPN",
   },
   {
     id: "adrian-peterson",
@@ -124,8 +116,6 @@ export const soonersLegends: SoonersLegend[] = [
       { label: "2004 Rush TD", value: "15" },
       { label: "YPC (career)", value: "5.8" },
     ],
-    espnNflId: 14881,
-    imageCredit: "ESPN",
   },
   {
     id: "sam-bradford",
@@ -142,8 +132,6 @@ export const soonersLegends: SoonersLegend[] = [
       { label: "2008 Pass TD", value: "50" },
       { label: "Heisman", value: "2008" },
     ],
-    espnNflId: 3052587,
-    imageCredit: "ESPN",
   },
   {
     id: "baker-mayfield",
@@ -165,8 +153,6 @@ export const soonersLegends: SoonersLegend[] = [
       { label: "2017 Pass TD", value: "41" },
       { label: "Heisman", value: "2017" },
     ],
-    espnNflId: 3116406,
-    imageCredit: "ESPN",
   },
   {
     id: "kyler-murray",
@@ -188,8 +174,6 @@ export const soonersLegends: SoonersLegend[] = [
       { label: "Total Offense", value: "5,362 yds" },
       { label: "Heisman", value: "2018" },
     ],
-    espnNflId: 3929630,
-    imageCredit: "ESPN",
   },
   {
     id: "lee-roy-selmon",
@@ -210,8 +194,6 @@ export const soonersLegends: SoonersLegend[] = [
       { label: "National Titles", value: "2" },
       { label: "Outland Trophy", value: "1975" },
     ],
-    espnNflId: 8439,
-    imageCredit: "ESPN",
   },
 ];
 
@@ -322,10 +304,8 @@ export const nationalChampionships: ChampionshipTeam[] = [
   },
 ];
 
-export function getLegendImageUrl(legend: SoonersLegend): string | null {
-  if (legend.imageUrl) return legend.imageUrl;
-  if (legend.espnNflId) {
-    return `https://a.espncdn.com/i/headshots/nfl/players/full/${legend.espnNflId}.png`;
-  }
-  return null;
+export const LEGEND_PORTRAIT_CREDIT = "Boomer Ball original artwork";
+
+export function getLegendPortraitUrl(legend: SoonersLegend): string {
+  return legend.portrait ?? `/legends/${legend.id}.png`;
 }

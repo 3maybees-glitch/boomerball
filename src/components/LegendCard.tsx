@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { Award, Star } from "lucide-react";
+import { Award, Palette } from "lucide-react";
 import type { ChampionshipTeam, SoonersLegend } from "@/data/legends-types";
-import { getLegendImageUrl } from "@/data/legends";
+import { getLegendPortraitUrl, LEGEND_PORTRAIT_CREDIT } from "@/data/legends";
 
 const categoryBadge: Record<SoonersLegend["category"], string> = {
   heisman: "bg-amber-100 text-amber-900",
@@ -18,27 +18,28 @@ const categoryLabel: Record<SoonersLegend["category"], string> = {
 };
 
 export function LegendCard({ legend }: { legend: SoonersLegend }) {
-  const imageUrl = getLegendImageUrl(legend);
+  const portraitUrl = getLegendPortraitUrl(legend);
 
   return (
     <article className="overflow-hidden rounded-2xl border-2 border-crimson/20 bg-white shadow-lg transition hover:border-crimson/50 hover:shadow-xl">
       <div className="relative bg-gradient-to-br from-crimson to-crimson-dark p-6 text-cream">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
-          <div className="relative mx-auto h-32 w-32 shrink-0 overflow-hidden rounded-xl border-4 border-cream/30 bg-cream sm:mx-0">
-            {imageUrl ? (
+          <div className="group relative mx-auto shrink-0 sm:mx-0">
+            <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-cream/40 via-amber-200/30 to-crimson/40 opacity-80 blur-sm" />
+            <div className="relative h-36 w-36 overflow-hidden rounded-xl border-4 border-cream/50 bg-cream shadow-inner">
               <Image
-                src={imageUrl}
-                alt={`${legend.name} photo`}
+                src={portraitUrl}
+                alt={`Artistic portrait of ${legend.name}`}
                 fill
-                className="object-cover object-top"
-                sizes="128px"
+                className="object-cover object-top transition duration-300 group-hover:scale-105"
+                sizes="144px"
+                priority={legend.category === "heisman"}
               />
-            ) : (
-              <div className="flex h-full w-full flex-col items-center justify-center bg-cream text-crimson">
-                <Star className="h-8 w-8 fill-crimson/20" aria-hidden />
-                <span className="mt-1 font-display text-xs font-bold">OU</span>
-              </div>
-            )}
+            </div>
+            <span className="absolute -bottom-2 left-1/2 flex -translate-x-1/2 items-center gap-1 rounded-full bg-cream px-2 py-0.5 text-[9px] font-bold uppercase tracking-wide text-crimson shadow">
+              <Palette className="h-2.5 w-2.5" aria-hidden />
+              Illustrated
+            </span>
           </div>
           <div className="flex-1 text-center sm:text-left">
             <span
@@ -92,9 +93,10 @@ export function LegendCard({ legend }: { legend: SoonersLegend }) {
             ))}
           </ul>
         )}
-        {legend.imageCredit && (
-          <p className="mt-2 text-[10px] text-ink/45">Photo: {legend.imageCredit}</p>
-        )}
+        <p className="mt-2 flex items-center gap-1 text-[10px] text-ink/45">
+          <Palette className="h-3 w-3" aria-hidden />
+          {legend.imageCredit ?? LEGEND_PORTRAIT_CREDIT}
+        </p>
       </div>
     </article>
   );

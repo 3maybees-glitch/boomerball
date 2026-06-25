@@ -13,9 +13,9 @@ export interface SoonersLegend {
   honors: string[];
   bio: string;
   stats: LegendStat[];
-  imageUrl?: string;
+  /** Local artistic portrait for Legend Land */
+  portrait?: string;
   imageCredit?: string;
-  espnNflId?: number;
 }
 
 export interface ChampionshipTeam {

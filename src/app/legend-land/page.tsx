@@ -35,9 +35,10 @@ export default function LegendLandPage() {
             Legend Land
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-cream/90">
-            Celebrate the icons who built Sooner Nation — Heisman winners, legendary
-            defenders like Brian Bosworth, and the seven national championship teams
-            that define crimson & cream excellence.
+            Celebrate the icons who built Sooner Nation — lifelike illustrated
+            portraits, Heisman winners, legendary defenders like Brian Bosworth, and
+            the seven national championship teams that define crimson & cream
+            excellence.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
             <div className="flex items-center gap-2 rounded-full bg-cream/15 px-4 py-2">
@@ -112,8 +113,9 @@ export default function LegendLandPage() {
 
         <p className="mt-4 text-xs text-ink/50">
           Stats compiled from University of Oklahoma Athletics, SoonerStats, and NCAA
-          historical records. Legend Land is a fan tribute — not affiliated with the
-          University of Oklahoma.
+          historical records. Portrait illustrations are original Boomer Ball
+          artwork inspired by each legend. Not affiliated with the University of
+          Oklahoma.
         </p>
       </div>
     </div>
