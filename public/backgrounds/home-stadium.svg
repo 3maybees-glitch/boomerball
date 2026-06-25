@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="#841617">
+  <!-- Memorial Stadium bowl silhouette -->
+  <ellipse cx="400" cy="320" rx="360" ry="140" opacity="0.9"/>
+  <rect x="120" y="180" width="560" height="90" rx="8" opacity="0.7"/>
+  <rect x="60" y="200" width="80" height="160" rx="4" opacity="0.5"/>
+  <rect x="660" y="200" width="80" height="160" rx="4" opacity="0.5"/>
+  <!-- Goal posts -->
+  <path d="M380 280 L380 200 M420 280 L420 200 M380 200 L400 170 L420 200" fill="none" stroke="#841617" stroke-width="6"/>
+  <!-- Field lines -->
+  <line x1="100" y1="320" x2="700" y2="320" stroke="#841617" stroke-width="3" opacity="0.4"/>
+  <line x1="400" y1="260" x2="400" y2="380" stroke="#841617" stroke-width="2" opacity="0.3"/>
+  <!-- OU letters hint -->
+  <text x="400" y="350" text-anchor="middle" font-family="Georgia, serif" font-size="72" font-weight="bold" opacity="0.25">OU</text>
+</svg>

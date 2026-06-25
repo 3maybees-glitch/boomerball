@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" fill="#841617">
+  <!-- Football -->
+  <ellipse cx="300" cy="300" rx="120" ry="180" opacity="0.75"/>
+  <path d="M300 130 Q340 300 300 470 Q260 300 300 130" fill="none" stroke="#fdf9d8" stroke-width="5" opacity="0.4"/>
+  <line x1="300" y1="150" x2="300" y2="450" stroke="#fdf9d8" stroke-width="3" opacity="0.3"/>
+  <!-- Chart bars behind -->
+  <rect x="80" y="380" width="50" height="120" opacity="0.25" rx="4"/>
+  <rect x="150" y="320" width="50" height="180" opacity="0.2" rx="4"/>
+  <rect x="400" y="350" width="50" height="150" opacity="0.2" rx="4"/>
+  <rect x="470" y="280" width="50" height="220" opacity="0.25" rx="4"/>
+  <polyline points="80,400 150,340 220,360 300,280 380,300 470,260" fill="none" stroke="#841617" stroke-width="4" opacity="0.3"/>
+</svg>

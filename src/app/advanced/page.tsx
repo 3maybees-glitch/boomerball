@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PremiumGate } from "@/components/PremiumGate";
+import { PageShell } from "@/components/PageShell";
 import { RecruitingBreakdown } from "@/components/RecruitingBreakdown";
 import { SourceAttribution } from "@/components/SourceAttribution";
 import { WesternDivider } from "@/components/WesternDivider";
@@ -145,6 +146,7 @@ export default function AdvancedPage() {
   );
 
   return (
+    <PageShell theme="advanced">
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
@@ -171,5 +173,6 @@ export default function AdvancedPage() {
 
       <PremiumGate>{content}</PremiumGate>
     </div>
+    </PageShell>
   );
 }

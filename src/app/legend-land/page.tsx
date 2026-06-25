@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Trophy, Star } from "lucide-react";
+import { PageShell } from "@/components/PageShell";
 import { LegendCard, ChampionshipCard } from "@/components/LegendCard";
 import { SourceAttribution } from "@/components/SourceAttribution";
 import { WesternDivider } from "@/components/WesternDivider";
@@ -21,6 +22,7 @@ export default function LegendLandPage() {
   const icons = soonersLegends.filter((l) => l.category !== "heisman");
 
   return (
+    <PageShell theme="legends">
     <div>
       {/* Hero */}
       <section className="border-b-4 border-crimson-dark bg-gradient-to-br from-crimson via-crimson to-crimson-dark py-14 text-cream">
@@ -119,5 +121,6 @@ export default function LegendLandPage() {
         </p>
       </div>
     </div>
+    </PageShell>
   );
 }

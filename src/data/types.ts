@@ -26,6 +26,10 @@ export interface Player {
   bio: string;
   espnId?: number;
   imageCredit?: string;
+  /** High school composite star rating (247/On3/ESPN), when available */
+  recruitStars?: number;
+  /** Previous college if arrived via transfer portal */
+  transferFrom?: string;
 }
 
 export interface Coach {

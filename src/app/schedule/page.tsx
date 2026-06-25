@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PageShell } from "@/components/PageShell";
 import { ScheduleTabs } from "@/components/ScheduleTabs";
 
 export const metadata: Metadata = {
@@ -8,5 +9,9 @@ export const metadata: Metadata = {
 };
 
 export default function SchedulePage() {
-  return <ScheduleTabs />;
+  return (
+    <PageShell theme="schedule">
+      <ScheduleTabs />
+    </PageShell>
+  );
 }

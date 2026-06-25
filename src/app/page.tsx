@@ -8,6 +8,7 @@ import {
   Users,
   Trophy,
 } from "lucide-react";
+import { PageShell } from "@/components/PageShell";
 import { WesternDivider } from "@/components/WesternDivider";
 import { TeamStatGrid } from "@/components/StatTable";
 import { SourceAttribution } from "@/components/SourceAttribution";
@@ -62,6 +63,7 @@ export default function HomePage() {
   const latestNews = newsItems.slice(0, 3);
 
   return (
+    <PageShell theme="home">
     <div>
       {/* Hero */}
       <section className="relative overflow-hidden border-b-4 border-crimson-dark bg-crimson">
@@ -224,5 +226,6 @@ export default function HomePage() {
         </div>
       </section>
     </div>
+    </PageShell>
   );
 }

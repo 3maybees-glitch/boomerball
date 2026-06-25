@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ExternalLink } from "lucide-react";
+import { PageShell } from "@/components/PageShell";
 import { WesternDivider } from "@/components/WesternDivider";
 import { newsItems } from "@/data/news";
 import { formatDate } from "@/lib/utils";
@@ -19,6 +20,7 @@ const categoryColors: Record<string, string> = {
 
 export default function NewsPage() {
   return (
+    <PageShell theme="news">
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
       <h1 className="font-display text-3xl font-bold text-crimson">Sooner News</h1>
       <p className="mt-2 text-ink/70">
@@ -83,5 +85,6 @@ export default function NewsPage() {
         for official University of Oklahoma athletics content.
       </div>
     </div>
+    </PageShell>
   );
 }

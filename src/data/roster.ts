@@ -1,11 +1,12 @@
 import type { Player } from "./types";
+import { enrichRoster } from "@/lib/roster-utils";
 import roster2026Data from "./roster-2026.json";
 
 export const ROSTER_SOURCE =
   "https://soonersports.com/sports/football/roster/2026";
 
 /** Full 2026 spring roster — parsed from soonersports.com */
-export const roster2026: Player[] = roster2026Data as Player[];
+export const roster2026: Player[] = enrichRoster(roster2026Data as Player[]);
 
 export function getPlayerHeadshotUrl(espnId?: number): string | null {
   if (!espnId) return null;

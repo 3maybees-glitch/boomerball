@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PageShell } from "@/components/PageShell";
 import { StatTable, TeamStatGrid } from "@/components/StatTable";
 import { SourceAttribution } from "@/components/SourceAttribution";
 import { WesternDivider } from "@/components/WesternDivider";
@@ -20,6 +21,7 @@ export const metadata: Metadata = {
 
 export default function StatsPage() {
   return (
+    <PageShell theme="stats">
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
       <div className="mb-2 rounded-lg border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-900">
         <strong>Offseason note:</strong> No active games — displaying 2025 season
@@ -153,5 +155,6 @@ export default function StatsPage() {
         ]}
       />
     </div>
+    </PageShell>
   );
 }
