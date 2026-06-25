@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { PremiumGate } from "@/components/PremiumGate";
+import { RecruitingBreakdown } from "@/components/RecruitingBreakdown";
 import { SourceAttribution } from "@/components/SourceAttribution";
 import { WesternDivider } from "@/components/WesternDivider";
+import { recruitingClass2027 } from "@/data/recruiting-2027";
 import { computeAdvancedStats } from "@/lib/advanced-metrics";
 import { PREMIUM_PRICE_DISPLAY } from "@/lib/premium";
 
@@ -122,6 +124,8 @@ export default function AdvancedPage() {
         </div>
       </div>
 
+      <RecruitingBreakdown recruitingClass={recruitingClass2027} />
+
       <SourceAttribution
         className="mt-8"
         sources={[
@@ -148,8 +152,9 @@ export default function AdvancedPage() {
             Advanced Statistics
           </h1>
           <p className="mt-2 max-w-2xl text-ink/70">
-            SP+-inspired efficiency ratings, PFF-style player grades, EPA, havoc
-            rate, and more. One-time {PREMIUM_PRICE_DISPLAY} for lifetime access.
+            SP+-inspired efficiency ratings, PFF-style player grades, 2027 recruiting
+            breakdowns from On3, 247Sports, and ESPN, and more. One-time{" "}
+            {PREMIUM_PRICE_DISPLAY} for lifetime access.
           </p>
         </div>
         <span className="rounded-full bg-crimson px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-cream">
