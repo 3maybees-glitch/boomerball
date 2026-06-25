@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ExternalLink } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
+import { PodcastChannels } from "@/components/PodcastChannels";
 import { WesternDivider } from "@/components/WesternDivider";
 import { newsItems } from "@/data/news";
 import { formatDate } from "@/lib/utils";
@@ -39,11 +40,20 @@ export default function NewsPage() {
 
       <WesternDivider />
 
+      <PodcastChannels />
+
+      <WesternDivider />
+
+      <h2 className="font-display text-2xl font-bold text-crimson">Latest Stories</h2>
+      <p className="mt-1 mb-6 text-base text-ink/60">
+        Curated headlines with links to original reporting.
+      </p>
+
       <div className="space-y-6">
         {newsItems.map((item) => (
           <article
             key={item.id}
-            className="rounded-xl border-2 border-crimson/15 bg-white p-6 shadow-sm"
+            className="rounded-xl border-2 border-crimson/15 bg-white/95 p-6 shadow-sm backdrop-blur-sm"
           >
             <div className="flex flex-wrap items-center gap-2">
               <span

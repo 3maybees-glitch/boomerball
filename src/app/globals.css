@@ -38,7 +38,7 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23841617' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
-/* Per-page OU-themed watermark backgrounds */
+/* Per-page OU photo watermarks — faded edge placement, clear center for content */
 .page-shell {
   position: relative;
   min-height: 100%;
@@ -46,55 +46,153 @@ body {
 
 .page-shell__watermark {
   position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 0;
+  width: min(44vw, 540px);
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.22;
+  filter: sepia(0.35) saturate(0.7) brightness(1.08) contrast(0.92);
+}
+
+.page-shell__watermark--left {
+  left: 0;
+  background-position: left center;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.55) 45%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.55) 45%,
+    transparent 100%
+  );
+}
+
+.page-shell__watermark--right {
+  right: 0;
+  background-position: right center;
+  -webkit-mask-image: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.55) 45%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.55) 45%,
+    transparent 100%
+  );
+}
+
+.page-shell__vignette {
+  position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background-repeat: no-repeat;
-  opacity: 0.07;
+  background: radial-gradient(
+    ellipse 68% 58% at 50% 42%,
+    var(--cream) 0%,
+    rgba(253, 249, 216, 0.92) 42%,
+    transparent 78%
+  );
 }
 
-.page-shell--home .page-shell__watermark {
-  background-image: url("/backgrounds/home-stadium.svg");
-  background-position: center bottom;
-  background-size: min(95vw, 900px);
-  opacity: 0.06;
+.page-shell--home .page-shell__watermark--left {
+  background-image: url("/backgrounds/stadium.jpg");
+  background-position: 20% center;
 }
 
-.page-shell--roster .page-shell__watermark {
-  background-image: url("/backgrounds/roster-schooner.svg");
-  background-position: right -2% bottom 8%;
-  background-size: min(85vw, 640px);
-  opacity: 0.08;
+.page-shell--home .page-shell__watermark--right {
+  background-image: url("/backgrounds/stadium-aerial.jpg");
+  background-position: 80% center;
 }
 
-.page-shell--schedule .page-shell__watermark {
-  background-image: url("/backgrounds/schedule-field.svg");
-  background-position: center 55%;
-  background-size: min(90vw, 780px);
+.page-shell--roster .page-shell__watermark--left {
+  background-image: url("/backgrounds/schooner.jpg");
+  background-position: 15% 70%;
+  opacity: 0.24;
 }
 
-.page-shell--stats .page-shell__watermark {
-  background-image: url("/backgrounds/stats-football.svg");
-  background-position: left -5% center;
-  background-size: min(70vw, 520px);
+.page-shell--roster .page-shell__watermark--right {
+  background-image: url("/backgrounds/schooner-ponies.jpg");
+  background-position: 85% 65%;
+  opacity: 0.24;
 }
 
-.page-shell--news .page-shell__watermark {
-  background-image: url("/backgrounds/news-campus.svg");
-  background-position: right 5% bottom 10%;
-  background-size: min(55vw, 420px);
+.page-shell--schedule .page-shell__watermark--left {
+  background-image: url("/backgrounds/stadium-inside.jpg");
+  background-position: left 55%;
 }
 
-.page-shell--advanced .page-shell__watermark {
-  background-image: url("/backgrounds/advanced-grid.svg");
-  background-position: center 40%;
-  background-size: min(95vw, 860px);
-  opacity: 0.055;
+.page-shell--schedule .page-shell__watermark--right {
+  background-image: url("/backgrounds/stadium.jpg");
+  background-position: right 40%;
 }
 
-.page-shell--legends .page-shell__watermark {
-  background-image: url("/backgrounds/legends-trophy.svg");
-  background-position: center 30%;
-  background-size: min(60vw, 460px);
-  opacity: 0.065;
+.page-shell--stats .page-shell__watermark--left {
+  background-image: url("/backgrounds/stadium-aerial.jpg");
+  background-position: 10% center;
+}
+
+.page-shell--stats .page-shell__watermark--right {
+  background-image: url("/backgrounds/schooner.jpg");
+  background-position: 90% 60%;
+}
+
+.page-shell--news .page-shell__watermark--left {
+  background-image: url("/backgrounds/campus.jpg");
+  background-position: left 45%;
+  opacity: 0.2;
+}
+
+.page-shell--news .page-shell__watermark--right {
+  background-image: url("/backgrounds/stadium-aerial.jpg");
+  background-position: right 50%;
+}
+
+.page-shell--advanced .page-shell__watermark--left {
+  background-image: url("/backgrounds/stadium.jpg");
+  background-position: 5% 35%;
+  opacity: 0.18;
+}
+
+.page-shell--advanced .page-shell__watermark--right {
+  background-image: url("/backgrounds/schooner-ponies.jpg");
+  background-position: 95% 70%;
+  opacity: 0.2;
+}
+
+.page-shell--legends .page-shell__watermark--left {
+  background-image: url("/backgrounds/schooner-ponies.jpg");
+  background-position: 8% 55%;
+  opacity: 0.21;
+}
+
+.page-shell--legends .page-shell__watermark--right {
+  background-image: url("/backgrounds/campus.jpg");
+  background-position: 92% 40%;
+  opacity: 0.19;
+}
+
+@media (max-width: 768px) {
+  .page-shell__watermark {
+    width: min(52vw, 280px);
+    opacity: 0.14;
+  }
+
+  .page-shell__vignette {
+    background: radial-gradient(
+      ellipse 88% 70% at 50% 40%,
+      var(--cream) 0%,
+      rgba(253, 249, 216, 0.95) 50%,
+      transparent 85%
+    );
+  }
 }
