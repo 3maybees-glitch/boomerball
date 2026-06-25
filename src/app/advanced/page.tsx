@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import { PremiumGate } from "@/components/PremiumGate";
 import { SourceAttribution } from "@/components/SourceAttribution";
 import { WesternDivider } from "@/components/WesternDivider";
-import { advancedStats2025 } from "@/data/stats";
+import { computeAdvancedStats } from "@/lib/advanced-metrics";
 import { PREMIUM_PRICE_DISPLAY } from "@/lib/premium";
 
 export const metadata: Metadata = {
   title: "Advanced Stats (Premium)",
   description:
-    "Premium advanced Oklahoma Sooners football analytics — EPA, success rate, havoc rate, and more.",
+    "Premium SP+ and PFF-style Oklahoma Sooners football analytics.",
 };
 
 const categoryLabels: Record<string, string> = {
@@ -19,10 +19,33 @@ const categoryLabels: Record<string, string> = {
 };
 
 export default function AdvancedPage() {
+  const { spPlusOffense, spPlusDefense, spPlusOverall, metrics, playerGrades } =
+    computeAdvancedStats();
   const categories = ["offense", "defense", "efficiency", "special"] as const;
 
   const content = (
     <div>
+      <div className="mb-8 grid grid-cols-3 gap-3">
+        <div className="rounded-xl border-2 border-crimson/20 bg-white p-4 text-center">
+          <p className="text-xs font-semibold uppercase text-ink/60">SP+ Offense</p>
+          <p className="font-display text-3xl font-bold text-crimson">
+            {spPlusOffense > 0 ? `+${spPlusOffense}` : spPlusOffense}
+          </p>
+        </div>
+        <div className="rounded-xl border-2 border-crimson/20 bg-white p-4 text-center">
+          <p className="text-xs font-semibold uppercase text-ink/60">SP+ Defense</p>
+          <p className="font-display text-3xl font-bold text-crimson">
+            {spPlusDefense > 0 ? `+${spPlusDefense}` : spPlusDefense}
+          </p>
+        </div>
+        <div className="rounded-xl border-2 border-crimson bg-crimson p-4 text-center text-cream">
+          <p className="text-xs font-semibold uppercase text-cream/80">SP+ Overall</p>
+          <p className="font-display text-3xl font-bold">
+            {spPlusOverall > 0 ? `+${spPlusOverall}` : spPlusOverall}
+          </p>
+        </div>
+      </div>
+
       <div className="grid gap-4 sm:grid-cols-2">
         {categories.map((cat) => (
           <div key={cat} className="rounded-xl border-2 border-crimson/15 bg-white p-5">
@@ -30,10 +53,13 @@ export default function AdvancedPage() {
               {categoryLabels[cat]}
             </h3>
             <ul className="mt-4 space-y-4">
-              {advancedStats2025
+              {metrics
                 .filter((m) => m.category === cat)
                 .map((metric) => (
-                  <li key={metric.label} className="border-b border-cream-dark pb-3 last:border-0">
+                  <li
+                    key={metric.label}
+                    className="border-b border-cream-dark pb-3 last:border-0"
+                  >
                     <div className="flex items-baseline justify-between gap-2">
                       <span className="font-semibold text-ink">{metric.label}</span>
                       <span className="font-display text-xl font-bold text-crimson">
@@ -53,6 +79,49 @@ export default function AdvancedPage() {
         ))}
       </div>
 
+      <div className="mt-8 rounded-xl border-2 border-crimson/15 bg-white p-5">
+        <h3 className="font-display text-lg font-bold text-crimson">
+          PFF-Style Player Grades (2025)
+        </h3>
+        <p className="mt-1 text-sm text-ink/60">
+          0–100 scale estimates derived from production data. Not official PFF grades.
+        </p>
+        <div className="mt-4 overflow-x-auto">
+          <table className="w-full min-w-[400px] text-sm">
+            <thead>
+              <tr className="border-b border-cream-dark text-left text-xs font-semibold uppercase text-crimson">
+                <th className="py-2 pr-4">Player</th>
+                <th className="py-2 pr-4">Pos</th>
+                <th className="py-2 pr-4 text-right">Grade</th>
+                <th className="hidden py-2 sm:table-cell">Note</th>
+              </tr>
+            </thead>
+            <tbody>
+              {playerGrades.map((pg) => (
+                <tr key={pg.player} className="border-b border-cream-dark/60">
+                  <td className="py-2.5 font-medium">{pg.player}</td>
+                  <td className="py-2.5 text-ink/70">{pg.position}</td>
+                  <td className="py-2.5 text-right">
+                    <span
+                      className={`inline-block rounded-full px-2.5 py-0.5 font-bold ${
+                        pg.grade >= 80
+                          ? "bg-green-100 text-green-800"
+                          : pg.grade >= 70
+                            ? "bg-amber-100 text-amber-800"
+                            : "bg-cream-dark text-ink"
+                      }`}
+                    >
+                      {pg.grade.toFixed(1)}
+                    </span>
+                  </td>
+                  <td className="hidden py-2.5 text-ink/65 sm:table-cell">{pg.note}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
       <SourceAttribution
         className="mt-8"
         sources={[
@@ -64,8 +133,9 @@ export default function AdvancedPage() {
       />
 
       <p className="mt-4 text-xs text-ink/50">
-        Advanced metrics are derived estimates for fan analytics. Base statistics
-        sourced from official OU athletics data. Updated weekly during active seasons.
+        SP+ and PFF-style metrics are fan analytics estimates computed from official
+        OU cumulative statistics. Not affiliated with ESPN SP+ or Pro Football Focus.
+        Updated weekly during active seasons.
       </p>
     </div>
   );
@@ -78,9 +148,8 @@ export default function AdvancedPage() {
             Advanced Statistics
           </h1>
           <p className="mt-2 max-w-2xl text-ink/70">
-            Premium analytics inspired by deep-dive stat sites — EPA, success rate,
-            havoc rate, pressure rate, and more. One-time {PREMIUM_PRICE_DISPLAY}{" "}
-            purchase for lifetime access.
+            SP+-inspired efficiency ratings, PFF-style player grades, EPA, havoc
+            rate, and more. One-time {PREMIUM_PRICE_DISPLAY} for lifetime access.
           </p>
         </div>
         <span className="rounded-full bg-crimson px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-cream">
@@ -91,8 +160,8 @@ export default function AdvancedPage() {
       <WesternDivider />
 
       <p className="mb-6 text-sm text-ink/60">
-        Showing 2025 season advanced metrics. During the offseason, these reflect
-        final cumulative estimates from the completed season.
+        Based on 2025 season cumulative data. Metrics recalculate when weekly stats
+        update during the season.
       </p>
 
       <PremiumGate>{content}</PremiumGate>

@@ -12,7 +12,9 @@ import { WesternDivider } from "@/components/WesternDivider";
 import { TeamStatGrid } from "@/components/StatTable";
 import { SourceAttribution } from "@/components/SourceAttribution";
 import { ScheduleCard } from "@/components/ScheduleCard";
-import { SEASON_RECORD, CONFERENCE_RECORD, schedule2025 } from "@/data/schedule";
+import { SEASON_RECORD, CONFERENCE_RECORD } from "@/data/schedule";
+import { schedule2026 } from "@/data/schedule-2026";
+import { roster2026 } from "@/data/roster";
 import { teamStats2025, STATS_SOURCE_SOONERS } from "@/data/stats";
 import { newsItems } from "@/data/news";
 
@@ -26,13 +28,13 @@ const quickLinks = [
   {
     href: "/roster",
     label: "Roster & Coaches",
-    desc: "Player bios, headshots & staff",
+    desc: `${roster2026.length}+ players, bios & staff`,
     icon: Users,
   },
   {
     href: "/schedule",
-    label: "2025 Schedule",
-    desc: "Full results from last season",
+    label: "Schedule",
+    desc: "2026 upcoming & 2025 results",
     icon: Calendar,
   },
   {
@@ -44,13 +46,13 @@ const quickLinks = [
   {
     href: "/advanced",
     label: "Advanced Stats",
-    desc: "Premium EPA, havoc & efficiency",
+    desc: "Premium SP+ & PFF-style grades",
     icon: HatGlasses,
   },
 ];
 
 export default function HomePage() {
-  const recentGames = schedule2025.slice(-3);
+  const upcomingGames = schedule2026.slice(0, 3);
   const latestNews = newsItems.slice(0, 3);
 
   return (
@@ -72,9 +74,9 @@ export default function HomePage() {
             Boomer Ball
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-cream/90">
-            Oklahoma Sooners football analytics for Sooner Nation. Explore 2025
-            season cumulative stats, roster, schedule, and cited news — with
-            premium advanced metrics for the die-hards.
+            Oklahoma Sooners football analytics for Sooner Nation. Full 2026 roster,
+            upcoming schedule, 2025 stats, and cited news — with premium SP+ and
+            PFF-style advanced metrics.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -86,7 +88,7 @@ export default function HomePage() {
               <span className="text-sm text-ink/70">{CONFERENCE_RECORD}</span>
             </div>
             <span className="rounded-full border border-cream/40 px-4 py-2 text-sm text-cream/90">
-              🏈 Offseason — 2026 season starts late August
+              🏈 Offseason — 2026 opener vs UTEP, Sep 5
             </span>
           </div>
 
@@ -165,10 +167,10 @@ export default function HomePage() {
         <div className="grid gap-10 lg:grid-cols-2">
           <div>
             <h2 className="font-display text-2xl font-bold text-crimson">
-              Final Games of 2025
+              2026 Schedule Preview
             </h2>
             <div className="mt-4 space-y-3">
-              {recentGames.map((game) => (
+              {upcomingGames.map((game) => (
                 <ScheduleCard key={game.date + game.opponent} game={game} />
               ))}
             </div>
@@ -176,7 +178,7 @@ export default function HomePage() {
               href="/schedule"
               className="mt-4 inline-block text-sm font-semibold text-crimson underline"
             >
-              Full 2025 schedule →
+              Full 2026 & 2025 schedule →
             </Link>
           </div>
 

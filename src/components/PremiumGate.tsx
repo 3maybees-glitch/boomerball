@@ -19,19 +19,48 @@ export function PremiumGate({ children }: PremiumGateProps) {
   const [mounted, setMounted] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const syncPremiumState = useCallback(() => {
+  const verifySession = useCallback(async (sessionId: string) => {
+    const res = await fetch(`/api/verify-premium?session_id=${sessionId}`);
+    const data = await res.json();
+    if (data.premium) {
+      setUnlocked(true);
+      window.history.replaceState({}, "", "/advanced");
+      return true;
+    }
+    return false;
+  }, []);
+
+  const syncPremiumState = useCallback(async () => {
     const params = new URLSearchParams(window.location.search);
+    const sessionId = params.get("session_id");
+
+    if (sessionId) {
+      const ok = await verifySession(sessionId);
+      if (ok) return;
+    }
+
     if (params.get("premium") === "success") {
-      document.cookie = `${PREMIUM_COOKIE}=1; path=/; max-age=31536000; SameSite=Lax`;
+      document.cookie = `${PREMIUM_COOKIE}=1; path=/; max-age=315360000; SameSite=Lax`;
       window.history.replaceState({}, "", "/advanced");
     }
+
+    try {
+      const statusRes = await fetch("/api/premium-status");
+      const status = await statusRes.json();
+      if (status.premium) {
+        setUnlocked(true);
+        return;
+      }
+    } catch {
+      // fall through to client cookie check
+    }
+
     setUnlocked(hasPremiumCookie());
-  }, []);
+  }, [verifySession]);
 
   useEffect(() => {
     queueMicrotask(() => {
-      syncPremiumState();
-      setMounted(true);
+      syncPremiumState().finally(() => setMounted(true));
     });
   }, [syncPremiumState]);
 
@@ -46,7 +75,7 @@ export function PremiumGate({ children }: PremiumGateProps) {
         return;
       }
       if (data.demo) {
-        document.cookie = `${PREMIUM_COOKIE}=1; path=/; max-age=31536000; SameSite=Lax`;
+        document.cookie = `${PREMIUM_COOKIE}=1; path=/; max-age=315360000; SameSite=Lax`;
         setUnlocked(true);
         return;
       }
@@ -91,8 +120,8 @@ export function PremiumGate({ children }: PremiumGateProps) {
               Unlock Advanced Stats
             </h2>
             <p className="mt-2 text-sm text-ink/70">
-              One-time purchase for lifetime access to EPA, success rate, havoc rate,
-              pressure metrics, and more — updated weekly during the season.
+              One-time purchase for lifetime access to SP+, PFF-style grades, EPA,
+              havoc rate, and more — updated weekly during the season.
             </p>
             <p className="mt-4 font-display text-3xl font-bold text-crimson">
               {PREMIUM_PRICE_DISPLAY}

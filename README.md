@@ -27,15 +27,17 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Stripe Setup (Premium)
 
-Create a one-time payment product in Stripe and set:
+1. Create a **one-time payment** product in [Stripe Dashboard](https://dashboard.stripe.com/products) ($9.99 recommended)
+2. In **Vercel → Settings → Environment Variables**, add:
+   - `STRIPE_SECRET_KEY` — from Stripe API keys
+   - `STRIPE_PRICE_ID` — from your product's price ID
+   - `STRIPE_WEBHOOK_SECRET` — from Stripe webhook signing secret
+   - `NEXT_PUBLIC_SITE_URL` — `https://boomerball.vercel.app`
+3. Add webhook in Stripe: `https://boomerball.vercel.app/api/webhooks/stripe`  
+   Event: `checkout.session.completed`
+4. Redeploy
 
-```env
-STRIPE_SECRET_KEY=sk_...
-STRIPE_PRICE_ID=price_...
-NEXT_PUBLIC_SITE_URL=https://boomerball.app
-```
-
-Without Stripe keys, the advanced page enables demo unlock for testing.
+Without Stripe keys, the advanced page uses demo unlock for testing.
 
 ## Data Sources
 

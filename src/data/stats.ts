@@ -4,7 +4,6 @@ import type {
   ReceivingStat,
   RushingStat,
   TeamStats,
-  AdvancedMetric,
 } from "./types";
 
 /** Cumulative 2025 season stats — Sources: soonersports.com, ESPN */
@@ -107,79 +106,6 @@ export const defenseStats2025: DefenseStat[] = [
   { player: "Kobie McKinzie", number: 11, position: "LB", solo: 12, ast: 20, tot: 32, sacks: 1, int: 0, pd: 0 },
   { player: "Damonic Williams", number: 52, position: "DT", solo: 18, ast: 8, tot: 26, sacks: 6.5, int: 0, pd: 1 },
   { player: "Eli Bowen", number: 27, position: "DB", solo: 19, ast: 5, tot: 24, sacks: 0, int: 2, pd: 3 },
-];
-
-export const advancedStats2025: AdvancedMetric[] = [
-  {
-    label: "EPA/Play (Offense)",
-    value: "+0.12",
-    rank: "SEC Top 10",
-    description: "Expected points added per offensive play, estimated from 2025 drive outcomes.",
-    category: "offense",
-  },
-  {
-    label: "Success Rate",
-    value: "44.8%",
-    rank: "#6 SEC",
-    description: "Percentage of plays that gain 50%+ of needed yards on 1st down, 70%+ on 2nd, 100% on 3rd/4th.",
-    category: "offense",
-  },
-  {
-    label: "Explosive Play Rate",
-    value: "12.4%",
-    rank: "#4 SEC",
-    description: "Share of plays gaining 20+ yards (pass) or 10+ yards (rush).",
-    category: "offense",
-  },
-  {
-    label: "Pressure Rate Generated",
-    value: "34.2%",
-    rank: "#3 SEC",
-    description: "Defensive pressure on opposing dropbacks.",
-    category: "defense",
-  },
-  {
-    label: "Havoc Rate",
-    value: "18.6%",
-    rank: "#5 SEC",
-    description: "Combined TFLs, forced fumbles, INTs, and PBUs as a share of opponent plays.",
-    category: "defense",
-  },
-  {
-    label: "3rd Down Stop Rate",
-    value: "71.96%",
-    rank: "#2 SEC",
-    description: "Opponent third-down conversion rate allowed (lower is better for defense).",
-    category: "defense",
-  },
-  {
-    label: "Red Zone TD Rate",
-    value: "71.4%",
-    rank: "#8 SEC",
-    description: "Touchdowns scored on red zone trips.",
-    category: "efficiency",
-  },
-  {
-    label: "Red Zone Defense TD Rate",
-    value: "41.9%",
-    rank: "#4 SEC",
-    description: "Opponent touchdown rate allowed inside the 20.",
-    category: "efficiency",
-  },
-  {
-    label: "Field Position Advantage",
-    value: "+4.2 yds",
-    rank: "Top 15 FBS",
-    description: "Average starting field position vs. opponents per drive.",
-    category: "special",
-  },
-  {
-    label: "Special Teams EPA",
-    value: "+2.1",
-    rank: "SEC Top 8",
-    description: "Net expected points from kicking, punting, and returns.",
-    category: "special",
-  },
 ];
 
 export const STATS_SOURCE_SOONERS =
