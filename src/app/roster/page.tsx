@@ -25,6 +25,22 @@ export default function RosterPage() {
 
       <WesternDivider />
 
+      <h2 className="font-display text-2xl font-bold text-crimson">Players</h2>
+      <p className="mt-1 text-sm text-ink/60">
+        Source: soonersports.com 2026 spring roster. Headshots via ESPN where available.
+      </p>
+
+      <div className="mt-6">
+        <RosterGrid players={roster2026} />
+      </div>
+
+      <SourceAttribution
+        className="mt-10"
+        sources={[{ label: "soonersports.com", url: ROSTER_SOURCE }]}
+      />
+
+      <WesternDivider />
+
       <h2 className="font-display text-2xl font-bold text-crimson">Coaching Staff</h2>
       <p className="mt-1 text-sm text-ink/60">
         Brent Venables and the 2026 Oklahoma coaching staff
@@ -38,22 +54,6 @@ export default function RosterPage() {
       <SourceAttribution
         className="mt-6"
         sources={[{ label: "soonersports.com", url: COACHES_SOURCE_2026 }]}
-      />
-
-      <WesternDivider />
-
-      <h2 className="font-display text-2xl font-bold text-crimson">Players</h2>
-      <p className="mt-1 text-sm text-ink/60">
-        Source: soonersports.com 2026 spring roster. Headshots via ESPN where available.
-      </p>
-
-      <div className="mt-6">
-        <RosterGrid players={roster2026} />
-      </div>
-
-      <SourceAttribution
-        className="mt-10"
-        sources={[{ label: "soonersports.com", url: ROSTER_SOURCE }]}
       />
     </div>
   );
