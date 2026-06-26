@@ -93,11 +93,11 @@ export default function LegendLandPage() {
         {/* Iconic Games */}
         <section className="mt-14">
           <h2 className="font-display text-2xl font-bold text-crimson">
-            Iconic Games in Sooner History
+            Iconic Wins in Sooner History
           </h2>
           <p className="mt-1 text-sm text-ink/70">
-            Ten of the most famous wins, heartbreaks, and moments that define Boomer
-            Sooner lore — from the Game of the Century to Red River classics.
+            Ten legendary victories — five national championship clinchers, Red River
+            classics, and unforgettable upsets that define Boomer Sooner lore.
           </p>
           <WesternDivider />
           <div className="grid gap-6 lg:grid-cols-2">
