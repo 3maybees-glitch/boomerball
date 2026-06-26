@@ -29,3 +29,20 @@ export interface ChampionshipTeam {
   keyPlayers: string[];
   sourceUrl: string;
 }
+
+export interface IconicGame {
+  id: string;
+  title: string;
+  nickname?: string;
+  date: string;
+  opponent: string;
+  location: string;
+  result: "W" | "L";
+  score: string;
+  description: string;
+  stats: LegendStat[];
+  image: string;
+  imageCredit?: string;
+  era: string;
+  tags: string[];
+}

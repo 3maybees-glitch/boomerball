@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import { Trophy, Star } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
 import { LegendCard, ChampionshipCard } from "@/components/LegendCard";
+import { IconicGameCard } from "@/components/IconicGameCard";
 import { SourceAttribution } from "@/components/SourceAttribution";
 import { WesternDivider } from "@/components/WesternDivider";
+import { iconicGames, ICONIC_GAMES_SOURCE } from "@/data/iconic-games";
 import {
   soonersLegends,
   nationalChampionships,
@@ -14,7 +16,7 @@ import {
 export const metadata: Metadata = {
   title: "Legend Land — Sooners Hall of Fame",
   description:
-    "Oklahoma Sooners football legends, Heisman winners, and seven national championship teams.",
+    "Oklahoma Sooners football legends, Heisman winners, iconic games, and seven national championship teams.",
 };
 
 export default function LegendLandPage() {
@@ -38,7 +40,7 @@ export default function LegendLandPage() {
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-cream/90">
             Celebrate the icons who built Sooner Nation — lifelike illustrated
-            portraits, Heisman winners, legendary defenders like Brian Bosworth, and
+            portraits, Heisman winners, ten iconic games in Sooner history, and
             the seven national championship teams that define crimson & cream
             excellence.
           </p>
@@ -88,6 +90,23 @@ export default function LegendLandPage() {
           </div>
         </section>
 
+        {/* Iconic Games */}
+        <section className="mt-14">
+          <h2 className="font-display text-2xl font-bold text-crimson">
+            Iconic Games in Sooner History
+          </h2>
+          <p className="mt-1 text-sm text-ink/70">
+            Ten of the most famous wins, heartbreaks, and moments that define Boomer
+            Sooner lore — from the Game of the Century to Red River classics.
+          </p>
+          <WesternDivider />
+          <div className="grid gap-6 lg:grid-cols-2">
+            {iconicGames.map((game) => (
+              <IconicGameCard key={game.id} game={game} />
+            ))}
+          </div>
+        </section>
+
         {/* Championships */}
         <section className="mt-14">
           <h2 className="font-display text-2xl font-bold text-crimson">
@@ -110,14 +129,15 @@ export default function LegendLandPage() {
           sources={[
             { label: "soonersports.com — National Championships", url: CHAMPIONSHIPS_SOURCE },
             { label: "soonersports.com — Award Winners", url: LEGENDS_SOURCE },
+            { label: "soonersports.com — Opponent History", url: ICONIC_GAMES_SOURCE },
           ]}
         />
 
         <p className="mt-4 text-xs text-ink/50">
           Stats compiled from University of Oklahoma Athletics, SoonerStats, and NCAA
-          historical records. Portrait illustrations are original Boomer Ball
-          artwork inspired by each legend. Not affiliated with the University of
-          Oklahoma.
+          historical records. Portrait and game moment illustrations are original
+          Boomer Ball artwork inspired by each legend and iconic matchup. Not
+          affiliated with the University of Oklahoma.
         </p>
       </div>
     </div>
