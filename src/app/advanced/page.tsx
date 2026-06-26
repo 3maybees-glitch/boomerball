@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { AdvancedStatsGuide } from "@/components/AdvancedStatsGuide";
 import { PremiumGate } from "@/components/PremiumGate";
 import { PageShell } from "@/components/PageShell";
 import { RecruitingBreakdown } from "@/components/RecruitingBreakdown";
@@ -29,6 +30,8 @@ export default function AdvancedPage() {
 
   const content = (
     <div>
+      <AdvancedStatsGuide />
+
       <div className="mb-8 grid grid-cols-3 gap-3">
         <div className="rounded-xl border-2 border-crimson/20 bg-white p-4 text-center">
           <p className="text-xs font-semibold uppercase text-ink/60">SP+ Offense</p>
