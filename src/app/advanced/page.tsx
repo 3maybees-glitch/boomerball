@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { AdvancedStatsGuide } from "@/components/AdvancedStatsGuide";
 import { PremiumGate } from "@/components/PremiumGate";
 import { PageShell } from "@/components/PageShell";
+import { PreseasonUnitGrades } from "@/components/PreseasonUnitGrades";
 import { RecruitingBreakdown } from "@/components/RecruitingBreakdown";
 import { SchemeGuide } from "@/components/SchemeGuide";
 import { SourceAttribution } from "@/components/SourceAttribution";
@@ -13,7 +14,7 @@ import { PREMIUM_PRICE_DISPLAY } from "@/lib/premium";
 export const metadata: Metadata = {
   title: "Advanced Stats (Premium)",
   description:
-    "Premium SP+ and PFF-style Oklahoma Sooners football analytics, scheme breakdowns, and recruiting intel.",
+    "Premium SP+ and PFF-style Oklahoma Sooners football analytics, 2026 preseason unit grades, scheme breakdowns, and recruiting intel.",
 };
 
 const categoryLabels: Record<string, string> = {
@@ -53,7 +54,9 @@ export default function AdvancedPage() {
         </div>
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2">
+      <PreseasonUnitGrades />
+
+      <div className="mt-8 grid gap-4 sm:grid-cols-2">
         {categories.map((cat) => (
           <div key={cat} className="rounded-xl border-2 border-crimson/15 bg-white p-5">
             <h3 className="font-display text-lg font-bold text-crimson">
@@ -160,8 +163,9 @@ export default function AdvancedPage() {
             Advanced Statistics
           </h1>
           <p className="mt-2 max-w-2xl text-ink/70">
-            SP+-inspired efficiency ratings, PFF-style player grades, OU scheme &
-            formation guides, 2027 recruiting breakdowns, and more. One-time{" "}
+            SP+-inspired efficiency ratings, 2026 preseason unit grades, PFF-style
+            player grades, OU scheme & formation guides, 2027 recruiting breakdowns,
+            and more. One-time{" "}
             {PREMIUM_PRICE_DISPLAY} for lifetime access.
           </p>
         </div>
