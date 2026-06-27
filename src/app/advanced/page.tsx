@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { AdvancedSectionNav } from "@/components/AdvancedSectionNav";
 import { AdvancedStatsGuide } from "@/components/AdvancedStatsGuide";
 import { PremiumGate } from "@/components/PremiumGate";
 import { PageShell } from "@/components/PageShell";
@@ -31,32 +32,39 @@ export default function AdvancedPage() {
 
   const content = (
     <div>
-      <AdvancedStatsGuide />
+      <AdvancedSectionNav />
 
-      <div className="mb-8 grid grid-cols-3 gap-3">
-        <div className="rounded-xl border-2 border-crimson/20 bg-white p-4 text-center">
-          <p className="text-xs font-semibold uppercase text-ink/60">SP+ Offense</p>
-          <p className="font-display text-3xl font-bold text-crimson">
-            {spPlusOffense > 0 ? `+${spPlusOffense}` : spPlusOffense}
-          </p>
-        </div>
-        <div className="rounded-xl border-2 border-crimson/20 bg-white p-4 text-center">
-          <p className="text-xs font-semibold uppercase text-ink/60">SP+ Defense</p>
-          <p className="font-display text-3xl font-bold text-crimson">
-            {spPlusDefense > 0 ? `+${spPlusDefense}` : spPlusDefense}
-          </p>
-        </div>
-        <div className="rounded-xl border-2 border-crimson bg-crimson p-4 text-center text-cream">
-          <p className="text-xs font-semibold uppercase text-cream/80">SP+ Overall</p>
-          <p className="font-display text-3xl font-bold">
-            {spPlusOverall > 0 ? `+${spPlusOverall}` : spPlusOverall}
-          </p>
-        </div>
-      </div>
+      <section id="stats-guide" className="scroll-mt-32">
+        <AdvancedStatsGuide />
+      </section>
 
-      <PreseasonUnitGrades />
+      <section id="preseason-grades" className="scroll-mt-32">
+        <PreseasonUnitGrades />
+      </section>
 
-      <div className="mt-8 grid gap-4 sm:grid-cols-2">
+      <section id="analytics" className="scroll-mt-32">
+        <div className="mb-8 grid grid-cols-3 gap-3">
+          <div className="rounded-xl border-2 border-crimson/20 bg-white p-4 text-center">
+            <p className="text-xs font-semibold uppercase text-ink/60">SP+ Offense</p>
+            <p className="font-display text-3xl font-bold text-crimson">
+              {spPlusOffense > 0 ? `+${spPlusOffense}` : spPlusOffense}
+            </p>
+          </div>
+          <div className="rounded-xl border-2 border-crimson/20 bg-white p-4 text-center">
+            <p className="text-xs font-semibold uppercase text-ink/60">SP+ Defense</p>
+            <p className="font-display text-3xl font-bold text-crimson">
+              {spPlusDefense > 0 ? `+${spPlusDefense}` : spPlusDefense}
+            </p>
+          </div>
+          <div className="rounded-xl border-2 border-crimson bg-crimson p-4 text-center text-cream">
+            <p className="text-xs font-semibold uppercase text-cream/80">SP+ Overall</p>
+            <p className="font-display text-3xl font-bold">
+              {spPlusOverall > 0 ? `+${spPlusOverall}` : spPlusOverall}
+            </p>
+          </div>
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-2">
         {categories.map((cat) => (
           <div key={cat} className="rounded-xl border-2 border-crimson/15 bg-white p-5">
             <h3 className="font-display text-lg font-bold text-crimson">
@@ -131,10 +139,15 @@ export default function AdvancedPage() {
           </table>
         </div>
       </div>
+      </section>
 
-      <SchemeGuide />
+      <section id="formations" className="scroll-mt-32">
+        <SchemeGuide />
+      </section>
 
-      <RecruitingBreakdown recruitingClass={recruitingClass2027} />
+      <section id="recruiting" className="scroll-mt-32">
+        <RecruitingBreakdown recruitingClass={recruitingClass2027} />
+      </section>
 
       <SourceAttribution
         className="mt-8"
