@@ -9,6 +9,7 @@ import {
   Trophy,
 } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
+import { SoonerMagicPulse } from "@/components/SoonerMagicPulse";
 import { WesternDivider } from "@/components/WesternDivider";
 import { TeamStatGrid } from "@/components/StatTable";
 import { SourceAttribution } from "@/components/SourceAttribution";
@@ -18,6 +19,7 @@ import { schedule2026 } from "@/data/schedule-2026";
 import { roster2026 } from "@/data/roster";
 import { teamStats2025, STATS_SOURCE_SOONERS } from "@/data/stats";
 import { newsItems } from "@/data/news";
+import { computeSoonerMagicPulse } from "@/lib/sooner-magic-pulse";
 
 const quickLinks = [
   {
@@ -61,6 +63,7 @@ const quickLinks = [
 export default function HomePage() {
   const upcomingGames = schedule2026.slice(0, 3);
   const latestNews = newsItems.slice(0, 3);
+  const magicPulse = computeSoonerMagicPulse();
 
   return (
     <PageShell theme="home">
@@ -115,6 +118,11 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
+      </section>
+
+      {/* Sooner Magic Pulse — Advanced teaser */}
+      <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
+        <SoonerMagicPulse pulse={magicPulse} />
       </section>
 
       {/* Team snapshot */}
