@@ -9,8 +9,16 @@ export function Footer() {
           <div>
             <h3 className="font-display text-lg font-bold">Boomer Ball</h3>
             <p className="mt-2 text-sm text-cream/75">
-              A fan-inspired Oklahoma Sooners football analytics site. Not affiliated
-              with or endorsed by the University of Oklahoma.
+              A fan-focused Oklahoma Sooners football analytics experience from{" "}
+              <a
+                href="https://maybeecreations.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-cream/90 underline decoration-cream/30 hover:text-cream"
+              >
+                Maybee Creations
+              </a>
+              . Not affiliated with or endorsed by the University of Oklahoma.
             </p>
             <p className="mt-3 text-xs text-cream/60">
               Planned domain:{" "}
@@ -89,13 +97,26 @@ export function Footer() {
               href="https://soonersports.com/sports/football/stats/2025"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline"
+              className="underline hover:text-cream/75"
             >
               University of Oklahoma Athletics
             </a>
             . Player headshots via ESPN. Boomer Sooner!
           </p>
-          <p className="mt-2">© {new Date().getFullYear()} Boomer Ball. Fan project.</p>
+          <p className="mt-2">
+            © {new Date().getFullYear()} Maybee Creations.{" "}
+            <span className="text-cream/45">Boomer Ball</span> is a fan-focused
+            sports analytics property published by{" "}
+            <a
+              href="https://maybeecreations.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-cream/65 underline decoration-cream/30 hover:text-cream hover:decoration-cream"
+            >
+              Maybee Creations
+            </a>
+            . Not affiliated with or endorsed by the University of Oklahoma.
+          </p>
         </div>
       </div>
     </footer>
