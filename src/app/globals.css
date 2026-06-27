@@ -196,3 +196,57 @@ body {
     );
   }
 }
+
+/* Sooner Magic Pulse — dashboard heartbeat animations */
+@keyframes pulse-ring-expand {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.45;
+  }
+  100% {
+    transform: scale(1.15);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-core-beat {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 0.75;
+  }
+}
+
+@keyframes pulse-ekg-draw {
+  0% {
+    stroke-dashoffset: 800;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.pulse-ring {
+  animation: pulse-ring-expand 3s ease-out infinite;
+}
+
+.pulse-ring--delay {
+  animation-delay: 1s;
+}
+
+.pulse-ring--delay-2 {
+  animation-delay: 2s;
+}
+
+.pulse-core {
+  animation: pulse-core-beat 1.4s ease-in-out infinite;
+}
+
+.pulse-ekg {
+  stroke-dasharray: 800;
+  animation: pulse-ekg-draw 4s linear infinite;
+}
