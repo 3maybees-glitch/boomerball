@@ -32,6 +32,38 @@ export interface PhaseSummary {
 
 export const PRESEASON_GRADES_YEAR = 2026;
 
+export type AllSecTeam = 1 | 2 | 3;
+
+export interface AthlonAllSecPick {
+  name: string;
+  position: string;
+  positionGroup: "offense" | "defense";
+  team: AllSecTeam;
+}
+
+/** Athlon Sports 2026 preseason All-SEC — Oklahoma selections only */
+export const athlonAllSec2026: AthlonAllSecPick[] = [
+  { name: "David Stone", position: "DL", positionGroup: "defense", team: 1 },
+  { name: "Taylor Wein", position: "DE", positionGroup: "defense", team: 1 },
+  { name: "Kip Lewis", position: "LB", positionGroup: "defense", team: 1 },
+  { name: "Isaiah Sategna III", position: "WR", positionGroup: "offense", team: 1 },
+  { name: "Michael Fasusi", position: "OL", positionGroup: "offense", team: 1 },
+  { name: "Peyton Bowen", position: "S", positionGroup: "defense", team: 2 },
+  { name: "Eli Bowen", position: "CB", positionGroup: "defense", team: 2 },
+  { name: "Courtland Guillory", position: "CB", positionGroup: "defense", team: 2 },
+  { name: "Owen Heinecke", position: "LB", positionGroup: "defense", team: 3 },
+];
+
+export const athlonAllSecMeta = {
+  totalHonorees: 15,
+  listedHonorees: athlonAllSec2026.length,
+  secRank: 2,
+  leader: { school: "Texas", count: 16 },
+  sourceLabel: "Athlon Sports Preseason All-SEC",
+  sourceUrl:
+    "https://www.on3.com/news/athlon-sports-releases-preseason-all-sec-team-for-2026/",
+};
+
 export const preseasonPhaseSummaries: PhaseSummary[] = [
   {
     phase: "offense",
