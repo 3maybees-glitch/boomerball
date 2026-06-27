@@ -18,6 +18,7 @@ import { schedule2026 } from "@/data/schedule-2026";
 import { roster2026 } from "@/data/roster";
 import { teamStats2025, STATS_SOURCE_SOONERS } from "@/data/stats";
 import { newsItems } from "@/data/news";
+import { PREMIUM_ROUTE, PREMIUM_TIER_NAME } from "@/lib/premium";
 
 const quickLinks = [
   {
@@ -51,9 +52,9 @@ const quickLinks = [
     icon: Newspaper,
   },
   {
-    href: "/advanced",
-    label: "Advanced Stats",
-    desc: "Premium SP+ & PFF-style grades",
+    href: PREMIUM_ROUTE,
+    label: PREMIUM_TIER_NAME,
+    desc: "Premium SP+ analytics & insider grades",
     icon: HatGlasses,
   },
 ];
@@ -108,10 +109,10 @@ export default function HomePage() {
               View 2025 Stats
             </Link>
             <Link
-              href="/advanced"
+              href={PREMIUM_ROUTE}
               className="rounded-full border-2 border-cream px-6 py-3 font-bold text-cream transition hover:bg-crimson-dark"
             >
-              Advanced Stats
+              {PREMIUM_TIER_NAME}
             </Link>
           </div>
         </div>

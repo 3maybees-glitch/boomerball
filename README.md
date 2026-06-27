@@ -10,7 +10,7 @@ Fan-inspired Oklahoma Sooners college football analytics website.
 - **Roster & Coaches** — Player bios, ESPN headshots, height/weight, coaching staff
 - **Schedule** — Full 2025 results (10-3, 6-2 SEC)
 - **News** — Cited summaries from [soonersports.com](https://soonersports.com) and reputable outlets
-- **Advanced Stats (Premium)** — EPA, success rate, havoc rate, and more via one-time Stripe purchase
+- **The Locker Room (Premium)** — SP+, EPA, havoc rate, schemes, and recruiting via one-time Stripe purchase
 
 ## Offseason Mode
 
@@ -25,19 +25,42 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Stripe Setup (Premium)
+## Stripe Setup — The Locker Room
 
-1. Create a **one-time payment** product in [Stripe Dashboard](https://dashboard.stripe.com/products) ($9.99 recommended)
-2. In **Vercel → Settings → Environment Variables**, add:
-   - `STRIPE_SECRET_KEY` — from Stripe API keys
-   - `STRIPE_PRICE_ID` — from your product's price ID
-   - `STRIPE_WEBHOOK_SECRET` — from Stripe webhook signing secret
-   - `NEXT_PUBLIC_SITE_URL` — `https://boomerball.vercel.app`
-3. Add webhook in Stripe: `https://boomerball.vercel.app/api/webhooks/stripe`  
-   Event: `checkout.session.completed`
-4. Redeploy
+A **live** Stripe product is configured for Boomer Ball:
 
-Without Stripe keys, the advanced page uses demo unlock for testing.
+| Field | Value |
+|-------|-------|
+| Product | Boomer Ball — The Locker Room |
+| Price | $9.99 one-time (`price_1Tmn1yPIHJvArvGeDqY1rGuL`) |
+
+### Vercel environment variables
+
+Copy `.env.example` and set in **Vercel → Settings → Environment Variables**:
+
+1. `STRIPE_SECRET_KEY` — Stripe Dashboard → [API keys](https://dashboard.stripe.com/apikeys)
+2. `STRIPE_PRICE_ID` — `price_1Tmn1yPIHJvArvGeDqY1rGuL`
+3. `STRIPE_WEBHOOK_SECRET` — from webhook endpoint (below)
+4. `NEXT_PUBLIC_SITE_URL` — `https://boomerball.vercel.app`
+
+### Webhook
+
+In Stripe Dashboard → **Developers → Webhooks**, add:
+
+- **URL:** `https://boomerball.vercel.app/api/webhooks/stripe`
+- **Events:** `checkout.session.completed`, `charge.refunded`
+
+Redeploy after saving env vars.
+
+### How it works
+
+1. User clicks **Unlock The Locker Room** → Stripe Checkout (hosted)
+2. Success redirect → `/locker-room?session_id=…` → `/api/verify-premium` sets signed cookies
+3. Webhook confirms payment server-side for logging and reconciliation
+
+Without Stripe keys, **local dev only** can use demo unlock via checkout button. Production requires live keys.
+
+Legacy URL `/advanced` redirects permanently to `/locker-room`.
 
 ## Data Sources
 
@@ -50,6 +73,6 @@ Player headshots via ESPN CDN.
 
 ## Disclaimer
 
-Boomer Ball is a fan project. Not affiliated with or endorsed by the University of Oklahoma.
+Boomer Ball is a fan-focused sports analytics property published by [Maybee Creations](https://maybeecreations.com). Not affiliated with or endorsed by the University of Oklahoma.
 
 **Boomer Sooner!**

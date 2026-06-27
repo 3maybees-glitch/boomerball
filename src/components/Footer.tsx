@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
+import { PREMIUM_ROUTE, PREMIUM_TIER_NAME } from "@/lib/premium";
 
 export function Footer() {
   return (
@@ -74,8 +75,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/advanced" className="text-cream/75 hover:text-cream">
-                  Advanced Stats (Premium)
+                <Link href={PREMIUM_ROUTE} className="text-cream/75 hover:text-cream">
+                  {PREMIUM_TIER_NAME}
                 </Link>
               </li>
             </ul>
