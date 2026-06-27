@@ -38,10 +38,6 @@ export default function AdvancedPage() {
         <AdvancedStatsGuide />
       </section>
 
-      <section id="preseason-grades" className="scroll-mt-32">
-        <PreseasonUnitGrades />
-      </section>
-
       <section id="analytics" className="scroll-mt-32">
         <div className="mb-8 grid grid-cols-3 gap-3">
           <div className="rounded-xl border-2 border-crimson/20 bg-white p-4 text-center">
@@ -65,80 +61,84 @@ export default function AdvancedPage() {
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2">
-        {categories.map((cat) => (
-          <div key={cat} className="rounded-xl border-2 border-crimson/15 bg-white p-5">
-            <h3 className="font-display text-lg font-bold text-crimson">
-              {categoryLabels[cat]}
-            </h3>
-            <ul className="mt-4 space-y-4">
-              {metrics
-                .filter((m) => m.category === cat)
-                .map((metric) => (
-                  <li
-                    key={metric.label}
-                    className="border-b border-cream-dark pb-3 last:border-0"
-                  >
-                    <div className="flex items-baseline justify-between gap-2">
-                      <span className="font-semibold text-ink">{metric.label}</span>
-                      <span className="font-display text-xl font-bold text-crimson">
-                        {metric.value}
-                      </span>
-                    </div>
-                    {metric.rank && (
-                      <span className="text-xs font-medium text-green-700">
-                        {metric.rank}
-                      </span>
-                    )}
-                    <p className="mt-1 text-sm text-ink/65">{metric.description}</p>
-                  </li>
-                ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-
-      <div className="mt-8 rounded-xl border-2 border-crimson/15 bg-white p-5">
-        <h3 className="font-display text-lg font-bold text-crimson">
-          PFF-Style Player Grades (2025)
-        </h3>
-        <p className="mt-1 text-sm text-ink/60">
-          0–100 scale estimates derived from production data. Not official PFF grades.
-        </p>
-        <div className="mt-4 overflow-x-auto">
-          <table className="w-full min-w-[400px] text-sm">
-            <thead>
-              <tr className="border-b border-cream-dark text-left text-xs font-semibold uppercase text-crimson">
-                <th className="py-2 pr-4">Player</th>
-                <th className="py-2 pr-4">Pos</th>
-                <th className="py-2 pr-4 text-right">Grade</th>
-                <th className="hidden py-2 sm:table-cell">Note</th>
-              </tr>
-            </thead>
-            <tbody>
-              {playerGrades.map((pg) => (
-                <tr key={pg.player} className="border-b border-cream-dark/60">
-                  <td className="py-2.5 font-medium">{pg.player}</td>
-                  <td className="py-2.5 text-ink/70">{pg.position}</td>
-                  <td className="py-2.5 text-right">
-                    <span
-                      className={`inline-block rounded-full px-2.5 py-0.5 font-bold ${
-                        pg.grade >= 80
-                          ? "bg-green-100 text-green-800"
-                          : pg.grade >= 70
-                            ? "bg-amber-100 text-amber-800"
-                            : "bg-cream-dark text-ink"
-                      }`}
+          {categories.map((cat) => (
+            <div key={cat} className="rounded-xl border-2 border-crimson/15 bg-white p-5">
+              <h3 className="font-display text-lg font-bold text-crimson">
+                {categoryLabels[cat]}
+              </h3>
+              <ul className="mt-4 space-y-4">
+                {metrics
+                  .filter((m) => m.category === cat)
+                  .map((metric) => (
+                    <li
+                      key={metric.label}
+                      className="border-b border-cream-dark pb-3 last:border-0"
                     >
-                      {pg.grade.toFixed(1)}
-                    </span>
-                  </td>
-                  <td className="hidden py-2.5 text-ink/65 sm:table-cell">{pg.note}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                      <div className="flex items-baseline justify-between gap-2">
+                        <span className="font-semibold text-ink">{metric.label}</span>
+                        <span className="font-display text-xl font-bold text-crimson">
+                          {metric.value}
+                        </span>
+                      </div>
+                      {metric.rank && (
+                        <span className="text-xs font-medium text-green-700">
+                          {metric.rank}
+                        </span>
+                      )}
+                      <p className="mt-1 text-sm text-ink/65">{metric.description}</p>
+                    </li>
+                  ))}
+              </ul>
+            </div>
+          ))}
         </div>
-      </div>
+
+        <div className="mt-8 rounded-xl border-2 border-crimson/15 bg-white p-5">
+          <h3 className="font-display text-lg font-bold text-crimson">
+            PFF-Style Player Grades (2025)
+          </h3>
+          <p className="mt-1 text-sm text-ink/60">
+            0–100 scale estimates derived from production data. Not official PFF grades.
+          </p>
+          <div className="mt-4 overflow-x-auto">
+            <table className="w-full min-w-[400px] text-sm">
+              <thead>
+                <tr className="border-b border-cream-dark text-left text-xs font-semibold uppercase text-crimson">
+                  <th className="py-2 pr-4">Player</th>
+                  <th className="py-2 pr-4">Pos</th>
+                  <th className="py-2 pr-4 text-right">Grade</th>
+                  <th className="hidden py-2 sm:table-cell">Note</th>
+                </tr>
+              </thead>
+              <tbody>
+                {playerGrades.map((pg) => (
+                  <tr key={pg.player} className="border-b border-cream-dark/60">
+                    <td className="py-2.5 font-medium">{pg.player}</td>
+                    <td className="py-2.5 text-ink/70">{pg.position}</td>
+                    <td className="py-2.5 text-right">
+                      <span
+                        className={`inline-block rounded-full px-2.5 py-0.5 font-bold ${
+                          pg.grade >= 80
+                            ? "bg-green-100 text-green-800"
+                            : pg.grade >= 70
+                              ? "bg-amber-100 text-amber-800"
+                              : "bg-cream-dark text-ink"
+                        }`}
+                      >
+                        {pg.grade.toFixed(1)}
+                      </span>
+                    </td>
+                    <td className="hidden py-2.5 text-ink/65 sm:table-cell">{pg.note}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="preseason-grades" className="scroll-mt-32">
+        <PreseasonUnitGrades />
       </section>
 
       <section id="formations" className="scroll-mt-32">

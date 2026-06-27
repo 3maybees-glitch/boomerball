@@ -10,8 +10,8 @@ import {
 
 export const ADVANCED_SECTIONS = [
   { id: "stats-guide", label: "Stats Guide", icon: BookOpen },
-  { id: "preseason-grades", label: "Grades", icon: Award },
   { id: "analytics", label: "Analytics", icon: BarChart3 },
+  { id: "preseason-grades", label: "Grades", icon: Award },
   { id: "formations", label: "Formations", icon: LayoutGrid },
   { id: "recruiting", label: "Recruiting", icon: GraduationCap },
 ] as const;
