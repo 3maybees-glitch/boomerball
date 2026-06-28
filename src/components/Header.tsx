@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { HatGlasses, Lasso } from "lucide-react";
-import { PREMIUM_ROUTE, PREMIUM_TIER_NAME } from "@/lib/premium";
+import { PREMIUM_RECRUIT_ROUTE, PREMIUM_ROUTE, PREMIUM_TIER_NAME } from "@/lib/premium";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -43,11 +43,11 @@ export function Header() {
         </nav>
 
         <Link
-          href={PREMIUM_ROUTE}
+          href={PREMIUM_RECRUIT_ROUTE}
           className="flex items-center gap-1.5 rounded-full border border-cream/40 bg-cream px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-crimson transition hover:bg-white"
         >
           <HatGlasses className="h-3.5 w-3.5" aria-hidden />
-          <span className="hidden sm:inline">{PREMIUM_TIER_NAME}</span>
+          <span className="hidden sm:inline">Join The Team</span>
         </Link>
       </div>
 
