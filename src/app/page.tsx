@@ -18,7 +18,7 @@ import { schedule2026 } from "@/data/schedule-2026";
 import { roster2026 } from "@/data/roster";
 import { teamStats2025, STATS_SOURCE_SOONERS } from "@/data/stats";
 import { newsItems } from "@/data/news";
-import { PREMIUM_ROUTE, PREMIUM_TIER_NAME } from "@/lib/premium";
+import { PREMIUM_RECRUIT_ROUTE, PREMIUM_ROUTE, PREMIUM_TIER_NAME } from "@/lib/premium";
 
 const quickLinks = [
   {
@@ -50,6 +50,12 @@ const quickLinks = [
     label: "Sooner News",
     desc: "Cited updates from official sources",
     icon: Newspaper,
+  },
+  {
+    href: PREMIUM_RECRUIT_ROUTE,
+    label: "Join The Team",
+    desc: "Recruitment page — preview Locker Room intel",
+    icon: HatGlasses,
   },
   {
     href: PREMIUM_ROUTE,
@@ -109,10 +115,10 @@ export default function HomePage() {
               View 2025 Stats
             </Link>
             <Link
-              href={PREMIUM_ROUTE}
+              href={PREMIUM_RECRUIT_ROUTE}
               className="rounded-full border-2 border-cream px-6 py-3 font-bold text-cream transition hover:bg-crimson-dark"
             >
-              {PREMIUM_TIER_NAME}
+              Join {PREMIUM_TIER_NAME}
             </Link>
           </div>
         </div>

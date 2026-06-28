@@ -2,6 +2,7 @@
 export const PREMIUM_TIER_NAME = "The Locker Room";
 export const PREMIUM_TIER_TAGLINE = "Advanced Sooners analytics for die-hards";
 export const PREMIUM_ROUTE = "/locker-room";
+export const PREMIUM_RECRUIT_ROUTE = "/join";
 
 export const PREMIUM_COOKIE = "boomerball_premium";
 export const PREMIUM_TOKEN_COOKIE = "boomerball_premium_token";
