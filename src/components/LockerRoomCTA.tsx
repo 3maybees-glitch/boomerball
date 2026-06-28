@@ -16,13 +16,16 @@ const IS_DEV = process.env.NODE_ENV === "development";
 interface LockerRoomCTAProps {
   label?: string;
   className?: string;
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "featured";
+  /** Use on dark backgrounds (e.g. crimson footer) for readable fine print */
+  onDark?: boolean;
 }
 
 export function LockerRoomCTA({
   label = `Join ${PREMIUM_TIER_NAME}`,
   className,
   variant = "primary",
+  onDark = false,
 }: LockerRoomCTAProps) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -51,9 +54,11 @@ export function LockerRoomCTA({
   }
 
   const baseStyles =
-    variant === "primary"
-      ? "bg-crimson text-cream hover:bg-crimson-dark"
-      : "border-2 border-crimson bg-white text-crimson hover:bg-cream";
+    variant === "featured"
+      ? "bg-cream px-10 py-4 text-lg text-crimson shadow-[0_8px_30px_rgba(0,0,0,0.35)] ring-4 ring-cream/40 transition hover:scale-[1.03] hover:bg-white hover:shadow-[0_12px_40px_rgba(0,0,0,0.45)]"
+      : variant === "primary"
+        ? "bg-crimson px-8 py-3.5 text-cream hover:bg-crimson-dark"
+        : "border-2 border-crimson bg-white px-8 py-3.5 text-crimson hover:bg-cream";
 
   return (
     <div className={cn("inline-flex flex-col items-center", className)}>
@@ -62,7 +67,7 @@ export function LockerRoomCTA({
         onClick={handleCheckout}
         disabled={loading}
         className={cn(
-          "rounded-full px-8 py-3.5 font-bold transition disabled:opacity-60",
+          "rounded-full font-bold transition disabled:opacity-60 disabled:hover:scale-100",
           baseStyles,
         )}
       >
@@ -76,11 +81,22 @@ export function LockerRoomCTA({
         )}
       </button>
       {error && (
-        <p className="mt-2 max-w-xs text-center text-sm text-red-600" role="alert">
+        <p
+          className={cn(
+            "mt-2 max-w-xs text-center text-sm",
+            onDark ? "text-cream" : "text-red-600",
+          )}
+          role="alert"
+        >
           {error}
         </p>
       )}
-      <p className="mt-3 text-center text-[10px] leading-relaxed text-ink/50">
+      <p
+        className={cn(
+          "mt-3 text-center text-[10px] leading-relaxed",
+          onDark ? "text-cream/65" : "text-ink/50",
+        )}
+      >
         {PREMIUM_PRICE_DISPLAY} one-time · lifetime access · Secure payment via Stripe ·{" "}
         {PREMIUM_PRODUCT_NAME}
       </p>
