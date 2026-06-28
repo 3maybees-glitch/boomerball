@@ -93,8 +93,8 @@ export function LockerRoomCTA({
       )}
       <p
         className={cn(
-          "mt-3 text-center text-[10px] leading-relaxed",
-          onDark ? "text-cream/65" : "text-ink/50",
+          "mt-3 text-center leading-relaxed",
+          onDark ? "text-sm text-cream/75" : "text-[10px] text-ink/50",
         )}
       >
         {PREMIUM_PRICE_DISPLAY} one-time · lifetime access · Secure payment via Stripe ·{" "}
