@@ -325,7 +325,17 @@ export default function JoinPage() {
             No recurring charges. No fine print. Just the analytics die-hards deserve.
           </p>
           <div className="mt-8 flex flex-col items-center gap-4">
-            <LockerRoomCTA label="Join The Team" />
+            <div className="relative">
+              <div
+                className="pointer-events-none absolute -inset-3 rounded-full bg-cream/20 blur-md"
+                aria-hidden
+              />
+              <LockerRoomCTA
+                label="Join The Team"
+                variant="featured"
+                onDark
+              />
+            </div>
             <Link
               href={PREMIUM_ROUTE}
               className="text-sm text-cream/70 underline transition hover:text-cream"
