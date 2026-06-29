@@ -1,16 +1,28 @@
 import type { Metadata } from "next";
 import { ExternalLink } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
+import { JsonLd } from "@/components/JsonLd";
 import { PodcastChannels } from "@/components/PodcastChannels";
 import { WesternDivider } from "@/components/WesternDivider";
 import { newsItems } from "@/data/news";
 import { formatDate } from "@/lib/utils";
+import { breadcrumbJsonLd, pageMetadata, webPageJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Sooner News",
-  description:
-    "Oklahoma Sooners football news with citations from soonersports.com and reputable outlets.",
-};
+const PAGE_TITLE = "Sooner News";
+const PAGE_DESCRIPTION =
+  "Oklahoma Sooners football news with full citations from soonersports.com, ESPN, and reputable college football outlets.";
+
+export const metadata: Metadata = pageMetadata({
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
+  path: "/news",
+  keywords: [
+    "Oklahoma Sooners news",
+    "OU football news",
+    "Sooners football updates",
+    "Oklahoma recruiting news",
+  ],
+});
 
 const categoryColors: Record<string, string> = {
   game: "bg-green-100 text-green-800",
@@ -22,6 +34,15 @@ const categoryColors: Record<string, string> = {
 export default function NewsPage() {
   return (
     <PageShell theme="news">
+    <JsonLd
+      data={[
+        webPageJsonLd({ path: "/news", title: PAGE_TITLE, description: PAGE_DESCRIPTION }),
+        breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: PAGE_TITLE, path: "/news" },
+        ]),
+      ]}
+    />
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
       <h1 className="font-display text-3xl font-bold text-crimson">Sooner News</h1>
       <p className="mt-2 text-ink/70">

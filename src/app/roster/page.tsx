@@ -1,21 +1,41 @@
 import type { Metadata } from "next";
 import { CoachCard } from "@/components/PlayerCard";
 import { PageShell } from "@/components/PageShell";
+import { JsonLd } from "@/components/JsonLd";
 import { RosterGrid } from "@/components/RosterGrid";
 import { SourceAttribution } from "@/components/SourceAttribution";
 import { WesternDivider } from "@/components/WesternDivider";
 import { roster2026, ROSTER_SOURCE } from "@/data/roster";
 import { coaches2026, COACHES_SOURCE_2026 } from "@/data/coaches-2026";
+import { breadcrumbJsonLd, pageMetadata, webPageJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "2026 Roster & Coaches",
-  description:
-    "Full 2026 Oklahoma Sooners football roster with 100+ players, height/weight, and coaching staff bios.",
-};
+const PAGE_TITLE = "2026 Roster & Coaches";
+const PAGE_DESCRIPTION = `Full ${roster2026.length}-player 2026 Oklahoma Sooners football roster with height, weight, position, coaching staff bios, and recruiting context from soonersports.com.`;
+
+export const metadata: Metadata = pageMetadata({
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
+  path: "/roster",
+  keywords: [
+    "Oklahoma Sooners roster 2026",
+    "OU football roster",
+    "Sooners coaching staff",
+    "Oklahoma football players",
+  ],
+});
 
 export default function RosterPage() {
   return (
     <PageShell theme="roster">
+      <JsonLd
+        data={[
+          webPageJsonLd({ path: "/roster", title: PAGE_TITLE, description: PAGE_DESCRIPTION }),
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: PAGE_TITLE, path: "/roster" },
+          ]),
+        ]}
+      />
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
         <h1 className="font-display text-3xl font-bold text-crimson">
           2026 Roster & Coaching Staff

@@ -1,0 +1,32 @@
+# Boomer Ball
+
+> Oklahoma Sooners football analytics for Sooner Nation — stats, roster, schedule, news, and legends.
+
+Boomer Ball (https://boomerball.app) is a fan-inspired college football analytics site covering the University of Oklahoma Sooners. It is not affiliated with or endorsed by the University of Oklahoma.
+
+## Primary pages
+
+- Home: https://boomerball.app/
+- 2025 Season Stats: https://boomerball.app/stats
+- 2026 Roster & Coaches: https://boomerball.app/roster
+- Football Schedule: https://boomerball.app/schedule
+- Sooner News: https://boomerball.app/news
+- Legend Land (Heisman winners & titles): https://boomerball.app/legend-land
+- Join / Premium: https://boomerball.app/join
+
+## Key facts (2025 season)
+
+- Record: 10-3 overall, 6-2 SEC
+- Points per game: 26.23
+- Points allowed per game: 15.46
+- Total yards per game: 354.3
+- 2026 season opener: vs UTEP, September 5, 2026 (Norman, OK)
+
+## Data sources
+
+- University of Oklahoma Athletics: https://soonersports.com
+- ESPN College Football: https://www.espn.com/college-football/team/_/id/201
+
+## Sitemap
+
+https://boomerball.app/sitemap.xml

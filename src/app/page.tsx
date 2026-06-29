@@ -9,6 +9,8 @@ import {
 } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
 import { SiteLogo } from "@/components/SiteLogo";
+import { SeoFaq } from "@/components/SeoFaq";
+import { JsonLd } from "@/components/JsonLd";
 import { WesternDivider } from "@/components/WesternDivider";
 import { TeamStatGrid } from "@/components/StatTable";
 import { SourceAttribution } from "@/components/SourceAttribution";
@@ -19,6 +21,14 @@ import { roster2026 } from "@/data/roster";
 import { teamStats2025, STATS_SOURCE_SOONERS } from "@/data/stats";
 import { newsItems } from "@/data/news";
 import { PREMIUM_RECRUIT_ROUTE, PREMIUM_ROUTE, PREMIUM_TIER_NAME } from "@/lib/premium";
+import { seoFaqItems } from "@/data/seo-faq";
+import {
+  DEFAULT_DESCRIPTION,
+  SITE_NAME,
+  SITE_TAGLINE,
+  faqPageJsonLd,
+  webPageJsonLd,
+} from "@/lib/seo";
 
 const quickLinks = [
   {
@@ -71,6 +81,16 @@ export default function HomePage() {
 
   return (
     <PageShell theme="home">
+    <JsonLd
+      data={[
+        webPageJsonLd({
+          path: "/",
+          title: `${SITE_NAME} — ${SITE_TAGLINE}`,
+          description: DEFAULT_DESCRIPTION,
+        }),
+        faqPageJsonLd(seoFaqItems),
+      ]}
+    />
     <div>
       {/* Hero */}
       <section className="relative overflow-hidden border-b-4 border-crimson-dark bg-crimson">
@@ -156,6 +176,8 @@ export default function HomePage() {
           ]}
         />
       </section>
+
+      <SeoFaq items={seoFaqItems} />
 
       {/* Quick links */}
       <section className="border-y border-crimson/10 bg-white/60 py-12">

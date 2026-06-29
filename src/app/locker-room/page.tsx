@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { AdvancedStatsGuide } from "@/components/AdvancedStatsGuide";
 import { PremiumGate } from "@/components/PremiumGate";
 import { PageShell } from "@/components/PageShell";
+import { JsonLd } from "@/components/JsonLd";
 import { RecruitingBreakdown } from "@/components/RecruitingBreakdown";
 import { SchemeGuide } from "@/components/SchemeGuide";
 import { SourceAttribution } from "@/components/SourceAttribution";
@@ -13,11 +14,22 @@ import {
   PREMIUM_TIER_NAME,
   PREMIUM_TIER_TAGLINE,
 } from "@/lib/premium";
+import { breadcrumbJsonLd, pageMetadata, webPageJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: `${PREMIUM_TIER_NAME} — Boomer Ball`,
-  description: `${PREMIUM_TIER_TAGLINE}. SP+, PFF-style grades, schemes, and recruiting intel for Oklahoma Sooners football.`,
-};
+const PAGE_TITLE = PREMIUM_TIER_NAME;
+const PAGE_DESCRIPTION = `${PREMIUM_TIER_TAGLINE}. SP+, PFF-style grades, schemes, and recruiting intel for Oklahoma Sooners football.`;
+
+export const metadata: Metadata = pageMetadata({
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
+  path: "/locker-room",
+  keywords: [
+    "Oklahoma Sooners SP+",
+    "OU advanced football stats",
+    "Sooners PFF grades",
+    "Oklahoma football analytics premium",
+  ],
+});
 
 const categoryLabels: Record<string, string> = {
   offense: "Offense",
@@ -156,6 +168,19 @@ export default function LockerRoomPage() {
 
   return (
     <PageShell theme="advanced">
+      <JsonLd
+        data={[
+          webPageJsonLd({
+            path: "/locker-room",
+            title: PAGE_TITLE,
+            description: PAGE_DESCRIPTION,
+          }),
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: PAGE_TITLE, path: "/locker-room" },
+          ]),
+        ]}
+      />
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
