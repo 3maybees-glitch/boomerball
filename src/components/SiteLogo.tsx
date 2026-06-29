@@ -25,7 +25,7 @@ const variantConfig: Record<
   hero: {
     width: 320,
     height: 213,
-    imageClass: "h-32 w-auto sm:h-44 md:h-52",
+    imageClass: "h-24 w-auto sm:h-28 lg:h-32",
   },
   footer: {
     width: 140,

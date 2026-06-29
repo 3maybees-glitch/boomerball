@@ -75,60 +75,74 @@ export default function HomePage() {
       {/* Hero */}
       <section className="relative overflow-hidden border-b-4 border-crimson-dark bg-crimson">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full border-8 border-cream" />
-          <div className="absolute -bottom-10 -left-10 h-40 w-40 rounded-full border-4 border-cream" />
+          <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full border-8 border-cream lg:right-8 lg:top-1/2 lg:-translate-y-1/2" />
+          <div className="absolute -bottom-8 -left-8 h-32 w-32 rounded-full border-4 border-cream" />
         </div>
-        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24">
-          <SiteLogo variant="hero" />
-          <p className="mt-4 text-sm font-semibold uppercase tracking-[0.25em] text-cream/80">
-            Boomer Sooner
-          </p>
-          <h1 className="sr-only">Boomer Ball — Oklahoma Sooners Football Analytics</h1>
-          <p className="mt-4 max-w-2xl text-lg text-cream/90">
-            Oklahoma Sooners football analytics for Sooner Nation. Full 2026 roster,
-            upcoming schedule, 2025 stats, and cited news — with premium SP+ and
-            PFF-style advanced metrics.
-          </p>
-
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            <div className="flex items-center gap-2 rounded-full bg-cream px-5 py-2.5">
-              <Trophy className="h-5 w-5 text-crimson" aria-hidden />
-              <span className="font-display text-xl font-bold text-crimson">
-                {SEASON_RECORD}
-              </span>
-              <span className="text-sm text-ink/70">{CONFERENCE_RECORD}</span>
+        <div className="relative mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-10 lg:py-11">
+          <div className="lg:grid lg:grid-cols-[minmax(220px,34%)_1fr] lg:items-center lg:gap-x-10 xl:gap-x-12">
+            <div className="flex justify-center lg:justify-start">
+              <SiteLogo variant="hero" />
             </div>
-            <span className="rounded-full border border-cream/40 px-4 py-2 text-sm text-cream/90">
-              🏈 Offseason — 2026 opener vs UTEP, Sep 5
-            </span>
-          </div>
 
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href="/stats"
-              className="rounded-full bg-cream px-6 py-3 font-bold text-crimson transition hover:bg-white"
-            >
-              View 2025 Stats
-            </Link>
-            <Link
-              href={PREMIUM_RECRUIT_ROUTE}
-              className="rounded-full border-2 border-cream px-6 py-3 font-bold text-cream transition hover:bg-crimson-dark"
-            >
-              Join {PREMIUM_TIER_NAME}
-            </Link>
+            <div className="mt-5 text-center lg:mt-0 lg:text-left">
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-cream/80 sm:text-sm">
+                Boomer Sooner · Sooners Analytics
+              </p>
+              <h1 className="sr-only">Boomer Ball — Oklahoma Sooners Football Analytics</h1>
+              <p className="mt-2 text-base leading-snug text-cream/90 sm:text-lg lg:max-w-2xl">
+                Oklahoma Sooners football analytics — 2026 roster, schedule, 2025 stats,
+                cited news, and premium SP+ metrics.
+              </p>
+
+              <div className="mt-4 flex flex-wrap items-center justify-center gap-2.5 lg:justify-start">
+                <div className="flex items-center gap-2 rounded-full bg-cream px-4 py-2">
+                  <Trophy className="h-4 w-4 text-crimson" aria-hidden />
+                  <span className="font-display text-lg font-bold text-crimson">
+                    {SEASON_RECORD}
+                  </span>
+                  <span className="text-xs text-ink/70">{CONFERENCE_RECORD}</span>
+                </div>
+                <span className="rounded-full border border-cream/40 px-3 py-1.5 text-xs text-cream/90 sm:text-sm">
+                  Offseason · 2026 opener vs UTEP, Sep 5
+                </span>
+              </div>
+
+              <div className="mt-4 flex flex-wrap justify-center gap-2.5 lg:justify-start">
+                <Link
+                  href="/stats"
+                  className="rounded-full bg-cream px-5 py-2.5 text-sm font-bold text-crimson transition hover:bg-white"
+                >
+                  View 2025 Stats
+                </Link>
+                <Link
+                  href={PREMIUM_RECRUIT_ROUTE}
+                  className="rounded-full border-2 border-cream px-5 py-2.5 text-sm font-bold text-cream transition hover:bg-crimson-dark"
+                >
+                  Join {PREMIUM_TIER_NAME}
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Team snapshot */}
-      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
-        <h2 className="font-display text-2xl font-bold text-crimson">
-          2025 Season Snapshot
-        </h2>
-        <p className="mt-1 text-sm text-ink/70">
-          Cumulative stats through the CFP first round (13 games)
-        </p>
-        <WesternDivider />
+      <section className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:py-10">
+        <div className="flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h2 className="font-display text-xl font-bold text-crimson sm:text-2xl">
+              2025 Season Snapshot
+            </h2>
+            <p className="mt-0.5 text-sm text-ink/70">
+              Cumulative stats through the CFP first round (13 games)
+            </p>
+          </div>
+          <SourceAttribution
+            className="sm:text-right"
+            sources={[{ label: "soonersports.com", url: STATS_SOURCE_SOONERS }]}
+          />
+        </div>
+        <WesternDivider className="my-4" />
         <TeamStatGrid
           stats={[
             { label: "Record", value: teamStats2025.record, sub: teamStats2025.conferenceRecord },
@@ -140,10 +154,6 @@ export default function HomePage() {
             { label: "Sacks", value: teamStats2025.sacks },
             { label: "INTs", value: teamStats2025.interceptions },
           ]}
-        />
-        <SourceAttribution
-          className="mt-6"
-          sources={[{ label: "soonersports.com", url: STATS_SOURCE_SOONERS }]}
         />
       </section>
 
