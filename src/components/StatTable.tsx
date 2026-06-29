@@ -57,14 +57,14 @@ interface TeamStatGridProps {
 
 export function TeamStatGrid({ stats }: TeamStatGridProps) {
   return (
-    <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+    <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-4 lg:grid-cols-8">
       {stats.map((stat) => (
         <div
           key={stat.label}
-          className="rounded-xl border-2 border-crimson/15 bg-white p-4 text-center shadow-sm"
+          className="rounded-lg border-2 border-crimson/15 bg-white px-3 py-2.5 text-center shadow-sm"
         >
-          <p className="text-2xl font-bold tabular-nums text-crimson">{stat.value}</p>
-          <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-ink/70">
+          <p className="text-xl font-bold tabular-nums text-crimson sm:text-2xl">{stat.value}</p>
+          <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-wide text-ink/70 sm:text-xs">
             {stat.label}
           </p>
           {stat.sub && <p className="mt-0.5 text-[10px] text-ink/50">{stat.sub}</p>}
