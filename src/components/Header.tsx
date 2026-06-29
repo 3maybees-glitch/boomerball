@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { HatGlasses, Lasso } from "lucide-react";
+import { HatGlasses } from "lucide-react";
+import { SiteLogo } from "@/components/SiteLogo";
 import { PREMIUM_RECRUIT_ROUTE, PREMIUM_ROUTE, PREMIUM_TIER_NAME } from "@/lib/premium";
 
 const navLinks = [
@@ -16,18 +17,11 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b-2 border-crimson-dark bg-crimson shadow-lg">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-        <Link href="/" className="group flex items-center gap-2">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-cream bg-crimson-dark">
-            <Lasso className="h-5 w-5 text-cream" aria-hidden />
-          </div>
-          <div>
-            <span className="block font-display text-xl font-bold tracking-tight text-cream">
-              Boomer Ball
-            </span>
-            <span className="block text-[10px] uppercase tracking-[0.2em] text-cream/70">
-              Sooners Analytics
-            </span>
-          </div>
+        <Link href="/" className="group flex items-center gap-3">
+          <SiteLogo variant="header" />
+          <span className="hidden text-[10px] uppercase tracking-[0.2em] text-cream/70 sm:block">
+            Sooners Analytics
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex" aria-label="Main">
