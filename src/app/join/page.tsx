@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { LockerRoomCTA } from "@/components/LockerRoomCTA";
 import { PageShell } from "@/components/PageShell";
+import { JsonLd } from "@/components/JsonLd";
 import { WesternDivider } from "@/components/WesternDivider";
 import { recruitingClass2027 } from "@/data/recruiting-2027";
 import { offensivePhilosophy } from "@/data/schemes";
@@ -24,11 +25,22 @@ import {
   PREMIUM_TIER_NAME,
   PREMIUM_TIER_TAGLINE,
 } from "@/lib/premium";
+import { breadcrumbJsonLd, pageMetadata, webPageJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: `Join ${PREMIUM_TIER_NAME} — Boomer Ball`,
-  description: `We're recruiting die-hard Sooners fans. Preview SP+ analytics, PFF-style grades, scheme intel, and 2027 recruiting — ${PREMIUM_PRICE_DISPLAY} lifetime access.`,
-};
+const PAGE_TITLE = `Join ${PREMIUM_TIER_NAME}`;
+const PAGE_DESCRIPTION = `We're recruiting die-hard Sooners fans. Preview SP+ analytics, PFF-style grades, scheme intel, and 2027 recruiting — ${PREMIUM_PRICE_DISPLAY} lifetime access.`;
+
+export const metadata: Metadata = pageMetadata({
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
+  path: "/join",
+  keywords: [
+    "Oklahoma Sooners premium analytics",
+    "Sooners SP+ stats",
+    "Boomer Ball Locker Room",
+    "OU football advanced metrics",
+  ],
+});
 
 const perks = [
   {
@@ -76,6 +88,15 @@ export default function JoinPage() {
 
   return (
     <PageShell theme="advanced">
+      <JsonLd
+        data={[
+          webPageJsonLd({ path: "/join", title: PAGE_TITLE, description: PAGE_DESCRIPTION }),
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: PAGE_TITLE, path: "/join" },
+          ]),
+        ]}
+      />
       {/* Hero — recruitment letter style */}
       <section className="relative overflow-hidden border-b-4 border-crimson-dark bg-crimson">
         <div className="absolute inset-0 opacity-10">

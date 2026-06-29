@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PageShell } from "@/components/PageShell";
+import { JsonLd } from "@/components/JsonLd";
 import { StatTable, TeamStatGrid } from "@/components/StatTable";
 import { SourceAttribution } from "@/components/SourceAttribution";
 import { WesternDivider } from "@/components/WesternDivider";
@@ -12,16 +13,36 @@ import {
   STATS_SOURCE_SOONERS,
   STATS_SOURCE_ESPN,
 } from "@/data/stats";
+import { breadcrumbJsonLd, pageMetadata, webPageJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "2025 Season Stats",
-  description:
-    "Oklahoma Sooners 2025 cumulative football statistics — passing, rushing, receiving, and defense.",
-};
+const PAGE_TITLE = "2025 Season Stats";
+const PAGE_DESCRIPTION =
+  "Oklahoma Sooners 2025 cumulative football statistics — passing, rushing, receiving, and defense with sources from soonersports.com and ESPN.";
+
+export const metadata: Metadata = pageMetadata({
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
+  path: "/stats",
+  keywords: [
+    "Oklahoma Sooners 2025 stats",
+    "OU football passing stats",
+    "Sooners rushing stats",
+    "Oklahoma defense stats 2025",
+  ],
+});
 
 export default function StatsPage() {
   return (
     <PageShell theme="stats">
+    <JsonLd
+      data={[
+        webPageJsonLd({ path: "/stats", title: PAGE_TITLE, description: PAGE_DESCRIPTION }),
+        breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: PAGE_TITLE, path: "/stats" },
+        ]),
+      ]}
+    />
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
       <div className="mb-2 rounded-lg border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-900">
         <strong>Offseason note:</strong> No active games — displaying 2025 season

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Trophy, Star } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
+import { JsonLd } from "@/components/JsonLd";
 import { LegendCard, ChampionshipCard } from "@/components/LegendCard";
 import { IconicGameCard } from "@/components/IconicGameCard";
 import { SourceAttribution } from "@/components/SourceAttribution";
@@ -12,12 +13,23 @@ import {
   LEGENDS_SOURCE,
   CHAMPIONSHIPS_SOURCE,
 } from "@/data/legends";
+import { breadcrumbJsonLd, pageMetadata, webPageJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Legend Land — Sooners Hall of Fame",
-  description:
-    "Oklahoma Sooners football legends, Heisman winners, iconic games, and seven national championship teams.",
-};
+const PAGE_TITLE = "Legend Land — Sooners Hall of Fame";
+const PAGE_DESCRIPTION =
+  "Oklahoma Sooners football legends, seven Heisman Trophy winners, iconic games, and seven national championship teams with cited sources.";
+
+export const metadata: Metadata = pageMetadata({
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
+  path: "/legend-land",
+  keywords: [
+    "Oklahoma Sooners legends",
+    "OU Heisman winners",
+    "Sooners national championships",
+    "Oklahoma iconic football games",
+  ],
+});
 
 export default function LegendLandPage() {
   const heismanWinners = soonersLegends.filter((l) => l.category === "heisman");
@@ -25,6 +37,19 @@ export default function LegendLandPage() {
 
   return (
     <PageShell theme="legends">
+    <JsonLd
+      data={[
+        webPageJsonLd({
+          path: "/legend-land",
+          title: PAGE_TITLE,
+          description: PAGE_DESCRIPTION,
+        }),
+        breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Legend Land", path: "/legend-land" },
+        ]),
+      ]}
+    />
     <div>
       {/* Hero */}
       <section className="border-b-4 border-crimson-dark bg-gradient-to-br from-crimson via-crimson to-crimson-dark py-14 text-cream">
