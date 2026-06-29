@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
+import { SiteLogo } from "@/components/SiteLogo";
 import { PREMIUM_ROUTE, PREMIUM_TIER_NAME } from "@/lib/premium";
 
 export function Footer() {
@@ -8,7 +9,8 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
         <div className="grid gap-8 md:grid-cols-3">
           <div>
-            <h3 className="font-display text-lg font-bold">Boomer Ball</h3>
+            <SiteLogo variant="footer" />
+            <h3 className="sr-only">Boomer Ball</h3>
             <p className="mt-2 text-sm text-cream/75">
               A fan-inspired Oklahoma Sooners football analytics site. Not affiliated
               with or endorsed by the University of Oklahoma.

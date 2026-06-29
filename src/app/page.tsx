@@ -3,12 +3,12 @@ import {
   BarChart3,
   Calendar,
   HatGlasses,
-  Lasso,
   Newspaper,
   Users,
   Trophy,
 } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
+import { SiteLogo } from "@/components/SiteLogo";
 import { WesternDivider } from "@/components/WesternDivider";
 import { TeamStatGrid } from "@/components/StatTable";
 import { SourceAttribution } from "@/components/SourceAttribution";
@@ -79,15 +79,11 @@ export default function HomePage() {
           <div className="absolute -bottom-10 -left-10 h-40 w-40 rounded-full border-4 border-cream" />
         </div>
         <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24">
-          <div className="flex items-center gap-3 text-cream/80">
-            <Lasso className="h-6 w-6" aria-hidden />
-            <span className="text-sm font-semibold uppercase tracking-[0.25em]">
-              Boomer Sooner
-            </span>
-          </div>
-          <h1 className="mt-4 font-display text-4xl font-extrabold text-cream sm:text-6xl">
-            Boomer Ball
-          </h1>
+          <SiteLogo variant="hero" />
+          <p className="mt-4 text-sm font-semibold uppercase tracking-[0.25em] text-cream/80">
+            Boomer Sooner
+          </p>
+          <h1 className="sr-only">Boomer Ball — Oklahoma Sooners Football Analytics</h1>
           <p className="mt-4 max-w-2xl text-lg text-cream/90">
             Oklahoma Sooners football analytics for Sooner Nation. Full 2026 roster,
             upcoming schedule, 2025 stats, and cited news — with premium SP+ and
