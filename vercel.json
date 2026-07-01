@@ -1,5 +1,25 @@
 {
   "framework": "nextjs",
   "buildCommand": "npm run build",
-  "installCommand": "npm ci"
+  "installCommand": "npm ci",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.boomerball.app" }],
+      "destination": "https://boomerball.app/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "boomerballstats.com" }],
+      "destination": "https://boomerball.app/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.boomerballstats.com" }],
+      "destination": "https://boomerball.app/:path*",
+      "permanent": true
+    }
+  ]
 }

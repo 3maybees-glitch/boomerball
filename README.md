@@ -2,7 +2,27 @@
 
 Fan-inspired Oklahoma Sooners college football analytics website.
 
-**Planned domain:** [boomerball.app](https://boomerball.app)
+**Primary domain:** [boomerball.app](https://boomerball.app)  
+**Alternate domain:** [boomerballstats.com](https://boomerballstats.com) → redirects to boomerball.app
+
+## Custom domain setup (Vercel)
+
+Add both domains in **Vercel → Project → Settings → Domains**, then point DNS at your registrar.
+
+| Domain | Role | DNS records |
+|--------|------|-------------|
+| `boomerball.app` | Primary | **A** `@` → `76.76.21.21` |
+| `www.boomerball.app` | Redirect → primary | **CNAME** `www` → `cname.vercel-dns.com` |
+| `boomerballstats.com` | Redirect → primary | **A** `@` → `76.76.21.21` |
+| `www.boomerballstats.com` | Redirect → primary | **CNAME** `www` → `cname.vercel-dns.com` |
+
+After DNS propagates, set production env vars in Vercel:
+
+1. `NEXT_PUBLIC_SITE_URL` → `https://boomerball.app`
+2. Update Stripe webhook URL → `https://boomerball.app/api/webhooks/stripe`
+3. Redeploy
+
+Redirects for `www` and `boomerballstats.com` are configured in `vercel.json` and `src/proxy.ts`.
 
 ## Features
 
@@ -41,13 +61,13 @@ Copy `.env.example` and set in **Vercel → Settings → Environment Variables**
 1. `STRIPE_SECRET_KEY` — Stripe Dashboard → [API keys](https://dashboard.stripe.com/apikeys)
 2. `STRIPE_PRICE_ID` — `price_1Tmn1yPIHJvArvGeDqY1rGuL`
 3. `STRIPE_WEBHOOK_SECRET` — from webhook endpoint (below)
-4. `NEXT_PUBLIC_SITE_URL` — `https://boomerball.vercel.app`
+4. `NEXT_PUBLIC_SITE_URL` — `https://boomerball.app`
 
 ### Webhook
 
 In Stripe Dashboard → **Developers → Webhooks**, add:
 
-- **URL:** `https://boomerball.vercel.app/api/webhooks/stripe`
+- **URL:** `https://boomerball.app/api/webhooks/stripe`
 - **Events:** `checkout.session.completed`, `charge.refunded`
 
 Redeploy after saving env vars.

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { SiteLogo } from "@/components/SiteLogo";
 import { PREMIUM_ROUTE, PREMIUM_TIER_NAME } from "@/lib/premium";
+import { PRIMARY_DOMAIN } from "@/lib/domains";
 
 export function Footer() {
   return (
@@ -16,12 +17,11 @@ export function Footer() {
               with or endorsed by the University of Oklahoma.
             </p>
             <p className="mt-3 text-xs text-cream/60">
-              Planned domain:{" "}
               <a
-                href="https://boomerball.app"
+                href={`https://${PRIMARY_DOMAIN}`}
                 className="underline hover:text-cream"
               >
-                boomerball.app
+                {PRIMARY_DOMAIN}
               </a>
             </p>
           </div>

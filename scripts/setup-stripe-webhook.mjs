@@ -13,7 +13,7 @@
 
 const STRIPE_KEY = process.env.STRIPE_SECRET_KEY;
 const WEBHOOK_URL =
-  process.env.WEBHOOK_URL ?? "https://boomerball.vercel.app/api/webhooks/stripe";
+  process.env.WEBHOOK_URL ?? "https://boomerball.app/api/webhooks/stripe";
 const EVENTS = ["checkout.session.completed", "charge.refunded"];
 
 if (!STRIPE_KEY?.startsWith("sk_")) {
