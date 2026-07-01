@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { CoachCard } from "@/components/PlayerCard";
 import { PageShell } from "@/components/PageShell";
+import { PageHeader } from "@/components/PageHeader";
+import { PageContent } from "@/components/PageContent";
+import { EditorialSection } from "@/components/EditorialSection";
 import { JsonLd } from "@/components/JsonLd";
 import { RosterGrid } from "@/components/RosterGrid";
 import { SourceAttribution } from "@/components/SourceAttribution";
-import { WesternDivider } from "@/components/WesternDivider";
 import { roster2026, ROSTER_SOURCE } from "@/data/roster";
 import { coaches2026, COACHES_SOURCE_2026 } from "@/data/coaches-2026";
 import { breadcrumbJsonLd, pageMetadata, webPageJsonLd } from "@/lib/seo";
@@ -36,27 +38,20 @@ export default function RosterPage() {
           ]),
         ]}
       />
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
-        <h1 className="font-display text-3xl font-bold text-crimson">
-          2026 Roster & Coaching Staff
-        </h1>
-        <p className="mt-2 text-lg text-ink/70">
-          Full spring roster with {roster2026.length} players — sorted A–Z by last
-          name with recruit star ratings and transfer portal info where available.
-          Tap a row to expand bio.
-        </p>
+      <PageHeader
+        theme="roster"
+        title="2026 roster & coaching staff"
+        description={`Full spring roster with ${roster2026.length} players, sorted A–Z by last name with recruit star ratings and transfer portal info. Tap a row to expand bios.`}
+      />
 
-        <WesternDivider />
-
-        <h2 className="font-display text-2xl font-bold text-crimson">Players</h2>
-        <p className="mt-1 text-base text-ink/60">
-          Source: soonersports.com 2026 spring roster. Stars from On3 / 247Sports /
-          ESPN composites. Headshots via ESPN where available.
-        </p>
-
-        <div className="mt-6">
+      <PageContent>
+        <EditorialSection
+          title="Players"
+          description="Source: soonersports.com 2026 spring roster. Stars from On3, 247Sports, and ESPN composites. Headshots via ESPN where available."
+          divider={false}
+        >
           <RosterGrid players={roster2026} />
-        </div>
+        </EditorialSection>
 
         <SourceAttribution
           className="mt-10"
@@ -69,23 +64,24 @@ export default function RosterPage() {
           ]}
         />
 
-        <WesternDivider />
-
-        <h2 className="font-display text-2xl font-bold text-crimson">Coaching Staff</h2>
-        <p className="mt-1 text-base text-ink/60">
-          Brent Venables and the 2026 Oklahoma coaching staff
-        </p>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {coaches2026.map((coach) => (
-            <CoachCard key={coach.id} coach={coach} />
-          ))}
-        </div>
+        <EditorialSection
+          className="mt-14"
+          title="Coaching staff"
+          description="Brent Venables and the 2026 Oklahoma coaching staff"
+          delay={0.08}
+        >
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {coaches2026.map((coach) => (
+              <CoachCard key={coach.id} coach={coach} />
+            ))}
+          </div>
+        </EditorialSection>
 
         <SourceAttribution
-          className="mt-6"
+          className="mt-8"
           sources={[{ label: "soonersports.com", url: COACHES_SOURCE_2026 }]}
         />
-      </div>
+      </PageContent>
     </PageShell>
   );
 }

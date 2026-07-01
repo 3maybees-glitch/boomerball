@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { PageShell } from "@/components/PageShell";
+import { PageHeader } from "@/components/PageHeader";
+import { PageContent } from "@/components/PageContent";
 import { JsonLd } from "@/components/JsonLd";
 import { ScheduleTabs } from "@/components/ScheduleTabs";
 import { breadcrumbJsonLd, pageMetadata, webPageJsonLd } from "@/lib/seo";
+import { CONFERENCE_RECORD, SEASON_RECORD } from "@/data/schedule";
 
 const PAGE_TITLE = "Football Schedule";
 const PAGE_DESCRIPTION =
@@ -36,7 +39,14 @@ export default function SchedulePage() {
           ]),
         ]}
       />
-      <ScheduleTabs />
+      <PageHeader
+        theme="schedule"
+        title="Football schedule"
+        description={`2026 SEC slate plus complete 2025 results (${SEASON_RECORD}, ${CONFERENCE_RECORD}).`}
+      />
+      <PageContent>
+        <ScheduleTabs />
+      </PageContent>
     </PageShell>
   );
 }

@@ -21,7 +21,7 @@ export function LegendCard({ legend }: { legend: SoonersLegend }) {
   const portraitUrl = getLegendPortraitUrl(legend);
 
   return (
-    <article className="overflow-hidden rounded-2xl border-2 border-crimson/20 bg-white shadow-lg transition hover:border-crimson/50 hover:shadow-xl">
+    <article className="overflow-hidden rounded-2xl border border-crimson/15 bg-white/95 shadow-[0_8px_32px_rgba(26,10,10,0.08)] transition hover:border-crimson/40 hover:shadow-[0_12px_40px_rgba(132,22,23,0.12)]">
       <div className="relative bg-gradient-to-br from-crimson to-crimson-dark p-6 text-cream">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
           <div className="group relative mx-auto shrink-0 sm:mx-0">

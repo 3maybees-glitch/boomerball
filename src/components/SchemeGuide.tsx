@@ -25,7 +25,7 @@ export function SchemeGuide() {
       </div>
 
       {/* Offense overview */}
-      <div className="rounded-xl border-2 border-crimson/15 bg-white/95 p-5 backdrop-blur-sm">
+      <div className="rounded-2xl border border-crimson/12 bg-white/95 p-5 backdrop-blur-sm">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
             <p className="text-xs font-semibold uppercase tracking-wide text-crimson">
@@ -56,7 +56,7 @@ export function SchemeGuide() {
       </div>
 
       {/* Personnel */}
-      <div className="mt-6 rounded-xl border-2 border-crimson/15 bg-white/95 p-5 backdrop-blur-sm">
+      <div className="mt-6 rounded-2xl border border-crimson/12 bg-white/95 p-5 backdrop-blur-sm">
         <h4 className="font-display text-base font-bold text-crimson">
           Offensive Personnel Groupings
         </h4>
@@ -97,7 +97,7 @@ export function SchemeGuide() {
           {offensiveFormations.map((formation) => (
             <div
               key={formation.id}
-              className="rounded-xl border-2 border-crimson/15 bg-white/95 p-4 backdrop-blur-sm"
+              className="rounded-2xl border border-crimson/12 bg-white/95 p-4 backdrop-blur-sm"
             >
               <div className="mb-3 flex flex-wrap items-baseline justify-between gap-2">
                 <h5 className="font-display text-lg font-bold text-ink">
@@ -124,7 +124,7 @@ export function SchemeGuide() {
       </div>
 
       {/* Defense overview */}
-      <div className="mt-8 rounded-xl border-2 border-crimson/15 bg-white/95 p-5 backdrop-blur-sm">
+      <div className="mt-8 rounded-2xl border border-crimson/12 bg-white/95 p-5 backdrop-blur-sm">
         <p className="text-xs font-semibold uppercase tracking-wide text-crimson">
           Defense
         </p>
@@ -184,7 +184,7 @@ export function SchemeGuide() {
           {defensivePackages.map((pkg) => (
             <div
               key={pkg.id}
-              className="rounded-xl border-2 border-crimson/15 bg-white/95 p-4 backdrop-blur-sm"
+              className="rounded-2xl border border-crimson/12 bg-white/95 p-4 backdrop-blur-sm"
             >
               <h5 className="font-display text-lg font-bold text-ink">
                 {pkg.name}
