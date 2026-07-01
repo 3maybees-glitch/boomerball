@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { LOGO_STATIC } from "@/lib/brand";
+import { PRIMARY_URL } from "@/lib/domains";
 
 export const SITE_NAME = "Boomer Ball";
 export const SITE_TAGLINE = "Oklahoma Sooners Football Analytics";
 
 export const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://boomerball.app"
+  process.env.NEXT_PUBLIC_SITE_URL ?? PRIMARY_URL
 ).replace(/\/$/, "");
 
 export const DEFAULT_DESCRIPTION =

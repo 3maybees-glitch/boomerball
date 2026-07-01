@@ -6,6 +6,7 @@ import {
   PREMIUM_STRIPE_LOOKUP,
   isStripeConfigured,
 } from "@/lib/premium";
+import { SITE_URL } from "@/lib/seo";
 
 export async function POST() {
   if (!isStripeConfigured()) {
@@ -17,7 +18,7 @@ export async function POST() {
   }
 
   const priceId = process.env.STRIPE_PRICE_ID!;
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://boomerball.vercel.app";
+  const siteUrl = SITE_URL;
 
   try {
     const stripe = getStripe();
