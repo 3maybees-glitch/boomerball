@@ -136,10 +136,10 @@ export function PremiumGate({ children }: PremiumGateProps) {
           Checkout cancelled — your card was not charged. Ready when you are.
         </div>
       )}
-      <div className="relative overflow-hidden rounded-2xl border-2 border-crimson/30 bg-white">
+      <div className="relative overflow-hidden rounded-2xl border border-crimson/20 bg-white/95 shadow-[0_8px_32px_rgba(26,10,10,0.08)]">
         <div className="pointer-events-none select-none blur-sm">{children}</div>
         <div className="absolute inset-0 flex items-center justify-center bg-cream/80 backdrop-blur-[2px]">
-          <div className="mx-4 max-w-md rounded-2xl border-2 border-crimson bg-white p-8 text-center shadow-xl">
+          <div className="mx-4 max-w-md rounded-2xl border border-crimson/25 bg-white p-8 text-center shadow-[0_12px_40px_rgba(132,22,23,0.15)]">
             <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-crimson">
               <Lock className="h-7 w-7 text-cream" aria-hidden />
             </div>

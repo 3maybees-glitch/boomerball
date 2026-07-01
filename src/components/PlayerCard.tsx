@@ -13,7 +13,7 @@ export function PlayerCard({ player }: PlayerCardProps) {
   const headshot = getPlayerHeadshotUrl(player.espnId);
 
   return (
-    <article className="overflow-hidden rounded-xl border-2 border-crimson/15 bg-white shadow-md transition hover:border-crimson/40 hover:shadow-lg">
+    <article className="overflow-hidden rounded-2xl border border-crimson/12 bg-white/95 shadow-[0_8px_32px_rgba(26,10,10,0.08)] transition hover:border-crimson/35 hover:shadow-[0_12px_40px_rgba(132,22,23,0.12)]">
       <div className="flex items-start gap-4 p-4">
         <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-lg border-2 border-crimson bg-cream">
           {headshot ? (
@@ -65,7 +65,7 @@ export function CoachCard({ coach }: CoachCardProps) {
   const initials = getCoachInitials(coach.name);
 
   return (
-    <article className="overflow-hidden rounded-xl border-2 border-crimson/15 bg-white shadow-md">
+    <article className="overflow-hidden rounded-2xl border border-crimson/12 bg-white/95 shadow-[0_8px_32px_rgba(26,10,10,0.08)]">
       <div className="flex items-start gap-4 p-4">
         <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full border-2 border-crimson bg-crimson font-display text-xl font-bold text-cream">
           {initials}

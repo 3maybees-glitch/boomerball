@@ -74,14 +74,14 @@ export function RosterGrid({ players }: RosterGridProps) {
             placeholder="Search by name, number, position, transfer school…"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="w-full rounded-lg border-2 border-crimson/20 bg-white py-3 pl-11 pr-4 text-base focus:border-crimson focus:outline-none"
+            className="w-full rounded-xl border border-crimson/15 bg-white/95 py-3 pl-11 pr-4 text-base shadow-[0_4px_16px_rgba(26,10,10,0.04)] transition focus:border-crimson focus:outline-none focus:ring-2 focus:ring-crimson/20"
             aria-label="Search roster"
           />
         </div>
         <select
           value={groupFilter}
           onChange={(e) => setGroupFilter(e.target.value)}
-          className="rounded-lg border-2 border-crimson/20 bg-white px-3 py-3 text-base focus:border-crimson focus:outline-none"
+          className="rounded-xl border border-crimson/15 bg-white/95 px-3 py-3 text-base shadow-[0_4px_16px_rgba(26,10,10,0.04)] focus:border-crimson focus:outline-none focus:ring-2 focus:ring-crimson/20"
           aria-label="Filter by position group"
         >
           <option value="ALL">All Positions</option>
@@ -105,7 +105,7 @@ export function RosterGrid({ players }: RosterGridProps) {
               ({groupPlayers.length})
             </span>
           </h3>
-          <div className="overflow-hidden rounded-xl border-2 border-crimson/15 bg-white/95 shadow-sm backdrop-blur-sm">
+          <div className="overflow-hidden rounded-2xl border border-crimson/12 bg-white/95 shadow-[0_8px_32px_rgba(26,10,10,0.08)]">
             <div className="overflow-x-auto">
               <table className="w-full min-w-[720px] text-base">
                 <thead>

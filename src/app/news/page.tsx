@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { ExternalLink } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
+import { PageHeader } from "@/components/PageHeader";
+import { PageContent } from "@/components/PageContent";
+import { EditorialSection } from "@/components/EditorialSection";
 import { JsonLd } from "@/components/JsonLd";
 import { PodcastChannels } from "@/components/PodcastChannels";
-import { WesternDivider } from "@/components/WesternDivider";
+import { MotionReveal } from "@/components/motion/MotionReveal";
 import { newsItems } from "@/data/news";
 import { formatDate } from "@/lib/utils";
 import { breadcrumbJsonLd, pageMetadata, webPageJsonLd } from "@/lib/seo";
@@ -25,97 +28,94 @@ export const metadata: Metadata = pageMetadata({
 });
 
 const categoryColors: Record<string, string> = {
-  game: "bg-green-100 text-green-800",
+  game: "bg-green-100/90 text-green-800",
   team: "bg-crimson/10 text-crimson",
-  recruiting: "bg-blue-100 text-blue-800",
-  offseason: "bg-amber-100 text-amber-800",
+  recruiting: "bg-blue-100/90 text-blue-800",
+  offseason: "bg-amber-100/90 text-amber-900",
 };
 
 export default function NewsPage() {
   return (
     <PageShell theme="news">
-    <JsonLd
-      data={[
-        webPageJsonLd({ path: "/news", title: PAGE_TITLE, description: PAGE_DESCRIPTION }),
-        breadcrumbJsonLd([
-          { name: "Home", path: "/" },
-          { name: PAGE_TITLE, path: "/news" },
-        ]),
-      ]}
-    />
-    <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
-      <h1 className="font-display text-3xl font-bold text-crimson">Sooner News</h1>
-      <p className="mt-2 text-ink/70">
-        Curated updates with full attribution to official and reputable sources.
-        We cite and credit every story — start with{" "}
-        <a
-          href="https://soonersports.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-semibold text-crimson underline"
+      <JsonLd
+        data={[
+          webPageJsonLd({ path: "/news", title: PAGE_TITLE, description: PAGE_DESCRIPTION }),
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: PAGE_TITLE, path: "/news" },
+          ]),
+        ]}
+      />
+      <PageHeader
+        theme="news"
+        title="Sooner news"
+        description="Curated updates with full attribution to official and reputable sources. We cite and credit every story."
+      />
+
+      <PageContent>
+        <EditorialSection
+          title="Sooner podcasts"
+          description="Listen to trusted voices covering Oklahoma football."
+          divider={false}
         >
-          soonersports.com
-        </a>
-        .
-      </p>
+          <PodcastChannels />
+        </EditorialSection>
 
-      <WesternDivider />
+        <EditorialSection
+          className="mt-14"
+          title="Latest stories"
+          description="Curated headlines with links to original reporting."
+          delay={0.08}
+        >
+          <div className="space-y-5">
+            {newsItems.map((item, index) => (
+              <MotionReveal key={item.id} delay={index * 0.04}>
+                <article className="group border-l-2 border-crimson/25 bg-white/85 py-5 pl-5 pr-4 transition hover:border-crimson hover:bg-white sm:pl-6">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span
+                      className={`rounded-md px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide ${categoryColors[item.category]}`}
+                    >
+                      {item.category}
+                    </span>
+                    <time className="text-xs font-medium uppercase tracking-wide text-ink/50">
+                      {formatDate(item.date)}
+                    </time>
+                  </div>
+                  <h3 className="mt-2 font-display text-xl font-bold leading-snug text-ink group-hover:text-crimson">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 max-w-[65ch] text-sm leading-relaxed text-ink/75">
+                    {item.summary}
+                  </p>
+                  <a
+                    href={item.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-crimson underline decoration-crimson/25 underline-offset-2 hover:decoration-crimson"
+                  >
+                    Read more at {item.source}
+                    <ExternalLink className="h-3.5 w-3.5" aria-hidden />
+                  </a>
+                </article>
+              </MotionReveal>
+            ))}
+          </div>
+        </EditorialSection>
 
-      <PodcastChannels />
-
-      <WesternDivider />
-
-      <h2 className="font-display text-2xl font-bold text-crimson">Latest Stories</h2>
-      <p className="mt-1 mb-6 text-base text-ink/60">
-        Curated headlines with links to original reporting.
-      </p>
-
-      <div className="space-y-6">
-        {newsItems.map((item) => (
-          <article
-            key={item.id}
-            className="rounded-xl border-2 border-crimson/15 bg-white/95 p-6 shadow-sm backdrop-blur-sm"
+        <div className="mt-12 rounded-2xl border border-crimson/12 bg-cream/50 p-5 text-sm leading-relaxed text-ink/75 shadow-[0_4px_20px_rgba(26,10,10,0.04)]">
+          <strong className="text-crimson">Attribution policy:</strong> Boomer Ball is a
+          fan project. All statistics and news summaries link to original sources. Visit{" "}
+          <a
+            href="https://soonersports.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-crimson underline decoration-crimson/25 underline-offset-2"
           >
-            <div className="flex flex-wrap items-center gap-2">
-              <span
-                className={`rounded-full px-2.5 py-0.5 text-xs font-semibold uppercase ${categoryColors[item.category]}`}
-              >
-                {item.category}
-              </span>
-              <time className="text-sm text-ink/60">{formatDate(item.date)}</time>
-            </div>
-            <h2 className="mt-3 font-display text-xl font-bold text-ink">
-              {item.title}
-            </h2>
-            <p className="mt-3 leading-relaxed text-ink/80">{item.summary}</p>
-            <a
-              href={item.sourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-crimson underline decoration-crimson/30 hover:decoration-crimson"
-            >
-              Read more at {item.source}
-              <ExternalLink className="h-3.5 w-3.5" aria-hidden />
-            </a>
-          </article>
-        ))}
-      </div>
-
-      <div className="mt-10 rounded-lg border border-crimson/20 bg-cream-dark p-4 text-sm text-ink/70">
-        <strong className="text-crimson">Attribution policy:</strong> Boomer Ball is a
-        fan project. All statistics and news summaries link to original sources. We
-        recommend visiting{" "}
-        <a
-          href="https://soonersports.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-crimson underline"
-        >
-          soonersports.com
-        </a>{" "}
-        for official University of Oklahoma athletics content.
-      </div>
-    </div>
+            soonersports.com
+          </a>{" "}
+          for official University of Oklahoma athletics content.
+        </div>
+      </PageContent>
     </PageShell>
   );
 }

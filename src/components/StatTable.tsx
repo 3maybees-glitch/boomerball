@@ -6,9 +6,9 @@ interface StatTableProps {
 
 export function StatTable({ title, columns, rows }: StatTableProps) {
   return (
-    <div className="overflow-hidden rounded-xl border-2 border-crimson/15 bg-white shadow-sm">
-      <div className="border-b border-crimson/10 bg-crimson px-4 py-3">
-        <h3 className="font-display text-lg font-bold text-cream">{title}</h3>
+    <div className="overflow-hidden rounded-2xl border border-crimson/12 bg-white/95 shadow-[0_8px_32px_rgba(26,10,10,0.08)]">
+      <div className="border-b border-crimson/10 bg-crimson px-5 py-3.5">
+        <h3 className="font-display text-lg font-bold tracking-tight text-cream">{title}</h3>
       </div>
       <div className="overflow-x-auto">
         <table className="w-full min-w-[480px] text-sm">

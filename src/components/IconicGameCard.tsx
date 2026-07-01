@@ -11,7 +11,7 @@ export function IconicGameCard({ game }: { game: IconicGame }) {
   const imageUrl = getIconicGameImageUrl(game);
 
   return (
-    <article className="overflow-hidden rounded-2xl border-2 border-crimson/20 bg-white shadow-lg transition hover:border-crimson/45 hover:shadow-xl">
+    <article className="overflow-hidden rounded-2xl border border-crimson/15 bg-white/95 shadow-[0_8px_32px_rgba(26,10,10,0.08)] transition hover:border-crimson/40 hover:shadow-[0_12px_40px_rgba(132,22,23,0.12)]">
       <div className="relative h-48 w-full bg-crimson-dark sm:h-56">
         <Image
           src={imageUrl}

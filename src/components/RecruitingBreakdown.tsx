@@ -51,7 +51,7 @@ export function RecruitingBreakdown({ recruitingClass }: RecruitingBreakdownProp
       </div>
 
       <div className="mb-6 grid gap-3 sm:grid-cols-3">
-        <div className="rounded-xl border-2 border-crimson/20 bg-white p-4">
+        <div className="rounded-2xl border border-crimson/12 bg-white/95 p-4">
           <p className="text-xs font-semibold uppercase text-ink/60">On3 Team Rank</p>
           <p className="font-display text-3xl font-bold text-crimson">#{on3.nationalRank}</p>
           {on3.classScore && (
@@ -63,7 +63,7 @@ export function RecruitingBreakdown({ recruitingClass }: RecruitingBreakdownProp
             {on3.commits} commits · {on3.blueChips} blue chips
           </p>
         </div>
-        <div className="rounded-xl border-2 border-crimson/20 bg-white p-4">
+        <div className="rounded-2xl border border-crimson/12 bg-white/95 p-4">
           <p className="text-xs font-semibold uppercase text-ink/60">247Sports Team Rank</p>
           <p className="font-display text-3xl font-bold text-crimson">
             #{twoFourSeven.nationalRank}
@@ -98,7 +98,7 @@ export function RecruitingBreakdown({ recruitingClass }: RecruitingBreakdownProp
         </div>
       </div>
 
-      <div className="mb-6 rounded-xl border-2 border-crimson/15 bg-white p-5">
+      <div className="mb-6 rounded-2xl border border-crimson/12 bg-white/95 p-5">
         <h4 className="font-display text-base font-bold text-crimson">
           Position Breakdown
         </h4>
@@ -139,7 +139,7 @@ export function RecruitingBreakdown({ recruitingClass }: RecruitingBreakdownProp
         </div>
       </div>
 
-      <div className="rounded-xl border-2 border-crimson/15 bg-white p-5">
+      <div className="rounded-2xl border border-crimson/12 bg-white/95 p-5">
         <h4 className="font-display text-base font-bold text-crimson">
           Commit Board — Service Comparison
         </h4>

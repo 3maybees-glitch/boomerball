@@ -62,7 +62,7 @@ function GuideEntry({ entry }: { entry: StatGuideEntry }) {
 
 export function AdvancedStatsGuide() {
   return (
-    <div className="mb-8 rounded-xl border-2 border-crimson/15 bg-white/95 p-5 backdrop-blur-sm">
+    <div className="mb-8 rounded-2xl border border-crimson/12 bg-white/95 p-5 shadow-[0_4px_20px_rgba(26,10,10,0.06)]">
       <div className="mb-4 flex items-start gap-3">
         <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-crimson/10">
           <BookOpen className="h-5 w-5 text-crimson" aria-hidden />
