@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bitter, Source_Sans_3 } from "next/font/google";
+import { Barlow_Condensed, DM_Sans } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
@@ -12,15 +12,16 @@ import {
 } from "@/lib/seo";
 import "./globals.css";
 
-const displayFont = Bitter({
+const displayFont = Barlow_Condensed({
   variable: "--font-display",
   subsets: ["latin"],
   weight: ["600", "700", "800"],
 });
 
-const bodyFont = Source_Sans_3({
+const bodyFont = DM_Sans({
   variable: "--font-body",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -57,9 +58,14 @@ export default function RootLayout({
       className={`${displayFont.variable} ${bodyFont.variable} h-full`}
     >
       <body className="flex min-h-full flex-col bg-western-pattern antialiased">
+        <a href="#main-content" className="skip-link">
+          Skip to content
+        </a>
         <JsonLd data={siteJsonLdGraph()} />
         <Header />
-        <main className="flex-1">{children}</main>
+        <main id="main-content" className="flex-1">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

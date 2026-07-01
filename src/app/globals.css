@@ -4,10 +4,13 @@
   --crimson: #841617;
   --crimson-dark: #5c0f10;
   --cream: #fdf9d8;
-  --cream-dark: #f5efd0;
+  --cream-dark: #f0e9c4;
   --ink: #1a0a0a;
-  --background: #fdf9d8;
+  --ink-muted: #3d2a2a;
+  --background: #f7f3e4;
   --foreground: #1a0a0a;
+  --shadow-crimson: rgba(132, 22, 23, 0.18);
+  --shadow-ink: rgba(26, 10, 10, 0.12);
 }
 
 @theme inline {
@@ -18,33 +21,55 @@
   --color-cream: var(--cream);
   --color-cream-dark: var(--cream-dark);
   --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
   --font-sans: var(--font-body);
   --font-display: var(--font-display);
 }
 
 html {
-  /* 18px base — modest readability bump for all rem-based type */
-  font-size: 112.5%;
+  font-size: 106.25%;
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-body), system-ui, sans-serif;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 .font-display {
-  font-family: var(--font-display), Georgia, serif;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-feature-settings: "ss01" on;
 }
 
-/* Western-inspired subtle pattern */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100%;
+  z-index: 100;
+  border-radius: 0.5rem;
+  background: var(--cream);
+  color: var(--crimson);
+  padding: 0.625rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  box-shadow: 0 8px 24px var(--shadow-crimson);
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Subtle grain + pattern */
 .bg-western-pattern {
-  background-color: var(--cream);
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23841617' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-color: var(--background);
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23841617' fill-opacity='0.035'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
-/* Per-page OU photo watermarks — faded edge placement, clear center for content */
+/* Per-page OU photo watermarks */
 .page-shell {
   position: relative;
   min-height: 100%;
@@ -55,12 +80,12 @@ body {
   top: 0;
   bottom: 0;
   z-index: 0;
-  width: min(44vw, 540px);
+  width: min(40vw, 480px);
   pointer-events: none;
   background-repeat: no-repeat;
   background-size: cover;
-  opacity: 0.22;
-  filter: sepia(0.35) saturate(0.7) brightness(1.08) contrast(0.92);
+  opacity: 0.16;
+  filter: sepia(0.25) saturate(0.75) brightness(1.05) contrast(0.94);
 }
 
 .page-shell__watermark--left {
@@ -68,14 +93,14 @@ body {
   background-position: left center;
   -webkit-mask-image: linear-gradient(
     to right,
-    rgba(0, 0, 0, 0.95) 0%,
-    rgba(0, 0, 0, 0.55) 45%,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.45) 50%,
     transparent 100%
   );
   mask-image: linear-gradient(
     to right,
-    rgba(0, 0, 0, 0.95) 0%,
-    rgba(0, 0, 0, 0.55) 45%,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.45) 50%,
     transparent 100%
   );
 }
@@ -85,14 +110,14 @@ body {
   background-position: right center;
   -webkit-mask-image: linear-gradient(
     to left,
-    rgba(0, 0, 0, 0.95) 0%,
-    rgba(0, 0, 0, 0.55) 45%,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.45) 50%,
     transparent 100%
   );
   mask-image: linear-gradient(
     to left,
-    rgba(0, 0, 0, 0.95) 0%,
-    rgba(0, 0, 0, 0.55) 45%,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.45) 50%,
     transparent 100%
   );
 }
@@ -103,10 +128,10 @@ body {
   z-index: 0;
   pointer-events: none;
   background: radial-gradient(
-    ellipse 68% 58% at 50% 42%,
-    var(--cream) 0%,
-    rgba(253, 249, 216, 0.92) 42%,
-    transparent 78%
+    ellipse 72% 62% at 50% 40%,
+    var(--background) 0%,
+    rgba(247, 243, 228, 0.94) 45%,
+    transparent 80%
   );
 }
 
@@ -123,13 +148,13 @@ body {
 .page-shell--roster .page-shell__watermark--left {
   background-image: url("/backgrounds/schooner.jpg");
   background-position: 15% 70%;
-  opacity: 0.24;
+  opacity: 0.18;
 }
 
 .page-shell--roster .page-shell__watermark--right {
   background-image: url("/backgrounds/schooner-ponies.jpg");
   background-position: 85% 65%;
-  opacity: 0.24;
+  opacity: 0.18;
 }
 
 .page-shell--schedule .page-shell__watermark--left {
@@ -155,7 +180,7 @@ body {
 .page-shell--news .page-shell__watermark--left {
   background-image: url("/backgrounds/campus.jpg");
   background-position: left 45%;
-  opacity: 0.2;
+  opacity: 0.14;
 }
 
 .page-shell--news .page-shell__watermark--right {
@@ -166,39 +191,45 @@ body {
 .page-shell--advanced .page-shell__watermark--left {
   background-image: url("/backgrounds/stadium.jpg");
   background-position: 5% 35%;
-  opacity: 0.18;
+  opacity: 0.14;
 }
 
 .page-shell--advanced .page-shell__watermark--right {
   background-image: url("/backgrounds/schooner-ponies.jpg");
   background-position: 95% 70%;
-  opacity: 0.2;
+  opacity: 0.16;
 }
 
 .page-shell--legends .page-shell__watermark--left {
   background-image: url("/backgrounds/schooner-ponies.jpg");
   background-position: 8% 55%;
-  opacity: 0.21;
+  opacity: 0.16;
 }
 
 .page-shell--legends .page-shell__watermark--right {
   background-image: url("/backgrounds/campus.jpg");
   background-position: 92% 40%;
-  opacity: 0.19;
+  opacity: 0.14;
 }
 
 @media (max-width: 768px) {
   .page-shell__watermark {
-    width: min(52vw, 280px);
-    opacity: 0.14;
+    width: min(48vw, 260px);
+    opacity: 0.1;
   }
 
   .page-shell__vignette {
     background: radial-gradient(
-      ellipse 88% 70% at 50% 40%,
-      var(--cream) 0%,
-      rgba(253, 249, 216, 0.95) 50%,
-      transparent 85%
+      ellipse 90% 72% at 50% 40%,
+      var(--background) 0%,
+      rgba(247, 243, 228, 0.96) 52%,
+      transparent 88%
     );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }

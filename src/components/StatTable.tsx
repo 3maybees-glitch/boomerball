@@ -57,17 +57,39 @@ interface TeamStatGridProps {
 
 export function TeamStatGrid({ stats }: TeamStatGridProps) {
   return (
-    <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-4 lg:grid-cols-8">
-      {stats.map((stat) => (
+    <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-4">
+      {stats.map((stat, index) => (
         <div
           key={stat.label}
-          className="rounded-lg border-2 border-crimson/15 bg-white px-3 py-2.5 text-center shadow-sm"
+          className={`rounded-xl px-4 py-4 text-center ${
+            index === 0
+              ? "col-span-2 bg-crimson text-cream shadow-[0_8px_24px_rgba(132,22,23,0.22)] sm:col-span-2 lg:col-span-2"
+              : "border border-crimson/10 bg-white/90 shadow-[0_4px_16px_rgba(26,10,10,0.06)]"
+          }`}
         >
-          <p className="text-xl font-bold tabular-nums text-crimson sm:text-2xl">{stat.value}</p>
-          <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-wide text-ink/70 sm:text-xs">
+          <p
+            className={`font-display text-2xl font-bold tabular-nums sm:text-3xl ${
+              index === 0 ? "text-cream" : "text-crimson"
+            }`}
+          >
+            {stat.value}
+          </p>
+          <p
+            className={`mt-1 text-[10px] font-semibold uppercase tracking-[0.14em] sm:text-xs ${
+              index === 0 ? "text-cream/80" : "text-ink/60"
+            }`}
+          >
             {stat.label}
           </p>
-          {stat.sub && <p className="mt-0.5 text-[10px] text-ink/50">{stat.sub}</p>}
+          {stat.sub && (
+            <p
+              className={`mt-0.5 text-[10px] ${
+                index === 0 ? "text-cream/65" : "text-ink/45"
+              }`}
+            >
+              {stat.sub}
+            </p>
+          )}
         </div>
       ))}
     </div>

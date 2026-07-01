@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { HatGlasses } from "lucide-react";
 import { SiteLogo } from "@/components/SiteLogo";
-import { PREMIUM_RECRUIT_ROUTE, PREMIUM_ROUTE, PREMIUM_TIER_NAME } from "@/lib/premium";
+import { NavLinks } from "@/components/NavLinks";
+import { PREMIUM_RECRUIT_ROUTE, PREMIUM_ROUTE } from "@/lib/premium";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -15,49 +16,37 @@ const navLinks = [
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b-2 border-crimson-dark bg-crimson shadow-lg">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-        <Link href="/" className="group flex items-center gap-3">
+    <header className="sticky top-0 z-50 border-b border-crimson-dark/60 bg-crimson/95 shadow-[0_4px_24px_rgba(92,15,16,0.25)] backdrop-blur-md">
+      <div className="mx-auto flex h-[4.25rem] max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
+        <Link
+          href="/"
+          className="group flex min-w-0 items-center gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cream"
+        >
           <SiteLogo variant="header" />
-          <span className="hidden text-[10px] uppercase tracking-[0.2em] text-cream/70 sm:block">
+          <span className="hidden truncate text-[10px] font-semibold uppercase tracking-[0.22em] text-cream/65 lg:block">
             Sooners Analytics
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex" aria-label="Main">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="rounded-md px-3 py-2 text-sm font-medium text-cream/90 transition hover:bg-crimson-dark hover:text-cream"
-            >
-              {link.label}
-            </Link>
-          ))}
+        <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Main">
+          <NavLinks links={navLinks} />
         </nav>
 
         <Link
           href={PREMIUM_RECRUIT_ROUTE}
-          className="flex items-center gap-1.5 rounded-full border border-cream/40 bg-cream px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-crimson transition hover:bg-white"
+          className="flex shrink-0 items-center gap-1.5 rounded-full border border-cream/30 bg-cream px-3.5 py-2 text-xs font-bold uppercase tracking-wide text-crimson shadow-[0_4px_16px_rgba(253,249,216,0.2)] transition hover:bg-white active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cream"
         >
           <HatGlasses className="h-3.5 w-3.5" aria-hidden />
           <span className="hidden sm:inline">Join The Team</span>
+          <span className="sm:hidden">Join</span>
         </Link>
       </div>
 
       <nav
-        className="flex gap-1 overflow-x-auto border-t border-crimson-dark/50 px-4 py-2 md:hidden"
+        className="flex gap-1 overflow-x-auto border-t border-crimson-dark/40 px-4 py-2 lg:hidden"
         aria-label="Mobile"
       >
-        {navLinks.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            className="shrink-0 rounded-md px-3 py-1.5 text-xs font-medium text-cream/90 hover:bg-crimson-dark"
-          >
-            {link.label}
-          </Link>
-        ))}
+        <NavLinks links={navLinks} variant="mobile" />
       </nav>
     </header>
   );
