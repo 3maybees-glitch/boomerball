@@ -13,12 +13,12 @@ export function ScheduleCard({ game }: ScheduleCardProps) {
 
   return (
     <article
-      className={`rounded-xl border-2 bg-white p-4 shadow-sm ${
+      className={`rounded-xl border bg-white/90 p-4 shadow-[0_4px_20px_rgba(26,10,10,0.06)] transition hover:shadow-[0_8px_28px_rgba(26,10,10,0.1)] ${
         isWin
-          ? "border-green-300/60"
+          ? "border-green-300/50"
           : isLoss
-            ? "border-red-300/60"
-            : "border-crimson/15"
+            ? "border-red-300/50"
+            : "border-crimson/12"
       }`}
     >
       <div className="flex flex-wrap items-start justify-between gap-3">
