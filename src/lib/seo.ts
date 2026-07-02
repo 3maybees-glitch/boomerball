@@ -34,6 +34,7 @@ export const PUBLIC_ROUTES: {
   { path: "/stats", changeFrequency: "weekly", priority: 0.9 },
   { path: "/roster", changeFrequency: "weekly", priority: 0.9 },
   { path: "/schedule", changeFrequency: "weekly", priority: 0.9 },
+  { path: "/mmqb", changeFrequency: "weekly", priority: 0.88 },
   { path: "/news", changeFrequency: "daily", priority: 0.85 },
   { path: "/legend-land", changeFrequency: "monthly", priority: 0.8 },
   { path: "/join", changeFrequency: "monthly", priority: 0.7 },

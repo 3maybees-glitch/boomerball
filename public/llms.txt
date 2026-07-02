@@ -11,6 +11,7 @@ Boomer Ball (https://boomerball.app) is a fan-inspired college football analytic
 - 2026 Roster & Coaches: https://boomerball.app/roster
 - Football Schedule: https://boomerball.app/schedule
 - Sooner News: https://boomerball.app/news
+- Monday Morning Quarterback (weekly recaps): https://boomerball.app/mmqb
 - Legend Land (Heisman winners & titles): https://boomerball.app/legend-land
 - Join / Premium: https://boomerball.app/join
 
