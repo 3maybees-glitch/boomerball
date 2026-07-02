@@ -119,3 +119,35 @@ export interface AdvancedMetric {
   description: string;
   category: "offense" | "defense" | "special" | "efficiency";
 }
+
+export interface RecapStat {
+  label: string;
+  value: string;
+}
+
+export interface WeeklyRecapSection {
+  title: string;
+  body: string;
+  stats?: RecapStat[];
+}
+
+export interface WeeklyRecap {
+  id: string;
+  slug: string;
+  week: number;
+  season: number;
+  publishedDate: string;
+  opponent: string;
+  location: string;
+  isHome: boolean;
+  result: "W" | "L";
+  score: string;
+  record: string;
+  headline: string;
+  lede: string;
+  sections: WeeklyRecapSection[];
+  premiumSections: WeeklyRecapSection[];
+  sources: { label: string; url: string }[];
+  /** Archive recaps from prior seasons; new issues publish during active seasons */
+  isArchive?: boolean;
+}

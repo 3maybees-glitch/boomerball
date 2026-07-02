@@ -9,6 +9,7 @@ const navLinks = [
   { href: "/stats", label: "Stats" },
   { href: "/roster", label: "Roster" },
   { href: "/schedule", label: "Schedule" },
+  { href: "/mmqb", label: "MMQB" },
   { href: "/legend-land", label: "Legend Land" },
   { href: "/news", label: "News" },
   { href: PREMIUM_ROUTE, label: "Locker Room" },

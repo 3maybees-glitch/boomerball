@@ -4,6 +4,7 @@ import Link from "next/link";
 import {
   BarChart3,
   Calendar,
+  ClipboardList,
   HatGlasses,
   Newspaper,
   Users,
@@ -16,7 +17,7 @@ export type ExploreLinkData = {
   href: string;
   label: string;
   desc: string;
-  icon: "stats" | "roster" | "schedule" | "legends" | "news" | "join" | "locker";
+  icon: "stats" | "roster" | "schedule" | "legends" | "news" | "mmqb" | "join" | "locker";
   accent?: "default" | "crimson" | "dark";
 };
 
@@ -26,6 +27,7 @@ const iconMap: Record<ExploreLinkData["icon"], LucideIcon> = {
   schedule: Calendar,
   legends: Trophy,
   news: Newspaper,
+  mmqb: ClipboardList,
   join: HatGlasses,
   locker: HatGlasses,
 };

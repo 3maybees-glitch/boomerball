@@ -13,6 +13,7 @@ import { roster2026 } from "@/data/roster";
 import { schedule2026 } from "@/data/schedule-2026";
 import { teamStats2025, STATS_SOURCE_SOONERS } from "@/data/stats";
 import { newsItems } from "@/data/news";
+import { getLatestRecap } from "@/lib/mmqb";
 import { PREMIUM_RECRUIT_ROUTE, PREMIUM_ROUTE, PREMIUM_TIER_NAME } from "@/lib/premium";
 import { seoFaqItems } from "@/data/seo-faq";
 import {
@@ -60,6 +61,13 @@ const quickLinks = [
     accent: "default" as const,
   },
   {
+    href: "/mmqb",
+    label: "MMQB",
+    desc: "Monday game recaps with stats & writeups",
+    icon: "mmqb" as const,
+    accent: "default" as const,
+  },
+  {
     href: PREMIUM_RECRUIT_ROUTE,
     label: "Join The Team",
     desc: "Recruitment page with Locker Room preview",
@@ -78,6 +86,7 @@ const quickLinks = [
 export default function HomePage() {
   const upcomingGames = schedule2026.slice(0, 3);
   const latestNews = newsItems.slice(0, 3);
+  const latestRecap = getLatestRecap();
 
   return (
     <PageShell theme="home">
@@ -145,6 +154,51 @@ export default function HomePage() {
         </section>
 
         <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:py-16">
+          {latestRecap && (
+            <MotionReveal className="mb-14">
+              <h2 className="font-display text-2xl font-bold tracking-tight text-crimson sm:text-3xl">
+                Monday Morning Quarterback
+              </h2>
+              <p className="mt-2 max-w-[55ch] text-sm text-ink/70">
+                Weekly game recaps with regular stats, writeups, and advanced analytics.
+              </p>
+              <article className="group mt-5 border-l-2 border-crimson/25 bg-white/80 py-4 pl-5 pr-4 transition hover:border-crimson hover:bg-white">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span
+                    className={`rounded-md px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide ${
+                      latestRecap.result === "W"
+                        ? "bg-green-100/90 text-green-800"
+                        : "bg-red-100/90 text-red-800"
+                    }`}
+                  >
+                    {latestRecap.result} {latestRecap.score}
+                  </span>
+                  <span className="text-xs font-medium uppercase tracking-wide text-ink/50">
+                    Week {latestRecap.week} · {latestRecap.season}
+                  </span>
+                </div>
+                <h3 className="mt-2 font-display text-lg font-bold leading-snug text-ink group-hover:text-crimson">
+                  {latestRecap.headline}
+                </h3>
+                <p className="mt-2 max-w-[55ch] text-sm leading-relaxed text-ink/70">
+                  {latestRecap.lede}
+                </p>
+                <Link
+                  href={`/mmqb/${latestRecap.slug}`}
+                  className="mt-3 inline-block text-xs font-semibold text-crimson underline decoration-crimson/25 underline-offset-2"
+                >
+                  Read the full recap
+                </Link>
+              </article>
+              <Link
+                href="/mmqb"
+                className="mt-4 inline-flex text-sm font-semibold text-crimson underline decoration-crimson/30 underline-offset-4 transition hover:decoration-crimson"
+              >
+                All MMQB issues
+              </Link>
+            </MotionReveal>
+          )}
+
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
             <MotionReveal>
               <h2 className="font-display text-2xl font-bold tracking-tight text-crimson sm:text-3xl">
