@@ -39,6 +39,8 @@ export const PUBLIC_ROUTES: {
   { path: "/legend-land", changeFrequency: "monthly", priority: 0.8 },
   { path: "/join", changeFrequency: "monthly", priority: 0.7 },
   { path: "/locker-room", changeFrequency: "monthly", priority: 0.65 },
+  { path: "/terms", changeFrequency: "monthly", priority: 0.4 },
+  { path: "/refunds", changeFrequency: "monthly", priority: 0.4 },
 ];
 
 export function siteUrl(path = "/"): string {
