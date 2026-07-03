@@ -12,6 +12,7 @@ const navLinks = [
   { href: "/mmqb", label: "MMQB" },
   { href: "/legend-land", label: "Legend Land" },
   { href: "/news", label: "News" },
+  { href: "/nfl-comps", label: "NFL Comps" },
   { href: PREMIUM_ROUTE, label: "Locker Room" },
 ];
 

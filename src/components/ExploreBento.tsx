@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import {
+  ArrowLeftRight,
   BarChart3,
   Calendar,
   ClipboardList,
@@ -17,7 +18,7 @@ export type ExploreLinkData = {
   href: string;
   label: string;
   desc: string;
-  icon: "stats" | "roster" | "schedule" | "legends" | "news" | "mmqb" | "join" | "locker";
+  icon: "stats" | "roster" | "schedule" | "legends" | "news" | "mmqb" | "join" | "locker" | "comps";
   accent?: "default" | "crimson" | "dark";
 };
 
@@ -30,6 +31,7 @@ const iconMap: Record<ExploreLinkData["icon"], LucideIcon> = {
   mmqb: ClipboardList,
   join: HatGlasses,
   locker: HatGlasses,
+  comps: ArrowLeftRight,
 };
 
 type ExploreBentoProps = {
@@ -53,6 +55,8 @@ export function ExploreBento({ links }: ExploreBentoProps) {
     "",
     "lg:col-span-2",
     "",
+    "",
+    "lg:col-span-4",
   ];
 
   return (

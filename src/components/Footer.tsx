@@ -8,6 +8,7 @@ const exploreLinks = [
   { href: "/roster", label: "Roster & Coaches" },
   { href: "/schedule", label: "Schedule" },
   { href: "/legend-land", label: "Legend Land" },
+  { href: "/nfl-comps", label: "NFL Comp Machine" },
   { href: PREMIUM_ROUTE, label: PREMIUM_TIER_NAME },
 ];
 

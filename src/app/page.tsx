@@ -81,6 +81,13 @@ const quickLinks = [
     icon: "locker" as const,
     accent: "dark" as const,
   },
+  {
+    href: "/nfl-comps",
+    label: "NFL Comp Machine",
+    desc: "Every Sooner's closest NFL twin, graded out of 100 — plus a scouting tool for any college player",
+    icon: "comps" as const,
+    accent: "crimson" as const,
+  },
 ];
 
 export default function HomePage() {
