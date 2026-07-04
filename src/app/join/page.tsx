@@ -42,8 +42,8 @@ const perks = [
   },
   {
     icon: "grades" as const,
-    title: "Player grades",
-    desc: "PFF-style 0–100 grades for every key Sooner, with plain-English breakdowns.",
+    title: "Player grades & NFL comps",
+    desc: "PFF-style 0–100 grades plus the NFL Comp Machine — every Sooner's closest pro twin, graded out of 100.",
   },
   {
     icon: "scheme" as const,
