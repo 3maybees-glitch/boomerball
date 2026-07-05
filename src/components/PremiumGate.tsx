@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { Lock, ShieldCheck, Unlock, Loader2 } from "lucide-react";
+import { Lock, Mail, ShieldCheck, Unlock, Loader2 } from "lucide-react";
 import {
   PREMIUM_COOKIE,
   PREMIUM_PRICE_DISPLAY,
@@ -29,6 +29,9 @@ export function PremiumGate({ children }: PremiumGateProps) {
   const [error, setError] = useState<string | null>(null);
   const [cancelled, setCancelled] = useState(false);
   const [stripeConfigured, setStripeConfigured] = useState(true);
+  const [magicEmail, setMagicEmail] = useState("");
+  const [magicLoading, setMagicLoading] = useState(false);
+  const [magicMessage, setMagicMessage] = useState<string | null>(null);
 
   const verifySession = useCallback(async (sessionId: string) => {
     const res = await fetch(`/api/verify-premium?session_id=${sessionId}`);
@@ -42,12 +45,32 @@ export function PremiumGate({ children }: PremiumGateProps) {
     return false;
   }, []);
 
+  const verifyMagicLink = useCallback(async (token: string) => {
+    const res = await fetch(`/api/restore-premium?token=${encodeURIComponent(token)}`, {
+      credentials: "include",
+    });
+    const data = await res.json();
+    if (data.premium) {
+      setUnlocked(true);
+      window.history.replaceState({}, "", window.location.pathname);
+      return true;
+    }
+    setError(data.error ?? "Magic link expired or invalid. Request a new one below.");
+    return false;
+  }, []);
+
   const syncPremiumState = useCallback(async () => {
     const params = new URLSearchParams(window.location.search);
 
     if (params.get("checkout") === "cancelled") {
       setCancelled(true);
       window.history.replaceState({}, "", PREMIUM_ROUTE);
+    }
+
+    const magicToken = params.get("magic_token");
+    if (magicToken) {
+      const ok = await verifyMagicLink(magicToken);
+      if (ok) return;
     }
 
     const sessionId = params.get("session_id");
@@ -70,7 +93,7 @@ export function PremiumGate({ children }: PremiumGateProps) {
     if (IS_DEV && hasLegacyPremiumCookie()) {
       setUnlocked(true);
     }
-  }, [verifySession]);
+  }, [verifySession, verifyMagicLink]);
 
   useEffect(() => {
     fetch("/api/checkout")
@@ -106,6 +129,33 @@ export function PremiumGate({ children }: PremiumGateProps) {
       setError("Network error. Please try again.");
     } finally {
       setLoading(false);
+    }
+  }
+
+  async function handleMagicLink(e: React.FormEvent) {
+    e.preventDefault();
+    setMagicLoading(true);
+    setMagicMessage(null);
+    setError(null);
+    try {
+      const res = await fetch("/api/send-magic-link", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: magicEmail,
+          redirect: window.location.pathname,
+        }),
+      });
+      const data = await res.json();
+      if (data.ok) {
+        setMagicMessage(data.message);
+        return;
+      }
+      setError(data.error ?? "Unable to send magic link. Please try again.");
+    } catch {
+      setError("Network error. Please try again.");
+    } finally {
+      setMagicLoading(false);
     }
   }
 
@@ -178,6 +228,53 @@ export function PremiumGate({ children }: PremiumGateProps) {
                 `Unlock ${PREMIUM_TIER_NAME}`
               )}
             </button>
+
+            <div className="mt-6 border-t border-cream-dark pt-5 text-left">
+              <p className="text-center text-[11px] font-bold uppercase tracking-[0.16em] text-ink/45">
+                Already purchased?
+              </p>
+              <p className="mt-1.5 text-center text-xs leading-relaxed text-ink/60">
+                Enter the email you used at checkout and we&apos;ll send a magic link
+                to get back in on this device.
+              </p>
+              <form onSubmit={handleMagicLink} className="mt-3 space-y-2.5">
+                <label className="block">
+                  <span className="sr-only">Email address</span>
+                  <input
+                    type="email"
+                    value={magicEmail}
+                    onChange={(e) => setMagicEmail(e.target.value)}
+                    placeholder="you@example.com"
+                    autoComplete="email"
+                    required
+                    className="w-full rounded-xl border border-crimson/20 bg-white px-3.5 py-2.5 text-sm text-ink shadow-sm placeholder:text-ink/35 focus:border-crimson focus:outline-none focus:ring-2 focus:ring-crimson/20"
+                  />
+                </label>
+                <button
+                  type="submit"
+                  disabled={magicLoading || !magicEmail.trim()}
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-crimson/25 bg-cream px-6 py-2.5 text-sm font-bold text-crimson transition hover:bg-crimson/10 disabled:opacity-60"
+                >
+                  {magicLoading ? (
+                    <>
+                      <Loader2 className="h-4 w-4 animate-spin" aria-hidden />
+                      Sending link…
+                    </>
+                  ) : (
+                    <>
+                      <Mail className="h-4 w-4" aria-hidden />
+                      Send me a magic link
+                    </>
+                  )}
+                </button>
+              </form>
+              {magicMessage && (
+                <p className="mt-3 rounded-lg border border-green-200 bg-green-50 px-3 py-2 text-xs leading-relaxed text-green-800">
+                  {magicMessage}
+                </p>
+              )}
+            </div>
+
             {error && (
               <p className="mt-3 text-sm text-red-600" role="alert">
                 {error}

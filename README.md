@@ -58,6 +58,20 @@ Redeploy after saving env vars.
 2. Success redirect → `/locker-room?session_id=…` → `/api/verify-premium` sets signed cookies
 3. Webhook confirms payment server-side for logging and reconciliation
 
+### Magic link restore (returning members)
+
+If a member clears cookies or switches browsers, they can enter their checkout email under **Send me a magic link** on any premium page. The app:
+
+1. Looks up a paid Stripe Checkout session for that email
+2. Emails a signed 15-minute link via [Resend](https://resend.com)
+3. Opens the link → sets the same premium cookies as checkout
+
+Add to Vercel env vars:
+
+5. `RESEND_API_KEY` — Resend Dashboard → API Keys
+6. `RESEND_FROM` — verified sender, e.g. `Boomer Ball <locker@boomerball.app>`
+7. `MAGIC_LINK_SECRET` — optional; defaults to `STRIPE_WEBHOOK_SECRET`
+
 Without Stripe keys, **local dev only** can use demo unlock via checkout button. Production requires live keys.
 
 Legacy URL `/advanced` redirects permanently to `/locker-room`.
