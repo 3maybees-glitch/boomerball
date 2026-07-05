@@ -39,6 +39,7 @@ export const PUBLIC_ROUTES: {
   { path: "/legend-land", changeFrequency: "monthly", priority: 0.8 },
   { path: "/join", changeFrequency: "monthly", priority: 0.7 },
   { path: "/nfl-comps", changeFrequency: "monthly", priority: 0.68 },
+  { path: "/gameulator", changeFrequency: "monthly", priority: 0.68 },
   { path: "/locker-room", changeFrequency: "monthly", priority: 0.65 },
 ];
 

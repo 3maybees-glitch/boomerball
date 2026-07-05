@@ -88,6 +88,13 @@ const quickLinks = [
     icon: "comps" as const,
     accent: "crimson" as const,
   },
+  {
+    href: "/gameulator",
+    label: "The Game-u-lator",
+    desc: "Grade every unit, then simulate OU vs. any 2026 opponent — scores, win odds & estimated box scores",
+    icon: "sim" as const,
+    accent: "dark" as const,
+  },
 ];
 
 export default function HomePage() {

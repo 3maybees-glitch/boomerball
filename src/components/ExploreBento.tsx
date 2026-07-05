@@ -6,6 +6,7 @@ import {
   BarChart3,
   Calendar,
   ClipboardList,
+  Dices,
   HatGlasses,
   Newspaper,
   Users,
@@ -18,7 +19,7 @@ export type ExploreLinkData = {
   href: string;
   label: string;
   desc: string;
-  icon: "stats" | "roster" | "schedule" | "legends" | "news" | "mmqb" | "join" | "locker" | "comps";
+  icon: "stats" | "roster" | "schedule" | "legends" | "news" | "mmqb" | "join" | "locker" | "comps" | "sim";
   accent?: "default" | "crimson" | "dark";
 };
 
@@ -32,6 +33,7 @@ const iconMap: Record<ExploreLinkData["icon"], LucideIcon> = {
   join: HatGlasses,
   locker: HatGlasses,
   comps: ArrowLeftRight,
+  sim: Dices,
 };
 
 type ExploreBentoProps = {
@@ -56,7 +58,8 @@ export function ExploreBento({ links }: ExploreBentoProps) {
     "lg:col-span-2",
     "",
     "",
-    "lg:col-span-4",
+    "lg:col-span-2",
+    "lg:col-span-2",
   ];
 
   return (
