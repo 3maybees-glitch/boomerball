@@ -51,6 +51,11 @@ const perks = [
     desc: "Formation guides, personnel packages, and chess-match breakdowns for Arbuckle and Venables.",
   },
   {
+    icon: "analytics" as const,
+    title: "The Game-u-lator",
+    desc: "Simulate OU vs. every 2026 opponent — grade all 13 units, get three predicted scores, win odds, and estimated box scores.",
+  },
+  {
     icon: "recruiting" as const,
     title: "Recruiting board",
     desc: "Cross-service 2027 class rankings, commit board, and blue-chip tracking.",
