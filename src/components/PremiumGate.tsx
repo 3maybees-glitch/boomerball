@@ -205,7 +205,15 @@ export function PremiumGate({ children }: PremiumGateProps) {
           </li>
           <li className="flex items-start gap-2">
             <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-crimson" aria-hidden />
+            NFL Comp Machine & The Game-u-lator
+          </li>
+          <li className="flex items-start gap-2">
+            <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-crimson" aria-hidden />
             Scheme guides, recruiting intel & weekly season updates
+          </li>
+          <li className="flex items-start gap-2">
+            <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-crimson" aria-hidden />
+            Magic link restore for returning members
           </li>
         </ul>
         <p className="mt-4 font-display text-3xl font-bold text-crimson">

@@ -1,8 +1,11 @@
 "use client";
 
 import {
+  ArrowLeftRight,
   BarChart3,
   ClipboardList,
+  Dices,
+  Mail,
   Shield,
   Star,
   Target,
@@ -10,29 +13,34 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { MotionStagger, MotionStaggerItem } from "@/components/motion/MotionReveal";
-
-type PerkIcon = "analytics" | "grades" | "scheme" | "recruiting" | "updates" | "lifetime";
+import type { LockerRoomFeatureIcon } from "@/data/locker-room-features";
 
 type Perk = {
-  icon: PerkIcon;
+  icon: LockerRoomFeatureIcon;
   title: string;
   desc: string;
 };
 
-const iconMap: Record<PerkIcon, LucideIcon> = {
+const iconMap: Record<LockerRoomFeatureIcon, LucideIcon> = {
   analytics: BarChart3,
   grades: Star,
+  comps: ArrowLeftRight,
+  simulator: Dices,
   scheme: Target,
   recruiting: ClipboardList,
   updates: Zap,
   lifetime: Shield,
+  magic: Mail,
 };
 
 const cellSpans = [
   "lg:col-span-2",
   "",
-  "",
   "lg:col-span-2",
+  "lg:col-span-2",
+  "",
+  "",
+  "",
   "",
   "",
 ];
@@ -42,7 +50,7 @@ export function JoinPerksBento({ perks }: { perks: Perk[] }) {
     <MotionStagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {perks.map((perk, index) => {
         const Icon = iconMap[perk.icon];
-        const isFeatured = index === 0 || index === 3;
+        const isFeatured = index === 0 || index === 2 || index === 3;
 
         return (
           <MotionStaggerItem key={perk.title} className={cellSpans[index] ?? ""}>

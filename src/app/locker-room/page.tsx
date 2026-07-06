@@ -11,15 +11,11 @@ import { SchemeGuide } from "@/components/SchemeGuide";
 import { SourceAttribution } from "@/components/SourceAttribution";
 import { recruitingClass2027 } from "@/data/recruiting-2027";
 import { computeAdvancedStats } from "@/lib/advanced-metrics";
-import {
-  PREMIUM_PRICE_DISPLAY,
-  PREMIUM_TIER_NAME,
-  PREMIUM_TIER_TAGLINE,
-} from "@/lib/premium";
+import { LOCKER_ROOM_TAGLINE } from "@/data/locker-room-features";
 import { breadcrumbJsonLd, pageMetadata, webPageJsonLd } from "@/lib/seo";
 
 const PAGE_TITLE = PREMIUM_TIER_NAME;
-const PAGE_DESCRIPTION = `${PREMIUM_TIER_TAGLINE}. SP+, PFF-style grades, schemes, and recruiting intel for Oklahoma Sooners football.`;
+const PAGE_DESCRIPTION = `${LOCKER_ROOM_TAGLINE} NFL Comp Machine, The Game-u-lator, SP+ dashboards, PFF-style grades, schemes, and 2027 recruiting intel.`;
 
 export const metadata: Metadata = pageMetadata({
   title: PAGE_TITLE,
@@ -188,7 +184,7 @@ export default function LockerRoomPage() {
       <PageHeader
         theme="advanced"
         title={PREMIUM_TIER_NAME}
-        description={`${PREMIUM_TIER_TAGLINE}. SP+-inspired efficiency ratings, PFF-style player grades, scheme guides, and 2027 recruiting breakdowns. One-time ${PREMIUM_PRICE_DISPLAY} for lifetime access.`}
+        description={`${LOCKER_ROOM_TAGLINE} Includes NFL Comp Machine, The Game-u-lator, SP+-inspired ratings, PFF-style player grades, scheme guides, and 2027 recruiting breakdowns. One-time ${PREMIUM_PRICE_DISPLAY} for lifetime access.`}
       >
         <span className="inline-flex rounded-full bg-cream px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-crimson">
           Premium · Members only

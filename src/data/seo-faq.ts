@@ -41,4 +41,9 @@ export const seoFaqItems: SeoFaqItem[] = [
     answer:
       "Statistics are sourced from University of Oklahoma Athletics (soonersports.com) and cross-referenced with ESPN College Football. Every stats page includes source attribution links.",
   },
+  {
+    question: "What is The Locker Room on Boomer Ball?",
+    answer:
+      "The Locker Room is Boomer Ball's premium membership ($9.99 one-time, lifetime access). It unlocks advanced SP+ analytics, PFF-style player grades, the NFL Comp Machine, The Game-u-lator matchup simulator, scheme guides, the 2027 recruiting board, and weekly in-season metric updates. Members can restore access on any device with a magic link sent to their checkout email.",
+  },
 ];
