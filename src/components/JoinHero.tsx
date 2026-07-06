@@ -41,9 +41,15 @@ export function JoinHero() {
             Join The Locker Room
           </h1>
           <p className="mt-5 max-w-[40ch] text-base leading-relaxed text-cream/85 sm:text-lg">
-            An inner circle for die-hard Sooners fans who want film breakdowns,
-            recruiting intel, and advanced metrics beyond the box score.
+            The inner circle for die-hard Sooners fans — SP+ analytics, PFF-style
+            grades, the NFL Comp Machine, The Game-u-lator, scheme intel, and a
+            live 2027 recruiting board.
           </p>
+          <ul className="mt-5 space-y-2 text-sm text-cream/80">
+            <li>· NFL Comp Machine — every Sooner&apos;s closest pro twin</li>
+            <li>· The Game-u-lator — simulate OU vs. every 2026 opponent</li>
+            <li>· Magic link restore — get back in on any device</li>
+          </ul>
           <div className="mt-6 flex flex-wrap gap-3">
             <span className="rounded-full bg-cream px-4 py-2 text-sm font-bold text-crimson">
               {PREMIUM_PRICE_DISPLAY} · lifetime access
@@ -79,8 +85,10 @@ export function JoinHero() {
             You&apos;ve watched the games. Now see what the coaches see.
           </p>
           <p className="mt-3 text-sm leading-relaxed text-cream/75">
-            SP+-inspired ratings, PFF-style grades, full scheme breakdowns, and a
-            live 2027 recruiting board from On3, 247Sports, and ESPN.
+            Unlock every premium tool on Boomer Ball: SP+-inspired ratings,
+            PFF-style grades, NFL comps, matchup simulations, full scheme
+            breakdowns, and cross-service 2027 recruiting from On3, 247Sports,
+            and ESPN.
           </p>
         </motion.div>
       </div>

@@ -4,6 +4,7 @@ import { Lock, Shield, Trophy, Users } from "lucide-react";
 import { JoinHero } from "@/components/JoinHero";
 import { JoinPerksBento } from "@/components/JoinPerksBento";
 import { LockerRoomCTA } from "@/components/LockerRoomCTA";
+import { LockerRoomShowcase } from "@/components/LockerRoomShowcase";
 import { PageShell } from "@/components/PageShell";
 import { PageContent } from "@/components/PageContent";
 import { EditorialSection } from "@/components/EditorialSection";
@@ -12,6 +13,7 @@ import { MotionReveal } from "@/components/motion/MotionReveal";
 import { recruitingClass2027 } from "@/data/recruiting-2027";
 import { offensivePhilosophy } from "@/data/schemes";
 import { computeAdvancedStats } from "@/lib/advanced-metrics";
+import { LOCKER_ROOM_FEATURES, LOCKER_ROOM_TAGLINE } from "@/data/locker-room-features";
 import {
   PREMIUM_PRICE_DISPLAY,
   PREMIUM_ROUTE,
@@ -20,7 +22,7 @@ import {
 import { breadcrumbJsonLd, pageMetadata, webPageJsonLd } from "@/lib/seo";
 
 const PAGE_TITLE = `Join ${PREMIUM_TIER_NAME}`;
-const PAGE_DESCRIPTION = `We're recruiting die-hard Sooners fans. Preview SP+ analytics, PFF-style grades, scheme intel, and 2027 recruiting — ${PREMIUM_PRICE_DISPLAY} lifetime access.`;
+const PAGE_DESCRIPTION = `We're recruiting die-hard Sooners fans. ${LOCKER_ROOM_TAGLINE} NFL Comp Machine, The Game-u-lator, SP+ analytics, PFF-style grades, scheme intel, and 2027 recruiting — ${PREMIUM_PRICE_DISPLAY} lifetime access.`;
 
 export const metadata: Metadata = pageMetadata({
   title: PAGE_TITLE,
@@ -34,43 +36,11 @@ export const metadata: Metadata = pageMetadata({
   ],
 });
 
-const perks = [
-  {
-    icon: "analytics" as const,
-    title: "Advanced analytics",
-    desc: "SP+-inspired ratings, EPA/play, havoc rate, and success rate. The numbers coaches watch.",
-  },
-  {
-    icon: "grades" as const,
-    title: "Player grades & NFL comps",
-    desc: "PFF-style 0–100 grades plus the NFL Comp Machine — every Sooner's closest pro twin, graded out of 100.",
-  },
-  {
-    icon: "scheme" as const,
-    title: "Scheme intel",
-    desc: "Formation guides, personnel packages, and chess-match breakdowns for Arbuckle and Venables.",
-  },
-  {
-    icon: "analytics" as const,
-    title: "The Game-u-lator",
-    desc: "Simulate OU vs. every 2026 opponent — grade all 13 units, get three predicted scores, win odds, and estimated box scores.",
-  },
-  {
-    icon: "recruiting" as const,
-    title: "Recruiting board",
-    desc: "Cross-service 2027 class rankings, commit board, and blue-chip tracking.",
-  },
-  {
-    icon: "updates" as const,
-    title: "Weekly updates",
-    desc: "Metrics recalculate every week during the season. Your intel stays current.",
-  },
-  {
-    icon: "lifetime" as const,
-    title: "Lifetime access",
-    desc: "One payment, no subscription. Your locker stays open forever.",
-  },
-];
+const perks = LOCKER_ROOM_FEATURES.map(({ icon, title, desc }) => ({
+  icon,
+  title,
+  desc,
+}));
 
 export default function JoinPage() {
   const { spPlusOffense, spPlusDefense, spPlusOverall, metrics, playerGrades } =
@@ -96,7 +66,13 @@ export default function JoinPage() {
       />
       <JoinHero />
 
-      <section className="border-y border-crimson/10 bg-cream/35 py-14 sm:py-16">
+      <section className="border-y border-crimson/10 bg-white py-14 sm:py-16">
+        <PageContent className="py-0">
+          <LockerRoomShowcase variant="join" showCta={false} />
+        </PageContent>
+      </section>
+
+      <section className="border-b border-crimson/10 bg-cream/35 py-14 sm:py-16">
         <PageContent className="py-0">
           <EditorialSection
             title="What you get as a member"
@@ -252,8 +228,9 @@ export default function JoinPage() {
               Your offer is on the table
             </h2>
             <p className="mt-4 text-lg text-cream/90">
-              One-time {PREMIUM_PRICE_DISPLAY} for lifetime access to {PREMIUM_TIER_NAME}.
-              No recurring charges. Just the analytics die-hards deserve.
+              One-time {PREMIUM_PRICE_DISPLAY} for lifetime access to {PREMIUM_TIER_NAME} —
+              analytics, NFL Comps, The Game-u-lator, scheme guides, recruiting intel, and more.
+              No recurring charges.
             </p>
             <div className="mt-8 flex flex-col items-center gap-4">
               <LockerRoomCTA label="Join The Team" variant="featured" onDark />

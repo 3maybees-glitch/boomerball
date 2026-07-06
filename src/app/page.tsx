@@ -8,6 +8,7 @@ import { WesternDivider } from "@/components/WesternDivider";
 import { TeamStatGrid } from "@/components/StatTable";
 import { SourceAttribution } from "@/components/SourceAttribution";
 import { ScheduleCard } from "@/components/ScheduleCard";
+import { LockerRoomShowcase } from "@/components/LockerRoomShowcase";
 import { MotionReveal } from "@/components/motion/MotionReveal";
 import { roster2026 } from "@/data/roster";
 import { schedule2026 } from "@/data/schedule-2026";
@@ -70,14 +71,14 @@ const quickLinks = [
   {
     href: PREMIUM_RECRUIT_ROUTE,
     label: "Join The Team",
-    desc: "Recruitment page with Locker Room preview",
+    desc: "NFL Comps, Game-u-lator, SP+ analytics & more — $9.99 lifetime",
     icon: "join" as const,
     accent: "crimson" as const,
   },
   {
     href: PREMIUM_ROUTE,
     label: PREMIUM_TIER_NAME,
-    desc: "Premium SP+ analytics and insider grades",
+    desc: "All premium tools: analytics, NFL Comps, Game-u-lator, schemes & recruiting",
     icon: "locker" as const,
     accent: "dark" as const,
   },
@@ -148,6 +149,14 @@ export default function HomePage() {
               ]}
             />
           </MotionReveal>
+        </section>
+
+        <section className="border-y border-crimson/10 bg-white py-14 sm:py-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+            <MotionReveal>
+              <LockerRoomShowcase />
+            </MotionReveal>
+          </div>
         </section>
 
         <section className="border-y border-crimson/10 bg-cream/40 py-14 sm:py-16">

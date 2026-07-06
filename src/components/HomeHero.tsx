@@ -50,8 +50,8 @@ export function HomeHero() {
             Oklahoma Sooners football analytics
           </h1>
           <p className="mt-5 max-w-[38ch] text-base leading-relaxed text-cream/80 sm:text-lg">
-            2026 roster, schedule, 2025 stats, cited news, and premium SP+
-            metrics for die-hard fans.
+            2026 roster, schedule, 2025 stats, cited news, and The Locker Room —
+            NFL Comps, Game-u-lator, SP+ metrics, and more for die-hards.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
