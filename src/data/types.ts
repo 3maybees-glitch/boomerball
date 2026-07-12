@@ -34,6 +34,18 @@ export interface Player {
   recruitStars?: number;
   /** Previous college if arrived via transfer portal */
   transferFrom?: string;
+  /** EA Sports College Football 27 ratings, when available */
+  cfb27?: {
+    /** In-game position abbreviation */
+    position: string;
+    ovr: number;
+    spd: number;
+    str: number;
+    agi: number;
+    cod: number;
+    inj: number;
+    awr: number;
+  };
 }
 
 export interface Coach {

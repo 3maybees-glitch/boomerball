@@ -7,12 +7,13 @@ import { EditorialSection } from "@/components/EditorialSection";
 import { JsonLd } from "@/components/JsonLd";
 import { RosterGrid } from "@/components/RosterGrid";
 import { SourceAttribution } from "@/components/SourceAttribution";
+import { CFB27_RATINGS_SOURCE } from "@/data/cfb27-ratings";
 import { roster2026, ROSTER_SOURCE } from "@/data/roster";
 import { coaches2026, COACHES_SOURCE_2026 } from "@/data/coaches-2026";
 import { breadcrumbJsonLd, pageMetadata, webPageJsonLd } from "@/lib/seo";
 
 const PAGE_TITLE = "2026 Roster & Coaches";
-const PAGE_DESCRIPTION = `Full ${roster2026.length}-player 2026 Oklahoma Sooners football roster with height, weight, position, coaching staff bios, and recruiting context from soonersports.com.`;
+const PAGE_DESCRIPTION = `Full ${roster2026.length}-player 2026 Oklahoma Sooners football roster with height, weight, position, EA Sports College Football 27 ratings, coaching staff bios, and recruiting context from soonersports.com.`;
 
 export const metadata: Metadata = pageMetadata({
   title: PAGE_TITLE,
@@ -23,6 +24,7 @@ export const metadata: Metadata = pageMetadata({
     "OU football roster",
     "Sooners coaching staff",
     "Oklahoma football players",
+    "EA Sports College Football 27 Oklahoma ratings",
   ],
 });
 
@@ -41,13 +43,13 @@ export default function RosterPage() {
       <PageHeader
         theme="roster"
         title="2026 roster & coaching staff"
-        description={`Full spring roster with ${roster2026.length} players, sorted A–Z by last name with recruit star ratings and transfer portal info. Tap a row to expand bios.`}
+        description={`Full spring roster with ${roster2026.length} players, recruit stars, transfer portal info, and EA Sports College Football 27 overall ratings. Tap a row to expand bios and attribute breakdowns.`}
       />
 
       <PageContent>
         <EditorialSection
           title="Players"
-          description="Source: soonersports.com 2026 spring roster. Stars from On3, 247Sports, and ESPN composites. Headshots via ESPN where available."
+          description="Source: soonersports.com 2026 spring roster. Stars from On3, 247Sports, and ESPN composites. CFB 27 column shows EA Sports College Football 27 overall ratings — expand a row for SPD, STR, AGI, COD, INJ, and AWR."
           divider={false}
         >
           <RosterGrid players={roster2026} />
@@ -61,6 +63,7 @@ export default function RosterPage() {
               label: "On3 / 247Sports / ESPN (recruit data)",
               url: "https://www.on3.com/college/oklahoma-sooners/football/2026/commits/",
             },
+            { label: CFB27_RATINGS_SOURCE },
           ]}
         />
 

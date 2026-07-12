@@ -1,3 +1,4 @@
+import { cfb27Ratings } from "@/data/cfb27-ratings";
 import { rosterEnrichment } from "@/data/roster-enrichment";
 import type { Player } from "@/data/types";
 
@@ -19,11 +20,12 @@ export function sortPlayersByLastName(players: Player[]): Player[] {
 
 export function enrichPlayer(player: Player): Player {
   const extra = rosterEnrichment[player.id];
-  if (!extra) return player;
+  const ratings = cfb27Ratings[player.id];
   return {
     ...player,
-    recruitStars: extra.recruitStars ?? player.recruitStars,
-    transferFrom: extra.transferFrom ?? player.transferFrom,
+    recruitStars: extra?.recruitStars ?? player.recruitStars,
+    transferFrom: extra?.transferFrom ?? player.transferFrom,
+    cfb27: ratings ?? player.cfb27,
   };
 }
 
@@ -33,4 +35,13 @@ export function enrichRoster(players: Player[]): Player[] {
 
 export function formatRecruitStars(stars: number): string {
   return "⭐".repeat(stars);
+}
+
+/** Color class for CFB 27 overall rating badges */
+export function cfb27OvrTone(ovr: number): string {
+  if (ovr >= 90) return "bg-crimson text-cream";
+  if (ovr >= 85) return "bg-crimson/85 text-cream";
+  if (ovr >= 80) return "bg-crimson/15 text-crimson";
+  if (ovr >= 75) return "bg-cream-dark text-ink";
+  return "bg-cream text-ink/70";
 }
