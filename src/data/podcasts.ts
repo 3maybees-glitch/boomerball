@@ -54,4 +54,13 @@ export const soonerPodcasts: PodcastChannel[] = [
     thumbnail: "/podcasts/sooner-scoop.jpg",
     hosts: "SoonerScoop team",
   },
+  {
+    id: "sooner-surge",
+    name: "Sooner Surge",
+    description:
+      "OU sports talk covering Sooners football, softball, and recruiting from an aspiring sports-journalism crew.",
+    youtubeUrl: "https://www.youtube.com/@SoonerSurge",
+    thumbnail: "/podcasts/sooner-surge.jpg",
+    hosts: "Brody, Hunter, Jaxon, Jason, Jeremy & Traber",
+  },
 ];
