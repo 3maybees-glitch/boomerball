@@ -23,6 +23,7 @@ export function PodcastChannels({ channels = soonerPodcasts }: PodcastChannelsPr
               src={channel.thumbnail}
               alt=""
               fill
+              unoptimized
               className="object-cover"
               sizes="80px"
             />

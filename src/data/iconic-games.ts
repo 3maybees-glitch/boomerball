@@ -24,7 +24,7 @@ export const iconicGames: IconicGame[] = [
       { label: "Attendance", value: "62,000" },
       { label: "Combined Pts", value: "66" },
     ],
-    image: "/legend-games/1971-nebraska.png",
+    image: "/legend-games/1971-nebraska.webp",
   },
   {
     id: "2000-orange-bowl",
@@ -45,7 +45,7 @@ export const iconicGames: IconicGame[] = [
       { label: "OU Sacks", value: "5" },
       { label: "Heupel Pass Yds", value: "168" },
     ],
-    image: "/legend-games/2000-orange-bowl.png",
+    image: "/legend-games/2000-orange-bowl.webp",
   },
   {
     id: "2014-sugar-bowl",
@@ -66,7 +66,7 @@ export const iconicGames: IconicGame[] = [
       { label: "Total Offense", value: "487" },
       { label: "Spread Upset", value: "+14" },
     ],
-    image: "/legend-games/2014-sugar-bowl.png",
+    image: "/legend-games/2014-sugar-bowl.webp",
   },
   {
     id: "2008-red-river",
@@ -87,7 +87,7 @@ export const iconicGames: IconicGame[] = [
       { label: "OU Total Yds", value: "497" },
       { label: "Texas Rank", value: "#1" },
     ],
-    image: "/legend-games/2008-red-river.png",
+    image: "/legend-games/2008-red-river.webp",
   },
   {
     id: "1985-orange-bowl",
@@ -108,7 +108,7 @@ export const iconicGames: IconicGame[] = [
       { label: "OU Sacks", value: "4" },
       { label: "Final AP Rank", value: "#1" },
     ],
-    image: "/legend-games/1985-orange-bowl.png",
+    image: "/legend-games/1985-orange-bowl.webp",
   },
   {
     id: "2018-west-virginia",
@@ -129,7 +129,7 @@ export const iconicGames: IconicGame[] = [
       { label: "WVU Total Yds", value: "704" },
       { label: "OU Total Yds", value: "556" },
     ],
-    image: "/legend-games/2018-west-virginia.png",
+    image: "/legend-games/2018-west-virginia.webp",
   },
   {
     id: "1972-sugar-bowl",
@@ -150,7 +150,7 @@ export const iconicGames: IconicGame[] = [
       { label: "OU Total Rush", value: "439" },
       { label: "Final Record", value: "11-1" },
     ],
-    image: "/legend-games/1972-sugar-bowl.png",
+    image: "/legend-games/1972-sugar-bowl.webp",
   },
   {
     id: "2017-bedlam",
@@ -171,7 +171,7 @@ export const iconicGames: IconicGame[] = [
       { label: "OU Total Yds", value: "606" },
       { label: "Margin", value: "+38" },
     ],
-    image: "/legend-games/2017-bedlam.png",
+    image: "/legend-games/2017-bedlam.webp",
   },
   {
     id: "2007-fiesta-bowl",
@@ -192,7 +192,7 @@ export const iconicGames: IconicGame[] = [
       { label: "Peterson Rush Yds", value: "124" },
       { label: "Lead Lost", value: "14 pts" },
     ],
-    image: "/legend-games/2007-fiesta-bowl.png",
+    image: "/legend-games/2007-fiesta-bowl.webp",
   },
   {
     id: "2023-red-river",
@@ -213,7 +213,7 @@ export const iconicGames: IconicGame[] = [
       { label: "Gabriel Rush TD", value: "2" },
       { label: "Venables Year", value: "Year 2" },
     ],
-    image: "/legend-games/2023-red-river.png",
+    image: "/legend-games/2023-red-river.webp",
   },
 ];
 

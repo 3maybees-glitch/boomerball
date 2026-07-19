@@ -17,6 +17,7 @@ export function IconicGameCard({ game }: { game: IconicGame }) {
           src={imageUrl}
           alt={`Illustrated moment from ${game.title}`}
           fill
+          unoptimized
           className="object-cover object-center"
           sizes="(max-width: 768px) 100vw, 50vw"
         />

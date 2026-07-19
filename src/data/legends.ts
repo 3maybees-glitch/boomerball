@@ -307,5 +307,5 @@ export const nationalChampionships: ChampionshipTeam[] = [
 export const LEGEND_PORTRAIT_CREDIT = "Boomer Ball original artwork";
 
 export function getLegendPortraitUrl(legend: SoonersLegend): string {
-  return legend.portrait ?? `/legends/${legend.id}.png`;
+  return legend.portrait ?? `/legends/${legend.id}.webp`;
 }
