@@ -4,12 +4,12 @@ import type { PageTheme } from "@/components/PageShell";
 import { cn } from "@/lib/utils";
 
 const themeBackgrounds: Partial<Record<PageTheme, { src: string; position?: string }>> = {
-  stats: { src: "/backgrounds/stadium-aerial.jpg", position: "center 40%" },
-  roster: { src: "/backgrounds/schooner.jpg", position: "center 60%" },
-  schedule: { src: "/backgrounds/stadium-inside.jpg", position: "center 45%" },
-  news: { src: "/backgrounds/campus.jpg", position: "center 40%" },
-  legends: { src: "/backgrounds/schooner-ponies.jpg", position: "center 55%" },
-  advanced: { src: "/backgrounds/stadium.jpg", position: "center 35%" },
+  stats: { src: "/backgrounds/stadium-aerial.webp", position: "center 40%" },
+  roster: { src: "/backgrounds/schooner.webp", position: "center 60%" },
+  schedule: { src: "/backgrounds/stadium-inside.webp", position: "center 45%" },
+  news: { src: "/backgrounds/campus.webp", position: "center 40%" },
+  legends: { src: "/backgrounds/schooner-ponies.webp", position: "center 55%" },
+  advanced: { src: "/backgrounds/stadium.webp", position: "center 35%" },
 };
 
 type PageHeaderProps = {
@@ -46,6 +46,7 @@ export function PageHeader({
             alt=""
             fill
             priority
+            unoptimized
             className="object-cover opacity-40"
             style={{ objectPosition: bg.position }}
             sizes="100vw"

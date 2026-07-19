@@ -23,10 +23,11 @@ export function HomeHero() {
     <section className="relative min-h-[min(100dvh,920px)] overflow-hidden border-b border-crimson-dark/40 bg-ink">
       <div className="absolute inset-0">
         <Image
-          src="/backgrounds/stadium.jpg"
+          src="/backgrounds/stadium.webp"
           alt=""
           fill
           priority
+          unoptimized
           className="object-cover object-[center_35%] opacity-50"
           sizes="100vw"
         />

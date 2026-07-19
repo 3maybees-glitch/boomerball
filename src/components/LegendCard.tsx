@@ -31,6 +31,7 @@ export function LegendCard({ legend }: { legend: SoonersLegend }) {
                 src={portraitUrl}
                 alt={`Artistic portrait of ${legend.name}`}
                 fill
+                unoptimized
                 className="object-cover object-top transition duration-300 group-hover:scale-105"
                 sizes="144px"
                 priority={legend.category === "heisman"}

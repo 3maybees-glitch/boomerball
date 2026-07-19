@@ -209,6 +209,7 @@ function RosterRow({ player }: { player: Player }) {
                   src={headshot}
                   alt=""
                   fill
+                  unoptimized
                   className="object-cover object-top"
                   sizes="40px"
                 />

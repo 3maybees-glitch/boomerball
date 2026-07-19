@@ -21,10 +21,11 @@ export function JoinHero() {
     <section className="relative min-h-[min(100dvh,880px)] overflow-hidden border-b border-crimson-dark/40 bg-ink">
       <div className="absolute inset-0">
         <Image
-          src="/backgrounds/stadium-inside.jpg"
+          src="/backgrounds/stadium-inside.webp"
           alt=""
           fill
           priority
+          unoptimized
           className="object-cover object-center opacity-45"
           sizes="100vw"
         />

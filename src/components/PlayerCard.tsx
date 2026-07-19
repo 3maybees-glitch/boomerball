@@ -21,6 +21,7 @@ export function PlayerCard({ player }: PlayerCardProps) {
               src={headshot}
               alt={`${player.name} headshot`}
               fill
+              unoptimized
               className="object-cover object-top"
               sizes="96px"
             />
