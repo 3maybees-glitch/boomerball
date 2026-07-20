@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { SiteLogo } from "@/components/SiteLogo";
-import { PwaAlertsLink } from "@/components/PwaEngagement";
 import { PREMIUM_ROUTE, PREMIUM_TIER_NAME } from "@/lib/premium";
 
 const exploreLinks = [
@@ -80,9 +79,6 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
-              <li>
-                <PwaAlertsLink className="text-cream/65 transition hover:text-cream" />
-              </li>
             </ul>
           </div>
         </div>

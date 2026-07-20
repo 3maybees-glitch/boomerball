@@ -4,7 +4,6 @@ import { Barlow_Condensed, DM_Sans } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
-import { PwaEngagement } from "@/components/PwaEngagement";
 import {
   DEFAULT_DESCRIPTION,
   SITE_NAME,
@@ -81,7 +80,6 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <PwaEngagement />
         <Analytics />
       </body>
     </html>
