@@ -11,6 +11,7 @@ Fan-inspired Oklahoma Sooners college football analytics website.
 - **Schedule** — Full 2025 results (10-3, 6-2 SEC)
 - **News** — Cited summaries from [soonersports.com](https://soonersports.com) and reputable outlets
 - **The Locker Room (Premium)** — SP+, EPA, havoc rate, schemes, and recruiting via one-time Stripe purchase
+- **PWA alerts** — Installable home-screen app with optional push for game day, MMQB, and recruiting
 
 ## Offseason Mode
 
@@ -20,10 +21,54 @@ During summer/offseason, the site displays 2025 cumulative stats. Stats update w
 
 ```bash
 npm install
+cp .env.example .env.local
+# set VAPID_PRIVATE_KEY (and Stripe keys if testing checkout)
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
+
+For push testing locally, use HTTPS:
+
+```bash
+npx next dev --experimental-https
+```
+
+## PWA — Install + push alerts
+
+Boomer Ball ships as a light PWA: web manifest + installable icons, and push-only service worker (no offline shell).
+
+### Vercel environment variables
+
+| Variable | Purpose |
+|---|---|
+| `NEXT_PUBLIC_VAPID_PUBLIC_KEY` | Web Push public key (optional; project default is fine) |
+| `VAPID_PRIVATE_KEY` | Web Push private key (**required** for push) |
+| `VAPID_SUBJECT` | `mailto:` contact used in VAPID claims |
+| `PUSH_SEND_SECRET` | Bearer token for `POST /api/push/send` |
+| `CRON_SECRET` | Protects `/api/cron/gameday-alerts` (Vercel Cron sends this automatically) |
+| `BLOB_READ_WRITE_TOKEN` | **Recommended** — durable subscription store via Vercel Blob |
+
+Generate a new key pair anytime with:
+
+```bash
+npx web-push generate-vapid-keys --json
+```
+
+### Send a manual alert (MMQB / recruiting)
+
+```bash
+curl -X POST "$NEXT_PUBLIC_SITE_URL/api/push/send" \
+  -H "Authorization: Bearer $PUSH_SEND_SECRET" \
+  -H "Content-Type: application/json" \
+  -d '{"topic":"mmqb","title":"MMQB is live","message":"Monday recap is up.","url":"/mmqb"}'
+```
+
+`topic` may be `gameday`, `mmqb`, `recruiting`, or `all`.
+
+### Game-day cron
+
+`vercel.json` schedules `GET /api/cron/gameday-alerts` daily at 14:00 UTC (morning CT). It notifies `gameday` subscribers when OU plays today or tomorrow.
 
 ## Stripe Setup — The Locker Room
 
