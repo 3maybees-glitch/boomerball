@@ -11,6 +11,7 @@ Fan-inspired Oklahoma Sooners college football analytics website.
 - **Schedule** — Full 2025 results (10-3, 6-2 SEC)
 - **News** — Cited summaries from [soonersports.com](https://soonersports.com) and reputable outlets
 - **The Locker Room (Premium)** — SP+, EPA, havoc rate, schemes, and recruiting via one-time Stripe purchase
+- **PWA** — Installable to your home screen (online-only; no offline shell)
 
 ## Offseason Mode
 
@@ -20,10 +21,23 @@ During summer/offseason, the site displays 2025 cumulative stats. Stats update w
 
 ```bash
 npm install
+cp .env.example .env.local
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
+
+## PWA — Install to home screen
+
+Boomer Ball is a light, online-only PWA. There is no service worker or offline cache — pages load from the network as usual.
+
+What you get:
+
+- Web app manifest (`/manifest.webmanifest`)
+- Standalone display when launched from a home-screen icon
+- iOS and Android install support over HTTPS
+
+Users can install from the browser menu (Chrome: **Install app**; iOS Safari: **Share → Add to Home Screen**). No extra env vars are required.
 
 ## Stripe Setup — The Locker Room
 
