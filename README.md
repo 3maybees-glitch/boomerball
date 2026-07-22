@@ -37,7 +37,7 @@ What you get:
 - Standalone display when launched from a home-screen icon
 - iOS and Android install support over HTTPS
 
-Users can install from the browser menu (Chrome: **Install app**; iOS Safari: **Share → Add to Home Screen**). No extra env vars are required.
+Users can install from the browser menu (Chrome: **Install app**; iOS Safari: **Share → Add to Home Screen**). A small dismissible tip appears for visitors who haven’t installed yet. No extra env vars are required.
 
 ## Stripe Setup — The Locker Room
 
