@@ -4,6 +4,7 @@ import { Barlow_Condensed, DM_Sans } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
+import { InstallNote } from "@/components/InstallNote";
 import {
   DEFAULT_DESCRIPTION,
   SITE_NAME,
@@ -80,6 +81,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <InstallNote />
         <Analytics />
       </body>
     </html>
