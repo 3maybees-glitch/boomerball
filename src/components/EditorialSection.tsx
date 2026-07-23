@@ -23,17 +23,19 @@ export function EditorialSection({
   id,
 }: EditorialSectionProps) {
   return (
-    <MotionReveal id={id} delay={delay} className={cn("scroll-mt-28", className)}>
-      <h2 className="font-display text-2xl font-bold tracking-tight text-crimson sm:text-3xl">
-        {title}
-      </h2>
-      {description && (
-        <p className="mt-2 max-w-[60ch] text-base leading-relaxed text-ink/70">
-          {description}
-        </p>
-      )}
-      {divider && <WesternDivider className="my-5" />}
-      {children}
-    </MotionReveal>
+    <div id={id} className={cn(id && "scroll-mt-36", className)}>
+      <MotionReveal delay={delay}>
+        <h2 className="font-display text-2xl font-bold tracking-tight text-crimson sm:text-3xl">
+          {title}
+        </h2>
+        {description && (
+          <p className="mt-2 max-w-[60ch] text-base leading-relaxed text-ink/70">
+            {description}
+          </p>
+        )}
+        {divider && <WesternDivider className="my-5" />}
+        {children}
+      </MotionReveal>
+    </div>
   );
 }
