@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { SiteLogo } from "@/components/SiteLogo";
+import { X_HANDLE, X_PROFILE_URL } from "@/lib/brand";
 import { PREMIUM_ROUTE, PREMIUM_TIER_NAME } from "@/lib/premium";
 
 const exploreLinks = [
@@ -24,12 +25,23 @@ export function Footer() {
               Fan-inspired Oklahoma Sooners football analytics. Not affiliated
               with or endorsed by the University of Oklahoma.
             </p>
-            <p className="mt-4 text-xs text-cream/50">
+            <p className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-cream/50">
               <a
                 href="https://boomerball.app"
                 className="underline decoration-cream/30 underline-offset-2 transition hover:text-cream hover:decoration-cream"
               >
                 boomerball.app
+              </a>
+              <span aria-hidden className="text-cream/25">
+                ·
+              </span>
+              <a
+                href={X_PROFILE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-cream/30 underline-offset-2 transition hover:text-cream hover:decoration-cream"
+              >
+                @{X_HANDLE} on X
               </a>
             </p>
           </div>
