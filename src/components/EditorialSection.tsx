@@ -10,6 +10,7 @@ type EditorialSectionProps = {
   className?: string;
   divider?: boolean;
   delay?: number;
+  id?: string;
 };
 
 export function EditorialSection({
@@ -19,9 +20,10 @@ export function EditorialSection({
   className,
   divider = true,
   delay = 0,
+  id,
 }: EditorialSectionProps) {
   return (
-    <MotionReveal delay={delay} className={cn("scroll-mt-24", className)}>
+    <MotionReveal id={id} delay={delay} className={cn("scroll-mt-28", className)}>
       <h2 className="font-display text-2xl font-bold tracking-tight text-crimson sm:text-3xl">
         {title}
       </h2>
