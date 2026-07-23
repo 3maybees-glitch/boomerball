@@ -30,10 +30,16 @@ function XLogo({ className }: { className?: string }) {
   );
 }
 
+function reloadXWidgets() {
+  window.twttr?.widgets?.load();
+}
+
 export function XFeed() {
   useEffect(() => {
-    window.twttr?.widgets?.load();
+    reloadXWidgets();
   }, []);
+
+  const latestPost = featuredXPosts[0];
 
   return (
     <div className="space-y-6">
@@ -58,49 +64,54 @@ export function XFeed() {
         </a>
       </div>
 
-      {featuredXPosts.length > 0 && (
-        <ul className="space-y-4">
-          {featuredXPosts.map((post) => (
-            <li key={post.id}>
-              <article className="border-l-2 border-ink/15 bg-cream/40 py-4 pl-5 pr-4 transition hover:border-crimson hover:bg-white/90">
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wide text-ink/55">
-                    <XLogo className="h-3 w-3" />
-                    Post
-                  </span>
-                  <time className="text-xs font-medium uppercase tracking-wide text-ink/50">
-                    {formatDate(post.date)}
-                  </time>
-                </div>
-                <p className="mt-2 max-w-[65ch] text-sm leading-relaxed text-ink/80">
-                  {post.text}
-                </p>
-                <a
-                  href={post.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-crimson underline decoration-crimson/25 underline-offset-2 hover:decoration-crimson"
-                >
-                  View on X
-                  <ExternalLink className="h-3.5 w-3.5" aria-hidden />
-                </a>
-              </article>
-            </li>
-          ))}
-        </ul>
+      {latestPost && (
+        <div className="space-y-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-ink/55">
+            Latest post
+          </p>
+          <article className="border-l-2 border-crimson/35 bg-white/90 py-5 pl-5 pr-4 shadow-[0_4px_20px_rgba(26,10,10,0.04)]">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wide text-crimson">
+                <XLogo className="h-3 w-3" />
+                @{xFeedMeta.handle}
+              </span>
+              <time className="text-xs font-medium uppercase tracking-wide text-ink/50">
+                {formatDate(latestPost.date)}
+              </time>
+            </div>
+            <p className="mt-3 max-w-[65ch] text-base leading-relaxed text-ink/85">
+              {latestPost.text}
+            </p>
+            <a
+              href={latestPost.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-crimson underline decoration-crimson/25 underline-offset-2 hover:decoration-crimson"
+            >
+              View on X
+              <ExternalLink className="h-3.5 w-3.5" aria-hidden />
+            </a>
+          </article>
+
+          <div className="overflow-hidden [&_.twitter-tweet]:mx-auto">
+            <blockquote className="twitter-tweet" data-dnt="true">
+              <a href={latestPost.url}>View post on X</a>
+            </blockquote>
+          </div>
+        </div>
       )}
 
       <div className="overflow-hidden rounded-xl border border-crimson/12 bg-white/90 shadow-[0_4px_20px_rgba(26,10,10,0.04)]">
         <div className="border-b border-crimson/10 px-4 py-3">
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-ink/55">
-            Live timeline
+            More from @{xFeedMeta.handle}
           </p>
         </div>
-        <div className="max-h-[520px] overflow-y-auto px-2 py-2 sm:px-3">
+        <div className="max-h-[420px] overflow-y-auto px-2 py-2 sm:px-3">
           <a
             className="twitter-timeline"
             data-lang="en"
-            data-height="480"
+            data-height="380"
             data-theme="light"
             data-chrome="noheader nofooter noborders transparent"
             href={X_TIMELINE_URL}
@@ -113,9 +124,7 @@ export function XFeed() {
       <Script
         src="https://platform.twitter.com/widgets.js"
         strategy="lazyOnload"
-        onReady={() => {
-          window.twttr?.widgets?.load();
-        }}
+        onReady={reloadXWidgets}
       />
     </div>
   );
