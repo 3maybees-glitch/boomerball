@@ -14,8 +14,7 @@ export type LegendMapProduct = {
 };
 
 export const LEGEND_MAPS_SHOP_NOTE =
-  "Printable digital downloads from Mayhee Creations. Fan-made artwork — not affiliated with or endorsed by the University of Oklahoma.";
-
+  "Printable digital downloads from MaybeeCreates on Etsy. Fan-made artwork — not affiliated with or endorsed by the University of Oklahoma.";
 export const legendMapProducts: LegendMapProduct[] = [
   {
     id: "world-map",
