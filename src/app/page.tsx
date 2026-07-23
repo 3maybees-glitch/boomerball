@@ -48,9 +48,9 @@ const quickLinks = [
     accent: "default" as const,
   },
   {
-    href: "/legend-land",
+    href: "/legend-land#maps",
     label: "Legend Land",
-    desc: "Heisman winners, icons and titles",
+    desc: "Heisman winners, icons, titles & printable maps",
     icon: "legends" as const,
     accent: "default" as const,
   },
