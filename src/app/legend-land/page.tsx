@@ -7,6 +7,7 @@ import { EditorialSection } from "@/components/EditorialSection";
 import { JsonLd } from "@/components/JsonLd";
 import { LegendCard, ChampionshipCard } from "@/components/LegendCard";
 import { IconicGameCard } from "@/components/IconicGameCard";
+import { LegendMapsShowcase } from "@/components/LegendMapsShowcase";
 import { SourceAttribution } from "@/components/SourceAttribution";
 import { iconicGames, ICONIC_GAMES_SOURCE } from "@/data/iconic-games";
 import {
@@ -19,7 +20,7 @@ import { breadcrumbJsonLd, pageMetadata, webPageJsonLd } from "@/lib/seo";
 
 const PAGE_TITLE = "Legend Land — Sooners Hall of Fame";
 const PAGE_DESCRIPTION =
-  "Oklahoma Sooners football legends, seven Heisman Trophy winners, iconic games, and seven national championship teams with cited sources.";
+  "Oklahoma Sooners football legends, seven Heisman Trophy winners, iconic games, national championship teams, and printable Legend Land fantasy maps.";
 
 export const metadata: Metadata = pageMetadata({
   title: PAGE_TITLE,
@@ -30,6 +31,8 @@ export const metadata: Metadata = pageMetadata({
     "OU Heisman winners",
     "Sooners national championships",
     "Oklahoma iconic football games",
+    "Oklahoma Sooners Legend Land map",
+    "OU football wall art",
   ],
 });
 
@@ -118,6 +121,15 @@ export default function LegendLandPage() {
               <ChampionshipCard key={team.year} team={team} />
             ))}
           </div>
+        </EditorialSection>
+
+        <EditorialSection
+          className="mt-14"
+          title="Take Legend Land home"
+          description="Printable fantasy maps that chart the same icons, championships, and quarterback lineages celebrated above — available as digital downloads on Etsy."
+          delay={0.12}
+        >
+          <LegendMapsShowcase />
         </EditorialSection>
 
         <SourceAttribution
