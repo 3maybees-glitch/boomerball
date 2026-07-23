@@ -19,7 +19,7 @@ export interface XPost {
  *   id: "opening-week",
  *   text: "Kickoff week notes…",
  *   date: "2026-08-30",
- *   url: "https://x.com/boomerball/status/…",
+ *   url: "https://x.com/boomerballapp/status/…",
  * }
  */
 export const featuredXPosts: XPost[] = [];
