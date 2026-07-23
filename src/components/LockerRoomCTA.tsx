@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { Loader2 } from "lucide-react";
 import {
@@ -93,12 +94,38 @@ export function LockerRoomCTA({
       )}
       <p
         className={cn(
-          "mt-3 text-center leading-relaxed",
+          "mt-3 max-w-sm text-center leading-relaxed",
           onDark ? "text-sm text-cream/75" : "text-[10px] text-ink/50",
         )}
       >
         {PREMIUM_PRICE_DISPLAY} one-time · lifetime access · Secure payment via Stripe ·{" "}
         {PREMIUM_PRODUCT_NAME}
+      </p>
+      <p
+        className={cn(
+          "mt-1.5 text-center leading-relaxed",
+          onDark ? "text-xs text-cream/60" : "text-[10px] text-ink/45",
+        )}
+      >
+        <Link
+          href="/terms"
+          className={cn(
+            "underline underline-offset-2",
+            onDark ? "decoration-cream/30 hover:text-cream/80" : "decoration-ink/20 hover:text-ink/70",
+          )}
+        >
+          Terms
+        </Link>
+        {" · "}
+        <Link
+          href="/refunds"
+          className={cn(
+            "underline underline-offset-2",
+            onDark ? "decoration-cream/30 hover:text-cream/80" : "decoration-ink/20 hover:text-ink/70",
+          )}
+        >
+          Refunds
+        </Link>
       </p>
     </div>
   );

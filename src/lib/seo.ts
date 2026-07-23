@@ -41,6 +41,8 @@ export const PUBLIC_ROUTES: {
   { path: "/nfl-comps", changeFrequency: "monthly", priority: 0.68 },
   { path: "/gameulator", changeFrequency: "monthly", priority: 0.68 },
   { path: "/locker-room", changeFrequency: "monthly", priority: 0.65 },
+  { path: "/terms", changeFrequency: "monthly", priority: 0.4 },
+  { path: "/refunds", changeFrequency: "monthly", priority: 0.4 },
 ];
 
 export function siteUrl(path = "/"): string {

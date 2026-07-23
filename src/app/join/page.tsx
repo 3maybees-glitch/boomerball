@@ -252,6 +252,21 @@ export default function JoinPage() {
               </span>
               <span>Not affiliated with the University of Oklahoma</span>
             </div>
+            <p className="mt-4 text-xs text-cream/50">
+              <Link
+                href="/terms"
+                className="underline decoration-cream/25 underline-offset-2 transition hover:text-cream/75"
+              >
+                Terms of Service
+              </Link>
+              {" · "}
+              <Link
+                href="/refunds"
+                className="underline decoration-cream/25 underline-offset-2 transition hover:text-cream/75"
+              >
+                Refund Policy
+              </Link>
+            </p>
           </MotionReveal>
         </div>
       </section>

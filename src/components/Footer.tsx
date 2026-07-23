@@ -96,6 +96,20 @@ export function Footer() {
             </a>
             . Player headshots via ESPN. Boomer Sooner!
           </p>
+          <p className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
+            <Link
+              href="/terms"
+              className="underline decoration-cream/25 underline-offset-2 transition hover:text-cream/70"
+            >
+              Terms of Service
+            </Link>
+            <Link
+              href="/refunds"
+              className="underline decoration-cream/25 underline-offset-2 transition hover:text-cream/70"
+            >
+              Refund Policy
+            </Link>
+          </p>
           <p className="mt-2">© {new Date().getFullYear()} Boomer Ball. Fan project.</p>
         </div>
       </div>
