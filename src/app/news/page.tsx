@@ -6,14 +6,16 @@ import { PageContent } from "@/components/PageContent";
 import { EditorialSection } from "@/components/EditorialSection";
 import { JsonLd } from "@/components/JsonLd";
 import { PodcastChannels } from "@/components/PodcastChannels";
+import { XFeed } from "@/components/XFeed";
 import { MotionReveal } from "@/components/motion/MotionReveal";
 import { newsItems } from "@/data/news";
 import { formatDate } from "@/lib/utils";
+import { X_HANDLE } from "@/lib/brand";
 import { breadcrumbJsonLd, pageMetadata, webPageJsonLd } from "@/lib/seo";
 
 const PAGE_TITLE = "Sooner News";
 const PAGE_DESCRIPTION =
-  "Oklahoma Sooners football news with full citations from soonersports.com, ESPN, and reputable college football outlets.";
+  "Oklahoma Sooners football news with full citations from soonersports.com, ESPN, and reputable college football outlets — plus Boomer Ball posts on X.";
 
 export const metadata: Metadata = pageMetadata({
   title: PAGE_TITLE,
@@ -24,6 +26,8 @@ export const metadata: Metadata = pageMetadata({
     "OU football news",
     "Sooners football updates",
     "Oklahoma recruiting news",
+    "Boomer Ball X",
+    `@${X_HANDLE}`,
   ],
 });
 
@@ -63,9 +67,18 @@ export default function NewsPage() {
 
         <EditorialSection
           className="mt-14"
+          title="Boomer Ball on X"
+          description={`Quick hits and site updates from @${X_HANDLE} — follow along between the longer writeups.`}
+          delay={0.06}
+        >
+          <XFeed />
+        </EditorialSection>
+
+        <EditorialSection
+          className="mt-14"
           title="Latest stories"
           description="Curated headlines with links to original reporting."
-          delay={0.08}
+          delay={0.1}
         >
           <div className="space-y-5">
             {newsItems.map((item, index) => (
