@@ -238,7 +238,7 @@ body {
 @media print {
   @page {
     size: letter;
-    margin: 0.28in;
+    margin: 0.22in;
   }
 
   html {
@@ -261,15 +261,36 @@ body {
     display: none !important;
   }
 
+  header,
+  footer:not(.war-map-sheet footer) {
+    display: none !important;
+  }
+
   .war-map-sheet {
     break-inside: avoid;
     page-break-inside: avoid;
     box-shadow: none !important;
     border: 1px solid #841617 !important;
+    max-width: none !important;
+    width: 100% !important;
+    font-size: 8.5px;
   }
 
   .war-map-sheet * {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
+  }
+
+  .war-map-sheet header h1 {
+    font-size: 1.55rem !important;
+  }
+
+  .war-map-sheet .grid {
+    gap: 0 !important;
+  }
+
+  .war-map-sheet section {
+    padding-top: 0.35rem !important;
+    padding-bottom: 0.35rem !important;
   }
 }
