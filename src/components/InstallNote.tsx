@@ -55,7 +55,7 @@ export function InstallNote() {
   }
 
   return (
-    <div className="pointer-events-none fixed inset-x-0 bottom-0 z-[60] p-3 sm:p-4">
+    <div className="install-note pointer-events-none fixed inset-x-0 bottom-0 z-[60] p-3 sm:p-4 print:hidden">
       <aside
         className="pointer-events-auto mx-auto flex max-w-md items-start gap-3 border border-cream/20 bg-ink px-4 py-3.5 text-cream shadow-[0_16px_40px_rgba(26,10,10,0.32)]"
         aria-label="Install Boomer Ball"

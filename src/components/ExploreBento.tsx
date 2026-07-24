@@ -8,6 +8,7 @@ import {
   ClipboardList,
   Dices,
   HatGlasses,
+  Map,
   Newspaper,
   Users,
   Trophy,
@@ -19,7 +20,7 @@ export type ExploreLinkData = {
   href: string;
   label: string;
   desc: string;
-  icon: "stats" | "roster" | "schedule" | "legends" | "news" | "mmqb" | "join" | "locker" | "comps" | "sim";
+  icon: "stats" | "roster" | "schedule" | "legends" | "news" | "mmqb" | "join" | "locker" | "comps" | "sim" | "warmap";
   accent?: "default" | "crimson" | "dark";
 };
 
@@ -34,6 +35,7 @@ const iconMap: Record<ExploreLinkData["icon"], LucideIcon> = {
   locker: HatGlasses,
   comps: ArrowLeftRight,
   sim: Dices,
+  warmap: Map,
 };
 
 type ExploreBentoProps = {
