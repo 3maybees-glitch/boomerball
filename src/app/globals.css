@@ -233,3 +233,43 @@ body {
     scroll-behavior: auto;
   }
 }
+
+/* 2026 WAR MAP — fit one US Letter page when printing */
+@media print {
+  @page {
+    size: letter;
+    margin: 0.28in;
+  }
+
+  html {
+    font-size: 100%;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  .bg-western-pattern {
+    background-image: none !important;
+  }
+
+  .page-shell__watermark,
+  .page-shell__vignette,
+  .skip-link,
+  .install-note {
+    display: none !important;
+  }
+
+  .war-map-sheet {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    box-shadow: none !important;
+    border: 1px solid #841617 !important;
+  }
+
+  .war-map-sheet * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

@@ -22,11 +22,17 @@ export async function POST(request: NextRequest) {
       case "checkout.session.completed": {
         const session = event.data.object;
         if (session.payment_status === "paid") {
-          console.info("[stripe] Locker Room purchase completed", {
-            sessionId: session.id,
-            customer: session.customer,
-            tier: session.metadata?.tier ?? PREMIUM_STRIPE_LOOKUP.tier,
-          });
+          const tier = session.metadata?.tier ?? PREMIUM_STRIPE_LOOKUP.tier;
+          console.info(
+            tier === "war_map"
+              ? "[stripe] WAR MAP purchase completed"
+              : "[stripe] Locker Room purchase completed",
+            {
+              sessionId: session.id,
+              customer: session.customer,
+              tier,
+            },
+          );
         }
         break;
       }

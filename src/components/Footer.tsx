@@ -8,6 +8,7 @@ const exploreLinks = [
   { href: "/stats", label: "2025 Season Stats" },
   { href: "/roster", label: "Roster & Coaches" },
   { href: "/schedule", label: "Schedule" },
+  { href: "/war-map", label: "2026 WAR MAP" },
   { href: "/legend-land", label: "Legend Land" },
   { href: "/nfl-comps", label: "NFL Comp Machine" },
   { href: PREMIUM_ROUTE, label: PREMIUM_TIER_NAME },
@@ -15,7 +16,7 @@ const exploreLinks = [
 
 export function Footer() {
   return (
-    <footer className="mt-auto border-t border-crimson-dark/30 bg-ink text-cream">
+    <footer className="print:hidden mt-auto border-t border-crimson-dark/30 bg-ink text-cream">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>

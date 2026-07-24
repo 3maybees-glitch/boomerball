@@ -11,6 +11,7 @@ Fan-inspired Oklahoma Sooners college football analytics website.
 - **Schedule** — Full 2025 results (10-3, 6-2 SEC)
 - **News** — Cited summaries from [soonersports.com](https://soonersports.com) and reputable outlets
 - **The Locker Room (Premium)** — SP+, EPA, havoc rate, schemes, and recruiting via one-time Stripe purchase
+- **2026 WAR MAP ($1)** — One-page printable season preview: depth charts, unit grades, projected scores, draft board, freshman hopefuls & bowl call
 - **PWA** — Installable to your home screen (online-only; no offline shell)
 
 ## Offseason Mode
@@ -89,6 +90,17 @@ Add to Vercel env vars:
 Without Stripe keys, **local dev only** can use demo unlock via checkout button. Production requires live keys.
 
 Legacy URL `/advanced` redirects permanently to `/locker-room`.
+
+## Stripe Setup — 2026 WAR MAP ($1)
+
+The WAR MAP is a separate one-time digital product at **$1**. Checkout uses Stripe `price_data` (no dedicated Price ID required) — only `STRIPE_SECRET_KEY` is needed.
+
+- **URL:** `/war-map`
+- **Success redirect:** `/war-map?session_id=…` → `/api/war-map/verify` sets access cookies
+- **Included free** for Locker Room members
+- Local demo unlock works when Stripe keys are absent (non-production)
+
+Webhook logging covers `tier: war_map` on `checkout.session.completed` (same endpoint as The Locker Room).
 
 ## Data Sources
 

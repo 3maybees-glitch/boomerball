@@ -48,6 +48,13 @@ const quickLinks = [
     accent: "default" as const,
   },
   {
+    href: "/war-map",
+    label: "2026 WAR MAP",
+    desc: "One-page master preview — grades, scores, draft board & bowl call · $1",
+    icon: "warmap" as const,
+    accent: "crimson" as const,
+  },
+  {
     href: "/legend-land#maps",
     label: "Legend Land",
     desc: "Heisman winners, icons, titles & printable maps",
