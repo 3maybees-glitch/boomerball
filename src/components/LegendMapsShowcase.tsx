@@ -8,7 +8,7 @@ import { MotionStagger, MotionStaggerItem } from "@/components/motion/MotionReve
 
 export function LegendMapsShowcase() {
   return (
-    <div id="maps" className="scroll-mt-24">
+    <div>
       <MotionStagger className="grid gap-6 lg:grid-cols-2">
         {legendMapProducts.map((product) => (
           <MotionStaggerItem key={product.id}>
