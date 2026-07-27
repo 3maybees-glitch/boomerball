@@ -10,8 +10,8 @@ Fan-inspired Oklahoma Sooners college football analytics website.
 - **Roster & Coaches** — Player bios, ESPN headshots, height/weight, coaching staff
 - **Schedule** — Full 2025 results (10-3, 6-2 SEC)
 - **News** — Cited summaries from [soonersports.com](https://soonersports.com) and reputable outlets
-- **The Locker Room (Premium)** — SP+, EPA, havoc rate, schemes, and recruiting via one-time Stripe purchase
-- **2026 WAR MAP ($1)** — One-page printable season preview: depth charts, unit grades, projected scores, draft board, freshman hopefuls & bowl call
+- **The Locker Room (Premium)** — SP+, EPA, havoc rate, NFL Comps, Game-u-lator, schemes, and recruiting via **$24.99** one-time 2026 season access
+- **2026 WAR MAP ($1)** — Shareable “Sooner season sheet”: depth charts, unit grades, projected scores, draft board, freshman hopefuls & bowl call (upsells into The Locker Room)
 - **PWA** — Installable to your home screen (online-only; no offline shell)
 
 ## Offseason Mode
@@ -42,21 +42,22 @@ Users can install from the browser menu (Chrome: **Install app**; iOS Safari: **
 
 ## Stripe Setup — The Locker Room
 
-A **live** Stripe product is configured for Boomer Ball:
+Checkout charges **$24.99 one-time for 2026 season access** via Stripe `price_data` (no dedicated Price ID required).
 
 | Field | Value |
 |-------|-------|
-| Product | Boomer Ball — The Locker Room |
-| Price | $9.99 one-time (`price_1Tmn1yPIHJvArvGeDqY1rGuL`) |
+| Product | Boomer Ball — The Locker Room (2026 Season) |
+| Price | $24.99 one-time season access |
+
+Do **not** switch to monthly until weekly in-season updates are shipping consistently (roughly week 3–4 of the season).
 
 ### Vercel environment variables
 
 Copy `.env.example` and set in **Vercel → Settings → Environment Variables**:
 
 1. `STRIPE_SECRET_KEY` — Stripe Dashboard → [API keys](https://dashboard.stripe.com/apikeys)
-2. `STRIPE_PRICE_ID` — `price_1Tmn1yPIHJvArvGeDqY1rGuL`
-3. `STRIPE_WEBHOOK_SECRET` — from webhook endpoint (below)
-4. `NEXT_PUBLIC_SITE_URL` — `https://boomerball.vercel.app`
+2. `STRIPE_WEBHOOK_SECRET` — from webhook endpoint (below)
+3. `NEXT_PUBLIC_SITE_URL` — `https://boomerball.vercel.app`
 
 ### Webhook
 
@@ -83,9 +84,9 @@ If a member clears cookies or switches browsers, they can enter their checkout e
 
 Add to Vercel env vars:
 
-5. `RESEND_API_KEY` — Resend Dashboard → API Keys
-6. `RESEND_FROM` — verified sender, e.g. `Boomer Ball <locker@boomerball.app>`
-7. `MAGIC_LINK_SECRET` — optional; defaults to `STRIPE_WEBHOOK_SECRET`
+4. `RESEND_API_KEY` — Resend Dashboard → API Keys
+5. `RESEND_FROM` — verified sender, e.g. `Boomer Ball <locker@boomerball.app>`
+6. `MAGIC_LINK_SECRET` — optional; defaults to `STRIPE_WEBHOOK_SECRET`
 
 Without Stripe keys, **local dev only** can use demo unlock via checkout button. Production requires live keys.
 
@@ -93,14 +94,20 @@ Legacy URL `/advanced` redirects permanently to `/locker-room`.
 
 ## Stripe Setup — 2026 WAR MAP ($1)
 
-The WAR MAP is a separate one-time digital product at **$1**. Checkout uses Stripe `price_data` (no dedicated Price ID required) — only `STRIPE_SECRET_KEY` is needed.
+The WAR MAP is a separate one-time digital product at **$1** (“Sooner season sheet”). Checkout uses Stripe `price_data` — only `STRIPE_SECRET_KEY` is needed.
 
 - **URL:** `/war-map`
 - **Success redirect:** `/war-map?session_id=…` → `/api/war-map/verify` sets access cookies
+- **Share bar** — Post on X / copy link for the $1 sheet
+- **Upgrade CTA** after unlock → The Locker Room ($24.99 season)
 - **Included free** for Locker Room members
 - Local demo unlock works when Stripe keys are absent (non-production)
 
 Webhook logging covers `tier: war_map` on `checkout.session.completed` (same endpoint as The Locker Room).
+
+## Free teaser
+
+John Mateer’s top NFL comp is ungated on `/nfl-comps` and `/join` so visitors can feel the Comp Machine before buying.
 
 ## Data Sources
 

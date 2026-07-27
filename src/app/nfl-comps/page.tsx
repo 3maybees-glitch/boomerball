@@ -4,10 +4,12 @@ import { NflCompExplorer } from "@/components/NflCompExplorer";
 import { PageContent } from "@/components/PageContent";
 import { PageHeader } from "@/components/PageHeader";
 import { PageShell } from "@/components/PageShell";
+import { MateerCompTeaser } from "@/components/MateerCompTeaser";
 import { PremiumGate } from "@/components/PremiumGate";
 import { roster2026 } from "@/data/roster";
 import { nflComparables } from "@/data/nfl-comparables";
 import {
+  PREMIUM_ACCESS_LABEL,
   PREMIUM_PRICE_DISPLAY,
   PREMIUM_TIER_NAME,
 } from "@/lib/premium";
@@ -51,10 +53,10 @@ export default function NflCompsPage() {
       <PageHeader
         theme="advanced"
         title={PAGE_TITLE}
-        description={`Every Sooner's closest NFL twin — similarity graded out of 100 from size, speed, strength, jumps, combine testing, and talent projection. Includes a scouting tool for any college player in the country. Part of ${PREMIUM_TIER_NAME} (${PREMIUM_PRICE_DISPLAY} lifetime).`}
+        description={`Every Sooner's closest NFL twin — similarity graded out of 100 from size, speed, strength, jumps, combine testing, and talent projection. Includes a scouting tool for any college player in the country. Part of ${PREMIUM_TIER_NAME} (${PREMIUM_PRICE_DISPLAY} ${PREMIUM_ACCESS_LABEL}). Free John Mateer teaser below.`}
       >
         <span className="inline-flex rounded-full bg-cream px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-crimson">
-          Premium · Members only
+          Free teaser · Full machine for members
         </span>
       </PageHeader>
 
@@ -66,6 +68,10 @@ export default function NflCompsPage() {
           then ranks the closest matches. College testing numbers are Boomer Ball
           scouting estimates unless noted.
         </p>
+
+        <div className="mb-10">
+          <MateerCompTeaser />
+        </div>
 
         <PremiumGate>{content}</PremiumGate>
 

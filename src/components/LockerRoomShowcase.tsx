@@ -22,6 +22,7 @@ import {
   type LockerRoomFeatureIcon,
 } from "@/data/locker-room-features";
 import {
+  PREMIUM_ACCESS_LABEL,
   PREMIUM_PRICE_DISPLAY,
   PREMIUM_RECRUIT_ROUTE,
   PREMIUM_TIER_NAME,
@@ -54,7 +55,7 @@ export function LockerRoomShowcase({
     <div>
       <div className="max-w-3xl">
         <p className="text-xs font-bold uppercase tracking-[0.2em] text-crimson/70">
-          Premium · {PREMIUM_PRICE_DISPLAY} lifetime
+          Premium · {PREMIUM_PRICE_DISPLAY} · {PREMIUM_ACCESS_LABEL}
         </p>
         <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-crimson sm:text-4xl">
           Everything inside {PREMIUM_TIER_NAME}

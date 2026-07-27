@@ -12,7 +12,11 @@ import { SourceAttribution } from "@/components/SourceAttribution";
 import { recruitingClass2027 } from "@/data/recruiting-2027";
 import { computeAdvancedStats } from "@/lib/advanced-metrics";
 import { LOCKER_ROOM_TAGLINE } from "@/data/locker-room-features";
-import { PREMIUM_PRICE_DISPLAY, PREMIUM_TIER_NAME } from "@/lib/premium";
+import {
+  PREMIUM_ACCESS_LABEL,
+  PREMIUM_PRICE_DISPLAY,
+  PREMIUM_TIER_NAME,
+} from "@/lib/premium";
 import { breadcrumbJsonLd, pageMetadata, webPageJsonLd } from "@/lib/seo";
 
 const PAGE_TITLE = PREMIUM_TIER_NAME;
@@ -185,7 +189,7 @@ export default function LockerRoomPage() {
       <PageHeader
         theme="advanced"
         title={PREMIUM_TIER_NAME}
-        description={`${LOCKER_ROOM_TAGLINE} Includes NFL Comp Machine, The Game-u-lator, SP+-inspired ratings, PFF-style player grades, scheme guides, and 2027 recruiting breakdowns. One-time ${PREMIUM_PRICE_DISPLAY} for lifetime access.`}
+        description={`${LOCKER_ROOM_TAGLINE} Includes NFL Comp Machine, The Game-u-lator, SP+-inspired ratings, PFF-style player grades, scheme guides, and 2027 recruiting breakdowns. One-time ${PREMIUM_PRICE_DISPLAY} for ${PREMIUM_ACCESS_LABEL}.`}
       >
         <span className="inline-flex rounded-full bg-cream px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-crimson">
           Premium · Members only

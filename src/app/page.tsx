@@ -50,7 +50,7 @@ const quickLinks = [
   {
     href: "/war-map",
     label: "2026 WAR MAP",
-    desc: "One-page master preview — grades, scores, draft board & bowl call · $1",
+    desc: "$1 Sooner season sheet — grades, scores, draft board & bowl call",
     icon: "warmap" as const,
     accent: "crimson" as const,
   },
@@ -78,7 +78,7 @@ const quickLinks = [
   {
     href: PREMIUM_RECRUIT_ROUTE,
     label: "Join The Team",
-    desc: "NFL Comps, Game-u-lator, SP+ analytics & more — $9.99 lifetime",
+    desc: "NFL Comps, Game-u-lator, SP+ analytics & more — $24.99 season",
     icon: "join" as const,
     accent: "crimson" as const,
   },

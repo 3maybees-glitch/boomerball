@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { Lock, Mail, ShieldCheck, Unlock, Loader2 } from "lucide-react";
 import {
+  PREMIUM_ACCESS_LABEL,
   PREMIUM_COOKIE,
   PREMIUM_PRICE_DISPLAY,
   PREMIUM_PRODUCT_NAME,
@@ -172,7 +173,7 @@ export function PremiumGate({ children }: PremiumGateProps) {
       <div>
         <div className="mb-6 flex items-center gap-2 rounded-lg border border-green-300 bg-green-50 px-4 py-3 text-sm text-green-800">
           <Unlock className="h-4 w-4" aria-hidden />
-          {PREMIUM_TIER_NAME} access active — lifetime analytics unlocked.
+          {PREMIUM_TIER_NAME} access active — {PREMIUM_ACCESS_LABEL} unlocked.
         </div>
         {children}
       </div>
@@ -218,7 +219,10 @@ export function PremiumGate({ children }: PremiumGateProps) {
         </ul>
         <p className="mt-4 font-display text-3xl font-bold text-crimson">
           {PREMIUM_PRICE_DISPLAY}
-          <span className="text-sm font-normal text-ink/60"> one-time · lifetime</span>
+          <span className="text-sm font-normal text-ink/60">
+            {" "}
+            one-time · {PREMIUM_ACCESS_LABEL}
+          </span>
         </p>
         <button
           onClick={handleCheckout}

@@ -37,7 +37,7 @@ export async function sendLockerRoomMagicLinkEmail(
       </p>
       <h1 style="font-size:24px;color:#841617;margin:0 0 12px;">Your ${PREMIUM_TIER_NAME} link</h1>
       <p style="font-size:15px;line-height:1.6;color:#1a0a0a;">
-        Tap below to unlock lifetime premium analytics on this browser. The link expires in 15 minutes.
+        Tap below to unlock your Locker Room access on this browser. The link expires in 15 minutes.
       </p>
       <p style="margin:24px 0;">
         <a href="${magicUrl}" style="display:inline-block;background:#841617;color:#fdf9d8;padding:14px 24px;border-radius:999px;text-decoration:none;font-weight:700;">

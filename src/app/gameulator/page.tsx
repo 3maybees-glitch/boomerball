@@ -7,6 +7,7 @@ import { PageShell } from "@/components/PageShell";
 import { PremiumGate } from "@/components/PremiumGate";
 import { schedule2026 } from "@/data/schedule-2026";
 import {
+  PREMIUM_ACCESS_LABEL,
   PREMIUM_PRICE_DISPLAY,
   PREMIUM_TIER_NAME,
 } from "@/lib/premium";
@@ -48,7 +49,7 @@ export default function GameulatorPage() {
       <PageHeader
         theme="advanced"
         title={PAGE_TITLE}
-        description={`Boomer Ball's matchup machine — pick any 2026 opponent, tune 13 unit grades per team (or one overall grade), and simulate the game. Three score predictions, a consensus call, win probability, and full estimated box scores. Part of ${PREMIUM_TIER_NAME} (${PREMIUM_PRICE_DISPLAY} lifetime).`}
+        description={`Boomer Ball's matchup machine — pick any 2026 opponent, tune 13 unit grades per team (or one overall grade), and simulate the game. Three score predictions, a consensus call, win probability, and full estimated box scores. Part of ${PREMIUM_TIER_NAME} (${PREMIUM_PRICE_DISPLAY} ${PREMIUM_ACCESS_LABEL}).`}
       >
         <span className="inline-flex rounded-full bg-cream px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-crimson">
           Premium · Members only
