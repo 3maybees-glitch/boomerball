@@ -1,4 +1,8 @@
-import { PREMIUM_PRICE_DISPLAY, PREMIUM_TIER_NAME } from "@/lib/premium";
+import {
+  PREMIUM_ACCESS_LABEL,
+  PREMIUM_PRICE_DISPLAY,
+  PREMIUM_TIER_NAME,
+} from "@/lib/premium";
 
 export type LockerRoomFeatureIcon =
   | "analytics"
@@ -83,8 +87,8 @@ export const LOCKER_ROOM_FEATURES: LockerRoomFeature[] = [
   },
   {
     icon: "lifetime",
-    title: "Lifetime access",
-    desc: `One payment (${PREMIUM_PRICE_DISPLAY}), no subscription. Your locker stays open forever.`,
+    title: "2026 season access",
+    desc: `One payment (${PREMIUM_PRICE_DISPLAY}), no subscription. Your locker stays open through the 2026 season.`,
     href: "/join",
     badge: "One-time",
   },
@@ -93,7 +97,7 @@ export const LOCKER_ROOM_FEATURES: LockerRoomFeature[] = [
 export const LOCKER_ROOM_TAGLINE =
   "Advanced Sooners analytics, interactive scouting tools, and matchup sims for die-hards.";
 
-export const LOCKER_ROOM_PITCH = `${PREMIUM_TIER_NAME} unlocks every premium tool on Boomer Ball — SP+ dashboards, PFF-style grades, the NFL Comp Machine, The Game-u-lator, scheme guides, and the 2027 recruiting board — for ${PREMIUM_PRICE_DISPLAY} lifetime.`;
+export const LOCKER_ROOM_PITCH = `${PREMIUM_TIER_NAME} unlocks every premium tool on Boomer Ball — SP+ dashboards, PFF-style grades, the NFL Comp Machine, The Game-u-lator, scheme guides, and the 2027 recruiting board — for ${PREMIUM_PRICE_DISPLAY} ${PREMIUM_ACCESS_LABEL}.`;
 
 export const LOCKER_ROOM_TOOL_HIGHLIGHTS = [
   {

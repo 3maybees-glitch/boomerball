@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { getStripe } from "@/lib/stripe";
 import {
+  PREMIUM_PRICE_CENTS,
+  PREMIUM_PRODUCT_DESCRIPTION,
   PREMIUM_PRODUCT_NAME,
   PREMIUM_ROUTE,
   PREMIUM_STRIPE_LOOKUP,
@@ -12,18 +14,29 @@ export async function POST() {
     return NextResponse.json({
       demo: true,
       message:
-        "Stripe not configured. Add STRIPE_SECRET_KEY, STRIPE_PRICE_ID, and STRIPE_WEBHOOK_SECRET in Vercel.",
+        "Stripe not configured. Add STRIPE_SECRET_KEY and STRIPE_WEBHOOK_SECRET in Vercel.",
     });
   }
 
-  const priceId = process.env.STRIPE_PRICE_ID!;
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://boomerball.vercel.app";
 
   try {
     const stripe = getStripe();
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
-      line_items: [{ price: priceId, quantity: 1 }],
+      line_items: [
+        {
+          quantity: 1,
+          price_data: {
+            currency: "usd",
+            unit_amount: PREMIUM_PRICE_CENTS,
+            product_data: {
+              name: PREMIUM_PRODUCT_NAME,
+              description: PREMIUM_PRODUCT_DESCRIPTION,
+            },
+          },
+        },
+      ],
       success_url: `${siteUrl}${PREMIUM_ROUTE}?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${siteUrl}${PREMIUM_ROUTE}?checkout=cancelled`,
       metadata: {
@@ -47,6 +60,6 @@ export async function POST() {
 export async function GET() {
   return NextResponse.json({
     configured: isStripeConfigured(),
-    priceId: process.env.STRIPE_PRICE_ID ? "set" : "missing",
+    priceCents: PREMIUM_PRICE_CENTS,
   });
 }

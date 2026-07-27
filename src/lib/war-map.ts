@@ -5,7 +5,7 @@ export const WAR_MAP_PRICE_CENTS = 100;
 export const WAR_MAP_PRICE_DISPLAY = "$1";
 export const WAR_MAP_PRODUCT_NAME = "Boomer Ball — 2026 WAR MAP";
 export const WAR_MAP_PRODUCT_DESCRIPTION =
-  "One-page Oklahoma Sooners super master season preview — roster depth, unit grades, projected scores, draft board, freshman hopefuls & bowl placement.";
+  "$1 Sooner season sheet — one-page Oklahoma 2026 WAR MAP with roster depth, unit grades, projected scores, draft board, freshman hopefuls & bowl placement.";
 
 export const WAR_MAP_COOKIE = "boomerball_war_map";
 export const WAR_MAP_TOKEN_COOKIE = "boomerball_war_map_token";

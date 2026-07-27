@@ -9,7 +9,10 @@ import {
   WAR_MAP_ROUTE,
 } from "@/lib/war-map";
 import { WarMapSheet } from "@/components/WarMapSheet";
+import { WarMapShareBar } from "@/components/WarMapShareBar";
+import { WarMapUpgradeCTA } from "@/components/WarMapUpgradeCTA";
 import { warMapHeadline } from "@/data/war-map-2026";
+import { PREMIUM_TIER_NAME } from "@/lib/premium";
 
 const IS_DEV = process.env.NODE_ENV === "development";
 
@@ -136,7 +139,8 @@ export function WarMapGate() {
 
   if (unlocked) {
     return (
-      <div className="space-y-4">
+      <div className="space-y-5">
+        <WarMapUpgradeCTA />
         <div className="print:hidden flex flex-wrap items-center justify-between gap-3 rounded-xl border border-crimson/15 bg-white/90 px-4 py-3">
           <div className="flex items-center gap-2 text-sm text-ink/70">
             <Unlock className="h-4 w-4 text-crimson" aria-hidden />
@@ -154,6 +158,7 @@ export function WarMapGate() {
             Print one page
           </button>
         </div>
+        <WarMapShareBar />
         <WarMapSheet />
       </div>
     );
@@ -168,8 +173,11 @@ export function WarMapGate() {
             Digital download
           </div>
           <h2 className="font-display text-3xl font-extrabold tracking-tight sm:text-4xl">
-            2026 WAR MAP
+            $1 Sooner season sheet
           </h2>
+          <p className="mt-1 font-display text-lg font-bold text-cream/80">
+            2026 WAR MAP
+          </p>
           <p className="mt-2 max-w-[40ch] text-sm leading-relaxed text-cream/85">
             The one-page Sooner season preview: depth charts, unit grades, projected
             scores, freshman hopefuls, NFL draft board, and bowl placement — packed
@@ -184,6 +192,8 @@ export function WarMapGate() {
         </div>
 
         <div className="space-y-5 px-6 py-6 sm:px-8">
+          <WarMapShareBar />
+
           <ul className="grid gap-2 text-sm text-ink/70 sm:grid-cols-2">
             {[
               "Full 12-game projected scores",
@@ -234,8 +244,9 @@ export function WarMapGate() {
           </button>
 
           <p className="text-center text-xs leading-relaxed text-ink/45">
-            {WAR_MAP_PRODUCT_NAME}. Locker Room members unlock automatically. Instant
-            access after payment — print anytime.
+            {WAR_MAP_PRODUCT_NAME}. {PREMIUM_TIER_NAME} members unlock automatically.
+            Instant access after payment — print anytime. Easy to share with Sooner
+            Nation.
           </p>
         </div>
       </div>

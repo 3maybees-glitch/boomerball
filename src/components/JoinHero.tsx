@@ -4,7 +4,7 @@ import Image from "next/image";
 import { HatGlasses } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 import { LockerRoomCTA } from "@/components/LockerRoomCTA";
-import { PREMIUM_PRICE_DISPLAY } from "@/lib/premium";
+import { PREMIUM_ACCESS_LABEL, PREMIUM_PRICE_DISPLAY } from "@/lib/premium";
 
 export function JoinHero() {
   const prefersReducedMotion = useReducedMotion();
@@ -53,7 +53,7 @@ export function JoinHero() {
           </ul>
           <div className="mt-6 flex flex-wrap gap-3">
             <span className="rounded-full bg-cream px-4 py-2 text-sm font-bold text-crimson">
-              {PREMIUM_PRICE_DISPLAY} · lifetime access
+              {PREMIUM_PRICE_DISPLAY} · {PREMIUM_ACCESS_LABEL}
             </span>
             <span className="rounded-full border border-cream/35 px-4 py-2 text-sm text-cream/90">
               No subscription

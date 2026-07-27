@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Loader2 } from "lucide-react";
 import {
+  PREMIUM_ACCESS_LABEL,
   PREMIUM_COOKIE,
   PREMIUM_PRICE_DISPLAY,
   PREMIUM_PRODUCT_NAME,
@@ -97,8 +98,8 @@ export function LockerRoomCTA({
           onDark ? "text-sm text-cream/75" : "text-[10px] text-ink/50",
         )}
       >
-        {PREMIUM_PRICE_DISPLAY} one-time · lifetime access · Secure payment via Stripe ·{" "}
-        {PREMIUM_PRODUCT_NAME}
+        {PREMIUM_PRICE_DISPLAY} one-time · {PREMIUM_ACCESS_LABEL} · Secure payment via
+        Stripe · {PREMIUM_PRODUCT_NAME}
       </p>
     </div>
   );

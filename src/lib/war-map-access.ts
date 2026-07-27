@@ -16,7 +16,7 @@ async function isPaidWarMapSession(sessionId: string): Promise<boolean> {
     const session = await stripe.checkout.sessions.retrieve(sessionId);
     if (session.payment_status !== "paid") return false;
     if (session.metadata?.tier === WAR_MAP_STRIPE_LOOKUP.tier) return true;
-    // Locker Room lifetime also unlocks the WAR MAP
+    // Locker Room members also unlock the WAR MAP
     if (session.metadata?.tier === "locker_room") return true;
     return false;
   } catch {
