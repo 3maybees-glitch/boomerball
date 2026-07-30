@@ -8,6 +8,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { LegendCard, ChampionshipCard } from "@/components/LegendCard";
 import { IconicGameCard } from "@/components/IconicGameCard";
 import { LegendMapsShowcase } from "@/components/LegendMapsShowcase";
+import { LegendLandSectionNav } from "@/components/LegendLandSectionNav";
 import { SourceAttribution } from "@/components/SourceAttribution";
 import { iconicGames, ICONIC_GAMES_SOURCE } from "@/data/iconic-games";
 import {
@@ -73,7 +74,10 @@ export default function LegendLandPage() {
       </PageHeader>
 
       <PageContent>
+        <LegendLandSectionNav />
+
         <EditorialSection
+          id="heisman"
           title="Heisman Trophy winners"
           description="OU is tied for the second-most Heisman winners in college football history."
         >
@@ -85,6 +89,7 @@ export default function LegendLandPage() {
         </EditorialSection>
 
         <EditorialSection
+          id="icons"
           className="mt-14"
           title="Sooner icons"
           description="Legends who defined eras, from The Boz to Adrian Peterson and Lee Roy Selmon."
@@ -98,6 +103,7 @@ export default function LegendLandPage() {
         </EditorialSection>
 
         <EditorialSection
+          id="games"
           className="mt-14"
           title="Iconic games in Sooner history"
           description="Ten of the most famous wins, heartbreaks, and moments that define Boomer Sooner lore."
@@ -111,6 +117,7 @@ export default function LegendLandPage() {
         </EditorialSection>
 
         <EditorialSection
+          id="championships"
           className="mt-14"
           title="National championship teams"
           description="Seven consensus national titles since 1950. One of only three programs to reach that mark."
@@ -124,6 +131,7 @@ export default function LegendLandPage() {
         </EditorialSection>
 
         <EditorialSection
+          id="maps"
           className="mt-14"
           title="Take Legend Land home"
           description="Printable fantasy maps that chart the same icons, championships, and quarterback lineages celebrated above — available as digital downloads on Etsy."
