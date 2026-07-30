@@ -1,10 +1,11 @@
 /**
- * Generate a Boomer Ball Locker Room infographic for Sooners defense strengths (X/Twitter).
- * Stats from Locker Room advanced metrics + 2026 WAR MAP unit grades.
- * Output: 1080×1350 PNG (4:5 — ideal for X feed posts)
+ * Two Boomer Ball Locker Room defense infographics for X (smaller, poster-style).
+ * 1) Advanced metrics — SP+, pressure, havoc, stops
+ * 2) 2026 WAR MAP units — DL / LB / DB grades + identity
+ * Output: 1080×1080 PNG (1:1 — clean multi-image X posts)
  */
 import sharp from "sharp";
-import { mkdirSync, writeFileSync } from "fs";
+import { mkdirSync, writeFileSync, unlinkSync, existsSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 
@@ -15,195 +16,225 @@ const publicOut = join(root, "public/social");
 mkdirSync(outDir, { recursive: true });
 mkdirSync(publicOut, { recursive: true });
 
-const W = 1080;
-const H = 1350;
+const S = 1080;
+const logoPath = join(root, "public/logo/boomer-ball-icon.png");
+const logoBuf = await sharp(logoPath).resize(64, 64).png().toBuffer();
 
-const svg = `<?xml version="1.0" encoding="UTF-8"?>
-<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
+/** Shared defs: field chalk + slash energy — not Mateer cream panels */
+function defs(ids) {
+  return `
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#3a0a0b"/>
-      <stop offset="40%" stop-color="#841617"/>
-      <stop offset="100%" stop-color="#1a0505"/>
+    <linearGradient id="${ids.bg}" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6e1012"/>
+      <stop offset="35%" stop-color="#a01a1c"/>
+      <stop offset="70%" stop-color="#4a0c0e"/>
+      <stop offset="100%" stop-color="#120303"/>
     </linearGradient>
-    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#fdf9d8"/>
-      <stop offset="100%" stop-color="#f0e9c4"/>
+    <linearGradient id="${ids.slash}" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f7e27a"/>
+      <stop offset="100%" stop-color="#fdf9d8"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#fdf9d8" stop-opacity="0"/>
-      <stop offset="50%" stop-color="#fdf9d8" stop-opacity="0.55"/>
-      <stop offset="100%" stop-color="#fdf9d8" stop-opacity="0"/>
+    <linearGradient id="${ids.ink}" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d0404"/>
+      <stop offset="100%" stop-color="#1f0808"/>
     </linearGradient>
-    <linearGradient id="meter" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#841617"/>
-      <stop offset="100%" stop-color="#b81f21"/>
-    </linearGradient>
-    <pattern id="grain" width="80" height="80" patternUnits="userSpaceOnUse">
-      <circle cx="8" cy="12" r="1" fill="#fdf9d8" opacity="0.04"/>
-      <circle cx="42" cy="28" r="1" fill="#fdf9d8" opacity="0.03"/>
-      <circle cx="64" cy="56" r="1" fill="#fdf9d8" opacity="0.045"/>
-      <circle cx="22" cy="68" r="1" fill="#fdf9d8" opacity="0.03"/>
+    <pattern id="${ids.hash}" width="48" height="48" patternUnits="userSpaceOnUse" patternTransform="rotate(-18)">
+      <line x1="0" y1="0" x2="0" y2="48" stroke="#fdf9d8" stroke-width="1.5" opacity="0.07"/>
     </pattern>
-  </defs>
+    <pattern id="${ids.chev}" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M0 14 L14 0 L28 14 L14 28 Z" fill="#f7e27a" opacity="0.06"/>
+    </pattern>
+  </defs>`;
+}
 
-  <!-- Background -->
-  <rect width="${W}" height="${H}" fill="url(#bg)"/>
-  <rect width="${W}" height="${H}" fill="url(#grain)"/>
-  <circle cx="960" cy="160" r="240" fill="#fdf9d8" opacity="0.035"/>
-  <circle cx="100" cy="1220" r="300" fill="#000" opacity="0.2"/>
+async function render(svg, filename) {
+  const base = await sharp(Buffer.from(svg)).png().toBuffer();
+  const out = await sharp(base)
+    .composite([{ input: logoBuf, top: 28, left: 36 }])
+    .png()
+    .toBuffer();
+  const artifactPath = join(outDir, filename);
+  const publicPath = join(publicOut, filename);
+  await sharp(out).toFile(artifactPath);
+  await sharp(out).toFile(publicPath);
+  console.log(`Wrote ${artifactPath}`);
+  return artifactPath;
+}
 
-  <!-- Top brand bar -->
-  <text x="540" y="78" text-anchor="middle" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="28" font-weight="800" letter-spacing="6" fill="#fdf9d8">BOOMER BALL</text>
-  <text x="540" y="112" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="600" letter-spacing="4" fill="#f0e9c4" opacity="0.85">THE LOCKER ROOM</text>
-  <rect x="340" y="128" width="400" height="2" fill="url(#accent)"/>
+/* ─────────────────────────────────────────────
+   1/2 — ADVANCED METRICS (the wall of numbers)
+   ───────────────────────────────────────────── */
+const svgMetrics = `<?xml version="1.0" encoding="UTF-8"?>
+<svg width="${S}" height="${S}" viewBox="0 0 ${S} ${S}" xmlns="http://www.w3.org/2000/svg">
+  ${defs({ bg: "bg1", slash: "sl1", ink: "ink1", hash: "h1", chev: "c1" })}
 
-  <!-- Watermark -->
-  <text x="540" y="390" text-anchor="middle" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="220" font-weight="900" fill="#fdf9d8" opacity="0.055">D</text>
+  <rect width="${S}" height="${S}" fill="url(#bg1)"/>
+  <rect width="${S}" height="${S}" fill="url(#h1)"/>
 
-  <!-- Hero identity -->
-  <text x="540" y="180" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="700" letter-spacing="5" fill="#f0e9c4">VENABLES · YEAR 5 · 2026 PREVIEW</text>
-  <text x="540" y="250" text-anchor="middle" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="64" font-weight="900" fill="#fdf9d8">SOONERS</text>
-  <text x="540" y="318" text-anchor="middle" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="64" font-weight="900" fill="#fdf9d8">DEFENSE</text>
-  <text x="540" y="358" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="500" fill="#f0e9c4" opacity="0.92">Built on DL havoc · Secondary star power · Third-down stops</text>
+  <!-- Hard geometric cuts -->
+  <polygon points="0,0 420,0 280,1080 0,1080" fill="#0a0202" opacity="0.45"/>
+  <polygon points="780,0 1080,0 1080,1080 640,1080" fill="#f7e27a" opacity="0.08"/>
+  <polygon points="0,820 1080,620 1080,1080 0,1080" fill="url(#ink1)"/>
 
-  <!-- Box-score foundation strip -->
-  <rect x="56" y="385" width="968" height="118" rx="18" fill="#1a0a0a" opacity="0.38"/>
-  <g font-family="Arial Black, Helvetica, Arial, sans-serif" fill="#fdf9d8" text-anchor="middle">
-    <text x="200" y="445" font-size="44" font-weight="900">15.5</text>
-    <text x="200" y="475" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="1.5" fill="#f0e9c4">PPG ALLOWED · 2025</text>
+  <!-- Hazard slash accent -->
+  <polygon points="0,190 1080,70 1080,118 0,238" fill="url(#sl1)" opacity="0.92"/>
+  <polygon points="0,248 1080,128 1080,142 0,262" fill="#0a0202" opacity="0.55"/>
 
-    <text x="430" y="445" font-size="44" font-weight="900">45</text>
-    <text x="430" y="475" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="1.5" fill="#f0e9c4">SACKS</text>
+  <!-- Brand -->
+  <text x="540" y="58" text-anchor="middle" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="22" font-weight="900" letter-spacing="7" fill="#fdf9d8">BOOMER BALL</text>
+  <text x="540" y="88" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="5" fill="#f7e27a">THE LOCKER ROOM · 1/2</text>
 
-    <text x="640" y="445" font-size="44" font-weight="900">9</text>
-    <text x="640" y="475" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="1.5" fill="#f0e9c4">INTS</text>
+  <!-- Title locked into slash -->
+  <text x="56" y="175" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="42" font-weight="900" letter-spacing="2" fill="#1a0505">THE NUMBERS</text>
+  <text x="56" y="320" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="72" font-weight="900" fill="#fdf9d8">DEFENSE</text>
+  <text x="56" y="372" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="600" letter-spacing="3" fill="#f7e27a">2025 FOUNDATION → 2026 EDGE</text>
 
-    <text x="870" y="445" font-size="44" font-weight="900">10–3</text>
-    <text x="870" y="475" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="1.5" fill="#f0e9c4">CFP SEASON</text>
+  <!-- Giant hero stat -->
+  <text x="56" y="520" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="148" font-weight="900" fill="#fdf9d8">+11</text>
+  <text x="56" y="565" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="800" letter-spacing="4" fill="#f7e27a">SP+ DEFENSE · SEC TOP 6</text>
+
+  <!-- Side stack of vivid metrics -->
+  <g font-family="Arial Black, Helvetica, Arial, sans-serif" fill="#fdf9d8" text-anchor="end">
+    <text x="1024" y="420" font-size="56" font-weight="900">28.0%</text>
+    <text x="1024" y="448" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="2" fill="#f7e27a">PRESSURE · #3 SEC</text>
+
+    <text x="1024" y="530" font-size="56" font-weight="900">18.4%</text>
+    <text x="1024" y="558" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="2" fill="#f7e27a">HAVOC · #5 SEC</text>
+
+    <text x="1024" y="640" font-size="56" font-weight="900">72%</text>
+    <text x="1024" y="668" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="2" fill="#f7e27a">3RD DOWN STOPS · #2</text>
   </g>
 
-  <!-- Advanced metrics panel -->
-  <rect x="56" y="525" width="968" height="340" rx="20" fill="url(#panel)"/>
-  <text x="88" y="570" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" letter-spacing="2" fill="#841617">LOCKER ROOM ADVANCED</text>
-  <text x="992" y="570" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#3d2a2a">Fan estimates · not official SP+/PFF</text>
+  <!-- Bottom ink band stats -->
+  <g fill="#fdf9d8" font-family="Arial Black, Helvetica, Arial, sans-serif" text-anchor="middle">
+    <text x="180" y="920" font-size="54" font-weight="900">15.5</text>
+    <text x="180" y="952" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2" fill="#f7e27a">PPG ALLOWED</text>
 
-  <!-- Metric grid: 2 rows × 3 -->
-  <g text-anchor="middle">
-    <!-- SP+ Defense -->
-    <text x="216" y="640" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="48" font-weight="900" fill="#1a0a0a">+11</text>
-    <text x="216" y="670" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="1" fill="#841617">SP+ DEFENSE</text>
-    <text x="216" y="694" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#3d2a2a">SEC Top 6</text>
+    <text x="420" y="920" font-size="54" font-weight="900">45</text>
+    <text x="420" y="952" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2" fill="#f7e27a">SACKS</text>
 
-    <!-- Pressure -->
-    <text x="540" y="640" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="48" font-weight="900" fill="#1a0a0a">28.0%</text>
-    <text x="540" y="670" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="1" fill="#841617">PRESSURE RATE</text>
-    <text x="540" y="694" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#3d2a2a">#3 SEC</text>
+    <text x="640" y="920" font-size="54" font-weight="900">41.9%</text>
+    <text x="640" y="952" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2" fill="#f7e27a">RZ TD% ALLOWED</text>
 
-    <!-- Havoc -->
-    <text x="864" y="640" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="48" font-weight="900" fill="#1a0a0a">18.4%</text>
-    <text x="864" y="670" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="1" fill="#841617">HAVOC RATE</text>
-    <text x="864" y="694" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#3d2a2a">#5 SEC</text>
-
-    <!-- 3rd down -->
-    <text x="216" y="780" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="48" font-weight="900" fill="#1a0a0a">72.0%</text>
-    <text x="216" y="810" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="1" fill="#841617">3RD DOWN STOPS</text>
-    <text x="216" y="834" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#3d2a2a">#2 SEC</text>
-
-    <!-- Red zone -->
-    <text x="540" y="780" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="48" font-weight="900" fill="#1a0a0a">41.9%</text>
-    <text x="540" y="810" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="1" fill="#841617">RZ TD% ALLOWED</text>
-    <text x="540" y="834" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#3d2a2a">#4 SEC · lower better</text>
-
-    <!-- WAR MAP grade -->
-    <text x="864" y="780" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="48" font-weight="900" fill="#1a0a0a">A−</text>
-    <text x="864" y="810" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="1" fill="#841617">2026 WAR MAP</text>
-    <text x="864" y="834" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#3d2a2a">Defense 86/100</text>
+    <text x="900" y="920" font-size="54" font-weight="900">#4</text>
+    <text x="900" y="952" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2" fill="#f7e27a">SEC RED ZONE</text>
   </g>
 
-  <!-- Unit grades + identity -->
-  <rect x="56" y="888" width="600" height="232" rx="20" fill="url(#panel)"/>
-  <rect x="680" y="888" width="344" height="232" rx="20" fill="url(#panel)"/>
-
-  <text x="88" y="930" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="16" font-weight="800" letter-spacing="2" fill="#841617">2026 UNIT GRADES</text>
-
-  <!-- DL -->
-  <text x="88" y="975" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="22" font-weight="900" fill="#1a0a0a">DL</text>
-  <text x="150" y="975" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#3d2a2a">Stone · Wein · Adebawore</text>
-  <text x="620" y="975" text-anchor="end" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="22" font-weight="900" fill="#841617">88</text>
-  <rect x="88" y="988" width="532" height="8" rx="4" fill="#841617" opacity="0.12"/>
-  <rect x="88" y="988" width="468" height="8" rx="4" fill="url(#meter)"/>
-
-  <!-- LB -->
-  <text x="88" y="1035" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="22" font-weight="900" fill="#1a0a0a">LB</text>
-  <text x="150" y="1035" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#3d2a2a">Lewis · Heinecke · Sullivan</text>
-  <text x="620" y="1035" text-anchor="end" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="22" font-weight="900" fill="#841617">84</text>
-  <rect x="88" y="1048" width="532" height="8" rx="4" fill="#841617" opacity="0.12"/>
-  <rect x="88" y="1048" width="447" height="8" rx="4" fill="url(#meter)"/>
-
-  <!-- DB -->
-  <text x="88" y="1095" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="22" font-weight="900" fill="#1a0a0a">DB</text>
-  <text x="150" y="1095" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#3d2a2a">Bowens · Guillory · Johnson</text>
-  <text x="620" y="1095" text-anchor="end" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="22" font-weight="900" fill="#841617">87</text>
-  <rect x="88" y="1108" width="532" height="8" rx="4" fill="#841617" opacity="0.12"/>
-  <rect x="88" y="1108" width="463" height="8" rx="4" fill="url(#meter)"/>
-
-  <!-- Identity callout -->
-  <text x="852" y="930" text-anchor="middle" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="16" font-weight="800" letter-spacing="2" fill="#841617">IDENTITY</text>
-  <text x="852" y="985" text-anchor="middle" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="26" font-weight="900" fill="#1a0a0a">DL HAVOC</text>
-  <text x="852" y="1030" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="600" fill="#3d2a2a">Sim pressures</text>
-  <text x="852" y="1058" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="600" fill="#3d2a2a">Cheetah hybrid</text>
-  <text x="852" y="1086" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="600" fill="#3d2a2a">Front-seven depth</text>
-
-  <!-- Footer CTA -->
-  <text x="540" y="1175" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="600" fill="#f0e9c4" opacity="0.9">Coming into 2026 as the Sooners’ clearest strength</text>
-  <text x="540" y="1265" text-anchor="middle" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="26" font-weight="900" letter-spacing="1" fill="#fdf9d8">boomerball.app/locker-room</text>
-  <text x="540" y="1300" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="600" fill="#f0e9c4" opacity="0.9">Unlock The Locker Room · $24.99 season access</text>
+  <text x="540" y="1025" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#fdf9d8" opacity="0.75">boomerball.app/locker-room · fan estimates, not official SP+/PFF</text>
 </svg>`;
 
-const logoPath = join(root, "public/logo/boomer-ball-icon.png");
+/* ─────────────────────────────────────────────
+   2/2 — WAR MAP UNITS (grades + identity)
+   ───────────────────────────────────────────── */
+const svgUnits = `<?xml version="1.0" encoding="UTF-8"?>
+<svg width="${S}" height="${S}" viewBox="0 0 ${S} ${S}" xmlns="http://www.w3.org/2000/svg">
+  ${defs({ bg: "bg2", slash: "sl2", ink: "ink2", hash: "h2", chev: "c2" })}
 
-const base = await sharp(Buffer.from(svg)).png().toBuffer();
+  <!-- Hot crimson field + hash chalk -->
+  <rect width="${S}" height="${S}" fill="url(#bg2)"/>
+  <rect width="${S}" height="${S}" fill="url(#h2)"/>
+  <polygon points="720,0 1080,0 1080,1080 480,1080" fill="#0a0202" opacity="0.35"/>
 
-const withLogo = await sharp(base)
-  .composite([
-    {
-      input: await sharp(logoPath).resize(72, 72).png().toBuffer(),
-      top: 36,
-      left: 56,
-    },
-  ])
-  .png()
-  .toBuffer();
+  <!-- Cream / gold header blade -->
+  <polygon points="0,0 1080,0 1080,168 0,248" fill="#fdf9d8"/>
+  <polygon points="0,248 1080,168 1080,188 0,268" fill="#f7e27a"/>
 
-const filename = "sooners-defense-locker-room-infographic.png";
-const artifactPath = join(outDir, filename);
-const publicPath = join(publicOut, filename);
+  <text x="540" y="52" text-anchor="middle" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="22" font-weight="900" letter-spacing="7" fill="#841617">BOOMER BALL</text>
+  <text x="540" y="82" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="5" fill="#5c1011">THE LOCKER ROOM · 2/2</text>
+  <text x="56" y="165" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="40" font-weight="900" letter-spacing="2" fill="#1a0505">THE UNITS</text>
 
-await sharp(withLogo).toFile(artifactPath);
-await sharp(withLogo).toFile(publicPath);
+  <text x="56" y="320" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="52" font-weight="900" fill="#fdf9d8">2026 WAR MAP</text>
+  <text x="56" y="360" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="3" fill="#f7e27a">DEFENSE A− · 86 OVERALL</text>
 
-const post = `Oklahoma’s defense is the strength heading into 2026 — and The Locker Room numbers back it up.
+  <!-- Oversized composite grade watermark -->
+  <text x="1020" y="420" text-anchor="end" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="140" font-weight="900" fill="#fdf9d8" opacity="0.08">A−</text>
 
-From the 2025 foundation into Venables Year 5:
+  <!-- Staggered grade columns (height = strength) — clear of identity band -->
+  <!-- DL 88 — tallest -->
+  <polygon points="48,390 330,370 330,760 48,760" fill="#fdf9d8"/>
+  <polygon points="48,390 330,370 330,390 48,410" fill="#f7e27a"/>
+  <text x="189" y="450" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="900" letter-spacing="6" fill="#841617">DL</text>
+  <text x="189" y="555" text-anchor="middle" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="112" font-weight="900" fill="#1a0505">88</text>
+  <text x="189" y="598" text-anchor="middle" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="30" font-weight="900" fill="#841617">A−</text>
+  <text x="189" y="655" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="800" fill="#1a0505">STONE</text>
+  <text x="189" y="682" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="800" fill="#1a0505">WEIN</text>
+  <text x="189" y="709" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="800" fill="#1a0505">ADEBAWORE</text>
+  <text x="189" y="742" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#841617">Wrecking ball</text>
 
-• SP+ Defense: +11 (SEC Top 6)
-• Pressure Rate: 28.0% (#3 SEC)
-• Havoc Rate: 18.4% (#5 SEC)
-• 3rd Down Stop Rate: 72.0% (#2 SEC)
-• Red Zone TD% Allowed: 41.9% (#4 SEC)
+  <!-- DB 87 — mid -->
+  <polygon points="375,420 657,400 657,760 375,760" fill="#0a0202"/>
+  <polygon points="375,420 657,400 657,420 375,440" fill="#f7e27a"/>
+  <text x="516" y="480" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="900" letter-spacing="6" fill="#f7e27a">DB</text>
+  <text x="516" y="575" text-anchor="middle" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="112" font-weight="900" fill="#fdf9d8">87</text>
+  <text x="516" y="618" text-anchor="middle" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="30" font-weight="900" fill="#f7e27a">A−</text>
+  <text x="516" y="675" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="800" fill="#fdf9d8">BOWENS</text>
+  <text x="516" y="702" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="800" fill="#fdf9d8">GUILLORY</text>
+  <text x="516" y="729" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="800" fill="#fdf9d8">JOHNSON</text>
+  <text x="516" y="748" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#f7e27a">Lockdown</text>
 
-Plus the 2026 WAR MAP grades it an A− (86) — DL 88, DB 87, LB 84.
+  <!-- LB 84 — shortest -->
+  <polygon points="702,455 1032,430 1032,760 702,760" fill="#fdf9d8"/>
+  <polygon points="702,455 1032,430 1032,450 702,475" fill="#841617"/>
+  <text x="867" y="510" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="900" letter-spacing="6" fill="#841617">LB</text>
+  <text x="867" y="600" text-anchor="middle" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="100" font-weight="900" fill="#1a0505">84</text>
+  <text x="867" y="642" text-anchor="middle" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="30" font-weight="900" fill="#841617">B</text>
+  <text x="867" y="695" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="800" fill="#1a0505">LEWIS</text>
+  <text x="867" y="722" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="800" fill="#1a0505">HEINECKE</text>
+  <text x="867" y="749" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="800" fill="#1a0505">SULLIVAN</text>
 
-Stone wrecking the interior. Lewis as the heartbeat. The Bowen brothers locking down the back end.
+  <!-- Identity slash — below columns -->
+  <polygon points="0,790 1080,770 1080,910 0,930" fill="#f7e27a"/>
+  <text x="56" y="850" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="30" font-weight="900" fill="#1a0505">IDENTITY: DL HAVOC</text>
+  <text x="56" y="888" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#3d1515">Sim pressures · Cheetah hybrid · Front-seven depth · Venables Yr 5</text>
 
-Full advanced breakdown in The Locker Room → boomerball.app/locker-room
+  <text x="540" y="1000" text-anchor="middle" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="22" font-weight="900" letter-spacing="1" fill="#fdf9d8">boomerball.app/locker-room</text>
+  <text x="540" y="1035" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#f7e27a">Unlock The Locker Room · $24.99 season</text>
+</svg>`;
+
+// Remove the old combined 4:5 graphic
+const oldCombined = "sooners-defense-locker-room-infographic.png";
+for (const dir of [publicOut, outDir]) {
+  const p = join(dir, oldCombined);
+  if (existsSync(p)) {
+    unlinkSync(p);
+    console.log(`Removed ${p}`);
+  }
+}
+
+await render(svgMetrics, "sooners-defense-numbers-infographic.png");
+await render(svgUnits, "sooners-defense-units-infographic.png");
+
+const post = `OU’s defense is the strength of the 2026 roster — two Locker Room cards:
+
+1/2 THE NUMBERS
+SP+ Defense +11 · Pressure 28% · Havoc 18.4% · 72% third-down stops
+
+2/2 THE UNITS
+WAR MAP grades the D an A− (86) — DL 88 · DB 87 · LB 84
+
+Stone. Lewis. The Bowens. Venables Year 5 is built to create chaos.
+
+Full advanced breakdown → boomerball.app/locker-room
 
 #Sooners #BoomerSoomer #OUFootball`;
 
-const postPath = join(outDir, "sooners-defense-infographic-x-post.txt");
-writeFileSync(postPath, post);
+const postThread = `THREAD — Sooners defense strengths (Locker Room advance stats)
 
-console.log(`Wrote ${artifactPath}`);
-console.log(`Wrote ${publicPath}`);
-console.log(`Wrote ${postPath}`);
+1/2 THE NUMBERS
+Coming off 15.5 PPG allowed and 45 sacks, OU’s D grades out as an SP+ +11 unit (SEC Top 6) with 28% pressure, 18.4% havoc, and 72% third-down stops.
+
+boomerball.app/locker-room
+
+———
+
+2/2 THE UNITS
+2026 WAR MAP: Defense A− (86).
+DL 88 · LB 84 · DB 87
+
+Identity = DL havoc — Stone, Wein, Adebawore up front; Lewis at the heartbeat; Bowen brothers + Guillory in the back end.
+
+Unlock The Locker Room → boomerball.app/locker-room · $24.99 season`;
+
+writeFileSync(join(outDir, "sooners-defense-infographic-x-post.txt"), post);
+writeFileSync(join(outDir, "sooners-defense-infographic-x-thread.txt"), postThread);
+console.log("Wrote X post + thread copy");
