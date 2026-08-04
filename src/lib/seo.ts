@@ -35,12 +35,15 @@ export const PUBLIC_ROUTES: {
   { path: "/roster", changeFrequency: "weekly", priority: 0.9 },
   { path: "/schedule", changeFrequency: "weekly", priority: 0.9 },
   { path: "/war-map", changeFrequency: "weekly", priority: 0.86 },
+  { path: "/rankings", changeFrequency: "weekly", priority: 0.87 },
   { path: "/mmqb", changeFrequency: "weekly", priority: 0.88 },
   { path: "/news", changeFrequency: "daily", priority: 0.85 },
   { path: "/legend-land", changeFrequency: "monthly", priority: 0.8 },
   { path: "/join", changeFrequency: "monthly", priority: 0.7 },
   { path: "/nfl-comps", changeFrequency: "monthly", priority: 0.68 },
   { path: "/gameulator", changeFrequency: "monthly", priority: 0.68 },
+  { path: "/rankings/offense", changeFrequency: "weekly", priority: 0.66 },
+  { path: "/rankings/defense", changeFrequency: "weekly", priority: 0.66 },
   { path: "/locker-room", changeFrequency: "monthly", priority: 0.65 },
 ];
 

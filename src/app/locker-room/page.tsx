@@ -20,7 +20,7 @@ import {
 import { breadcrumbJsonLd, pageMetadata, webPageJsonLd } from "@/lib/seo";
 
 const PAGE_TITLE = PREMIUM_TIER_NAME;
-const PAGE_DESCRIPTION = `${LOCKER_ROOM_TAGLINE} NFL Comp Machine, The Game-u-lator, SP+ dashboards, PFF-style grades, schemes, and 2027 recruiting intel.`;
+const PAGE_DESCRIPTION = `${LOCKER_ROOM_TAGLINE} BB+ offense & defense rankings, NFL Comp Machine, The Game-u-lator, SP+ dashboards, PFF-style grades, schemes, and 2027 recruiting intel.`;
 
 export const metadata: Metadata = pageMetadata({
   title: PAGE_TITLE,

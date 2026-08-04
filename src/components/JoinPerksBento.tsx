@@ -5,6 +5,7 @@ import {
   BarChart3,
   ClipboardList,
   Dices,
+  ListOrdered,
   Mail,
   Shield,
   Star,
@@ -31,6 +32,7 @@ const iconMap: Record<LockerRoomFeatureIcon, LucideIcon> = {
   updates: Zap,
   lifetime: Shield,
   magic: Mail,
+  rankings: ListOrdered,
 };
 
 const cellSpans = [

@@ -14,11 +14,22 @@ const navLinks = [
   { href: "/legend-land", label: "Legend Land" },
   { href: "/news", label: "News" },
   {
+    href: "/rankings",
+    label: "Rankings",
+    children: [
+      { href: "/rankings", label: "BB+ Combined" },
+      { href: "/rankings/offense", label: "BB+ Offense" },
+      { href: "/rankings/defense", label: "BB+ Defense" },
+    ],
+  },
+  {
     href: PREMIUM_ROUTE,
     label: "Locker Room",
     children: [
       { href: "/nfl-comps", label: "NFL Comps" },
       { href: "/gameulator", label: "Game-u-lator" },
+      { href: "/rankings/offense", label: "BB+ Offense" },
+      { href: "/rankings/defense", label: "BB+ Defense" },
     ],
   },
 ];
