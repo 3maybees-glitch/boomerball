@@ -9,6 +9,7 @@ const exploreLinks = [
   { href: "/roster", label: "Roster & Coaches" },
   { href: "/schedule", label: "Schedule" },
   { href: "/war-map", label: "2026 WAR MAP" },
+  { href: "/rankings", label: "BB+ Rankings" },
   { href: "/legend-land", label: "Legend Land" },
   { href: "/nfl-comps", label: "NFL Comp Machine" },
   { href: PREMIUM_ROUTE, label: PREMIUM_TIER_NAME },
