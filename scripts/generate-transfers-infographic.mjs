@@ -26,6 +26,9 @@ const players = [
     from: "Texas",
     role: "Starting X",
     strength: "Big outside target",
+    stat: "516",
+    statLabel: "YDS",
+    statSub: "6 TD",
   },
   {
     name: "Trell Harris",
@@ -33,6 +36,9 @@ const players = [
     from: "Virginia",
     role: "Starting Z",
     strength: "Reliable hands",
+    stat: "847",
+    statLabel: "YDS",
+    statSub: "5 TD",
   },
   {
     name: "Hayden Hansen",
@@ -40,6 +46,9 @@ const players = [
     from: "Florida",
     role: "Starting TE",
     strength: "Red-zone size",
+    stat: "30",
+    statLabel: "REC",
+    statSub: "2 TD",
   },
   {
     name: "Rocky Beers",
@@ -47,6 +56,9 @@ const players = [
     from: "Colorado St.",
     role: "Starting TE",
     strength: "Mismatch weapon",
+    stat: "7",
+    statLabel: "TD",
+    statSub: "CSU record",
   },
   {
     name: "Cole Sullivan",
@@ -54,6 +66,9 @@ const players = [
     from: "Michigan",
     role: "Starting MIKE",
     strength: "Range + blitz",
+    stat: "3",
+    statLabel: "INT",
+    statSub: "2 sacks",
   },
   {
     name: "E'Marion Harris",
@@ -61,6 +76,9 @@ const players = [
     from: "Arkansas",
     role: "Starting RT",
     strength: "SEC starter",
+    stat: "24",
+    statLabel: "STARTS",
+    statSub: "SEC RT",
   },
 ];
 
@@ -74,6 +92,7 @@ function escapeXml(value) {
 
 function row(player, x, y, w, h) {
   const mid = y + h / 2;
+  const statX = x + w - 40;
   return `
   <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="20" fill="url(#panel)"/>
   <rect x="${x}" y="${y}" width="10" height="${h}" rx="5" fill="#841617"/>
@@ -81,7 +100,10 @@ function row(player, x, y, w, h) {
   <text x="${x + 75}" y="${mid + 9}" text-anchor="middle" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="20" font-weight="900" fill="#fdf9d8">${escapeXml(player.pos)}</text>
   <text x="${x + 136}" y="${y + 52}" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="32" font-weight="900" fill="#1a0a0a">${escapeXml(player.name)}</text>
   <text x="${x + 136}" y="${y + 92}" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#841617">${escapeXml(player.from)}  →  ${escapeXml(player.role)}</text>
-  <text x="${x + 136}" y="${y + 124}" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="600" fill="#3d2a2a">${escapeXml(player.strength)}</text>`;
+  <text x="${x + 136}" y="${y + 124}" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="600" fill="#3d2a2a">${escapeXml(player.strength)}</text>
+  <text x="${statX}" y="${y + 62}" text-anchor="end" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="36" font-weight="900" fill="#841617">${escapeXml(player.stat)}</text>
+  <text x="${statX}" y="${y + 86}" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="1.5" fill="#841617">${escapeXml(player.statLabel)}</text>
+  <text x="${statX}" y="${y + 114}" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#3d2a2a">${escapeXml(player.statSub)}</text>`;
 }
 
 const ROW_X = 40;
@@ -132,7 +154,7 @@ const svg = `<?xml version="1.0" encoding="UTF-8"?>
   <rect x="340" y="94" width="400" height="2" fill="url(#accent)"/>
 
   <text x="540" y="148" text-anchor="middle" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="42" font-weight="900" fill="#fdf9d8">NEW SOONERS</text>
-  <text x="540" y="184" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="600" fill="#f0e9c4" opacity="0.9">From  ·  Role  ·  Strength</text>
+  <text x="540" y="184" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="600" fill="#f0e9c4" opacity="0.9">From  ·  Role  ·  Last year</text>
 
   ${rowsSvg}
 
