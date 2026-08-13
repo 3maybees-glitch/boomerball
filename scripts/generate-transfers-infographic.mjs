@@ -183,13 +183,25 @@ const publicPath = join(publicOut, filename);
 await sharp(withLogo).toFile(artifactPath);
 await sharp(withLogo).toFile(publicPath);
 
-const blurb = `New Sooners.
+const blurb = `OU’s 2026 portal class isn’t a splash hunt — it’s a role hunt.
 
-Livingstone (Texas) and Harris (Virginia) lock WR.
-Hansen (Florida) and Beers (CSU) rebuild TE.
-Sullivan (Michigan) starts next to Lewis.
+Six new starters:
 
-boomerball.app/roster`;
+WR Parker Livingstone (Texas) — Starting X. Big outside target. 516 yds, 6 TD last year.
+
+WR Trell Harris (Virginia) — Starting Z. Reliable hands. 847 yds, 5 TD, All-ACC.
+
+TE Hayden Hansen (Florida) — Starting TE. Red-zone size. 30 rec, 2 TD.
+
+TE Rocky Beers (Colorado St.) — Starting TE. Mismatch weapon. 7 TD, CSU record.
+
+LB Cole Sullivan (Michigan) — Starting MIKE next to Kip Lewis. Range + blitz. 3 INT, 2 sacks.
+
+OL E’Marion Harris (Arkansas) — Starting RT. 24 SEC starts.
+
+Full roster, CFB27 ratings, and the 2026 WAR MAP → https://boomerball.app/roster
+
+#BoomerSooner #Sooners #OUFootball #TransferPortal #SEC`;
 
 writeFileSync(join(publicOut, "2026-portal-class-blurb.txt"), `${blurb}\n`);
 writeFileSync(join(outDir, "2026-portal-class-blurb.txt"), `${blurb}\n`);
