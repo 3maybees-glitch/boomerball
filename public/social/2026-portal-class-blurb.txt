@@ -1,25 +1,7 @@
-SHORT (X caption, 263 chars)
-16 new Sooners. Where they came from, the 2026 role, and the strength that got them here.
+New Sooners.
 
-Livingstone (Texas) + Harris (Virginia) lock WR. Hansen (Florida) + Beers (CSU) rebuild TE. Sullivan (Michigan) starts next to Lewis.
+Livingstone (Texas) and Harris (Virginia) lock WR.
+Hansen (Florida) and Beers (CSU) rebuild TE.
+Sullivan (Michigan) starts next to Lewis.
 
-Full graphic ↓  boomerball.app/roster
-
-LONG (thread / Premium caption)
-OU didn’t chase a Mateer-sized splash this cycle. They signed 16 transfers to fill jobs.
-
-FROM → ROLE → STRENGTH
-
-The headliners:
-• Parker Livingstone (Texas) — Starting X. Vertical size, 516 yards and 6 TDs.
-• Trell Harris (Virginia) — Starting Z. All-ACC, 59-847-5.
-• Hayden Hansen (Florida) — Starting Y. 6'8" mismatch.
-• Rocky Beers (CSU) — Starting TE. 7 TDs, CSU TE record.
-• Cole Sullivan (Michigan) — Starting MIKE next to Kip Lewis. 3 INT, 2 sacks.
-• E'Marion Harris (Arkansas) — Starting RT. 24 SEC starts.
-
-Plus 10 more for the rotation: Avant, Fields, Alleyne, Thomas, Van Dorselaer, Ozowalu, Nitta, Joseph, Ijioma, Hinton.
-
-Not splash-for-splash. Role-for-role.
-
-Full roster, CFB27 ratings, WAR MAP → boomerball.app/roster
+boomerball.app/roster
