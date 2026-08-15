@@ -192,6 +192,8 @@ function gameRow(game, index) {
 
   if (game.highlight) {
     const hiBarW = Math.max(22, Math.round((game.score / 100) * 118));
+    const nameEnd = ROW_X + 140 + Math.round(game.opponent.length * 20.5);
+    const badgeX = Math.min(nameEnd + 14, ROW_X + 520);
     return `
   <rect x="${ROW_X}" y="${y}" width="${ROW_W}" height="${h}" rx="16" fill="url(#panel)"/>
   <rect x="${ROW_X}" y="${y}" width="12" height="${h}" rx="6" fill="#841617"/>
@@ -201,9 +203,8 @@ function gameRow(game, index) {
   <text x="${ROW_X + 28}" y="${y + 68}" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#841617">${escapeXml(game.loc.toUpperCase())} · ${escapeXml(game.city)}</text>
   <text x="${ROW_X + 140}" y="${y + 40}" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="32" font-weight="900" fill="#1a0a0a">${escapeXml(game.opponent)}</text>
   <text x="${ROW_X + 140}" y="${y + 70}" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="18" font-weight="900" fill="#841617">${escapeXml(game.take)}</text>
-  <rect x="${ROW_X + 488}" y="${y + 18}" width="92" height="22" rx="11" fill="#841617"/>
-  <text x="${ROW_X + 534}" y="${y + 34}" text-anchor="middle" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="11" font-weight="900" letter-spacing="1" fill="#fdf9d8">KEY GAME</text>
-  <text x="${ROW_X + 598}" y="${y + 70}" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="1.2" fill="#3d2a2a">${escapeXml(game.tier.toUpperCase())}</text>
+  <rect x="${badgeX}" y="${y + 18}" width="92" height="22" rx="11" fill="#841617"/>
+  <text x="${badgeX + 46}" y="${y + 34}" text-anchor="middle" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="11" font-weight="900" letter-spacing="1" fill="#fdf9d8">KEY GAME</text>
   <text x="${ROW_X + ROW_W - 28}" y="${y + 48}" text-anchor="end" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="42" font-weight="900" fill="#841617">${game.score}</text>
   <rect x="${ROW_X + 854}" y="${y + 60}" width="118" height="10" rx="5" fill="#841617" opacity="0.14"/>
   <rect x="${ROW_X + 854}" y="${y + 60}" width="${hiBarW}" height="10" rx="5" fill="${color}"/>`;
