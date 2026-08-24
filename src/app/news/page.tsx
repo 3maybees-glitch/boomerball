@@ -65,55 +65,57 @@ export default function NewsPage() {
           <PodcastChannels />
         </EditorialSection>
 
-        <EditorialSection
-          className="mt-14"
-          title="Boomer Ball on X"
-          description={`Quick hits and site updates from @${X_HANDLE} — follow along between the longer writeups.`}
-          delay={0.06}
-        >
-          <XFeed />
-        </EditorialSection>
-
-        <EditorialSection
-          className="mt-14"
-          title="Latest stories"
-          description="Curated headlines with links to original reporting."
-          delay={0.1}
-        >
-          <div className="space-y-5">
-            {newsItems.map((item, index) => (
-              <MotionReveal key={item.id} delay={index * 0.04}>
-                <article className="group border-l-2 border-crimson/25 bg-white/85 py-5 pl-5 pr-4 transition hover:border-crimson hover:bg-white sm:pl-6">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span
-                      className={`rounded-md px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide ${categoryColors[item.category]}`}
+        <div className="mt-14 grid items-start gap-12 lg:grid-cols-[minmax(0,1.35fr)_minmax(18rem,0.9fr)] lg:gap-10 xl:gap-14">
+          <EditorialSection
+            title="Latest stories"
+            description="Curated headlines with links to original reporting."
+            delay={0.06}
+          >
+            <div className="space-y-5">
+              {newsItems.map((item, index) => (
+                <MotionReveal key={item.id} delay={index * 0.04}>
+                  <article className="group border-l-2 border-crimson/25 bg-white/85 py-5 pl-5 pr-4 transition hover:border-crimson hover:bg-white sm:pl-6">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span
+                        className={`rounded-md px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide ${categoryColors[item.category]}`}
+                      >
+                        {item.category}
+                      </span>
+                      <time className="text-xs font-medium uppercase tracking-wide text-ink/50">
+                        {formatDate(item.date)}
+                      </time>
+                    </div>
+                    <h3 className="mt-2 font-display text-xl font-bold leading-snug text-ink group-hover:text-crimson">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-ink/75">
+                      {item.summary}
+                    </p>
+                    <a
+                      href={item.sourceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-crimson underline decoration-crimson/25 underline-offset-2 hover:decoration-crimson"
                     >
-                      {item.category}
-                    </span>
-                    <time className="text-xs font-medium uppercase tracking-wide text-ink/50">
-                      {formatDate(item.date)}
-                    </time>
-                  </div>
-                  <h3 className="mt-2 font-display text-xl font-bold leading-snug text-ink group-hover:text-crimson">
-                    {item.title}
-                  </h3>
-                  <p className="mt-2 max-w-[65ch] text-sm leading-relaxed text-ink/75">
-                    {item.summary}
-                  </p>
-                  <a
-                    href={item.sourceUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-crimson underline decoration-crimson/25 underline-offset-2 hover:decoration-crimson"
-                  >
-                    Read more at {item.source}
-                    <ExternalLink className="h-3.5 w-3.5" aria-hidden />
-                  </a>
-                </article>
-              </MotionReveal>
-            ))}
-          </div>
-        </EditorialSection>
+                      Read more at {item.source}
+                      <ExternalLink className="h-3.5 w-3.5" aria-hidden />
+                    </a>
+                  </article>
+                </MotionReveal>
+              ))}
+            </div>
+          </EditorialSection>
+
+          <aside className="lg:sticky lg:top-28">
+            <EditorialSection
+              title="Boomer Ball on X"
+              description={`Quick hits from @${X_HANDLE}.`}
+              delay={0.1}
+            >
+              <XFeed />
+            </EditorialSection>
+          </aside>
+        </div>
 
         <div className="mt-12 rounded-2xl border border-crimson/12 bg-cream/50 p-5 text-sm leading-relaxed text-ink/75 shadow-[0_4px_20px_rgba(26,10,10,0.04)]">
           <strong className="text-crimson">Attribution policy:</strong> Boomer Ball is a
