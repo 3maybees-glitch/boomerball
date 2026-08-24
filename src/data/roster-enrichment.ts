@@ -52,6 +52,7 @@ export const rosterEnrichment: Record<string, RosterEnrichment> = {
   "kenneth-wermy-61": { transferFrom: "UCO" },
   "ryan-fodje-70": { recruitStars: 5 },
   "peyton-joseph-71": { transferFrom: "Georgia Tech" },
+  "fred-hinton-72": { transferFrom: "Eastern Kentucky" },
   "deacon-schmitt-73": { recruitStars: 4 },
   "e-marion-harris-76": { transferFrom: "Arkansas" },
   "rocky-beers-81": { transferFrom: "Colorado State" },
