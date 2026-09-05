@@ -9,7 +9,7 @@ export const SITE_URL = (
 ).replace(/\/$/, "");
 
 export const DEFAULT_DESCRIPTION =
-  "Oklahoma Sooners football analytics for Sooner Nation — 2025 season stats, 2026 roster, schedule, news, legends, and premium SP+ metrics. Sources cited from soonersports.com and ESPN.";
+  "Oklahoma Sooners football analytics for Sooner Nation — 2026 season stats after the UTEP opener, Monday Morning Quarterback recaps, roster, schedule, news, legends, and premium SP+ metrics. Sources cited from soonersports.com and ESPN.";
 
 export const DEFAULT_KEYWORDS = [
   "Oklahoma Sooners football",

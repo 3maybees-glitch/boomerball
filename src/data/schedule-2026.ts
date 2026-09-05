@@ -3,14 +3,19 @@ import { getOpponentStrength } from "./schedule-sos-2026";
 
 /** 2026 season schedule — Source: soonersports.com */
 export const SEASON_2026 = 2026;
+export const SEASON_2026_RECORD = "1-0";
+export const SEASON_2026_CONFERENCE_RECORD = "0-0 SEC";
 
 const rawSchedule2026: Omit<ScheduleGame, "opponentStrength">[] = [
   {
-    date: "2026-09-05",
-    time: "TBD",
+    date: "2026-09-04",
+    time: "7:00 PM CT",
     opponent: "UTEP",
     location: "Gaylord Family – Oklahoma Memorial Stadium, Norman, OK",
     isHome: true,
+    result: "W",
+    score: "51-0",
+    record: "1-0",
     conference: false,
   },
   {
@@ -111,3 +116,7 @@ export const schedule2026: ScheduleGame[] = rawSchedule2026.map((game) => ({
 
 export const DATA_SOURCE_SCHEDULE_2026 =
   "https://soonersports.com/sports/football/schedule/text/2026";
+
+export function getUpcoming2026Games(limit = 3): ScheduleGame[] {
+  return schedule2026.filter((game) => !game.result).slice(0, limit);
+}

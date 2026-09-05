@@ -1,7 +1,10 @@
 import { nationalChampionships } from "@/data/legends";
-import { schedule2026 } from "@/data/schedule-2026";
+import {
+  SEASON_2026_CONFERENCE_RECORD,
+  SEASON_2026_RECORD,
+} from "@/data/schedule-2026";
 import { SEASON_RECORD, CONFERENCE_RECORD } from "@/data/schedule";
-import { teamStats2025 } from "@/data/stats";
+import { teamStats2025, teamStats2026 } from "@/data/stats";
 import { roster2026 } from "@/data/roster";
 
 export type SeoFaqItem = {
@@ -14,19 +17,24 @@ export const seoFaqItems: SeoFaqItem[] = [
   {
     question: "What is Boomer Ball?",
     answer:
-      "Boomer Ball is a fan-inspired Oklahoma Sooners football analytics website at boomerball.app. It publishes free 2025 season stats, the 2026 roster, schedule, cited news, legends content, and optional premium advanced metrics. It is not affiliated with or endorsed by the University of Oklahoma.",
+      "Boomer Ball is a fan-inspired Oklahoma Sooners football analytics website at boomerball.app. It publishes free 2026 season stats, Monday Morning Quarterback recaps, the roster, schedule, cited news, legends content, archived 2025 data, and optional premium advanced metrics. It is not affiliated with or endorsed by the University of Oklahoma.",
+  },
+  {
+    question: "What is Oklahoma's 2026 football record?",
+    answer: `The Oklahoma Sooners are ${SEASON_2026_RECORD} overall and ${SEASON_2026_CONFERENCE_RECORD} after a 51-0 Week 1 shutout of UTEP. The next game is at Michigan.`,
+  },
+  {
+    question: "How did Oklahoma's 2026 season opener go?",
+    answer:
+      "No. 10 Oklahoma beat UTEP 51-0 on September 4, 2026, at Gaylord Family – Oklahoma Memorial Stadium. John Mateer threw three touchdown passes, Isaiah Sategna III returned a punt 88 yards for a score, and the Sooners scored on their first eight possessions.",
   },
   {
     question: "What was Oklahoma's 2025 football record?",
-    answer: `The Oklahoma Sooners finished the 2025 season ${SEASON_RECORD} overall and ${CONFERENCE_RECORD} in SEC play, including a College Football Playoff first-round appearance.`,
+    answer: `The Oklahoma Sooners finished the 2025 season ${SEASON_RECORD} overall and ${CONFERENCE_RECORD} in SEC play, including a College Football Playoff first-round appearance. Full 2025 totals remain in the stats archive.`,
   },
   {
     question: "How many points per game did Oklahoma score in 2025?",
-    answer: `Oklahoma averaged ${teamStats2025.pointsPerGame} points per game and allowed ${teamStats2025.pointsAllowedPerGame} points per game through 13 games in 2025, per official cumulative stats on soonersports.com.`,
-  },
-  {
-    question: "When is Oklahoma's 2026 football season opener?",
-    answer: `Oklahoma opens the 2026 season on ${schedule2026[0]?.date ?? "2026-09-05"} against ${schedule2026[0]?.opponent ?? "UTEP"} at Gaylord Family – Oklahoma Memorial Stadium in Norman, Oklahoma.`,
+    answer: `Oklahoma averaged ${teamStats2025.pointsPerGame} points per game and allowed ${teamStats2025.pointsAllowedPerGame} points per game through 13 games in 2025, per official cumulative stats on soonersports.com. Through one 2026 game the Sooners are averaging ${teamStats2026.pointsPerGame} points and allowing ${teamStats2026.pointsAllowedPerGame}.`,
   },
   {
     question: "How many players are on the 2026 Oklahoma Sooners roster?",

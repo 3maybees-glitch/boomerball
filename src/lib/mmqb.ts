@@ -2,6 +2,8 @@ import { weeklyRecaps, MMQB_PUBLISH_SCHEDULE } from "@/data/weekly-recaps";
 import type { WeeklyRecap } from "@/data/types";
 import { SEASON_2026 } from "@/data/schedule-2026";
 
+export const CURRENT_MMQB_SEASON = SEASON_2026;
+
 export function getAllRecaps(): WeeklyRecap[] {
   return [...weeklyRecaps].sort(
     (a, b) =>
@@ -32,9 +34,21 @@ export function formatRecapScore(recap: WeeklyRecap): string {
   return `OU ${ouScore}, ${recap.opponent.split(" ")[0]} ${oppScore}`;
 }
 
+export function getCurrentSeasonRecaps(): WeeklyRecap[] {
+  return getAllRecaps().filter(
+    (recap) => recap.season === CURRENT_MMQB_SEASON && !recap.isArchive,
+  );
+}
+
+export function getArchiveRecaps(): WeeklyRecap[] {
+  return getAllRecaps().filter(
+    (recap) => recap.isArchive || recap.season !== CURRENT_MMQB_SEASON,
+  );
+}
+
 /** True when the active season has no published recaps yet (offseason) */
 export function isMmkbOffseason(): boolean {
-  return weeklyRecaps.every((recap) => recap.isArchive);
+  return getCurrentSeasonRecaps().length === 0;
 }
 
 export function getMmkbSeasonMessage(): string {
