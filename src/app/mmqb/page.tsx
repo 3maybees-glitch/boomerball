@@ -9,7 +9,13 @@ import { Callout } from "@/components/Callout";
 import { MmqbRecapCard } from "@/components/MmqbRecapCard";
 import { MotionReveal } from "@/components/motion/MotionReveal";
 import { MMQB_TAGLINE, MMQB_TITLE } from "@/data/weekly-recaps";
-import { getAllRecaps, getLatestRecap, getMmkbSeasonMessage, isMmkbOffseason } from "@/lib/mmqb";
+import {
+  getArchiveRecaps,
+  getCurrentSeasonRecaps,
+  getLatestRecap,
+  getMmkbSeasonMessage,
+  isMmkbOffseason,
+} from "@/lib/mmqb";
 import { breadcrumbJsonLd, pageMetadata, webPageJsonLd } from "@/lib/seo";
 import { PREMIUM_RECRUIT_ROUTE } from "@/lib/premium";
 
@@ -30,10 +36,11 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function MmqbIndexPage() {
-  const recaps = getAllRecaps();
   const latest = getLatestRecap();
   const offseason = isMmkbOffseason();
-  const [featured, ...archive] = recaps;
+  const currentSeason = getCurrentSeasonRecaps();
+  const previous = currentSeason.filter((recap) => recap.id !== latest?.id);
+  const archive = getArchiveRecaps();
 
   return (
     <PageShell theme="news">
@@ -84,12 +91,27 @@ export default function MmqbIndexPage() {
           </EditorialSection>
         )}
 
+        {previous.length > 0 && (
+          <EditorialSection
+            className="mt-14"
+            title="Previous 2026 issues"
+            description="Every game, every Monday — regular stats and a full writeup."
+            delay={0.08}
+          >
+            <div className="space-y-5">
+              {previous.map((recap, index) => (
+                <MmqbRecapCard key={recap.id} recap={recap} index={index} />
+              ))}
+            </div>
+          </EditorialSection>
+        )}
+
         {archive.length > 0 && (
           <EditorialSection
             className="mt-14"
-            title={offseason ? "2025 archive" : "Previous issues"}
-            description="Every game, every Monday — regular stats and a full writeup."
-            delay={0.08}
+            title="2025 archive"
+            description="Final 2025 recaps from the CFP season, kept for reference."
+            delay={0.1}
           >
             <div className="space-y-5">
               {archive.map((recap, index) => (

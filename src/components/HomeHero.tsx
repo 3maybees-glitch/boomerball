@@ -5,7 +5,10 @@ import Link from "next/link";
 import { Trophy } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 import { SiteLogo } from "@/components/SiteLogo";
-import { SEASON_RECORD, CONFERENCE_RECORD } from "@/data/schedule";
+import {
+  SEASON_2026_CONFERENCE_RECORD,
+  SEASON_2026_RECORD,
+} from "@/data/schedule-2026";
 import { PREMIUM_RECRUIT_ROUTE } from "@/lib/premium";
 
 export function HomeHero() {
@@ -51,16 +54,17 @@ export function HomeHero() {
             Oklahoma Sooners football analytics
           </h1>
           <p className="mt-5 max-w-[38ch] text-base leading-relaxed text-cream/80 sm:text-lg">
-            2026 roster, schedule, 2025 stats, cited news, and The Locker Room —
-            NFL Comps, Game-u-lator, SP+ metrics, and more for die-hards.
+            The 2026 season is underway. Week 1 stats, Monday Morning
+            Quarterback, the roster, cited news, and The Locker Room — NFL Comps,
+            Game-u-lator, SP+ metrics, and more for die-hards.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
-              href="/stats"
+              href="/mmqb/2026-week-1-utep"
               className="inline-flex items-center justify-center rounded-full bg-cream px-6 py-3 text-sm font-semibold text-crimson shadow-[0_8px_24px_rgba(132,22,23,0.35)] transition hover:bg-white active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cream"
             >
-              View 2025 stats
+              Read the UTEP recap
             </Link>
             <Link
               href={PREMIUM_RECRUIT_ROUTE}
@@ -94,15 +98,15 @@ export function HomeHero() {
                 <Trophy className="h-5 w-5 shrink-0 text-crimson" aria-hidden />
                 <div className="text-left">
                   <p className="font-display text-2xl font-bold tabular-nums leading-none text-crimson">
-                    {SEASON_RECORD}
+                    {SEASON_2026_RECORD}
                   </p>
                   <p className="mt-1 text-xs font-medium text-ink/65">
-                    {CONFERENCE_RECORD} · 2025 final
+                    {SEASON_2026_CONFERENCE_RECORD} · 2026 season
                   </p>
                 </div>
               </div>
               <p className="mt-4 text-center text-xs font-medium uppercase tracking-widest text-cream/55">
-                Offseason · opener vs UTEP, Sep 5
+                Week 1 · W 51–0 vs UTEP · next at Michigan
               </p>
             </div>
           </div>

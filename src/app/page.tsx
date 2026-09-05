@@ -11,8 +11,12 @@ import { ScheduleCard } from "@/components/ScheduleCard";
 import { LockerRoomShowcase } from "@/components/LockerRoomShowcase";
 import { MotionReveal } from "@/components/motion/MotionReveal";
 import { roster2026 } from "@/data/roster";
-import { schedule2026 } from "@/data/schedule-2026";
-import { teamStats2025, STATS_SOURCE_SOONERS } from "@/data/stats";
+import { getUpcoming2026Games } from "@/data/schedule-2026";
+import {
+  teamStats2026,
+  week1TeamExtras2026,
+  STATS_SOURCE_SOONERS,
+} from "@/data/stats";
 import { newsItems } from "@/data/news";
 import { getLatestRecap } from "@/lib/mmqb";
 import { PREMIUM_RECRUIT_ROUTE, PREMIUM_ROUTE, PREMIUM_TIER_NAME } from "@/lib/premium";
@@ -29,7 +33,7 @@ const quickLinks = [
   {
     href: "/stats",
     label: "Season Stats",
-    desc: "Passing, rushing, receiving and defense through 13 games",
+    desc: "2026 Week 1 totals plus the archived 2025 season",
     icon: "stats" as const,
     accent: "default" as const,
   },
@@ -43,7 +47,7 @@ const quickLinks = [
   {
     href: "/schedule",
     label: "Schedule",
-    desc: "2026 upcoming and 2025 results",
+    desc: "2026 results underway — 2025 slate archived",
     icon: "schedule" as const,
     accent: "default" as const,
   },
@@ -106,7 +110,7 @@ const quickLinks = [
 ];
 
 export default function HomePage() {
-  const upcomingGames = schedule2026.slice(0, 3);
+  const upcomingGames = getUpcoming2026Games(3);
   const latestNews = newsItems.slice(0, 3);
   const latestRecap = getLatestRecap();
 
@@ -129,11 +133,11 @@ export default function HomePage() {
           <MotionReveal>
             <div className="max-w-2xl">
               <h2 className="font-display text-3xl font-bold tracking-tight text-crimson sm:text-4xl">
-                2025 season snapshot
+                2026 season snapshot
               </h2>
               <p className="mt-3 max-w-[55ch] text-base leading-relaxed text-ink/70">
-                Cumulative stats through the CFP first round. Updated for
-                offseason review until weekly 2026 reporting begins.
+                Through Week 1 after the 51–0 shutout of UTEP. Full 2025
+                totals live in the stats archive.
               </p>
             </div>
             <SourceAttribution
@@ -145,16 +149,22 @@ export default function HomePage() {
           <MotionReveal delay={0.08}>
             <TeamStatGrid
               stats={[
-                { label: "Record", value: teamStats2025.record, sub: teamStats2025.conferenceRecord },
-                { label: "PPG", value: teamStats2025.pointsPerGame },
-                { label: "PA/G", value: teamStats2025.pointsAllowedPerGame },
-                { label: "Total YPG", value: teamStats2025.totalYardsPerGame },
-                { label: "Rush YPG", value: teamStats2025.rushingYardsPerGame },
-                { label: "Pass YPG", value: teamStats2025.passingYardsPerGame },
-                { label: "Sacks", value: teamStats2025.sacks },
-                { label: "INTs", value: teamStats2025.interceptions },
+                { label: "Record", value: teamStats2026.record, sub: teamStats2026.conferenceRecord },
+                { label: "PPG", value: teamStats2026.pointsPerGame },
+                { label: "PA/G", value: teamStats2026.pointsAllowedPerGame },
+                { label: "Total YPG", value: teamStats2026.totalYardsPerGame },
+                { label: "Rush YPG", value: teamStats2026.rushingYardsPerGame },
+                { label: "Pass YPG", value: teamStats2026.passingYardsPerGame },
+                { label: "Yds Allowed", value: week1TeamExtras2026.yardsAllowed },
+                { label: "TOP", value: week1TeamExtras2026.timeOfPossession },
               ]}
             />
+            <Link
+              href="/stats"
+              className="mt-6 inline-flex text-sm font-semibold text-crimson underline decoration-crimson/30 underline-offset-4 transition hover:decoration-crimson"
+            >
+              2026 stats and 2025 archive
+            </Link>
           </MotionReveal>
         </section>
 
@@ -232,7 +242,7 @@ export default function HomePage() {
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
             <MotionReveal>
               <h2 className="font-display text-2xl font-bold tracking-tight text-crimson sm:text-3xl">
-                2026 schedule preview
+                Up next on the 2026 slate
               </h2>
               <div className="mt-5 space-y-3">
                 {upcomingGames.map((game) => (
@@ -243,7 +253,7 @@ export default function HomePage() {
                 href="/schedule"
                 className="mt-5 inline-flex text-sm font-semibold text-crimson underline decoration-crimson/30 underline-offset-4 transition hover:decoration-crimson"
               >
-                Full 2026 and 2025 schedule
+                Full 2026 schedule and 2025 archive
               </Link>
             </MotionReveal>
 

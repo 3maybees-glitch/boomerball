@@ -198,8 +198,9 @@ export default function LockerRoomPage() {
 
       <PageContent>
         <p className="mb-8 text-sm text-ink/60">
-          Based on 2025 season cumulative data. Metrics recalculate when weekly stats
-          update during the season.
+          Season-long SP+ grades still use 2025 cumulative baselines until the 2026
+          sample grows. Game-level EPA, success rate, and grades publish each Monday
+          in Monday Morning Quarterback.
         </p>
 
         <PremiumGate>{content}</PremiumGate>
