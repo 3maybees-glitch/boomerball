@@ -34,12 +34,12 @@ export const weeklyRecaps: WeeklyRecap[] = [
       {
         title: "QB Watch",
         body:
-          "Mateer did exactly what Venables asked: take what is there, protect the football, and stay out of negative plays. He completed 11 of 17 for 225 yards and three touchdowns with no interceptions, then sat late in the third quarter. The explosive layer showed up immediately — 40 yards to Rocky Beers, 34 to Sategna, and 48 to Trell Harris. Whitt Newbauer closed the night with a 3-yard rushing score and a 6-yard completion. Estimated NCAA passer rating: 147.7 on 13.2 yards per attempt.",
+          "Mateer did exactly what Venables asked: take what is there, protect the football, and stay out of negative plays. He completed 11 of 17 for 225 yards and three touchdowns with no interceptions, then sat late in the third quarter. The explosive layer showed up immediately — 40 yards to Rocky Beers, 34 to Sategna, and 48 to Trell Harris. Whitt Newbauer closed the night with a 3-yard rushing score and a 6-yard completion. NCAA passer rating: 234.1 on 13.2 yards per attempt.",
         stats: [
           { label: "Mateer Pass", value: "11-17, 225 yds" },
           { label: "Pass TD / INT", value: "3 / 0" },
           { label: "YPA", value: "13.2" },
-          { label: "QB Rating", value: "147.7 est." },
+          { label: "QB Rating", value: "234.1" },
         ],
       },
       {

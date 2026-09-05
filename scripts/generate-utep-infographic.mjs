@@ -103,7 +103,7 @@ const svg = `<?xml version="1.0" encoding="UTF-8"?>
   <text x="76" y="626" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#3d2a2a">QB · #10 · pulled late 3rd</text>
   <text x="76" y="688" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="40" font-weight="900" fill="#1a0a0a">11–17</text>
   <text x="76" y="730" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#841617">225 YDS · 3 TD · 0 INT</text>
-  <text x="76" y="770" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="600" fill="#3d2a2a">13.2 YPA · 147.7 rating est.</text>
+  <text x="76" y="770" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="600" fill="#3d2a2a">13.2 YPA · 234.1 NCAA rating</text>
 
   <rect x="552" y="554" width="480" height="250" rx="20" fill="url(#panel)"/>
   <text x="580" y="598" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="16" font-weight="800" letter-spacing="2" fill="#841617">ISAIAH SATEGNA III</text>

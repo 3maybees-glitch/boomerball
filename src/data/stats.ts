@@ -42,7 +42,7 @@ export const passingStats2026: PassingStat[] = [
     yards: 225,
     td: 3,
     int: 0,
-    rating: 147.7,
+    rating: 234.1,
     pct: 64.7,
   },
   {
@@ -54,7 +54,7 @@ export const passingStats2026: PassingStat[] = [
     yards: 6,
     td: 0,
     int: 0,
-    rating: 91.7,
+    rating: 150.4,
     pct: 100,
   },
 ];
