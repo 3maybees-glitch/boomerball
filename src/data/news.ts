@@ -3,6 +3,17 @@ import type { NewsItem } from "./types";
 /** News summaries with attribution to official and reputable sources */
 export const newsItems: NewsItem[] = [
   {
+    id: "utep-2026",
+    title: "No. 10 Sooners Shut Out UTEP 51-0 in Season Opener",
+    summary:
+      "John Mateer threw three touchdown passes and Isaiah Sategna III returned a punt 88 yards as Oklahoma opened 2026 with a 51-0 win at Memorial Stadium. The Sooners scored on their first eight possessions, totaled 401 yards, and held UTEP to 198. Next: No. 16 Michigan on the road.",
+    date: "2026-09-04",
+    source: "soonersports.com",
+    sourceUrl:
+      "https://soonersports.com/news/2026/9/4/football-sooners-defeat-utep-to-open-the-season",
+    category: "game",
+  },
+  {
     id: "cfp-2025",
     title: "Sooners Fall to Alabama in CFP First Round, Finish 10-3",
     summary:

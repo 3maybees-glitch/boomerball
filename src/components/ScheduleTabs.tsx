@@ -39,7 +39,7 @@ export function ScheduleTabs() {
                 : "border border-crimson/20 bg-white/90 text-crimson hover:border-crimson/50"
             }`}
           >
-            {y} {y === "2026" ? "upcoming" : "results"}
+            {y} {y === "2026" ? "season" : "archive"}
           </button>
         ))}
       </div>
@@ -64,7 +64,8 @@ export function ScheduleTabs() {
       {is2026 && (
         <MotionReveal className="mb-8 space-y-4">
           <Callout variant="info">
-            <strong>2026 season:</strong> 12 games with 6 home, 5 away, and 1 neutral
+            <strong>2026 season:</strong> Oklahoma is 1-0 after the UTEP shutout.
+            Eleven games remain with 5 home dates left, 5 away, and 1 neutral
             (Texas at Dallas). Times marked TBD will be announced by the SEC network.
           </Callout>
           <div className="grid gap-3 sm:grid-cols-3">

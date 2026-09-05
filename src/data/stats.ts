@@ -6,7 +6,72 @@ import type {
   TeamStats,
 } from "./types";
 
-/** Cumulative 2025 season stats — Sources: soonersports.com, ESPN */
+/** Active season team snapshot — Sources: soonersports.com, ESPN */
+export const teamStats2026: TeamStats = {
+  record: "1-0",
+  conferenceRecord: "0-0 SEC",
+  pointsPerGame: 51,
+  pointsAllowedPerGame: 0,
+  totalYardsPerGame: 401,
+  rushingYardsPerGame: 170,
+  passingYardsPerGame: 231,
+  sacks: 0,
+  interceptions: 0,
+  tackles: 0,
+};
+
+/** Week 1 situational totals that are not part of the shared TeamStats shape */
+export const week1TeamExtras2026 = {
+  yardsAllowed: 198,
+  firstDowns: 18,
+  opponentFirstDowns: 10,
+  timeOfPossession: "30:32",
+  thirdDownConversions: 6,
+  opponentThirdDownConversions: 2,
+  rushingAttempts: 39,
+  gamesPlayed: 1,
+};
+
+export const passingStats2026: PassingStat[] = [
+  {
+    player: "John Mateer",
+    number: 10,
+    gp: 1,
+    comp: 11,
+    att: 17,
+    yards: 225,
+    td: 3,
+    int: 0,
+    rating: 234.1,
+    pct: 64.7,
+  },
+  {
+    player: "Whitt Newbauer",
+    number: 16,
+    gp: 1,
+    comp: 1,
+    att: 1,
+    yards: 6,
+    td: 0,
+    int: 0,
+    rating: 150.4,
+    pct: 100,
+  },
+];
+
+/** Confirmed Week 1 scoring receptions — full receiving table expands with official cumulatives */
+export const receivingStats2026: ReceivingStat[] = [
+  { player: "Trell Harris", number: 11, rec: 1, yards: 48, avg: 48.0, td: 1, long: 48 },
+  { player: "Rocky Beers", number: 81, rec: 1, yards: 40, avg: 40.0, td: 1, long: 40 },
+  { player: "Isaiah Sategna III", number: 5, rec: 1, yards: 34, avg: 34.0, td: 1, long: 34 },
+];
+
+export const STATS_SOURCE_SOONERS_2026 =
+  "https://soonersports.com/sports/football/stats/2026";
+export const STATS_SOURCE_UTEP_RECAP =
+  "https://soonersports.com/news/2026/9/4/football-sooners-defeat-utep-to-open-the-season";
+
+/** Cumulative 2025 season archive — Sources: soonersports.com, ESPN */
 export const teamStats2025: TeamStats = {
   record: "10-3",
   conferenceRecord: "6-2 SEC",
@@ -108,7 +173,9 @@ export const defenseStats2025: DefenseStat[] = [
   { player: "Eli Bowen", number: 27, position: "DB", solo: 19, ast: 5, tot: 24, sacks: 0, int: 2, pd: 3 },
 ];
 
-export const STATS_SOURCE_SOONERS =
+export const STATS_SOURCE_SOONERS_2025 =
   "https://soonersports.com/sports/football/stats/2025";
+/** Current-season official stats hub */
+export const STATS_SOURCE_SOONERS = STATS_SOURCE_SOONERS_2026;
 export const STATS_SOURCE_ESPN =
   "https://www.espn.com/college-football/team/stats/_/id/201";
