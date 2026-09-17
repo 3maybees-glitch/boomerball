@@ -3,7 +3,7 @@ import { getOpponentStrength } from "./schedule-sos-2026";
 
 /** 2026 season schedule — Source: soonersports.com */
 export const SEASON_2026 = 2026;
-export const SEASON_2026_RECORD = "1-0";
+export const SEASON_2026_RECORD = "1-1";
 export const SEASON_2026_CONFERENCE_RECORD = "0-0 SEC";
 
 const rawSchedule2026: Omit<ScheduleGame, "opponentStrength">[] = [
@@ -24,6 +24,10 @@ const rawSchedule2026: Omit<ScheduleGame, "opponentStrength">[] = [
     opponent: "Michigan",
     location: "Michigan Stadium, Ann Arbor, MI",
     isHome: false,
+    result: "L",
+    score: "10-17",
+    record: "1-1",
+    attendance: 111240,
     conference: false,
   },
   {

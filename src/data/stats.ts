@@ -6,44 +6,44 @@ import type {
   TeamStats,
 } from "./types";
 
-/** Active season team snapshot — Sources: soonersports.com, ESPN */
+/** Active season team snapshot through Week 2 — Sources: soonersports.com, ESPN, mgoblue.com box */
 export const teamStats2026: TeamStats = {
-  record: "1-0",
+  record: "1-1",
   conferenceRecord: "0-0 SEC",
-  pointsPerGame: 51,
-  pointsAllowedPerGame: 0,
-  totalYardsPerGame: 401,
-  rushingYardsPerGame: 170,
-  passingYardsPerGame: 231,
-  sacks: 0,
+  pointsPerGame: 30.5,
+  pointsAllowedPerGame: 8.5,
+  totalYardsPerGame: 345,
+  rushingYardsPerGame: 135,
+  passingYardsPerGame: 210,
+  sacks: 2,
   interceptions: 0,
   tackles: 0,
 };
 
-/** Week 1 situational totals that are not part of the shared TeamStats shape */
-export const week1TeamExtras2026 = {
-  yardsAllowed: 198,
-  firstDowns: 18,
-  opponentFirstDowns: 10,
-  timeOfPossession: "30:32",
-  thirdDownConversions: 6,
-  opponentThirdDownConversions: 2,
-  rushingAttempts: 39,
-  gamesPlayed: 1,
+/** Situational totals / per-game averages that are not part of the shared TeamStats shape */
+export const teamExtras2026 = {
+  yardsAllowed: 230.5,
+  firstDowns: 17.5,
+  opponentFirstDowns: 12,
+  timeOfPossession: "28:38",
+  thirdDownConversions: 9,
+  opponentThirdDownConversions: 6,
+  rushingAttempts: 68,
+  gamesPlayed: 2,
 };
 
 export const passingStats2026: PassingStat[] = [
   {
     player: "John Mateer",
     number: 10,
-    gp: 1,
-    comp: 11,
-    att: 17,
-    yards: 225,
-    td: 3,
-    int: 0,
-    rating: 234.1,
-    pct: 64.7,
+    gp: 2,
+    comp: 28,
+    att: 50,
+    yards: 414,
+    td: 4,
+    int: 1,
+    rating: 148.0,
+    pct: 56.0,
   },
   {
     player: "Whitt Newbauer",
@@ -59,17 +59,50 @@ export const passingStats2026: PassingStat[] = [
   },
 ];
 
-/** Confirmed Week 1 scoring receptions — full receiving table expands with official cumulatives */
+/**
+ * Confirmed receiving through two games.
+ * Week 1 charted scoring catches from the UTEP box; Week 2 is the full Michigan receiving line.
+ */
 export const receivingStats2026: ReceivingStat[] = [
-  { player: "Trell Harris", number: 11, rec: 1, yards: 48, avg: 48.0, td: 1, long: 48 },
-  { player: "Rocky Beers", number: 81, rec: 1, yards: 40, avg: 40.0, td: 1, long: 40 },
-  { player: "Isaiah Sategna III", number: 5, rec: 1, yards: 34, avg: 34.0, td: 1, long: 34 },
+  { player: "Rocky Beers", number: 81, rec: 7, yards: 134, avg: 19.1, td: 1, long: 43 },
+  { player: "Trell Harris", number: 11, rec: 5, yards: 91, avg: 18.2, td: 1, long: 48 },
+  { player: "Isaiah Sategna III", number: 1, rec: 3, yards: 43, avg: 14.3, td: 1, long: 34 },
+  { player: "Mackenzie Alleyne", number: 17, rec: 1, yards: 22, avg: 22.0, td: 1, long: 22 },
+  { player: "Lloyd Avant", number: 9, rec: 3, yards: 13, avg: 4.3, td: 0, long: 7 },
+  { player: "Parker Livingstone", number: 3, rec: 1, yards: 8, avg: 8.0, td: 0, long: 8 },
+];
+
+/** Confirmed rushing from the Michigan box — Week 1 individual rushing has not been fully published */
+export const rushingStats2026: RushingStat[] = [
+  { player: "John Mateer", number: 10, att: 13, yards: 45, avg: 3.5, td: 0, long: 22 },
+  { player: "Lloyd Avant", number: 9, att: 9, yards: 35, avg: 3.9, td: 0, long: 11 },
+  { player: "Isaiah Sategna III", number: 1, att: 3, yards: 11, avg: 3.7, td: 0, long: 7 },
+  { player: "Xavier Robinson", number: 24, att: 3, yards: 6, avg: 2.0, td: 0, long: 4 },
+  { player: "Tory Blaylock", number: 6, att: 1, yards: 3, avg: 3.0, td: 0, long: 3 },
+];
+
+/** Confirmed defensive stats from the Michigan box */
+export const defenseStats2026: DefenseStat[] = [
+  { player: "Owen Heinecke", number: 38, position: "LB", solo: 6, ast: 4, tot: 10, sacks: 1, int: 0, pd: 0 },
+  { player: "Omarion Robinson", number: 2, position: "DB", solo: 3, ast: 3, tot: 6, sacks: 0, int: 0, pd: 0 },
+  { player: "Peyton Bowen", number: 22, position: "DB", solo: 2, ast: 4, tot: 6, sacks: 0, int: 0, pd: 1 },
+  { player: "Taylor Wein", number: 44, position: "DL", solo: 4, ast: 2, tot: 6, sacks: 0, int: 0, pd: 0 },
+  { player: "Jayden Jackson", number: 65, position: "DL", solo: 5, ast: 1, tot: 6, sacks: 0, int: 0, pd: 0 },
+  { player: "Michael Boganowski", number: 25, position: "DB", solo: 4, ast: 1, tot: 5, sacks: 0, int: 0, pd: 0 },
+  { player: "Reggie Powers III", number: 3, position: "DB", solo: 4, ast: 0, tot: 4, sacks: 1, int: 0, pd: 1 },
+  { player: "David Stone", number: 0, position: "DL", solo: 2, ast: 1, tot: 3, sacks: 0, int: 0, pd: 0 },
 ];
 
 export const STATS_SOURCE_SOONERS_2026 =
   "https://soonersports.com/sports/football/stats/2026";
 export const STATS_SOURCE_UTEP_RECAP =
   "https://soonersports.com/news/2026/9/4/football-sooners-defeat-utep-to-open-the-season";
+export const STATS_SOURCE_MICHIGAN_BOX =
+  "https://mgoblue.com/sports/football/stats/2026/oklahoma/boxscore/30375";
+export const STATS_SOURCE_MICHIGAN_NOTES =
+  "https://soonersports.com/documents/2026/9/12/02_OU_Postgame_Notes_at_Michigan.pdf";
+export const STATS_SOURCE_ESPN_MICHIGAN =
+  "https://www.espn.com/college-football/recap?gameId=401856679";
 
 /** Cumulative 2025 season archive — Sources: soonersports.com, ESPN */
 export const teamStats2025: TeamStats = {

@@ -8,7 +8,7 @@ import { breadcrumbJsonLd, pageMetadata, webPageJsonLd } from "@/lib/seo";
 
 const PAGE_TITLE = "2026 Season Stats";
 const PAGE_DESCRIPTION =
-  "Oklahoma Sooners 2026 football statistics through Week 1, plus the archived 2025 cumulative passing, rushing, receiving, and defense totals from soonersports.com and ESPN.";
+  "Oklahoma Sooners 2026 football statistics through Week 2 at Michigan, plus the archived 2025 cumulative passing, rushing, receiving, and defense totals from soonersports.com and ESPN.";
 
 export const metadata: Metadata = pageMetadata({
   title: PAGE_TITLE,
@@ -38,7 +38,7 @@ export default function StatsPage() {
       <PageHeader
         theme="stats"
         title="Season statistics"
-        description="Live 2026 totals after the UTEP opener, with the complete 2025 season archived in one click."
+        description="Live 2026 totals after the loss at Michigan, with the complete 2025 season archived in one click."
       />
 
       <PageContent>

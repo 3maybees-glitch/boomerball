@@ -21,7 +21,12 @@ export const seoFaqItems: SeoFaqItem[] = [
   },
   {
     question: "What is Oklahoma's 2026 football record?",
-    answer: `The Oklahoma Sooners are ${SEASON_2026_RECORD} overall and ${SEASON_2026_CONFERENCE_RECORD} after a 51-0 Week 1 shutout of UTEP. The next game is at Michigan.`,
+    answer: `The Oklahoma Sooners are ${SEASON_2026_RECORD} overall and ${SEASON_2026_CONFERENCE_RECORD} after a 17-10 Week 2 loss at Michigan. The next game is vs. New Mexico at home.`,
+  },
+  {
+    question: "How did Oklahoma's 2026 game at Michigan go?",
+    answer:
+      "No. 11 Oklahoma lost 17-10 at Michigan Stadium on September 12, 2026. John Mateer threw a 22-yard touchdown to Mackenzie Alleyne and Tate Sandell tied the game 10-10, but a fourth-quarter interception set up Michigan's go-ahead score. The Sooners outgained the Wolverines 289-263 in front of a program-record 111,240.",
   },
   {
     question: "How did Oklahoma's 2026 season opener go?",
@@ -34,7 +39,7 @@ export const seoFaqItems: SeoFaqItem[] = [
   },
   {
     question: "How many points per game did Oklahoma score in 2025?",
-    answer: `Oklahoma averaged ${teamStats2025.pointsPerGame} points per game and allowed ${teamStats2025.pointsAllowedPerGame} points per game through 13 games in 2025, per official cumulative stats on soonersports.com. Through one 2026 game the Sooners are averaging ${teamStats2026.pointsPerGame} points and allowing ${teamStats2026.pointsAllowedPerGame}.`,
+    answer: `Oklahoma averaged ${teamStats2025.pointsPerGame} points per game and allowed ${teamStats2025.pointsAllowedPerGame} points per game through 13 games in 2025, per official cumulative stats on soonersports.com. Through two 2026 games the Sooners are averaging ${teamStats2026.pointsPerGame} points and allowing ${teamStats2026.pointsAllowedPerGame}.`,
   },
   {
     question: "How many players are on the 2026 Oklahoma Sooners roster?",

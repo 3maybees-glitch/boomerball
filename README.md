@@ -6,10 +6,10 @@ Fan-inspired Oklahoma Sooners college football analytics website.
 
 ## Features
 
-- **2026 Season Stats** — Live Week 1 totals plus the archived 2025 season
+- **2026 Season Stats** — Live Week 2 totals plus the archived 2025 season
 - **Monday Morning Quarterback** — Weekly game recaps with box-score and advanced stats
 - **Roster & Coaches** — Player bios, ESPN headshots, height/weight, coaching staff
-- **Schedule** — 2026 results underway (1-0 after UTEP) and the 2025 archive (10-3, 6-2 SEC)
+- **Schedule** — 2026 results underway (1-1 after Michigan) and the 2025 archive (10-3, 6-2 SEC)
 - **News** — Cited summaries from [soonersports.com](https://soonersports.com) and reputable outlets
 - **The Locker Room (Premium)** — SP+, EPA, havoc rate, NFL Comps, Game-u-lator, schemes, and recruiting via **$24.99** one-time 2026 season access
 - **2026 WAR MAP ($1)** — Shareable “Sooner season sheet”: depth charts, unit grades, projected scores, draft board, freshman hopefuls & bowl call (upsells into The Locker Room)

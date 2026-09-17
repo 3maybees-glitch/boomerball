@@ -54,17 +54,17 @@ export function HomeHero() {
             Oklahoma Sooners football analytics
           </h1>
           <p className="mt-5 max-w-[38ch] text-base leading-relaxed text-cream/80 sm:text-lg">
-            The 2026 season is underway. Week 1 stats, Monday Morning
+            The 2026 season is underway. Week 2 stats, Monday Morning
             Quarterback, the roster, cited news, and The Locker Room — NFL Comps,
             Game-u-lator, SP+ metrics, and more for die-hards.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
-              href="/mmqb/2026-week-1-utep"
+              href="/mmqb/2026-week-2-michigan"
               className="inline-flex items-center justify-center rounded-full bg-cream px-6 py-3 text-sm font-semibold text-crimson shadow-[0_8px_24px_rgba(132,22,23,0.35)] transition hover:bg-white active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cream"
             >
-              Read the UTEP recap
+              Read the Michigan recap
             </Link>
             <Link
               href={PREMIUM_RECRUIT_ROUTE}
@@ -106,7 +106,7 @@ export function HomeHero() {
                 </div>
               </div>
               <p className="mt-4 text-center text-xs font-medium uppercase tracking-widest text-cream/55">
-                Week 1 · W 51–0 vs UTEP · next at Michigan
+                Week 2 · L 10–17 at Michigan · next vs New Mexico
               </p>
             </div>
           </div>

@@ -3,6 +3,17 @@ import type { NewsItem } from "./types";
 /** News summaries with attribution to official and reputable sources */
 export const newsItems: NewsItem[] = [
   {
+    id: "michigan-2026",
+    title: "No. 11 Sooners Fall 17-10 at Michigan",
+    summary:
+      "Michigan beat No. 11 Oklahoma 17-10 at Michigan Stadium after a Jyaire Hill interception set up Jordan Marshall's go-ahead 1-yard run. John Mateer threw a 22-yard touchdown to Mackenzie Alleyne and Tate Sandell tied it 10-10, but the Sooners never led. OU outgained the Wolverines 289-263 in front of a program-record 111,240. Next: New Mexico at home.",
+    date: "2026-09-12",
+    source: "soonersports.com",
+    sourceUrl:
+      "https://soonersports.com/documents/2026/9/12/02_OU_Postgame_Notes_at_Michigan.pdf",
+    category: "game",
+  },
+  {
     id: "utep-2026",
     title: "No. 10 Sooners Shut Out UTEP 51-0 in Season Opener",
     summary:
