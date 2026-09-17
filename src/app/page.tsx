@@ -14,7 +14,7 @@ import { roster2026 } from "@/data/roster";
 import { getUpcoming2026Games } from "@/data/schedule-2026";
 import {
   teamStats2026,
-  week1TeamExtras2026,
+  teamExtras2026,
   STATS_SOURCE_SOONERS,
 } from "@/data/stats";
 import { newsItems } from "@/data/news";
@@ -33,7 +33,7 @@ const quickLinks = [
   {
     href: "/stats",
     label: "Season Stats",
-    desc: "2026 Week 1 totals plus the archived 2025 season",
+    desc: "2026 totals through Michigan plus the archived 2025 season",
     icon: "stats" as const,
     accent: "default" as const,
   },
@@ -136,7 +136,7 @@ export default function HomePage() {
                 2026 season snapshot
               </h2>
               <p className="mt-3 max-w-[55ch] text-base leading-relaxed text-ink/70">
-                Through Week 1 after the 51–0 shutout of UTEP. Full 2025
+                Through Week 2 after the 17–10 loss at Michigan. Full 2025
                 totals live in the stats archive.
               </p>
             </div>
@@ -155,8 +155,8 @@ export default function HomePage() {
                 { label: "Total YPG", value: teamStats2026.totalYardsPerGame },
                 { label: "Rush YPG", value: teamStats2026.rushingYardsPerGame },
                 { label: "Pass YPG", value: teamStats2026.passingYardsPerGame },
-                { label: "Yds Allowed", value: week1TeamExtras2026.yardsAllowed },
-                { label: "TOP", value: week1TeamExtras2026.timeOfPossession },
+                { label: "Yds Allowed", value: teamExtras2026.yardsAllowed },
+                { label: "TOP", value: teamExtras2026.timeOfPossession },
               ]}
             />
             <Link

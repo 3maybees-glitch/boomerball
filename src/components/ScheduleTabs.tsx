@@ -15,6 +15,7 @@ import {
 import {
   schedule2026,
   DATA_SOURCE_SCHEDULE_2026,
+  SEASON_2026_RECORD,
 } from "@/data/schedule-2026";
 import { SCHEDULE_SOS_2026 } from "@/lib/schedule-sos";
 
@@ -64,9 +65,10 @@ export function ScheduleTabs() {
       {is2026 && (
         <MotionReveal className="mb-8 space-y-4">
           <Callout variant="info">
-            <strong>2026 season:</strong> Oklahoma is 1-0 after the UTEP shutout.
-            Eleven games remain with 5 home dates left, 5 away, and 1 neutral
-            (Texas at Dallas). Times marked TBD will be announced by the SEC network.
+            <strong>2026 season:</strong> Oklahoma is {SEASON_2026_RECORD} after
+            the loss at Michigan. Ten games remain with 5 home dates left, 4
+            away, and 1 neutral (Texas at Dallas). Times marked TBD will be
+            announced by the SEC network.
           </Callout>
           <div className="grid gap-3 sm:grid-cols-3">
             <div className="rounded-xl border border-crimson/12 bg-white/95 p-5 text-center shadow-[0_4px_20px_rgba(26,10,10,0.06)]">

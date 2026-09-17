@@ -162,8 +162,8 @@ export const warMapSchedule: WarMapGameProjection[] = [
     venue: "H",
     conference: false,
     pick: "W",
-    score: "49–10",
-    note: "Tune-up",
+    score: "51–0",
+    note: "Actual — shutout",
   },
   {
     date: "Sep 12",
@@ -171,8 +171,8 @@ export const warMapSchedule: WarMapGameProjection[] = [
     venue: "A",
     conference: false,
     pick: "L",
-    score: "27–31",
-    note: "Big House",
+    score: "10–17",
+    note: "Actual — Big House",
   },
   {
     date: "Sep 19",
