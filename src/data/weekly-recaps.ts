@@ -2,6 +2,9 @@ import type { WeeklyRecap } from "./types";
 import { DATA_SOURCE_SCHEDULE } from "./schedule";
 import {
   STATS_SOURCE_ESPN,
+  STATS_SOURCE_ESPN_MICHIGAN,
+  STATS_SOURCE_MICHIGAN_BOX,
+  STATS_SOURCE_MICHIGAN_NOTES,
   STATS_SOURCE_SOONERS,
   STATS_SOURCE_SOONERS_2025,
   STATS_SOURCE_UTEP_RECAP,
@@ -15,6 +18,103 @@ export const MMQB_TAGLINE =
 export const MMQB_PUBLISH_SCHEDULE = "Every Monday during the 2026 season";
 
 export const weeklyRecaps: WeeklyRecap[] = [
+  {
+    id: "2026-week-2-michigan",
+    slug: "2026-week-2-michigan",
+    week: 2,
+    season: 2026,
+    publishedDate: "2026-09-14",
+    opponent: "Michigan",
+    location: "Michigan Stadium, Ann Arbor, MI",
+    isHome: false,
+    result: "L",
+    score: "10-17",
+    record: "1-1 (0-0 SEC)",
+    headline: "Turnovers cost No. 11 Sooners in 17-10 loss at the Big House",
+    lede:
+      "Oklahoma never led in Ann Arbor and fell 17-10 to No. 24 Michigan in front of a program-record 111,240 at Michigan Stadium. The Sooners outgained the Wolverines 289-263 and tied the game 10-10 in the fourth quarter, then John Mateer's interception at the OU 16 set up Jordan Marshall's 1-yard winner. A 10-0 hole at halftime and two giveaways were the difference on a day the defense mostly held.",
+    sections: [
+      {
+        title: "QB Watch",
+        body:
+          "Mateer finished 17 of 33 for 189 yards, one touchdown, and one interception, plus 13 carries for 45 yards. The split tells the story: 7 of 16 for 52 yards in a scoreless first half, then nine straight completions to start the second half — including a 22-yard strike to Mackenzie Alleyne that made it 10-7. The closing sequence did not. On third-and-9 from the 16, Jyaire Hill jumped the throw, returned it 24 yards to the 6, and Michigan scored two plays later. Three incompletions on the next-to-last drive and a sack to end it left the dual-threat encore looking like the 2025 version on the road. NCAA passer rating: 103.6 on 5.7 yards per attempt.",
+        stats: [
+          { label: "Mateer Pass", value: "17-33, 189 yds" },
+          { label: "Pass TD / INT", value: "1 / 1" },
+          { label: "Rush Yds", value: "45" },
+          { label: "QB Rating", value: "103.6" },
+        ],
+      },
+      {
+        title: "Offense Report",
+        body:
+          "Ben Arbuckle's unit totaled 289 yards (189 pass, 100 rush) on 62 plays — 4.7 per snap — and converted only 3 of 13 third downs. Rocky Beers was the outlet that worked: six catches for 94 yards, including a 43-yarder that flipped the field for Tate Sandell's tying 34-yard field goal. Lloyd Avant ran nine times for 35 yards; the committee never found a consistent crease against Michigan's front. Oklahoma scored on its first two second-half possessions (90 yards in eight plays, then 83 yards in eight) and then went punt, interception, punt, turnover on downs. Red-zone finishing was a field goal from the 16. Time of possession: 26:43.",
+        stats: [
+          { label: "Total Yds", value: "289" },
+          { label: "Rush / Pass", value: "100 / 189" },
+          { label: "1st Downs", value: "17" },
+          { label: "3rd Down", value: "3-13" },
+        ],
+      },
+      {
+        title: "Defense Report",
+        body:
+          "Venables' group did enough to win a one-score game. Michigan managed 263 yards, 14 first downs, and 4 of 13 on third down. Bryce Underwood ran for 87 yards and a 38-yard touchdown that made it 7-0 late in the first; that explosive plus a 36-yard throw to JJ Buchanan were the Wolverines' only real chunk plays. Owen Heinecke led all tacklers with 10 and a sack. Taylor Wein added six tackles, 1.5 for loss, and a forced fumble; Reggie Powers III had a sack and two TFLs. After halftime Oklahoma held Michigan to 75 yards on 25 plays — then gave the ball back at the 6. Star linebacker Kip Lewis left in the first half with an apparent knee injury.",
+        stats: [
+          { label: "Pts Allowed", value: "17" },
+          { label: "Yards Allowed", value: "263" },
+          { label: "Opp 3rd Downs", value: "4-13" },
+          { label: "Sacks", value: "2" },
+        ],
+      },
+      {
+        title: "Special Teams",
+        body:
+          "Sandell was 1-for-1 from 34 yards and 1-for-1 on extra points, tying the game with 11:49 left. Grayson Miller averaged 48.6 yards on five punts, landed three inside the 20, and pinned Michigan at the 1 with a 62-yarder that Jer'Michael Carter downed. Isaiah Sategna III returned three punts for 17 yards; coverage otherwise kept Michigan from flipping the field. The kicking game did its job. The offense could not cash the field position.",
+        stats: [
+          { label: "FG", value: "1-1 (34)" },
+          { label: "Punt Avg", value: "48.6" },
+          { label: "Inside 20", value: "3" },
+          { label: "Attendance", value: "111,240" },
+        ],
+      },
+      {
+        title: "What's Next",
+        body:
+          "The 1-1 Sooners come home to face New Mexico on Saturday, Sept. 19, at 6:30 p.m. CT at Memorial Stadium. It is the last non-conference date before a trip to Georgia. A bounce-back against the Lobos is the floor; the Michigan tape is a measuring-stick reminder that turnovers and third down still decide September. Boomer Ball will publish the next Monday Morning Quarterback after Norman.",
+      },
+    ],
+    premiumSections: [
+      {
+        title: "Advanced Take",
+        body:
+          "Yardage said this was a coin-flip. Expected points did not. Boomer Ball estimates −0.08 EPA per play on offense — the lost fumble, the Hill interception, and 3-of-13 on third down wiped out the second-half rally — and −0.06 EPA per play allowed on defense, which is a winning profile if you don't gift a short field. Success rate sat near 41% (17 first downs, but too many second-and-longs after sacks). Mateer's estimated QB grade of 5.7 reflects 5.7 YPA, one score, one turnover-worthy throw, and that 7-of-16 first half. Michigan took 7 points off the interception and 0 off two of its own fumbles (both recovered).",
+        stats: [
+          { label: "Off EPA/Play", value: "−0.08 est." },
+          { label: "Def EPA/Play", value: "−0.06 allowed" },
+          { label: "Success Rate", value: "41% off" },
+          { label: "QB Grade", value: "5.7 est." },
+        ],
+      },
+      {
+        title: "Efficiency Board",
+        body:
+          "Yards per play were essentially even: 4.7 for Oklahoma (289 on 62) and 4.5 allowed (263 on 58). Explosive margin was not — Beers' 43-yarder was OU's only 30-plus gain, while Underwood's 38-yard run and Buchanan's 36-yard catch flipped the first half. Red-zone finishing: 1-of-1 for a field goal versus Michigan's 2-of-2 (one touchdown, one field goal). Second-half defensive EPA was the green number: 75 yards on 25 snaps is a top-tier half. Points per drive allowed still landed at 1.42 because the short field counted the same as a 91-yard march. Small-sample warning still applies with two games in the book.",
+        stats: [
+          { label: "Yds/Play", value: "4.7" },
+          { label: "Yds/Play Allwd", value: "4.5" },
+          { label: "Explosives 30+", value: "1" },
+          { label: "Pts/Drive Allwd", value: "1.42" },
+        ],
+      },
+    ],
+    sources: [
+      { label: "soonersports.com postgame notes", url: STATS_SOURCE_MICHIGAN_NOTES },
+      { label: "Michigan box score", url: STATS_SOURCE_MICHIGAN_BOX },
+      { label: "ESPN recap", url: STATS_SOURCE_ESPN_MICHIGAN },
+      { label: "soonersports.com stats", url: STATS_SOURCE_SOONERS },
+    ],
+  },
   {
     id: "2026-week-1-utep",
     slug: "2026-week-1-utep",
