@@ -3,6 +3,17 @@ import type { NewsItem } from "./types";
 /** News summaries with attribution to official and reputable sources */
 export const newsItems: NewsItem[] = [
   {
+    id: "new-mexico-2026",
+    title: "Defense Carries No. 24 Sooners Past New Mexico, 14-6",
+    summary:
+      "John Mateer threw touchdowns to Hayden Hansen and Isaiah Sategna III, and Oklahoma's defense recorded six sacks in a 14-6 win over New Mexico. The Sooners ran for 61 yards and threw two interceptions while holding the Lobos to 185 yards in front of 83,423. The AP poll dropped OU out of the Top 25 the next day. Next: No. 2 Georgia on the road.",
+    date: "2026-09-19",
+    source: "soonersports.com",
+    sourceUrl:
+      "https://soonersports.com/news/2026/9/19/football-defense-stifles-new-mexico",
+    category: "game",
+  },
+  {
     id: "michigan-2026",
     title: "No. 11 Sooners Fall 17-10 at Michigan",
     summary:

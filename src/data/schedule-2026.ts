@@ -3,7 +3,7 @@ import { getOpponentStrength } from "./schedule-sos-2026";
 
 /** 2026 season schedule — Source: soonersports.com */
 export const SEASON_2026 = 2026;
-export const SEASON_2026_RECORD = "1-1";
+export const SEASON_2026_RECORD = "2-1";
 export const SEASON_2026_CONFERENCE_RECORD = "0-0 SEC";
 
 const rawSchedule2026: Omit<ScheduleGame, "opponentStrength">[] = [
@@ -36,11 +36,15 @@ const rawSchedule2026: Omit<ScheduleGame, "opponentStrength">[] = [
     opponent: "New Mexico",
     location: "Gaylord Family – Oklahoma Memorial Stadium, Norman, OK",
     isHome: true,
+    result: "W",
+    score: "14-6",
+    record: "2-1",
+    attendance: 83423,
     conference: false,
   },
   {
     date: "2026-09-26",
-    time: "TBD",
+    time: "2:30 PM CT",
     opponent: "Georgia",
     location: "Sanford Stadium, Athens, GA",
     isHome: false,
