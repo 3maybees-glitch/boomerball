@@ -66,7 +66,7 @@ export function ScheduleTabs() {
         <MotionReveal className="mb-8 space-y-4">
           <Callout variant="info">
             <strong>2026 season:</strong> Oklahoma is {SEASON_2026_RECORD} after
-            the loss at Michigan. Ten games remain with 5 home dates left, 4
+            the win over New Mexico. Nine games remain with 4 home dates left, 4
             away, and 1 neutral (Texas at Dallas). Times marked TBD will be
             announced by the SEC network.
           </Callout>

@@ -33,7 +33,7 @@ const quickLinks = [
   {
     href: "/stats",
     label: "Season Stats",
-    desc: "2026 totals through Michigan plus the archived 2025 season",
+    desc: "2026 totals through New Mexico plus the archived 2025 season",
     icon: "stats" as const,
     accent: "default" as const,
   },
@@ -136,7 +136,7 @@ export default function HomePage() {
                 2026 season snapshot
               </h2>
               <p className="mt-3 max-w-[55ch] text-base leading-relaxed text-ink/70">
-                Through Week 2 after the 17–10 loss at Michigan. Full 2025
+                Through Week 3 after the 14–6 win over New Mexico. Full 2025
                 totals live in the stats archive.
               </p>
             </div>

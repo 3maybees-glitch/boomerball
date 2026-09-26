@@ -3,8 +3,11 @@ import { DATA_SOURCE_SCHEDULE } from "./schedule";
 import {
   STATS_SOURCE_ESPN,
   STATS_SOURCE_ESPN_MICHIGAN,
+  STATS_SOURCE_ESPN_NEW_MEXICO,
   STATS_SOURCE_MICHIGAN_BOX,
   STATS_SOURCE_MICHIGAN_NOTES,
+  STATS_SOURCE_NEW_MEXICO_BOX,
+  STATS_SOURCE_NEW_MEXICO_RECAP,
   STATS_SOURCE_SOONERS,
   STATS_SOURCE_SOONERS_2025,
   STATS_SOURCE_UTEP_RECAP,
@@ -18,6 +21,103 @@ export const MMQB_TAGLINE =
 export const MMQB_PUBLISH_SCHEDULE = "Every Monday during the 2026 season";
 
 export const weeklyRecaps: WeeklyRecap[] = [
+  {
+    id: "2026-week-3-new-mexico",
+    slug: "2026-week-3-new-mexico",
+    week: 3,
+    season: 2026,
+    publishedDate: "2026-09-21",
+    opponent: "New Mexico",
+    location: "Gaylord Family – Oklahoma Memorial Stadium, Norman, OK",
+    isHome: true,
+    result: "W",
+    score: "14-6",
+    record: "2-1 (0-0 SEC)",
+    headline: "Defense bails out No. 24 Sooners in a 14-6 win over New Mexico",
+    lede:
+      "No. 24 Oklahoma held off New Mexico 14-6 on a 95-degree night at Memorial Stadium, and the final margin was the defense's. John Mateer threw a 29-yard touchdown to Hayden Hansen and a 53-yarder to Isaiah Sategna III, then spent the night living with two interceptions, a muffed punt, and 61 rushing yards. Six sacks and a fourth-and-1 stop kept the Lobos to two field goals in front of 83,423. The AP poll dropped the Sooners out of the Top 25 the next day.",
+    sections: [
+      {
+        title: "QB Watch",
+        body:
+          "Mateer finished 19 of 25 for 238 yards, two touchdowns, and two interceptions, plus 10 carries for 17 yards. The efficiency was real — 9.5 yards per attempt and a 166.4 passer rating — and so were the giveaways. The opening series ended on third-and-8 when Tavian Combs intercepted him at the OU 37, hurried by Xavier Slayton. The second pick came late in the half: Frankie Edwards jumped a third-and-7 throw at the OU 33 and returned it 11 yards to the 22, which became New Mexico's second field goal and a 7-6 game. Between those mistakes he ran the 12-play, 80-yard drive that Hansen finished from 29, then hit Sategna in stride for 53 on the first scoring march of the second half. The legs that usually bail out a messy passing night did not: a long rush of 7 yards. NCAA passer rating: 166.4.",
+        stats: [
+          { label: "Mateer Pass", value: "19-25, 238 yds" },
+          { label: "Pass TD / INT", value: "2 / 2" },
+          { label: "Rush Yds", value: "17" },
+          { label: "QB Rating", value: "166.4" },
+        ],
+      },
+      {
+        title: "Offense Report",
+        body:
+          "Ben Arbuckle's unit totaled 299 yards (238 pass, 61 rush) on 58 plays — 5.2 per snap — and converted 7 of 15 third downs. The air game carried it. Sategna caught six passes for 101 yards and the 53-yard score; Hansen added three catches for 49 yards and the 29-yard touchdown; Rocky Beers chipped in two grabs for 34 yards, long of 22. The ground game did not. Thirty-two carries produced 61 yards, 1.9 a rush, and a long of 9 by Xavier Robinson. Lloyd Avant led the committee with eight carries for 27. Oklahoma never reached the red zone — both touchdowns came from outside the 20 — and an 11-play, 51-yard march to the New Mexico 23 died on Tate Sandell's missed 41-yard field goal at the half. Time of possession: 25:52. Penalties: 7 for 50 yards.",
+        stats: [
+          { label: "Total Yds", value: "299" },
+          { label: "Rush / Pass", value: "61 / 238" },
+          { label: "1st Downs", value: "14" },
+          { label: "3rd Down", value: "7-15" },
+        ],
+      },
+      {
+        title: "Defense Report",
+        body:
+          "This is the win. Venables' group held a Lobos offense that had been putting up points to 185 yards, 12 first downs, and 3 of 14 on third down. New Mexico rushed 38 times for 69 yards. Oklahoma sacked the quarterback six times for 46 yards: Adepoju Adebawore had 1.5, and David Stone, Owen Heinecke, Peyton Bowen, Reggie Powers III, and Jacobe Johnson each recorded at least a half. Stone and Heinecke led the tackle chart with eight apiece. Peyton Bowen added a sack and two pass breakups. The Lobos' one explosive, a 40-yard catch by Cade Keith, became a field goal. Their last real chance was a 12-play, 47-yard march in the fourth quarter; Stone stuffed Scottre Humphrey on fourth-and-1 at the Oklahoma 17 with 2:58 left, and the Sooners converted a third down and kneeled it out. Three first-half takeaways produced six points. Brent Venables called the turnovers incredible and said the defense saved them.",
+        stats: [
+          { label: "Pts Allowed", value: "6" },
+          { label: "Yards Allowed", value: "185" },
+          { label: "Opp 3rd Downs", value: "3-14" },
+          { label: "Sacks", value: "6" },
+        ],
+      },
+      {
+        title: "Special Teams",
+        body:
+          "Sandell was 2-for-2 on extra points and 0-for-1 on field goals, missing from 41 as the first half expired, and all three of his kickoffs were touchbacks. Grayson Miller averaged 40.8 yards on four punts with one inside the 20 and a long of 45. The return game gave one back: Sategna muffed a punt at the OU 41, Eric McClain recovered at the 39, and New Mexico went three plays for minus-1 and punted. Sategna also brought back two kickoffs for 32 yards, long of 18. Attendance was 83,423. Kickoff was 6:35 p.m., and it was 95 degrees at Norman.",
+        stats: [
+          { label: "FG", value: "0-1 (41)" },
+          { label: "Punt Avg", value: "40.8" },
+          { label: "XP", value: "2-2" },
+          { label: "Attendance", value: "83,423" },
+        ],
+      },
+      {
+        title: "What's Next",
+        body:
+          "The 2-1 Sooners open SEC play at No. 2 Georgia on Saturday, Sept. 26, at 2:30 p.m. CT at Sanford Stadium on ESPN. Sunday's AP poll moved Oklahoma out of the Top 25 after a 14-point home win. Athens is the correction or the confirmation: six sacks can travel, and an offense that managed 61 rushing yards, two interceptions, and a missed field goal cannot look like this against Georgia. Boomer Ball will publish the next Monday Morning Quarterback after Athens.",
+      },
+    ],
+    premiumSections: [
+      {
+        title: "Advanced Take",
+        body:
+          "The score flatters the offense and still undersells the defense. Boomer Ball estimates +0.05 EPA per play on offense — the Hansen and Sategna touchdowns covered two interceptions and a missed 41-yard field goal — and −0.16 EPA per play allowed, which is a winning defensive day against a team that had been scoring. Success rate sat near 42%. Completions moved the chains (7 of 15 on third down), and 1.9 yards per rush kept too many series behind schedule. Mateer's estimated QB grade of 6.9 reflects 9.5 yards per attempt and two scores weighed against two turnover-worthy throws and 17 rushing yards. New Mexico cashed three first-half giveaways — two picks and the muffed punt — for one field goal.",
+        stats: [
+          { label: "Off EPA/Play", value: "+0.05 est." },
+          { label: "Def EPA/Play", value: "−0.16 allowed" },
+          { label: "Success Rate", value: "42% off" },
+          { label: "QB Grade", value: "6.9 est." },
+        ],
+      },
+      {
+        title: "Efficiency Board",
+        body:
+          "Yards per play separated the teams: 5.2 for Oklahoma (299 on 58) and 3.2 allowed (185 on 57). Explosive margin was thin — Sategna's 53-yarder was OU's only gain of 30-plus, and Keith's 40-yard catch was New Mexico's — and only the Sooner explosive became a touchdown. Red-zone finishing was a non-event for Oklahoma (0 trips) and 2-of-3 for the Lobos, both field goals; the fourth-down stop came at the 17. Points per drive allowed landed at 0.60 across 10 New Mexico possessions. Six sacks are the havoc number that has to show up in Athens. The run rate is the number that will not wait. Three games is still a small sample, and it is no longer a one-week blip.",
+        stats: [
+          { label: "Yds/Play", value: "5.2" },
+          { label: "Yds/Play Allwd", value: "3.2" },
+          { label: "Explosives 30+", value: "1" },
+          { label: "Pts/Drive Allwd", value: "0.60" },
+        ],
+      },
+    ],
+    sources: [
+      { label: "soonersports.com recap", url: STATS_SOURCE_NEW_MEXICO_RECAP },
+      { label: "New Mexico box score", url: STATS_SOURCE_NEW_MEXICO_BOX },
+      { label: "ESPN recap", url: STATS_SOURCE_ESPN_NEW_MEXICO },
+      { label: "soonersports.com stats", url: STATS_SOURCE_SOONERS },
+    ],
+  },
   {
     id: "2026-week-2-michigan",
     slug: "2026-week-2-michigan",

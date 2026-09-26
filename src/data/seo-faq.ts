@@ -21,7 +21,12 @@ export const seoFaqItems: SeoFaqItem[] = [
   },
   {
     question: "What is Oklahoma's 2026 football record?",
-    answer: `The Oklahoma Sooners are ${SEASON_2026_RECORD} overall and ${SEASON_2026_CONFERENCE_RECORD} after a 17-10 Week 2 loss at Michigan. The next game is vs. New Mexico at home.`,
+    answer: `The Oklahoma Sooners are ${SEASON_2026_RECORD} overall and ${SEASON_2026_CONFERENCE_RECORD} after a 14-6 Week 3 win over New Mexico. The next game is at No. 2 Georgia.`,
+  },
+  {
+    question: "How did Oklahoma's 2026 game against New Mexico go?",
+    answer:
+      "No. 24 Oklahoma beat New Mexico 14-6 on September 19, 2026, at Gaylord Family – Oklahoma Memorial Stadium. John Mateer threw a 29-yard touchdown to Hayden Hansen and a 53-yard touchdown to Isaiah Sategna III. The Sooners allowed 185 yards and recorded six sacks, and they ran for 61 yards with two interceptions in front of 83,423.",
   },
   {
     question: "How did Oklahoma's 2026 game at Michigan go?",
@@ -39,7 +44,7 @@ export const seoFaqItems: SeoFaqItem[] = [
   },
   {
     question: "How many points per game did Oklahoma score in 2025?",
-    answer: `Oklahoma averaged ${teamStats2025.pointsPerGame} points per game and allowed ${teamStats2025.pointsAllowedPerGame} points per game through 13 games in 2025, per official cumulative stats on soonersports.com. Through two 2026 games the Sooners are averaging ${teamStats2026.pointsPerGame} points and allowing ${teamStats2026.pointsAllowedPerGame}.`,
+    answer: `Oklahoma averaged ${teamStats2025.pointsPerGame} points per game and allowed ${teamStats2025.pointsAllowedPerGame} points per game through 13 games in 2025, per official cumulative stats on soonersports.com. Through three 2026 games the Sooners are averaging ${teamStats2026.pointsPerGame} points and allowing ${teamStats2026.pointsAllowedPerGame}.`,
   },
   {
     question: "How many players are on the 2026 Oklahoma Sooners roster?",

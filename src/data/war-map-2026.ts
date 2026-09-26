@@ -180,8 +180,8 @@ export const warMapSchedule: WarMapGameProjection[] = [
     venue: "H",
     conference: false,
     pick: "W",
-    score: "45–13",
-    note: "Home pad",
+    score: "14–6",
+    note: "Actual — defense win",
   },
   {
     date: "Sep 26",
