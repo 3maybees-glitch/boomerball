@@ -55,7 +55,7 @@ export function HomeHero() {
           </h1>
           <p className="mt-5 max-w-[38ch] text-base leading-relaxed text-cream/80 sm:text-lg">
             Red River is today. Unranked Oklahoma against No. 1 Texas at the
-            Cotton Bowl, plus Week 3 stats, Monday Morning Quarterback, and The
+            Cotton Bowl, plus four-game stats, Monday Morning Quarterback, and The
             Locker Room.
           </p>
 

@@ -51,6 +51,7 @@ const rawSchedule2026: Omit<ScheduleGame, "opponentStrength">[] = [
     result: "L",
     score: "13-41",
     record: "2-2",
+    attendance: 93033,
     conference: true,
   },
   {

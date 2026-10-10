@@ -42,7 +42,7 @@ export const redRiverComparison: PreviewStatRow[] = [
   { label: "Record", ou: "2-2, 0-1 SEC", texas: "4-0, 1-0 SEC", note: "OU unranked · Texas No. 1" },
   { label: "Points / game", ou: "22.0", texas: "33.3", note: "OU 109th · Texas 55th" },
   { label: "Points allowed", ou: "16.0", texas: "13.3", note: "OU 24th · Texas 11th" },
-  { label: "Total offense", ou: "321.3", texas: "378.5", note: "Yards per game" },
+  { label: "Total offense", ou: "321.2", texas: "378.5", note: "Yards per game" },
   { label: "Rush yards", ou: "99.0", texas: "147.3", note: "OU 131st nationally" },
   { label: "Total defense", ou: "238.0", texas: "271.0", note: "OU 5th · Texas 22nd" },
   { label: "Pass defense", ou: "122.5", texas: "171.8", note: "OU 4th nationally" },

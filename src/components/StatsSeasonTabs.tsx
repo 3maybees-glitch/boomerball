@@ -16,17 +16,17 @@ import {
   rushingStats2025,
   rushingStats2026,
   STATS_SOURCE_ESPN,
-  STATS_SOURCE_MICHIGAN_BOX,
-  STATS_SOURCE_MICHIGAN_NOTES,
-  STATS_SOURCE_NEW_MEXICO_BOX,
-  STATS_SOURCE_NEW_MEXICO_RECAP,
+  STATS_SOURCE_ESPN_2026,
   STATS_SOURCE_SOONERS_2025,
   STATS_SOURCE_SOONERS_2026,
-  STATS_SOURCE_UTEP_RECAP,
   teamStats2025,
   teamStats2026,
   teamExtras2026,
 } from "@/data/stats";
+
+function playerLabel(number: number, player: string) {
+  return player === "Team" ? "Team" : `#${number} ${player}`;
+}
 
 export function StatsSeasonTabs() {
   const [season, setSeason] = useState<"2026" | "2025">("2026");
@@ -54,11 +54,10 @@ export function StatsSeasonTabs() {
       {is2026 ? (
         <>
           <Callout variant="info" className="mb-10">
-            <strong>2026 is live:</strong> The record is 2-2, 0-1 SEC after the
-            Sept. 26 loss at Georgia. Rate stats and the passing chart are
-            through the Week 3 win over New Mexico. Rushing and defense tables
-            use the confirmed New Mexico box until official Week 1 individual
-            rushing publishes. The full 2025 season sits in the archive tab.
+            <strong>2026 is live:</strong> Cumulative totals through four games
+            and a 2-2 record after the Sept. 26 loss at Georgia. Passing,
+            rushing, receiving, and defense are season totals. The full 2025
+            season sits in the archive tab.
           </Callout>
 
           <EditorialSection title="Team overview" divider={false}>
@@ -71,7 +70,7 @@ export function StatsSeasonTabs() {
                 { label: "Rushing", value: `${teamStats2026.rushingYardsPerGame} YPG` },
                 { label: "Passing", value: `${teamStats2026.passingYardsPerGame} YPG` },
                 { label: "Yards Allowed", value: teamExtras2026.yardsAllowed },
-                { label: "1st Downs", value: teamExtras2026.firstDowns },
+                { label: "1st Downs/G", value: teamExtras2026.firstDowns },
                 { label: "TOP", value: teamExtras2026.timeOfPossession },
               ]}
             />
@@ -93,7 +92,7 @@ export function StatsSeasonTabs() {
                   { key: "rating", label: "Rating", align: "right" },
                 ]}
                 rows={passingStats2026.map((s) => ({
-                  player: `#${s.number} ${s.player}`,
+                  player: playerLabel(s.number, s.player),
                   gp: s.gp,
                   comp: s.comp,
                   att: s.att,
@@ -127,15 +126,14 @@ export function StatsSeasonTabs() {
                 }))}
               />
               <p className="mt-3 text-sm text-ink/60">
-                Week 1 scoring catches plus the full Michigan and New Mexico
-                receiving lines. Additional Week 1 non-scoring catches will land
-                here when official cumulative receiving stats update.
+                Season receiving through Georgia. Sategna leads with 20 catches
+                for 267 yards. The 73 catches match the team passing total of 889 yards.
               </p>
             </EditorialSection>
 
             <EditorialSection title="Rushing" divider={false} delay={0.1}>
               <StatTable
-                title="Week 3 rushing (New Mexico)"
+                title="Rushing through Georgia"
                 columns={[
                   { key: "player", label: "Player" },
                   { key: "att", label: "Att", align: "right" },
@@ -145,7 +143,7 @@ export function StatsSeasonTabs() {
                   { key: "long", label: "Long", align: "right" },
                 ]}
                 rows={rushingStats2026.map((s) => ({
-                  player: `#${s.number} ${s.player}`,
+                  player: playerLabel(s.number, s.player),
                   att: s.att,
                   yards: s.yards,
                   avg: s.avg,
@@ -154,15 +152,14 @@ export function StatsSeasonTabs() {
                 }))}
               />
               <p className="mt-3 text-sm text-ink/60">
-                Confirmed rushing from the New Mexico box. Season team rushing is
-                110.3 YPG through three games; Week 1 individual carries are not yet
-                fully charted.
+                Season rushing through Georgia. Oklahoma has 396 yards on 135
+                carries, 99.0 per game, including two team rushes for minus-2.
               </p>
             </EditorialSection>
 
             <EditorialSection title="Defense" divider={false} delay={0.12}>
               <StatTable
-                title="Week 3 defensive leaders (New Mexico)"
+                title="Defense through Georgia"
                 columns={[
                   { key: "player", label: "Player" },
                   { key: "pos", label: "Pos" },
@@ -185,9 +182,8 @@ export function StatsSeasonTabs() {
                 }))}
               />
               <p className="mt-3 text-sm text-ink/60">
-                Confirmed from the New Mexico box. Stone and Heinecke led the game
-                with eight tackles each. Oklahoma recorded six sacks, with 1.5
-                from Adebawore.
+                Season defense through Georgia. Heinecke leads with 27 tackles.
+                The team has 246 tackles, 13 sacks, and one interception.
               </p>
             </EditorialSection>
           </div>
@@ -324,13 +320,8 @@ export function StatsSeasonTabs() {
           sources={
             is2026
               ? [
-                  { label: "New Mexico box score", url: STATS_SOURCE_NEW_MEXICO_BOX },
-                  { label: "soonersports.com recap", url: STATS_SOURCE_NEW_MEXICO_RECAP },
-                  { label: "soonersports.com postgame notes", url: STATS_SOURCE_MICHIGAN_NOTES },
-                  { label: "Michigan box score", url: STATS_SOURCE_MICHIGAN_BOX },
-                  { label: "UTEP recap", url: STATS_SOURCE_UTEP_RECAP },
-                  { label: "soonersports.com", url: STATS_SOURCE_SOONERS_2026 },
-                  { label: "ESPN", url: STATS_SOURCE_ESPN },
+                  { label: "soonersports.com 2026 cumulative", url: STATS_SOURCE_SOONERS_2026 },
+                  { label: "ESPN 2026 team stats", url: STATS_SOURCE_ESPN_2026 },
                 ]
               : [
                   { label: "soonersports.com", url: STATS_SOURCE_SOONERS_2025 },

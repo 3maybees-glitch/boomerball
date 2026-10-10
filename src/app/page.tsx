@@ -34,7 +34,7 @@ const quickLinks = [
   {
     href: "/stats",
     label: "Season Stats",
-    desc: "2026 totals through New Mexico plus the archived 2025 season",
+    desc: "2026 totals through Georgia plus the archived 2025 season",
     icon: "stats" as const,
     accent: "default" as const,
   },
@@ -138,9 +138,9 @@ export default function HomePage() {
                 2026 season snapshot
               </h2>
               <p className="mt-3 max-w-[55ch] text-base leading-relaxed text-ink/70">
-                Rate stats below are through the Week 3 win over New Mexico.
-                The record is 2-2, 0-1 SEC after the 13–41 loss at Georgia.
-                Four-game team rates are in the Red River preview.
+                Through four games, heading into Red River. The record is 2-2,
+                0-1 SEC after the 13–41 loss at Georgia. Full 2025 totals live
+                in the stats archive.
               </p>
             </div>
             <SourceAttribution

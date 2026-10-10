@@ -6,44 +6,44 @@ import type {
   TeamStats,
 } from "./types";
 
-/** Active season team snapshot through Week 3 — Sources: soonersports.com, ESPN */
+/** Active season team snapshot through Georgia (4 games) — Sources: soonersports.com, ESPN */
 export const teamStats2026: TeamStats = {
   record: "2-2",
   conferenceRecord: "0-1 SEC",
-  pointsPerGame: 25.0,
-  pointsAllowedPerGame: 7.7,
-  totalYardsPerGame: 329.7,
-  rushingYardsPerGame: 110.3,
-  passingYardsPerGame: 219.3,
-  sacks: 8,
-  interceptions: 0,
-  tackles: 0,
+  pointsPerGame: 22.0,
+  pointsAllowedPerGame: 16.0,
+  totalYardsPerGame: 321.2,
+  rushingYardsPerGame: 99.0,
+  passingYardsPerGame: 222.3,
+  sacks: 13,
+  interceptions: 1,
+  tackles: 246,
 };
 
 /** Situational totals / per-game averages that are not part of the shared TeamStats shape */
 export const teamExtras2026 = {
-  yardsAllowed: 215.3,
-  firstDowns: 16.3,
-  opponentFirstDowns: 12,
-  timeOfPossession: "27:42",
-  thirdDownConversions: 16,
-  opponentThirdDownConversions: 9,
-  rushingAttempts: 100,
-  gamesPlayed: 3,
+  yardsAllowed: 238.0,
+  firstDowns: 16.5,
+  opponentFirstDowns: 12.0,
+  timeOfPossession: "29:38",
+  thirdDownConversions: 18,
+  opponentThirdDownConversions: 12,
+  rushingAttempts: 135,
+  gamesPlayed: 4,
 };
 
 export const passingStats2026: PassingStat[] = [
   {
     player: "John Mateer",
     number: 10,
-    gp: 3,
-    comp: 47,
-    att: 75,
-    yards: 652,
-    td: 6,
-    int: 3,
-    rating: 154.1,
-    pct: 62.7,
+    gp: 4,
+    comp: 72,
+    att: 109,
+    yards: 883,
+    td: 8,
+    int: 4,
+    rating: 151.0,
+    pct: 66.1,
   },
   {
     player: "Whitt Newbauer",
@@ -57,48 +57,83 @@ export const passingStats2026: PassingStat[] = [
     rating: 150.4,
     pct: 100,
   },
+  {
+    player: "Bowe Bentley",
+    number: 8,
+    gp: 1,
+    comp: 0,
+    att: 1,
+    yards: 0,
+    td: 0,
+    int: 0,
+    rating: 0.0,
+    pct: 0,
+  },
+  {
+    player: "Team",
+    number: 0,
+    gp: 4,
+    comp: 0,
+    att: 1,
+    yards: 0,
+    td: 0,
+    int: 0,
+    rating: 0.0,
+    pct: 0,
+  },
 ];
 
-/**
- * Confirmed receiving through three games.
- * Week 1 charted scoring catches from the UTEP box; Weeks 2 and 3 are the full
- * Michigan and New Mexico receiving lines.
- */
+/** Cumulative receiving through Georgia. Source: soonersports.com, cross-checked with ESPN. */
 export const receivingStats2026: ReceivingStat[] = [
-  { player: "Rocky Beers", number: 81, rec: 9, yards: 168, avg: 18.7, td: 1, long: 43 },
-  { player: "Isaiah Sategna III", number: 1, rec: 9, yards: 144, avg: 16.0, td: 2, long: 53 },
-  { player: "Trell Harris", number: 11, rec: 5, yards: 91, avg: 18.2, td: 1, long: 48 },
-  { player: "Hayden Hansen", number: 89, rec: 3, yards: 49, avg: 16.3, td: 1, long: 29 },
-  { player: "Parker Livingstone", number: 3, rec: 3, yards: 28, avg: 9.3, td: 0, long: 11 },
-  { player: "Mackenzie Alleyne", number: 17, rec: 1, yards: 22, avg: 22.0, td: 1, long: 22 },
-  { player: "Xavier Robinson", number: 24, rec: 3, yards: 18, avg: 6.0, td: 0, long: 8 },
-  { player: "Lloyd Avant", number: 9, rec: 3, yards: 13, avg: 4.3, td: 0, long: 7 },
-  { player: "Elijah Thomas", number: 14, rec: 2, yards: 9, avg: 4.5, td: 0, long: 8 },
+  { player: "Isaiah Sategna III", number: 1, rec: 20, yards: 267, avg: 13.3, td: 2, long: 53 },
+  { player: "Rocky Beers", number: 81, rec: 18, yards: 255, avg: 14.2, td: 2, long: 43 },
+  { player: "Trell Harris", number: 11, rec: 6, yards: 104, avg: 17.3, td: 1, long: 48 },
+  { player: "Hayden Hansen", number: 89, rec: 4, yards: 64, avg: 16.0, td: 1, long: 29 },
+  { player: "Parker Livingstone", number: 3, rec: 6, yards: 51, avg: 8.5, td: 0, long: 17 },
+  { player: "Mackenzie Alleyne", number: 17, rec: 4, yards: 40, avg: 10.0, td: 1, long: 22 },
+  { player: "Elijah Thomas", number: 14, rec: 4, yards: 38, avg: 9.5, td: 0, long: 24 },
+  { player: "Lloyd Avant", number: 9, rec: 6, yards: 31, avg: 5.2, td: 0, long: 9 },
+  { player: "Xavier Robinson", number: 21, rec: 3, yards: 18, avg: 6.0, td: 0, long: 8 },
+  { player: "Manny Choice", number: 0, rec: 1, yards: 14, avg: 14.0, td: 1, long: 14 },
   { player: "Jonathan Hatton Jr.", number: 20, rec: 1, yards: 7, avg: 7.0, td: 0, long: 7 },
 ];
 
-/** Confirmed rushing from the New Mexico box — Week 1 individual rushing has not been fully published */
+/** Cumulative rushing through Georgia. Source: soonersports.com. Team rushes are two kneel-downs. */
 export const rushingStats2026: RushingStat[] = [
-  { player: "Lloyd Avant", number: 9, att: 8, yards: 27, avg: 3.4, td: 0, long: 6 },
-  { player: "John Mateer", number: 10, att: 10, yards: 17, avg: 1.7, td: 0, long: 7 },
-  { player: "Xavier Robinson", number: 24, att: 2, yards: 9, avg: 4.5, td: 0, long: 9 },
-  { player: "Jonathan Hatton Jr.", number: 20, att: 6, yards: 8, avg: 1.3, td: 0, long: 4 },
-  { player: "Tory Blaylock", number: 6, att: 4, yards: 2, avg: 0.5, td: 0, long: 4 },
+  { player: "Lloyd Avant", number: 9, att: 42, yards: 164, avg: 3.9, td: 1, long: 13 },
+  { player: "John Mateer", number: 10, att: 41, yards: 76, avg: 1.9, td: 0, long: 22 },
+  { player: "Xavier Robinson", number: 21, att: 13, yards: 50, avg: 3.8, td: 0, long: 11 },
+  { player: "Jonathan Hatton Jr.", number: 20, att: 14, yards: 43, avg: 3.1, td: 0, long: 21 },
+  { player: "Ben McCreary", number: 23, att: 6, yards: 40, avg: 6.7, td: 0, long: 24 },
+  { player: "Isaiah Sategna III", number: 1, att: 4, yards: 17, avg: 4.2, td: 0, long: 7 },
+  { player: "Tory Blaylock", number: 6, att: 8, yards: 15, avg: 1.9, td: 0, long: 5 },
+  { player: "Whitt Newbauer", number: 16, att: 2, yards: 3, avg: 1.5, td: 1, long: 3 },
+  { player: "Bowe Bentley", number: 8, att: 1, yards: -2, avg: -2.0, td: 0, long: 0 },
+  { player: "Team", number: 0, att: 2, yards: -2, avg: -1.0, td: 0, long: 0 },
+  { player: "Andy Bass", number: 25, att: 2, yards: -8, avg: -4.0, td: 0, long: 5 },
 ];
 
-/** Confirmed defensive stats from the New Mexico box */
+/** Cumulative defense through Georgia. Leaders plus every player with a sack. Source: soonersports.com. */
 export const defenseStats2026: DefenseStat[] = [
-  { player: "David Stone", number: 0, position: "DL", solo: 3, ast: 5, tot: 8, sacks: 0.5, int: 0, pd: 0 },
-  { player: "Owen Heinecke", number: 38, position: "LB", solo: 5, ast: 3, tot: 8, sacks: 1, int: 0, pd: 0 },
-  { player: "Omarion Robinson", number: 2, position: "DB", solo: 4, ast: 1, tot: 5, sacks: 0, int: 0, pd: 0 },
-  { player: "Reggie Powers III", number: 3, position: "DB", solo: 3, ast: 2, tot: 5, sacks: 1, int: 0, pd: 0 },
-  { player: "James Nesta", number: 47, position: "LB", solo: 3, ast: 2, tot: 5, sacks: 0, int: 0, pd: 1 },
-  { player: "Jayden Jackson", number: 65, position: "DL", solo: 3, ast: 2, tot: 5, sacks: 0, int: 0, pd: 0 },
-  { player: "Peyton Bowen", number: 22, position: "DB", solo: 2, ast: 2, tot: 4, sacks: 1, int: 0, pd: 2 },
-  { player: "Eli Bowen", number: 23, position: "DB", solo: 1, ast: 3, tot: 4, sacks: 0, int: 0, pd: 0 },
-  { player: "Adepoju Adebawore", number: 34, position: "DL", solo: 1, ast: 3, tot: 4, sacks: 1.5, int: 0, pd: 0 },
-  { player: "Taylor Wein", number: 44, position: "DL", solo: 1, ast: 2, tot: 3, sacks: 0, int: 0, pd: 0 },
-  { player: "Jacobe Johnson", number: 24, position: "DB", solo: 2, ast: 0, tot: 2, sacks: 1, int: 0, pd: 0 },
+  { player: "Owen Heinecke", number: 38, position: "LB", solo: 13, ast: 14, tot: 27, sacks: 1, int: 0, pd: 0 },
+  { player: "Peyton Bowen", number: 22, position: "DB", solo: 8, ast: 9, tot: 17, sacks: 1, int: 0, pd: 4 },
+  { player: "Reggie Powers III", number: 3, position: "DB", solo: 12, ast: 5, tot: 17, sacks: 2, int: 0, pd: 2 },
+  { player: "Omarion Robinson", number: 2, position: "DB", solo: 10, ast: 7, tot: 17, sacks: 0, int: 1, pd: 0 },
+  { player: "James Nesta", number: 47, position: "LB", solo: 7, ast: 9, tot: 16, sacks: 0, int: 0, pd: 1 },
+  { player: "Jayden Jackson", number: 65, position: "DL", solo: 8, ast: 7, tot: 15, sacks: 0.5, int: 0, pd: 0 },
+  { player: "Taylor Wein", number: 44, position: "DL", solo: 8, ast: 7, tot: 15, sacks: 1, int: 0, pd: 0 },
+  { player: "David Stone", number: 0, position: "DL", solo: 8, ast: 6, tot: 14, sacks: 0.5, int: 0, pd: 0 },
+  { player: "Eli Bowen", number: 23, position: "DB", solo: 8, ast: 4, tot: 12, sacks: 0, int: 0, pd: 2 },
+  { player: "Adepoju Adebawore", number: 34, position: "DL", solo: 3, ast: 8, tot: 11, sacks: 2.5, int: 0, pd: 0 },
+  { player: "Courtland Guillory", number: 4, position: "DB", solo: 6, ast: 4, tot: 10, sacks: 0, int: 0, pd: 2 },
+  { player: "Wyatt Gilmore", number: 42, position: "DL", solo: 4, ast: 4, tot: 8, sacks: 0, int: 0, pd: 0 },
+  { player: "Kip Lewis", number: 10, position: "LB", solo: 4, ast: 4, tot: 8, sacks: 1, int: 0, pd: 1 },
+  { player: "Michael Boganowski", number: 25, position: "DB", solo: 4, ast: 2, tot: 6, sacks: 0, int: 0, pd: 0 },
+  { player: "Bishop Thomas", number: 8, position: "DL", solo: 1, ast: 5, tot: 6, sacks: 0.5, int: 0, pd: 1 },
+  { player: "Dane Bathurst", number: 30, position: "LB", solo: 2, ast: 3, tot: 5, sacks: 1, int: 0, pd: 0 },
+  { player: "Jacobe Johnson", number: 24, position: "DB", solo: 2, ast: 2, tot: 4, sacks: 1, int: 0, pd: 1 },
+  { player: "James Carrington", number: 58, position: "DL", solo: 1, ast: 2, tot: 3, sacks: 0.5, int: 0, pd: 0 },
+  { player: "Jake Kreul", number: 98, position: "DL", solo: 1, ast: 1, tot: 2, sacks: 0.5, int: 0, pd: 0 },
 ];
 
 export const STATS_SOURCE_SOONERS_2026 =
@@ -117,6 +152,8 @@ export const STATS_SOURCE_NEW_MEXICO_RECAP =
   "https://soonersports.com/news/2026/9/19/football-defense-stifles-new-mexico";
 export const STATS_SOURCE_ESPN_NEW_MEXICO =
   "https://www.espn.com/college-football/recap/_/gameId/401856690";
+export const STATS_SOURCE_ESPN_2026 =
+  "https://www.espn.com/college-football/team/stats/_/id/201/oklahoma-sooners";
 
 /** Cumulative 2025 season archive — Sources: soonersports.com, ESPN */
 export const teamStats2025: TeamStats = {
