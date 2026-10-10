@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { PageShell } from "@/components/PageShell";
 import { HomeHero } from "@/components/HomeHero";
+import { RedRiverPreview } from "@/components/RedRiverPreview";
 import { ExploreBento } from "@/components/ExploreBento";
 import { SeoFaq } from "@/components/SeoFaq";
 import { JsonLd } from "@/components/JsonLd";
@@ -33,7 +34,7 @@ const quickLinks = [
   {
     href: "/stats",
     label: "Season Stats",
-    desc: "2026 totals through New Mexico plus the archived 2025 season",
+    desc: "2026 totals through Georgia plus the archived 2025 season",
     icon: "stats" as const,
     accent: "default" as const,
   },
@@ -128,6 +129,7 @@ export default function HomePage() {
       />
       <div>
         <HomeHero />
+        <RedRiverPreview />
 
         <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:py-16">
           <MotionReveal>
@@ -136,8 +138,9 @@ export default function HomePage() {
                 2026 season snapshot
               </h2>
               <p className="mt-3 max-w-[55ch] text-base leading-relaxed text-ink/70">
-                Through Week 3 after the 14–6 win over New Mexico. Full 2025
-                totals live in the stats archive.
+                Through four games, heading into Red River. The record is 2-2,
+                0-1 SEC after the 13–41 loss at Georgia. Full 2025 totals live
+                in the stats archive.
               </p>
             </div>
             <SourceAttribution

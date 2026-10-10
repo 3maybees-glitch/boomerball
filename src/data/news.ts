@@ -3,6 +3,16 @@ import type { NewsItem } from "./types";
 /** News summaries with attribution to official and reputable sources */
 export const newsItems: NewsItem[] = [
   {
+    id: "texas-preview-2026",
+    title: "Red River Preview: Unranked Sooners Meet No. 1 Texas",
+    summary:
+      "Oklahoma (2-2, 0-1 SEC) plays No. 1 Texas (4-0, 1-0) at 2:30 p.m. CT Saturday at the Cotton Bowl, the 122nd meeting, on ABC. OU allows 238.0 yards a game and one passing touchdown, and enters minus-6 in turnover margin. The Boomer Ball preview is on the home page.",
+    date: "2026-10-10",
+    source: "soonersports.com",
+    sourceUrl: "https://soonersports.com/news/2026/10/8/football-game-primer-ou-vs-texas",
+    category: "game",
+  },
+  {
     id: "new-mexico-2026",
     title: "Defense Carries No. 24 Sooners Past New Mexico, 14-6",
     summary:

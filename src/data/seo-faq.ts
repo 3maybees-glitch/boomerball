@@ -21,7 +21,7 @@ export const seoFaqItems: SeoFaqItem[] = [
   },
   {
     question: "What is Oklahoma's 2026 football record?",
-    answer: `The Oklahoma Sooners are ${SEASON_2026_RECORD} overall and ${SEASON_2026_CONFERENCE_RECORD} after a 14-6 Week 3 win over New Mexico. The next game is at No. 2 Georgia.`,
+    answer: `The Oklahoma Sooners are ${SEASON_2026_RECORD} overall and ${SEASON_2026_CONFERENCE_RECORD} after a 13-41 loss at No. 2 Georgia on September 26, 2026. The next game is No. 1 Texas on October 10 at the Cotton Bowl in Dallas, at 2:30 p.m. CT on ABC.`,
   },
   {
     question: "How did Oklahoma's 2026 game against New Mexico go?",
@@ -44,7 +44,7 @@ export const seoFaqItems: SeoFaqItem[] = [
   },
   {
     question: "How many points per game did Oklahoma score in 2025?",
-    answer: `Oklahoma averaged ${teamStats2025.pointsPerGame} points per game and allowed ${teamStats2025.pointsAllowedPerGame} points per game through 13 games in 2025, per official cumulative stats on soonersports.com. Through three 2026 games the Sooners are averaging ${teamStats2026.pointsPerGame} points and allowing ${teamStats2026.pointsAllowedPerGame}.`,
+    answer: `Oklahoma averaged ${teamStats2025.pointsPerGame} points per game and allowed ${teamStats2025.pointsAllowedPerGame} points per game through 13 games in 2025, per official cumulative stats on soonersports.com. Through four 2026 games the Sooners are averaging ${teamStats2026.pointsPerGame} points and allowing ${teamStats2026.pointsAllowedPerGame}.`,
   },
   {
     question: "How many players are on the 2026 Oklahoma Sooners roster?",

@@ -3,8 +3,8 @@ import { getOpponentStrength } from "./schedule-sos-2026";
 
 /** 2026 season schedule — Source: soonersports.com */
 export const SEASON_2026 = 2026;
-export const SEASON_2026_RECORD = "2-1";
-export const SEASON_2026_CONFERENCE_RECORD = "0-0 SEC";
+export const SEASON_2026_RECORD = "2-2";
+export const SEASON_2026_CONFERENCE_RECORD = "0-1 SEC";
 
 const rawSchedule2026: Omit<ScheduleGame, "opponentStrength">[] = [
   {
@@ -48,6 +48,10 @@ const rawSchedule2026: Omit<ScheduleGame, "opponentStrength">[] = [
     opponent: "Georgia",
     location: "Sanford Stadium, Athens, GA",
     isHome: false,
+    result: "L",
+    score: "13-41",
+    record: "2-2",
+    attendance: 93033,
     conference: true,
   },
   {
