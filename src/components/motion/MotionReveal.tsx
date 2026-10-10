@@ -32,8 +32,8 @@ export function MotionReveal({
     <motion.div
       id={id}
       className={className}
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ y }}
+      whileInView={{ y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{
         type: "spring",
@@ -99,9 +99,8 @@ export function MotionStaggerItem({
     <motion.div
       className={className}
       variants={{
-        hidden: { opacity: 0, y: 20 },
+        hidden: { y: 20 },
         visible: {
-          opacity: 1,
           y: 0,
           transition: { type: "spring", stiffness: 100, damping: 20 },
         },

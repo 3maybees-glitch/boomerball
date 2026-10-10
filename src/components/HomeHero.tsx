@@ -17,8 +17,8 @@ export function HomeHero() {
   const fadeUp = prefersReducedMotion
     ? {}
     : {
-        initial: { opacity: 0, y: 28 },
-        animate: { opacity: 1, y: 0 },
+        initial: { y: 28 },
+        animate: { y: 0 },
         transition: { type: "spring" as const, stiffness: 90, damping: 22 },
       };
 
@@ -80,8 +80,8 @@ export function HomeHero() {
           {...(prefersReducedMotion
             ? {}
             : {
-                initial: { opacity: 0, x: 32 },
-                animate: { opacity: 1, x: 0 },
+                initial: { x: 32 },
+                animate: { x: 0 },
                 transition: {
                   type: "spring" as const,
                   stiffness: 80,
