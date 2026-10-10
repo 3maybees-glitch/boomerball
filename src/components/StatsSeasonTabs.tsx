@@ -54,10 +54,11 @@ export function StatsSeasonTabs() {
       {is2026 ? (
         <>
           <Callout variant="info" className="mb-10">
-            <strong>2026 is live:</strong> Totals through the Week 3 win over
-            New Mexico. Passing is cumulative; rushing and defense tables use the
-            confirmed New Mexico box until official Week 1 individual rushing
-            publishes. The full 2025 season sits in the archive tab.
+            <strong>2026 is live:</strong> The record is 2-2, 0-1 SEC after the
+            Sept. 26 loss at Georgia. Rate stats and the passing chart are
+            through the Week 3 win over New Mexico. Rushing and defense tables
+            use the confirmed New Mexico box until official Week 1 individual
+            rushing publishes. The full 2025 season sits in the archive tab.
           </Callout>
 
           <EditorialSection title="Team overview" divider={false}>

@@ -8,8 +8,8 @@ import type {
 
 /** Active season team snapshot through Week 3 — Sources: soonersports.com, ESPN */
 export const teamStats2026: TeamStats = {
-  record: "2-1",
-  conferenceRecord: "0-0 SEC",
+  record: "2-2",
+  conferenceRecord: "0-1 SEC",
   pointsPerGame: 25.0,
   pointsAllowedPerGame: 7.7,
   totalYardsPerGame: 329.7,
