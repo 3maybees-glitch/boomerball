@@ -3,6 +3,28 @@ import type { NewsItem } from "./types";
 /** News summaries with attribution to official and reputable sources */
 export const newsItems: NewsItem[] = [
   {
+    id: "texas-2026",
+    title: "Sandell's 47-Yard Field Goal Walks Off No. 1 Texas, 27-24",
+    summary:
+      "Tate Sandell hit a 47-yard field goal as time expired and Oklahoma beat No. 1 Texas 27-24 at the Cotton Bowl. The Sooners (3-2, 1-1 SEC) erased a 10-point halftime deficit with Lloyd Avant's 2-yard run and Peyton Bowen's 42-yard pick-six. John Mateer set up the kick with two completions to Isaiah Sategna III in front of 92,100. Next: Kentucky at home.",
+    date: "2026-10-10",
+    source: "soonersports.com",
+    sourceUrl:
+      "https://soonersports.com/news/2026/10/10/football-sooners-walk-off-no-1-texas",
+    category: "game",
+  },
+  {
+    id: "georgia-2026",
+    title: "Sooners Fall 41-13 at No. 2 Georgia in SEC Opener",
+    summary:
+      "No. 2 Georgia beat Oklahoma 41-13 at Sanford Stadium. Four Sooner turnovers became 17 Georgia points, including Chris Cole's 85-yard fumble return, and OU trailed 28-0 at halftime. John Mateer threw a 17-yard touchdown to Rocky Beers and a 14-yard score to Manny Choice. The Sooners fell to 2-2 (0-1 SEC) in front of 93,033.",
+    date: "2026-09-26",
+    source: "soonersports.com",
+    sourceUrl:
+      "https://soonersports.com/news/2026/9/27/football-falls-to-no-2-georgia-in-athens",
+    category: "game",
+  },
+  {
     id: "new-mexico-2026",
     title: "Defense Carries No. 24 Sooners Past New Mexico, 14-6",
     summary:
