@@ -3,8 +3,8 @@ import { getOpponentStrength } from "./schedule-sos-2026";
 
 /** 2026 season schedule — Source: soonersports.com */
 export const SEASON_2026 = 2026;
-export const SEASON_2026_RECORD = "2-1";
-export const SEASON_2026_CONFERENCE_RECORD = "0-0 SEC";
+export const SEASON_2026_RECORD = "3-2";
+export const SEASON_2026_CONFERENCE_RECORD = "1-1 SEC";
 
 const rawSchedule2026: Omit<ScheduleGame, "opponentStrength">[] = [
   {
@@ -48,6 +48,10 @@ const rawSchedule2026: Omit<ScheduleGame, "opponentStrength">[] = [
     opponent: "Georgia",
     location: "Sanford Stadium, Athens, GA",
     isHome: false,
+    result: "L",
+    score: "13-41",
+    record: "2-2",
+    attendance: 93033,
     conference: true,
   },
   {
@@ -57,11 +61,15 @@ const rawSchedule2026: Omit<ScheduleGame, "opponentStrength">[] = [
     location: "Cotton Bowl, Dallas, TX",
     isHome: false,
     isNeutral: true,
+    result: "W",
+    score: "27-24",
+    record: "3-2",
+    attendance: 92100,
     conference: true,
   },
   {
     date: "2026-10-17",
-    time: "TBD",
+    time: "6:30 PM CT",
     opponent: "Kentucky",
     location: "Gaylord Family – Oklahoma Memorial Stadium, Norman, OK",
     isHome: true,
@@ -69,7 +77,7 @@ const rawSchedule2026: Omit<ScheduleGame, "opponentStrength">[] = [
   },
   {
     date: "2026-10-24",
-    time: "TBD",
+    time: "2:30 PM CT",
     opponent: "Mississippi State",
     location: "Davis Wade Stadium, Starkville, MS",
     isHome: false,
@@ -77,7 +85,7 @@ const rawSchedule2026: Omit<ScheduleGame, "opponentStrength">[] = [
   },
   {
     date: "2026-10-31",
-    time: "TBD",
+    time: "2:30–3:30 or 5–7 PM CT",
     opponent: "South Carolina",
     location: "Gaylord Family – Oklahoma Memorial Stadium, Norman, OK",
     isHome: true,
@@ -85,7 +93,7 @@ const rawSchedule2026: Omit<ScheduleGame, "opponentStrength">[] = [
   },
   {
     date: "2026-11-07",
-    time: "TBD",
+    time: "2:30–3:30 or 5–7 PM CT",
     opponent: "Florida",
     location: "Ben Hill Griffin Stadium, Gainesville, FL",
     isHome: false,
@@ -93,7 +101,7 @@ const rawSchedule2026: Omit<ScheduleGame, "opponentStrength">[] = [
   },
   {
     date: "2026-11-14",
-    time: "TBD",
+    time: "2:30–3:30 PM CT",
     opponent: "Ole Miss",
     location: "Gaylord Family – Oklahoma Memorial Stadium, Norman, OK",
     isHome: true,
@@ -109,7 +117,7 @@ const rawSchedule2026: Omit<ScheduleGame, "opponentStrength">[] = [
   },
   {
     date: "2026-11-28",
-    time: "TBD",
+    time: "2:30–3:30 PM CT",
     opponent: "Missouri",
     location: "Memorial Stadium, Columbia, MO",
     isHome: false,

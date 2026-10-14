@@ -16,10 +16,12 @@ import {
   rushingStats2025,
   rushingStats2026,
   STATS_SOURCE_ESPN,
+  STATS_SOURCE_GEORGIA_RECAP,
   STATS_SOURCE_MICHIGAN_BOX,
   STATS_SOURCE_MICHIGAN_NOTES,
   STATS_SOURCE_NEW_MEXICO_BOX,
   STATS_SOURCE_NEW_MEXICO_RECAP,
+  STATS_SOURCE_TEXAS_RECAP,
   STATS_SOURCE_SOONERS_2025,
   STATS_SOURCE_SOONERS_2026,
   STATS_SOURCE_UTEP_RECAP,
@@ -54,10 +56,9 @@ export function StatsSeasonTabs() {
       {is2026 ? (
         <>
           <Callout variant="info" className="mb-10">
-            <strong>2026 is live:</strong> Totals through the Week 3 win over
-            New Mexico. Passing is cumulative; rushing and defense tables use the
-            confirmed New Mexico box until official Week 1 individual rushing
-            publishes. The full 2025 season sits in the archive tab.
+            <strong>2026 is live:</strong> Official cumulative totals through
+            five games, including the 27–24 win over No. 1 Texas. The full 2025
+            season sits in the archive tab.
           </Callout>
 
           <EditorialSection title="Team overview" divider={false}>
@@ -126,15 +127,13 @@ export function StatsSeasonTabs() {
                 }))}
               />
               <p className="mt-3 text-sm text-ink/60">
-                Week 1 scoring catches plus the full Michigan and New Mexico
-                receiving lines. Additional Week 1 non-scoring catches will land
-                here when official cumulative receiving stats update.
+                Official cumulative receiving through five games.
               </p>
             </EditorialSection>
 
             <EditorialSection title="Rushing" divider={false} delay={0.1}>
               <StatTable
-                title="Week 3 rushing (New Mexico)"
+                title="Rushing leaders"
                 columns={[
                   { key: "player", label: "Player" },
                   { key: "att", label: "Att", align: "right" },
@@ -153,15 +152,14 @@ export function StatsSeasonTabs() {
                 }))}
               />
               <p className="mt-3 text-sm text-ink/60">
-                Confirmed rushing from the New Mexico box. Season team rushing is
-                110.3 YPG through three games; Week 1 individual carries are not yet
-                fully charted.
+                Official cumulative rushing through five games. Lloyd Avant leads
+                the Sooners with 236 yards and two touchdowns.
               </p>
             </EditorialSection>
 
             <EditorialSection title="Defense" divider={false} delay={0.12}>
               <StatTable
-                title="Week 3 defensive leaders (New Mexico)"
+                title="Defensive leaders"
                 columns={[
                   { key: "player", label: "Player" },
                   { key: "pos", label: "Pos" },
@@ -184,9 +182,9 @@ export function StatsSeasonTabs() {
                 }))}
               />
               <p className="mt-3 text-sm text-ink/60">
-                Confirmed from the New Mexico box. Stone and Heinecke led the game
-                with eight tackles each. Oklahoma recorded six sacks, with 1.5
-                from Adebawore.
+                Official cumulative defense through five games. Heinecke leads
+                with 36 tackles. Oklahoma has 15 sacks and three interceptions,
+                including Peyton Bowen&apos;s pick-six against Texas.
               </p>
             </EditorialSection>
           </div>
@@ -323,6 +321,8 @@ export function StatsSeasonTabs() {
           sources={
             is2026
               ? [
+                  { label: "Texas recap", url: STATS_SOURCE_TEXAS_RECAP },
+                  { label: "Georgia recap", url: STATS_SOURCE_GEORGIA_RECAP },
                   { label: "New Mexico box score", url: STATS_SOURCE_NEW_MEXICO_BOX },
                   { label: "soonersports.com recap", url: STATS_SOURCE_NEW_MEXICO_RECAP },
                   { label: "soonersports.com postgame notes", url: STATS_SOURCE_MICHIGAN_NOTES },
