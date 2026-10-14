@@ -138,6 +138,8 @@ export const STATS_SOURCE_GEORGIA_BOX =
   "https://soonersports.com/sports/football/stats/2026/georgia/boxscore/15625";
 export const STATS_SOURCE_TEXAS_RECAP =
   "https://soonersports.com/news/2026/10/10/football-sooners-walk-off-no-1-texas";
+export const STATS_SOURCE_TEXAS_BOX =
+  "https://soonersports.com/sports/football/stats/2026/texas/boxscore/15626";
 
 /** Cumulative 2025 season archive — Sources: soonersports.com, ESPN */
 export const teamStats2025: TeamStats = {

@@ -61,10 +61,10 @@ export function HomeHero() {
 
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
-              href="/stats"
+              href="/mmqb/2026-week-6-texas"
               className="inline-flex items-center justify-center rounded-full bg-cream px-6 py-3 text-sm font-semibold text-crimson shadow-[0_8px_24px_rgba(132,22,23,0.35)] transition hover:bg-white active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cream"
             >
-              See the 2026 stats
+              Read the Texas recap
             </Link>
             <Link
               href={PREMIUM_RECRUIT_ROUTE}
