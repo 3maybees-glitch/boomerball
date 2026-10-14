@@ -152,6 +152,8 @@ export interface WeeklyRecap {
   opponent: string;
   location: string;
   isHome: boolean;
+  /** Neutral-site game, such as the Cotton Bowl. Matchup copy uses "vs." */
+  isNeutral?: boolean;
   result: "W" | "L";
   score: string;
   record: string;

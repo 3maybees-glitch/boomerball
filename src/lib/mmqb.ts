@@ -24,7 +24,7 @@ export function getRecapSlugs(): string[] {
 }
 
 export function formatRecapMatchup(recap: WeeklyRecap): string {
-  const prefix = recap.isHome ? "vs." : "at";
+  const prefix = recap.isNeutral || recap.isHome ? "vs." : "at";
   return `${prefix} ${recap.opponent}`;
 }
 
