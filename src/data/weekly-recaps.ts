@@ -10,6 +10,8 @@ import {
   STATS_SOURCE_NEW_MEXICO_RECAP,
   STATS_SOURCE_SOONERS,
   STATS_SOURCE_SOONERS_2025,
+  STATS_SOURCE_TEXAS_BOX,
+  STATS_SOURCE_TEXAS_RECAP,
   STATS_SOURCE_UTEP_RECAP,
 } from "./stats";
 
@@ -21,6 +23,103 @@ export const MMQB_TAGLINE =
 export const MMQB_PUBLISH_SCHEDULE = "Every Monday during the 2026 season";
 
 export const weeklyRecaps: WeeklyRecap[] = [
+  {
+    id: "2026-week-6-texas",
+    slug: "2026-week-6-texas",
+    week: 6,
+    season: 2026,
+    publishedDate: "2026-10-12",
+    opponent: "Texas",
+    location: "Cotton Bowl, Dallas, TX",
+    isHome: false,
+    isNeutral: true,
+    result: "W",
+    score: "27-24",
+    record: "3-2 (1-1 SEC)",
+    headline: "Sandell's 47-yarder walks off No. 1 Texas, 27-24",
+    lede:
+      "Oklahoma beat No. 1 Texas 27-24 at the Cotton Bowl when Tate Sandell hit a 47-yard field goal as time expired, the Sooners' second walk-off game-winner in program history. It was the 122nd Red River Rivalry, and the first time OU had knocked off a No. 1 team since a 38-17 win over Missouri in 2007. The Sooners trailed 17-7 at halftime, then scored in all three phases: Dakoda Fields fell on Danny Okoye's blocked punt, Lloyd Avant ran in from the 2, and Peyton Bowen returned an interception 42 yards. Arch Manning threw for 260 yards and three touchdowns, and the two picks were the difference in front of 92,100.",
+    sections: [
+      {
+        title: "QB Watch",
+        body:
+          "John Mateer finished 18 of 26 for 155 yards with no touchdowns and no interceptions, plus 12 carries for minus-6. The stat line is a game manager's, and the last 19 seconds are why it was enough. Courtland Guillory's interception at the OU 39 started the winner. Mateer's first throw, a 13-yard out to Isaiah Sategna III at the Texas 48, was ruled incomplete and overturned to a catch. The next one, a 20-yard back-shoulder to Sategna at the Texas 28, was upheld. He then lost 2 yards on a run to the Texas 30. NCAA passer rating: 119.3 on 6.0 yards per attempt. Colin Simmons sacked him twice and Maraad Watson once. Mateer fumbled on Simmons' first sack, and Ryan Fodje recovered it. Oklahoma fumbled twice and lost neither.",
+        stats: [
+          { label: "Mateer Pass", value: "18-26, 155 yds" },
+          { label: "Pass TD / INT", value: "0 / 0" },
+          { label: "Rush Yds", value: "−6" },
+          { label: "QB Rating", value: "119.3" },
+        ],
+      },
+      {
+        title: "Offense Report",
+        body:
+          "Ben Arbuckle's unit totaled 238 yards (155 pass, 83 rush) on 57 plays — 4.2 per snap — and converted 2 of 13 third downs. The first five possessions were punts. An 11-play, 40-yard march died on Sandell's missed 53-yard field goal with 3:43 left in the half, and Texas answered with a 23-yard field goal to make it 17-7. The comeback drive was better: six plays, 47 yards, starting at the Texas 47, with Avant's 2-yard touchdown 12 seconds into the fourth quarter. Avant carried 10 times for 72 yards, including a long of 42, and added two catches for 16. Sategna caught five passes for 64 yards on 10 targets, long of 20, and both throws on the winning drive. Rocky Beers had four catches for 29. Time of possession: 30:31. Penalties: 7 for 62 yards. Red zone: 1-for-1.",
+        stats: [
+          { label: "Total Yds", value: "238" },
+          { label: "Rush / Pass", value: "83 / 155" },
+          { label: "1st Downs", value: "14" },
+          { label: "3rd Down", value: "2-13" },
+        ],
+      },
+      {
+        title: "Defense Report",
+        body:
+          "Texas outgained Oklahoma 382-238, and the Sooners still won the half that mattered. The Longhorns scored on a 41-yard Cam Coleman catch one play after a short punt, then a 34-yard Ryan Wingo score, and led 17-7 at the break. After halftime Venables' group allowed one touchdown. Taylor Wein sacked Manning back to the Texas 8 to set up the blocked punt. Owen Heinecke led the tackle chart with nine. Bowen picked a scramble throw and returned it 42 yards for the first lead, 24-17, with 10:07 left. Manning's tying answer was a 15-yard strike to Jermaine Bishop Jr. with 6:32 left, his third touchdown pass. Guillory intercepted him at the OU 39 with 19 seconds left, hurried by Omarion Robinson, after a pass-interference call on Guillory had moved Texas to the OU 49. Manning was 19 of 31 for 260 yards, three touchdowns, and two interceptions. Oklahoma sacked him twice for 10 yards, Wein and Trent Wilson. Points off turnovers: 10.",
+        stats: [
+          { label: "Pts Allowed", value: "24" },
+          { label: "Yards Allowed", value: "382" },
+          { label: "Opp 3rd Downs", value: "3-14" },
+          { label: "Takeaways", value: "2 INT" },
+        ],
+      },
+      {
+        title: "Special Teams",
+        body:
+          "The block tied the game. Wein's sack left Texas punting from its own 8, Danny Okoye blocked Mac Chiumento, and Dakoda Fields recovered in the end zone. Review upheld that Fields was inbounds. Sandell was 3-for-3 on extra points and 2-for-3 on field goals: a miss from 53 in the second quarter, a make from 53 in the third that cut it to 17-10, and the 47-yard walk-off after both teams called timeout with three seconds left. All five of his kickoffs were touchbacks. Jacob Ulrich averaged 41.6 yards on nine punts, long of 56, with two inside the 20. Gianni Spetic made a 23-yarder at the end of the half and missed from 53 with 1:54 left, which gave Oklahoma the ball at its 35 before the Guillory interception. Attendance was 92,100. Kickoff was 2:50 p.m., and it was 86 degrees and sunny in Dallas.",
+        stats: [
+          { label: "FG", value: "2-3 (47, 53)" },
+          { label: "Punt Avg", value: "41.6" },
+          { label: "XP", value: "3-3" },
+          { label: "Attendance", value: "92,100" },
+        ],
+      },
+      {
+        title: "What's Next",
+        body:
+          "The 3-2 Sooners (1-1 SEC) host Kentucky on Saturday, Oct. 17, at 6:30 p.m. CT at Memorial Stadium. Dallas was a different answer than Athens: the offense still managed 4.2 yards a play and 2 of 13 on third down, and 14 of the 27 points came on a blocked punt and a pick-six. Kentucky will not punt from its own 8. Boomer Ball will publish the next Monday Morning Quarterback after Norman.",
+      },
+    ],
+    premiumSections: [
+      {
+        title: "Advanced Take",
+        body:
+          "The box score says Texas was the better offense, and the scoreboard says the margin was special teams and two throws. Boomer Ball estimates −0.06 EPA per play on offense — 2 of 13 on third down and three sacks, rescued by Avant's touchdown drive and the two Sategna completions — and +0.09 EPA per play allowed, because 6.1 yards a snap is not a shutdown day. The two interceptions and Okoye's block are the swing plays that a per-play average does not price in full. Success rate sat in the mid-30s. Mateer's estimated QB grade of 7.0 reflects a clean 18-of-26 sheet and the game-winning sequence, weighed against minus-6 rushing yards and three sacks. Fourteen of Oklahoma's 27 points never touched an offensive snap.",
+        stats: [
+          { label: "Off EPA/Play", value: "−0.06 est." },
+          { label: "Def EPA/Play", value: "+0.09 allowed" },
+          { label: "Success Rate", value: "mid-30s est." },
+          { label: "QB Grade", value: "7.0 est." },
+        ],
+      },
+      {
+        title: "Efficiency Board",
+        body:
+          "Yards per play favored Texas, 6.1 to 4.2 (382 on 63 plays, 238 on 57). Explosive margin favored Texas too: Coleman's 41-yard touchdown and 42-yard catch, plus Wingo's 34-yard score, against Avant's 42-yard run as Oklahoma's only gain of 30-plus. Red-zone finishing was clean on a tiny sample, 1-for-1 for the Sooners and 2-for-2 for the Longhorns. Oklahoma's offensive points per drive landed at 0.93 across 14 possessions; the other 14 points were the block and Bowen's return. Texas scored 1.60 points per drive across 15 possessions and still lost, because 10 of those points were answered by turnovers and the last three never got on the board. Five games in, the Sooners are winning the plays that end games and losing the down-to-down math.",
+        stats: [
+          { label: "Yds/Play", value: "4.2" },
+          { label: "Yds/Play Allwd", value: "6.1" },
+          { label: "Explosives 30+", value: "1" },
+          { label: "Off Pts/Drive", value: "0.93" },
+        ],
+      },
+    ],
+    sources: [
+      { label: "soonersports.com recap", url: STATS_SOURCE_TEXAS_RECAP },
+      { label: "Texas box score", url: STATS_SOURCE_TEXAS_BOX },
+      { label: "soonersports.com stats", url: STATS_SOURCE_SOONERS },
+    ],
+  },
   {
     id: "2026-week-3-new-mexico",
     slug: "2026-week-3-new-mexico",
