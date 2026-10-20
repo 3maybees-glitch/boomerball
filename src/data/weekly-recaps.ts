@@ -8,6 +8,10 @@ import {
   STATS_SOURCE_MICHIGAN_NOTES,
   STATS_SOURCE_NEW_MEXICO_BOX,
   STATS_SOURCE_NEW_MEXICO_RECAP,
+  STATS_SOURCE_KENTUCKY_BOX,
+  STATS_SOURCE_KENTUCKY_ESPN,
+  STATS_SOURCE_MSU_SCHEDULE,
+  STATS_SOURCE_MSU_STATS,
   STATS_SOURCE_SOONERS,
   STATS_SOURCE_SOONERS_2025,
   STATS_SOURCE_UTEP_RECAP,
@@ -21,6 +25,104 @@ export const MMQB_TAGLINE =
 export const MMQB_PUBLISH_SCHEDULE = "Every Monday during the 2026 season";
 
 export const weeklyRecaps: WeeklyRecap[] = [
+  {
+    id: "2026-week-7-kentucky",
+    slug: "2026-week-7-kentucky",
+    week: 7,
+    season: 2026,
+    publishedDate: "2026-10-19",
+    opponent: "Kentucky",
+    location: "Gaylord Family – Oklahoma Memorial Stadium, Norman, OK",
+    isHome: true,
+    result: "L",
+    score: "13-21",
+    record: "3-3 (1-2 SEC)",
+    headline: "Four interceptions drop the Sooners to Kentucky, 21-13",
+    lede:
+      "Kentucky beat Oklahoma 21-13 at Memorial Stadium, and the yardage said the Sooners should have won it. Oklahoma outgained the Wildcats 346-230, held the ball for 31:24, and led 13-7 after Tate Sandell's 26-yard field goal in the third quarter. The second half then turned on two John Mateer interceptions: Ty Bryant's pick at the Kentucky 13 set up Willie Rodriguez's go-ahead 12-yard touchdown, and Jordan Castell's 41-yard pick-six with 1:17 left made it 21-13. Mateer threw for 270 yards. Oklahoma threw four interceptions. The Sooners fell to 3-3 (1-2 SEC) in front of 83,218.",
+    sections: [
+      {
+        title: "QB Watch",
+        body:
+          "Mateer finished 24 of 40 for 270 yards, one touchdown, and three interceptions, and Kentucky sacked him five times for 25 yards. The official rushing line is 13 carries for 9 yards, long of 11; those 25 sack yards are inside that net. The throw that worked was the 20-yarder to Rocky Beers with 30 seconds left in the half, the end of a 12-play, 90-yard drive that started at the OU 10 and put Oklahoma ahead 10-7. The misses decided it. On fourth-and-2 from the Kentucky 10, Jacob Ulrich's throw was intercepted by Jordan Castell in the end zone for a touchback. Late in the third, Ty Bryant intercepted Mateer at the UK 13 and returned it 43 yards to the OU 44, the start of the go-ahead drive. Down 14-13 and driving off his own 4, Mateer was picked again by Castell at the OU 41, and Castell scored from 41. Bryant took the last throw at the UK 25. NCAA passer rating: 110.0.",
+        stats: [
+          { label: "Mateer Pass", value: "24-40, 270 yds" },
+          { label: "Pass TD / INT", value: "1 / 3" },
+          { label: "Rush Yds", value: "9" },
+          { label: "QB Rating", value: "110.0" },
+        ],
+      },
+      {
+        title: "Offense Report",
+        body:
+          "Ben Arbuckle's unit totaled 346 yards (270 pass, 76 rush) on 72 plays — 4.8 per snap — and converted 8 of 17 third downs and 2 of 3 fourth downs. Manny Choice was the chunk play: five catches for 98 yards, including a 34-yarder on the touchdown drive. Isaiah Sategna III caught eight passes for 83 yards, long of 25. Beers added four grabs for 45 yards and the 20-yard score. The ground game stayed stuck. Thirty-one carries produced 76 yards, 2.5 a rush, and no touchdowns. Lloyd Avant led the committee with eight carries for 31 yards, long of 6. Tory Blaylock added seven for 23. Oklahoma reached the red zone three times and scored twice — Beers' touchdown and Sandell's 26-yard field goal — and the empty trip was Ulrich's interception at the 10. Time of possession: 31:24. Penalties: 4 for 31 yards.",
+        stats: [
+          { label: "Total Yds", value: "346" },
+          { label: "Rush / Pass", value: "76 / 270" },
+          { label: "1st Downs", value: "19" },
+          { label: "3rd Down", value: "8-17" },
+        ],
+      },
+      {
+        title: "Defense Report",
+        body:
+          "Venables' group held a 6-1 Wildcat offense to 230 yards, 14 first downs, and 5 of 12 on third down, then watched two short fields become 14 points. Kenny Minchey was 21 of 28 for 158 yards and two touchdowns, both to Willie Rodriguez from 2 and 12 yards, with a long completion of 17. Jason Patterson led Kentucky with 12 carries for 38 yards. Oklahoma sacked Minchey three times for 18 yards. Freshman Jake Kreul had 2.5 of them, including an 8-yard sack on fourth-and-3 at the OU 5 that pushed Kentucky back to the 13 and turned the Wildcats over on downs. Kip Lewis and Owen Heinecke each finished with eight tackles, and Lewis split a sack with Kreul. The Bryant return to the OU 44 is the sequence that flipped a 13-7 lead. Seven plays and 44 yards later, Rodriguez was in the end zone with 12:53 left.",
+        stats: [
+          { label: "Pts Allowed", value: "21" },
+          { label: "Yards Allowed", value: "230" },
+          { label: "Opp 3rd Downs", value: "5-12" },
+          { label: "Sacks", value: "3" },
+        ],
+      },
+      {
+        title: "Special Teams",
+        body:
+          "Sandell was 2-for-2 on field goals, from 44 in the first quarter and 26 in the third, and 1-for-1 on extra points. Two of his four kickoffs were touchbacks. Jacob Ulrich averaged 45.0 yards on three punts, with a long of 54 and one inside the 20. Isaiah Sategna III returned one punt 16 yards. Kentucky's Wilson Berry averaged 46.2 yards on five punts, and the 58-yarder pinned Oklahoma at its own 4 before the drive that ended in Castell's pick-six. Attendance was 83,218. Kickoff was 6:40 p.m. under sunny skies in Norman, and the game ran 2 hours and 59 minutes.",
+        stats: [
+          { label: "FG", value: "2-2 (44, 26)" },
+          { label: "Punt Avg", value: "45.0" },
+          { label: "XP", value: "1-1" },
+          { label: "Attendance", value: "83,218" },
+        ],
+      },
+      {
+        title: "What's Next",
+        body:
+          "The 3-3 Sooners go to Davis Wade Stadium on Saturday, Oct. 24, at 2:30 p.m. CT to face Mississippi State. The Bulldogs are 4-2 (2-2 SEC) after a 31-0 loss at LSU on the same Saturday Kentucky won in Norman. Jeff Lebby's offense has been a different sport from Kentucky's: 32.5 points and 454.3 yards a game, 176.5 rushing and 277.8 passing, 6.4 yards a play, through six games on hailstate.com. Kamario Taylor has started five of those and is 102 of 154 for 1,450 yards, 17 touchdowns, and four interceptions, plus 159 rushing yards. He did not play in the shutout at LSU. Fluff Bothwell has 403 rushing yards and three touchdowns in five games. Anthony Evans III has 47 catches for 614 yards and five scores. The defense has allowed 28.5 points and 379.5 yards a game, including 56 to Alabama and 31 to LSU. Lebby, who played at Oklahoma and stayed on as a student assistant under Bob Stoops, said Monday the immediate job is to get to 5-2 and protect Davis Wade, and that the LSU tape was missed tackles in space, six trips into plus territory without a point, and an 0-for-5 night on fourth down. Oklahoma's version of that tape is four interceptions and 76 rushing yards. A defense that held Kentucky to 230 yards is the piece that can travel into the cowbells. The giveaways cannot. Boomer Ball will publish the next Monday Morning Quarterback after Starkville.",
+      },
+    ],
+    premiumSections: [
+      {
+        title: "Advanced Take",
+        body:
+          "Yardage was a Sooner win. Expected points were not. Boomer Ball estimates −0.10 EPA per play on offense — 4.8 yards a snap and a 90-yard touchdown drive were wiped out by four interceptions and five sacks — and −0.07 EPA per play allowed, a winning defensive profile if the ball stays in front of the offense. Success rate sat near 40%. Mateer's estimated QB grade of 4.6 reflects 6.8 yards per attempt and one score weighed against three turnover-worthy throws, five sacks, and 9 rushing yards. Kentucky cashed two of the four giveaways for 14 points: the Bryant return became Rodriguez's touchdown, and Castell's second interception was the pick-six. The Ulrich interception at the 10 and Bryant's last pick produced zero points and still took a red-zone trip and the final possession off the board. Ten Oklahoma drives produced 1.30 points each.",
+        stats: [
+          { label: "Off EPA/Play", value: "−0.10 est." },
+          { label: "Def EPA/Play", value: "−0.07 allowed" },
+          { label: "Success Rate", value: "40% off" },
+          { label: "QB Grade", value: "4.6 est." },
+        ],
+      },
+      {
+        title: "Efficiency Board",
+        body:
+          "Yards per play separated the teams the wrong direction for the final score: 4.8 for Oklahoma (346 on 72) and 4.3 allowed (230 on 54). Explosive margin belonged to the Sooners and still lost. Choice's 34-yard catch was the only gain of 30-plus in the game; Kentucky's long completion was 17 and its long run was 16. Red-zone finishing was 2-of-3 for both teams. Oklahoma's miss was the end-zone interception. Kentucky's miss was Kreul's sack on fourth-and-3 at the 5. Points per drive allowed landed at 2.10 across 10 Kentucky possessions, and 14 of those 21 points came after the Bryant interception. Third down was the quiet Sooner edge, 8 of 17 against 5 of 12, and it never got a chance to be the story. Four interceptions in one SEC home game is the number that has to come down before Starkville.",
+        stats: [
+          { label: "Yds/Play", value: "4.8" },
+          { label: "Yds/Play Allwd", value: "4.3" },
+          { label: "Explosives 30+", value: "1" },
+          { label: "Pts/Drive Allwd", value: "2.10" },
+        ],
+      },
+    ],
+    sources: [
+      { label: "Kentucky box score", url: STATS_SOURCE_KENTUCKY_BOX },
+      { label: "ESPN box score", url: STATS_SOURCE_KENTUCKY_ESPN },
+      { label: "soonersports.com stats", url: STATS_SOURCE_SOONERS },
+      { label: "Mississippi State schedule", url: STATS_SOURCE_MSU_SCHEDULE },
+      { label: "Mississippi State stats", url: STATS_SOURCE_MSU_STATS },
+    ],
+  },
   {
     id: "2026-week-3-new-mexico",
     slug: "2026-week-3-new-mexico",

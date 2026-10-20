@@ -3,6 +3,17 @@ import type { NewsItem } from "./types";
 /** News summaries with attribution to official and reputable sources */
 export const newsItems: NewsItem[] = [
   {
+    id: "kentucky-2026",
+    title: "Four Interceptions Cost Sooners in 21-13 Loss to Kentucky",
+    summary:
+      "Kentucky beat Oklahoma 21-13 at Memorial Stadium. The Sooners outgained the Wildcats 346-230 and led 13-7 in the third quarter, then John Mateer threw three interceptions and Jacob Ulrich threw another. Ty Bryant's pick set up the go-ahead score, and Jordan Castell returned one 41 yards for a touchdown. OU fell to 3-3 (1-2 SEC) in front of 83,218. Next: Mississippi State in Starkville.",
+    date: "2026-10-17",
+    source: "soonersports.com",
+    sourceUrl:
+      "https://soonersports.com/sports/football/stats/2026/kentucky/boxscore/15627",
+    category: "game",
+  },
+  {
     id: "texas-2026",
     title: "Sandell's 47-Yard Field Goal Walks Off No. 1 Texas, 27-24",
     summary:

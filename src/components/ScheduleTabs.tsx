@@ -67,8 +67,8 @@ export function ScheduleTabs() {
         <MotionReveal className="mb-8 space-y-4">
           <Callout variant="info">
             <strong>2026 season:</strong> Oklahoma is {SEASON_2026_RECORD} (
-            {SEASON_2026_CONFERENCE_RECORD}) after a 27-24 win over No. 1 Texas.
-            Seven games remain, with 4 home dates and 3 away.
+            {SEASON_2026_CONFERENCE_RECORD}) after a 21-13 home loss to Kentucky.
+            Six games remain, with 3 home dates and 3 away.
           </Callout>
           <div className="grid gap-3 sm:grid-cols-3">
             <div className="rounded-xl border border-crimson/12 bg-white/95 p-5 text-center shadow-[0_4px_20px_rgba(26,10,10,0.06)]">

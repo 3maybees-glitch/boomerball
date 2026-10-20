@@ -17,6 +17,7 @@ import {
   rushingStats2026,
   STATS_SOURCE_ESPN,
   STATS_SOURCE_GEORGIA_RECAP,
+  STATS_SOURCE_KENTUCKY_BOX,
   STATS_SOURCE_MICHIGAN_BOX,
   STATS_SOURCE_MICHIGAN_NOTES,
   STATS_SOURCE_NEW_MEXICO_BOX,
@@ -57,7 +58,7 @@ export function StatsSeasonTabs() {
         <>
           <Callout variant="info" className="mb-10">
             <strong>2026 is live:</strong> Official cumulative totals through
-            five games, including the 27–24 win over No. 1 Texas. The full 2025
+            six games, including the 21–13 loss to Kentucky. The full 2025
             season sits in the archive tab.
           </Callout>
 
@@ -127,7 +128,7 @@ export function StatsSeasonTabs() {
                 }))}
               />
               <p className="mt-3 text-sm text-ink/60">
-                Official cumulative receiving through five games.
+                Official cumulative receiving through six games.
               </p>
             </EditorialSection>
 
@@ -152,8 +153,8 @@ export function StatsSeasonTabs() {
                 }))}
               />
               <p className="mt-3 text-sm text-ink/60">
-                Official cumulative rushing through five games. Lloyd Avant leads
-                the Sooners with 236 yards and two touchdowns.
+                Official cumulative rushing through six games. Lloyd Avant leads
+                the Sooners with 267 yards and two touchdowns.
               </p>
             </EditorialSection>
 
@@ -182,8 +183,8 @@ export function StatsSeasonTabs() {
                 }))}
               />
               <p className="mt-3 text-sm text-ink/60">
-                Official cumulative defense through five games. Heinecke leads
-                with 36 tackles. Oklahoma has 15 sacks and three interceptions,
+                Official cumulative defense through six games. Heinecke leads
+                with 44 tackles. Oklahoma has 18 sacks and three interceptions,
                 including Peyton Bowen&apos;s pick-six against Texas.
               </p>
             </EditorialSection>
@@ -321,6 +322,7 @@ export function StatsSeasonTabs() {
           sources={
             is2026
               ? [
+                  { label: "Kentucky box score", url: STATS_SOURCE_KENTUCKY_BOX },
                   { label: "Texas recap", url: STATS_SOURCE_TEXAS_RECAP },
                   { label: "Georgia recap", url: STATS_SOURCE_GEORGIA_RECAP },
                   { label: "New Mexico box score", url: STATS_SOURCE_NEW_MEXICO_BOX },

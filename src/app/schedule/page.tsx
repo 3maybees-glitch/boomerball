@@ -10,7 +10,7 @@ import { SEASON_2026_RECORD } from "@/data/schedule-2026";
 
 const PAGE_TITLE = "Football Schedule";
 const PAGE_DESCRIPTION =
-  "Oklahoma Sooners 2026 football schedule — now 3-2 after the win over Texas — plus the complete archived 2025 results with scores, locations, and SEC opponents from soonersports.com.";
+  "Oklahoma Sooners 2026 football schedule — now 3-3 after the loss to Kentucky — plus the complete archived 2025 results with scores, locations, and SEC opponents from soonersports.com.";
 
 export const metadata: Metadata = pageMetadata({
   title: PAGE_TITLE,
