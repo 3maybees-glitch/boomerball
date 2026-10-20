@@ -3,8 +3,8 @@ import { getOpponentStrength } from "./schedule-sos-2026";
 
 /** 2026 season schedule — Source: soonersports.com */
 export const SEASON_2026 = 2026;
-export const SEASON_2026_RECORD = "3-2";
-export const SEASON_2026_CONFERENCE_RECORD = "1-1 SEC";
+export const SEASON_2026_RECORD = "3-3";
+export const SEASON_2026_CONFERENCE_RECORD = "1-2 SEC";
 
 const rawSchedule2026: Omit<ScheduleGame, "opponentStrength">[] = [
   {
@@ -73,6 +73,10 @@ const rawSchedule2026: Omit<ScheduleGame, "opponentStrength">[] = [
     opponent: "Kentucky",
     location: "Gaylord Family – Oklahoma Memorial Stadium, Norman, OK",
     isHome: true,
+    result: "L",
+    score: "13-21",
+    record: "3-3",
+    attendance: 83218,
     conference: true,
   },
   {

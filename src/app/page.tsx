@@ -33,7 +33,7 @@ const quickLinks = [
   {
     href: "/stats",
     label: "Season Stats",
-    desc: "2026 totals through Texas plus the archived 2025 season",
+    desc: "2026 totals through Kentucky plus the archived 2025 season",
     icon: "stats" as const,
     accent: "default" as const,
   },
@@ -136,7 +136,7 @@ export default function HomePage() {
                 2026 season snapshot
               </h2>
               <p className="mt-3 max-w-[55ch] text-base leading-relaxed text-ink/70">
-                Through five games after the 27–24 win over No. 1 Texas. Full
+                Through six games after the 21–13 loss to Kentucky. Full
                 2025 totals live in the stats archive.
               </p>
             </div>

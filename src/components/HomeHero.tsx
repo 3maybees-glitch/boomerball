@@ -54,7 +54,7 @@ export function HomeHero() {
             Oklahoma Sooners football analytics
           </h1>
           <p className="mt-5 max-w-[38ch] text-base leading-relaxed text-cream/80 sm:text-lg">
-            The 2026 season is underway. Totals through the Red River win,
+            The 2026 season is underway. Totals through the Kentucky loss,
             Monday Morning Quarterback, the roster, cited news, and The Locker
             Room — NFL Comps, Game-u-lator, SP+ metrics, and more for die-hards.
           </p>
@@ -106,7 +106,7 @@ export function HomeHero() {
                 </div>
               </div>
               <p className="mt-4 text-center text-xs font-medium uppercase tracking-widest text-cream/55">
-                5 games · W 27–24 vs No. 1 Texas · next vs Kentucky
+                6 games · L 13–21 vs Kentucky · next at Mississippi State
               </p>
             </div>
           </div>

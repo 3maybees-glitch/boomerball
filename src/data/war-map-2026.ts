@@ -206,9 +206,9 @@ export const warMapSchedule: WarMapGameProjection[] = [
     opponent: "Kentucky",
     venue: "H",
     conference: true,
-    pick: "W",
-    score: "38–17",
-    note: "Must-win",
+    pick: "L",
+    score: "13–21",
+    note: "Actual — four INTs",
   },
   {
     date: "Oct 24",
